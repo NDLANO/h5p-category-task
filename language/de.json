@@ -1,0 +1,188 @@
+{
+  "semantics": [
+    {
+      "label": "Titelzeile"
+    },
+    {
+      "label": "Aufgabenbeschreibung"
+    },
+    {
+      "label": "Argumente",
+      "fields": [
+        {
+          "label": "Argumente",
+          "entity": "Argument",
+          "field": {
+            "label": "Argument"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Kategorien",
+      "fields": [
+        {
+          "label": "Kategorien",
+          "entity": "Kategorie",
+          "field": {
+            "label": "Kategorie"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Zusammenfassung",
+      "default": "Zusammenfassung"
+    },
+    {
+      "label": "Anweisungen für die Zusammenfassung"
+    },
+    {
+      "label": "Ressourcen",
+      "fields": [
+        {
+          "label": "Ressourcen",
+          "description": "Optionale Links zu Ressourcen."
+        }
+      ]
+    },
+    {
+      "label": "Verhaltenseinstellungen",
+      "description": "Diese Optionen legen fest, wie die Aufgabe im Detail funktioniert.",
+      "fields": [
+        {
+          "label": "Wiederholen erlauben?",
+          "description": "Aktiviere diese Option, wenn die Nutzenden die Aufgabe wiederholen können sollen."
+        },
+        {
+          "label": "Argumente mischen",
+          "description": "Aktiviere diese Option, wenn die Argumente zufällig angeordnet werden sollen."
+        },
+        {
+          "label": "Erlaube eigene Argumente",
+          "description": "Aktiviere diese Option, wenn Nutzende eigene Argumente hinzufügen können sollen."
+        },
+        {
+          "label": "Zusammenfassung anzeigen",
+          "description": "Aktiviere diese Option, wenn Nutzende eine Zusammenfassung für ihre Argumente angeben können sollen."
+        }
+      ]
+    },
+    {
+      "label": "Bezeichnungen und Beschriftungen",
+      "fields": [
+        {
+          "label": "Platzhalter für die Textboxen",
+          "default": "Gib eine kurze Zusammenfassung in deinen eigenen Worten"
+        },
+        {
+          "label": "Platzhalter, der genutzt wird, wenn keine Argumente verbunden sind",
+          "default": "Keine Argumente"
+        },
+        {
+          "label": "Beschriftung des \"Ressourcen\"-Buttons",
+          "default": "Ressourcen"
+        },
+        {
+          "label": "Beschriftung des \"Neustart\"-Buttons",
+          "default": "Neustart"
+        },
+        {
+          "label": "Beschriftung des \"Argument hinzufügen\"-Buttons",
+          "default": "Argument hinzufügen"
+        },
+        {
+          "label": "Informiert die Nutzenden, dass Daten gelöscht werden, wenn sie fortfahren",
+          "default": "Wenn du fortfährst, werden alle deine Änderungen gelöscht"
+        },
+        {
+          "label": "Beschriftung des \"Weiter\"-Buttons",
+          "default": "Weiter"
+        },
+        {
+          "label": "Beschriftung des \"Bewege zu\"-Buttons",
+          "default": "Bewege zu"
+        },
+        {
+          "label": "Beschriftung des \"Argument löschen\"-Buttons",
+          "default": "Argument löschen"
+        },
+        {
+          "label": "Text innerhalb des Argumentebereichs, wenn keine neuen Argumente hinzugefügt werden können",
+          "default": "Ziehe Argumente hierher"
+        },
+        {
+          "label": "Text innerhalb des Argumentebereichs, wenn neue Argumente hinzugefügt werden können",
+          "default": "Ziehe ein existierendes Argument hierher oder füge ein neues ein"
+        }
+      ]
+    },
+    {
+      "label": "Ressourcenbericht",
+      "fields": [
+        {
+          "label": "Beschriftung des \"Dokument erstellen\"-Buttons",
+          "default": "Dokument erstellen"
+        },
+        {
+          "label": "Beschriftung des \"Exportieren\"-Buttons",
+          "default": "Exportieren"
+        },
+        {
+          "label": "Beschriftung des \"Alles auswählen\"-Buttons",
+          "default": "Alles auswählen"
+        },
+        {
+          "label": "Titel oberhalb der \"Ressourcen\"-Tabelle",
+          "default": "Ressourcen"
+        },
+        {
+          "label": "Titelbeschriftung innerhalb der Ressourcentabelle",
+          "default": "Titel"
+        },
+        {
+          "label": "Einleitungsbeschriftung innerhalb der Ressourcentabelle",
+          "default": "Einleitung"
+        },
+        {
+          "label": "URL-beschriftung innerhalb der Ressourcentabelle",
+          "default": "URL"
+        },
+        {
+          "label": "Text, wenn keine Ressourcen verfügbar sind",
+          "default": "Keine Ressourcen"
+        },
+        {
+          "label": "Text, wenn keine Zusammenfassung angegeben wurde",
+          "default": "Kein Kommentar"
+        }
+      ]
+    },
+    {
+      "label": "Barrierefreiheit",
+      "fields": [
+        {
+          "label": "Benutzt für das 'Schließen'-Icon",
+          "default": "Schließen"
+        },
+        {
+          "label": "Benutzt für das 'Ziehen'-Icon",
+          "default": "Ziehen"
+        },
+        {
+          "label": "'Ziehbares Element'-Text für Lesewerkzeuge",
+          "description": ":argument ist ein Platzhalter und wird durch den jeweiligen Wert ersetzt.",
+          "default": "Ziehbares Element: :argument"
+        },
+        {
+          "label": "Titel des Aktionsmenü-Dialogs",
+          "default": "Aktionsmenü"
+        },
+        {
+          "label": "Beschreibung des Aktionsmenü-Dialogs",
+          "default": "Wähle die Aktion, die du für dieses Argument ausführen möchtest"
+        }
+      ]
+    }
+  ]
+}

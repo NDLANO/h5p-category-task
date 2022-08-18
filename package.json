@@ -39,6 +39,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "css-box-model": "^1.2.1",
+    "focus-trap": "6.9.4",
     "he": "^1.2.0",
     "react": "^16.14.0",
     "react-beautiful-dnd": "^12.2.0",
