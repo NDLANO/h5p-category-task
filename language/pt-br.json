@@ -1,0 +1,172 @@
+{
+  "semantics": [
+    {
+      "label": "Cabeçalho"
+    },
+    {
+      "label": "Descrição da tarefa"
+    },
+    {
+      "label": "Argumentos",
+      "field": {
+        "label": "Argumento",
+        "description": "A declaração que o usuário precisa processar"
+      }
+    },
+    {
+      "label": "Categorias",
+      "field": {
+        "label": "Categoria"
+      }
+    },
+    {
+      "label": "Base",
+      "default": "Base"
+    },
+    {
+      "label": "Instrução básica"
+    },
+    {
+      "label": "Recursos",
+      "description": "Links opcionais para recursos."
+    },
+    {
+      "label": "Configurações comportamentais",
+      "description": "Essas opções permitirão que você controle o comportamento.",
+      "fields": [
+        {
+          "label": "Ativar Tentar Novamente?",
+          "description": "Marque esta opção se quiser que o usuário possa tentar novamente"
+        },
+        {
+          "label": "Apresente as declarações em ordem aleatória",
+          "description": "Irá embaralhar as declarações pré-preenchidas"
+        },
+        {
+          "label": "Exibir os comentários fornecidos abaixo da declaração",
+          "description": "Se o usuário forneceu um comentário isso será mostrado na lista de declarações"
+        },
+        {
+          "label": "Mostrar Resumo",
+          "description": "Você deseja que o usuário forneça um resumo explicando os motivos de suas respostas"
+        }
+      ]
+    },
+    {
+      "label": "Localizar",
+      "fields": [
+        {
+          "label": "Espaço reservado para as caixas de texto",
+          "default": "Faça um breve resumo com suas próprias palavras"
+        },
+        {
+          "label": "Espaço reservado quando nenhum argumento está conectado",
+          "default": "Sem argumentos"
+        },
+        {
+          "label": "Rótulo do botão \"Recursos\"",
+          "default": "Recursos"
+        },
+        {
+          "label": "Rótulo do botão \"Reiniciar\"",
+          "default": "Reiniciar"
+        },
+        {
+          "label": "Rótulo do botão \"Adicionar argumento\"",
+          "default": "Adicionar argumento"
+        },
+        {
+          "label": "Informe ao usuário que os dados serão perdidos se ele continuar",
+          "default": "Se você continuar todas as suas alterações serão perdidas"
+        },
+        {
+          "label": "Rótulo do botão \"Continuar\"",
+          "default": "Continuar"
+        },
+        {
+          "label": "Texto curto na frente das opções para onde você pode mover os argumentos",
+          "default": "Mover para"
+        },
+        {
+          "label": "Rótulo usado para mostrar a ação de exclusão",
+          "default": "Excluir argumento"
+        },
+        {
+          "label": "O texto dentro da zona de soltura de argumentos ao adicionar novos argumentos está desativado",
+          "default": "Solte os argumentos aqui"
+        },
+        {
+          "label": "O texto dentro da zona de soltura de argumentos ao adicionar novos argumentos está ativado",
+          "default": "Elimine o existente ou escreva um novo argumento"
+        }
+      ]
+    },
+    {
+      "fields": [
+        {
+          "label": "Rótulo do botão \"Criar documento\"",
+          "default": "Criar documento"
+        },
+        {
+          "label": "Rótulo do botão \"Exportar\"",
+          "default": "Exportar"
+        },
+        {
+          "label": "Rótulo do botão \"Selecionar tudo\"",
+          "default": "Selecionar tudo"
+        },
+        {
+          "label": "Cabeçalho acima da tabela \"Recurso\"",
+          "default": "Recursos"
+        },
+        {
+          "label": "Cabeçalho do título na tabela de recursos",
+          "default": "Título"
+        },
+        {
+          "label": "Cabeçalho de introdução na tabela de recursos",
+          "default": "Introdução"
+        },
+        {
+          "label": "Cabeçalho de URL na tabela de recursos",
+          "default": "URL"
+        },
+        {
+          "label": "Rótulo para quando nenhum recurso for encontrado",
+          "default": "Sem recursos"
+        },
+        {
+          "label": "Rótulo para quando nenhum resumo é fornecido",
+          "default": "Sem comentários"
+        }
+      ],
+      "label": "Relatório de recursos"
+    },
+    {
+      "label": "Acessibilidade",
+      "fields": [
+        {
+          "label": "Fechar",
+          "default": "Fechar"
+        },
+        {
+          "label": "Arrastar",
+          "default": "Arrastar"
+        },
+        {
+          "label": "Rótulo 'item arrastável' para leitores de tela",
+          "description": "As variáveis disponíveis são :argument",
+          "default": "Item arrastável: :argument"
+        },
+        {
+          "label": "Título para a caixa de diálogo do menu de ações",
+          "default": "Menu de ações"
+        },
+        {
+          "label": "Descrição da caixa de diálogo do menu de ações",
+          "default": "Selecione a ação que deseja realizar neste argumento"
+        }
+      ]
+    }
+  ]
+}

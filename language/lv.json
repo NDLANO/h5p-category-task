@@ -1,0 +1,172 @@
+{
+  "semantics": [
+    {
+      "label": "Galvene"
+    },
+    {
+      "label": "Uzdevuma apraksts"
+    },
+    {
+      "label": "Argumenti",
+      "field": {
+        "label": "Arguments",
+        "description": "Apgalvojums, kas lietotājam jāapstrādā"
+      }
+    },
+    {
+      "label": "Kategorijas",
+      "field": {
+        "label": "Kategorija"
+      }
+    },
+    {
+      "label": "Pamats",
+      "default": "Pamats"
+    },
+    {
+      "label": "Pamata instrukcija"
+    },
+    {
+      "label": "Resursi",
+      "description": "Neobligātas saites uz resursiem."
+    },
+    {
+      "label": "Uzvedības iestatījumi",
+      "fields": [
+        {
+          "label": "Iespējot atkārtotu mēģinājumu?",
+          "description": "Atzīmējiet šo, ja vēlaties, lai lietotājs varētu mēģināt vēlreiz"
+        },
+        {
+          "label": "Apgalvojumus izkārtot jaukti",
+          "description": "Iepriekš aizpildītie apgalvojumi tiks izkārtoti nejaušā secībā"
+        },
+        {
+          "description": "Ja lietotājs ir sniedzis komentāru, tas tiek parādīts apgalvojumu sarakstā",
+          "label": "Sniegtos komentārus parādīt zem apgalvojuma"
+        },
+        {
+          "label": "Rādīt kopsavilkumu",
+          "description": "Vai vēlaties, lai lietotājs sniedz kopsavilkumu, izskaidrojot viņa/viņas atbilžu pamatojumu"
+        }
+      ],
+      "description": "Šie iestatījumi ļaus jums kontrolēt uzvedību."
+    },
+    {
+      "label": "Lokalizēt",
+      "fields": [
+        {
+          "label": "Tekstlodziņu vietturis",
+          "default": "Saviem vārdiem sniedziet īsu kopsavilkumu"
+        },
+        {
+          "label": "Vietturis, ja neviens arguments nav pievienots",
+          "default": "Nav argumentu"
+        },
+        {
+          "label": "Pogas \"Resursi\" etiķete",
+          "default": "Resursi"
+        },
+        {
+          "label": "Pogas \"Atsākt\" etiķete",
+          "default": "Atsākt"
+        },
+        {
+          "label": "Pogas \"Pievienot argumentu\" etiķete",
+          "default": "Pievienot argumentu"
+        },
+        {
+          "default": "Ja turpināsit, visas jūsu veiktās izmaiņas tiks zaudētas",
+          "label": "Informējiet lietotāju, ka dati tiks zaudēti, ja viņš/viņa turpinās"
+        },
+        {
+          "label": "Pogas \"Turpināt\" etiķete",
+          "default": "Turpināt"
+        },
+        {
+          "label": "Īss teksts pirms izvēlēm, kur pārvietot argumentus",
+          "default": "Pārvietot uz"
+        },
+        {
+          "label": "Etiķete, ko izmanto, lai parādītu dzēšanas darbību",
+          "default": "Dzēst argumentu"
+        },
+        {
+          "default": "Ievietojiet argumentus šeit",
+          "label": "Teksts argumentu nomešanas zonā, kad jaunu argumentu pievienošana ir atspējota"
+        },
+        {
+          "label": "Teksts argumentu nomešanas zonā, kad jaunu argumentu pievienošana ir iespējota",
+          "default": "Ievietojiet esošo vai ierakstiet jaunu argumentu"
+        }
+      ]
+    },
+    {
+      "label": "Resursu atskaite",
+      "fields": [
+        {
+          "default": "Izveidot dokumentu",
+          "label": "Pogas \"Izveidot dokumentu\" etiķete"
+        },
+        {
+          "label": "Etiķete uz pogas \"Eksportēt\"",
+          "default": "Eksportēt"
+        },
+        {
+          "label": "Etiķete uz pogas \"Atlasīt visu\"",
+          "default": "Atlasīt visus"
+        },
+        {
+          "label": "Tabulas “Resursi” virsraksts",
+          "default": "Resursi"
+        },
+        {
+          "default": "Nosaukums",
+          "label": "Nosaukuma galvene resursu tabulā"
+        },
+        {
+          "label": "Ievada galvene resursu tabulā",
+          "default": "Ievads"
+        },
+        {
+          "label": "Url galvene resursu tabulā",
+          "default": "Url"
+        },
+        {
+          "label": "Etiķete, ja resursi nav atrasti",
+          "default": "Nav resursu"
+        },
+        {
+          "label": "Etiķete, ja nav sniegts kopsavilkums",
+          "default": "Bez komentāriem"
+        }
+      ]
+    },
+    {
+      "label": "Pieejamība",
+      "fields": [
+        {
+          "default": "Aizvērt",
+          "label": "Aizvērt"
+        },
+        {
+          "label": "Vilkt",
+          "default": "Vilkt"
+        },
+        {
+          "label": "'Velkams vienums' etiķete asistīvajām tehnoloģijām",
+          "default": "Velkams vienums: :argument",
+          "description": "Pieejamais mainīgais ir :argument"
+        },
+        {
+          "label": "Darbību izvēlnes dialoga nosaukums",
+          "default": "Darbību izvēlne"
+        },
+        {
+          "label": "Darbību izvēlnes dialoga nosaukums",
+          "default": "Atlasiet darbību, kuru vēlaties veikt ar šo argumentu"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "semantics": [
+    {
+      "label": "Koptekst"
+    },
+    {
+      "label": "Taakomschrijving"
+    },
+    {
+      "label": "Argumenten",
+      "field": {
+        "label": "Argument",
+        "description": "De bewering die de gebruiker moet verwerken"
+      }
+    },
+    {
+      "label": "Categorieën",
+      "field": {
+        "label": "Categorie"
+      }
+    },
+    {
+      "label": "Samenvatting",
+      "default": "Samenvatting"
+    },
+    {
+      "label": "Instructies voor samenvatting"
+    },
+    {
+      "label": "Hulpmiddelen",
+      "description": "Optionele links naar hulpmiddelen."
+    },
+    {
+      "fields": [
+        {
+          "label": "Opnieuw inschakelen?",
+          "description": "Vink aan als je wilt dat de gebruiker opnieuw kan proberen"
+        },
+        {
+          "label": "Randomiseer de beweringen",
+          "description": "Zal de vooraf ingevulde beweringen randomiseren"
+        },
+        {
+          "label": "Gebruikers toestaan eigen beweringen toe te voegen",
+          "description": "Laat de gebruiker eigen beweringen toevoegen"
+        },
+        {
+          "label": "Toon samenvatting",
+          "description": "Wil je dat de gebruiker een samenvatting kan geven voor de redenen voor zijn/haar antwoord"
+        }
+      ],
+      "label": "Gedragsinstellingen",
+      "description": "Met deze opties kun je bepalen hoe de taak zich gedraagt."
+    },
+    {
+      "label": "Lokaliseren",
+      "fields": [
+        {
+          "label": "Tijdelijke tekst voor de tekstvakken",
+          "default": "Geef een korte samenvatting in je eigen woorden"
+        },
+        {
+          "default": "Geen argumenten",
+          "label": "Tijdelijke tekst wanneer er nog geen argumenten zijn verbonden"
+        },
+        {
+          "label": "Label van \"Hulpmiddelen\"-knop",
+          "default": "Hulpmiddelen"
+        },
+        {
+          "label": "Label van de \"Herstarten\"-knop",
+          "default": "Opnieuw starten"
+        },
+        {
+          "default": "Argument toevoegen",
+          "label": "Label van de \"Argument toevoegen\"-knop"
+        },
+        {
+          "label": "Informeer de gebruiker de gegevens verloren gaan aan hij/zij doorgaat",
+          "default": "Als je doorgaat, gaan al je gegevens verloren"
+        },
+        {
+          "label": "Label van de \"Doorgaan\"-knop",
+          "default": "Doorgaan"
+        },
+        {
+          "default": "Verplaats naar",
+          "label": "Korte tekst vóór de opties waar je de argumenten heen kan verplaatsen"
+        },
+        {
+          "default": "Verwijder argument",
+          "label": "Label gebruikt voor tonen van de verwijder-actie"
+        },
+        {
+          "default": "Zet argumenten hier neer",
+          "label": "Tekst binnen het neerzetgebied voor argumenten wanneer nieuwe argumenten toevoegen uitgeschakeld is"
+        },
+        {
+          "label": "Tekst binnen het neerzetgebied voor argumenten wanneer nieuwe argumenten toevoegen is ingeschakeld",
+          "default": "Zet bestaande argumenten hier neer of schrijf een nieuw argument"
+        }
+      ]
+    },
+    {
+      "label": "Hulpmiddelen rapport",
+      "fields": [
+        {
+          "label": "Label van \"Maak document\"-knop",
+          "default": "Maak document"
+        },
+        {
+          "label": "Label van \"Exporteer\"-knop",
+          "default": "Exporteer"
+        },
+        {
+          "default": "Selecteer alles",
+          "label": "Label van \"Alles selecteren\"-knop"
+        },
+        {
+          "label": "Koptekst boven de \"Hulpmiddelen\"-tabel",
+          "default": "Hulpmiddelen"
+        },
+        {
+          "label": "Titel voor hulpmiddelentabel",
+          "default": "Titel"
+        },
+        {
+          "label": "Introductietekst voor hulpmiddelentabel",
+          "default": "Intro"
+        },
+        {
+          "label": "URL koptekst in hulpmiddelentabel",
+          "default": "URL"
+        },
+        {
+          "label": "Label wanneer er geen hulpmiddelen zijn gevonden",
+          "default": "Geen hulpmiddelen"
+        },
+        {
+          "label": "Label wanneer geen samenvatting is gegeven",
+          "default": "Geen reactie"
+        }
+      ]
+    },
+    {
+      "label": "Toegankelijkheid",
+      "fields": [
+        {
+          "label": "Gebruikt i.p.v. 'Afsluiten'-icoon",
+          "default": "Afsluiten"
+        },
+        {
+          "default": "Slepen",
+          "label": "Gebruikt i.p.v. 'Slepen'-icoon"
+        },
+        {
+          "label": "'Sleepbaar onderdeel' label voor schermlezers",
+          "description": "Beschikbare argumenten zijn :argument",
+          "default": "Sleepbaar onderdeel: :argument"
+        },
+        {
+          "label": "Titel voor de actiemenu dialoog",
+          "default": "Actie-menu"
+        },
+        {
+          "label": "Beschrijving van de actie-menu dialoog",
+          "default": "Kies de actie die je wilt uitvoeren op dit argument"
+        }
+      ]
+    }
+  ]
+}
