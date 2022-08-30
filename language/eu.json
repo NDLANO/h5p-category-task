@@ -20,11 +20,11 @@
       }
     },
     {
-      "label": "Oinarria",
-      "default": "Oinarria"
+      "label": "Laburpena",
+      "default": "Laburpena"
     },
     {
-      "label": "Oinarriaren argibideak"
+      "label": "Laburpenaren argibideak"
     },
     {
       "label": "Baliabideak",
@@ -39,11 +39,11 @@
         },
         {
           "label": "Ausazkotu adierazpenak",
-          "description": "Aurrez kargatutako adierazpenak ausazkotuko ditu"
+          "description": "Adierazpenak ausazkotuko ditu"
         },
         {
-          "label": "Erakutsi emandako iruzkinak adierazpenaren azpian",
-          "description": "Erabiltzaileak iruzkina eman badu, hau adierazpenen zerrendan erakutsiko da"
+          "label": "Baimendu erabiltzaileek euren adierazpenak gehitzea",
+          "description": "Erabitlzaileek euren adierazpenak gehitzea baimentzen du"
         },
         {
           "label": "Erakutsi laburpena",
@@ -145,11 +145,11 @@
     {
       "fields": [
         {
-          "label": "Itxi",
+          "label": "'Itxi' ikonoaren ordez erabilia",
           "default": "Itxi"
         },
         {
-          "label": "Arrastatu",
+          "label": "'Arrastatu' ikonoaren ordez erabilia",
           "default": "Arrastatu"
         },
         {
