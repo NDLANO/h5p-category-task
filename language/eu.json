@@ -8,16 +8,27 @@
     },
     {
       "label": "Argumentuak",
-      "field": {
-        "description": "Erabiltzaileak prozesatu behar duen adierazpena",
-        "label": "Argudioa"
-      }
+      "fields": [
+        {
+          "label": "Argumentuak",
+          "entity": "argudioa",
+          "field": {
+            "label": "Argudioa"
+          }
+        }
+      ]
     },
     {
       "label": "Kategoriak",
-      "field": {
-        "label": "Kategoria"
-      }
+      "fields": [
+        {
+          "label": "Kategoriak",
+          "entity": "kategoria",
+          "field": {
+            "label": "Kategoria"
+          }
+        }
+      ]
     },
     {
       "label": "Laburpena",
@@ -28,7 +39,12 @@
     },
     {
       "label": "Baliabideak",
-      "description": "Baliabideetarako aukerazko estekak."
+      "fields": [
+        {
+          "label": "Baliabideak",
+          "description": "Baliabideetarako aukerazko estekak."
+        }
+      ]
     },
     {
       "label": "Portaeren ezarpenak",

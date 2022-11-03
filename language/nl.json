@@ -8,16 +8,27 @@
     },
     {
       "label": "Argumenten",
-      "field": {
-        "label": "Argument",
-        "description": "De bewering die de gebruiker moet verwerken"
-      }
+      "fields": [
+        {
+          "label": "Argumenten",
+          "entity": "argument",
+          "field": {
+            "label": "Argument"
+          }
+        }
+      ]
     },
     {
       "label": "Categorieën",
-      "field": {
-        "label": "Categorie"
-      }
+      "fields": [
+        {
+          "label": "Categorieën",
+          "entity": "categorie",
+          "field": {
+            "label": "Categorie"
+          }
+        }
+      ]
     },
     {
       "label": "Samenvatting",
@@ -28,7 +39,12 @@
     },
     {
       "label": "Hulpmiddelen",
-      "description": "Optionele links naar hulpmiddelen."
+      "fields": [
+        {
+          "label": "Hulpmiddelen",
+          "description": "Optionele links naar hulpmiddelen."
+        }
+      ]
     },
     {
       "fields": [

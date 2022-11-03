@@ -8,16 +8,27 @@
     },
     {
       "label": "Argumentos",
-      "field": {
-        "label": "Argumento",
-        "description": "A declaração que o usuário precisa processar"
-      }
+      "fields": [
+        {
+          "label": "Argumentos",
+          "entity": "argumento",
+          "field": {
+            "label": "Argumento"
+          }
+        }
+      ]
     },
     {
       "label": "Categorias",
-      "field": {
-        "label": "Categoria"
-      }
+      "fields": [
+        {
+          "label": "Categorias",
+          "entity": "categoria",
+          "field": {
+            "label": "Categoria"
+          }
+        }
+      ]
     },
     {
       "label": "Base",
@@ -28,7 +39,12 @@
     },
     {
       "label": "Recursos",
-      "description": "Links opcionais para recursos."
+      "fields": [
+        {
+          "label": "Recursos",
+          "description": "Links opcionais para recursos."
+        }
+      ]
     },
     {
       "label": "Configurações comportamentais",

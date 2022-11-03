@@ -8,16 +8,27 @@
     },
     {
       "label": "Argumentos",
-      "field": {
-        "label": "Argumento",
-        "description": "La oración que el usuario necesita procesar"
-      }
+      "fields": [
+        {
+          "label": "Argumentos",
+          "entity": "argumento",
+          "field": {
+            "label": "Argumento"
+          }
+        }
+      ]
     },
     {
       "label": "Categorías",
-      "field": {
-        "label": "Categoría"
-      }
+      "fields": [
+        {
+          "label": "Categorías",
+          "entity": "categoría",
+          "field": {
+            "label": "Categoría"
+          }
+        }
+      ]
     },
     {
       "label": "Resumen",
@@ -28,7 +39,12 @@
     },
     {
       "label": "Recursos",
-      "description": "Enlaces opcionales a recursos."
+      "fields": [
+        {
+          "label": "Recursos",
+          "description": "Enlaces opcionales a recursos."
+        }
+      ]
     },
     {
       "description": "Estas opciones le permitirán controlar el comportamiento.",
