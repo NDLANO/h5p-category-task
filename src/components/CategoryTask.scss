@@ -28,8 +28,8 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 .h5p-category-task-button-export,
 .h5p-category-task-reset-modal .continue {
   @extend .h5p-category-task-button;
-  background-color: #1f1f1f;
-  border: 2px solid #404040;
+  background-color: #507AA4;
+  border: 2px solid #cccccc;
 
   &:hover {
     background-color: #363636;
@@ -146,7 +146,7 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 }
 
 .h5p-category-task-header {
-  background-color: #2880d0;
+  background-color: #507AA4;
   display: flex;
   margin: 0;
   align-items: center;
@@ -444,7 +444,7 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 }
 
 .h5p-category-task-footer {
-  background-color: #1f1f1f;
+  background-color: #507AA4;
   color: white;
   padding: 1.25rem;
   display: flex;
@@ -488,7 +488,7 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     line-height: 1.5625rem;
     text-shadow: 2px 1px 3px rgba(28,28,28,0.5);
     border-radius: $borderRadius $borderRadius 0 0;
-    background-color: #698ab3;
+    background-color: #2880d0;
     color: #ffffff;
     font-size: 1.125rem;
   }
