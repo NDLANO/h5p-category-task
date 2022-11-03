@@ -1,0 +1,188 @@
+{
+  "semantics": [
+    {
+      "label": "Encabezado"
+    },
+    {
+      "label": "Descripción del trabajo"
+    },
+    {
+      "label": "Argumentos",
+      "fields": [
+        {
+          "label": "Argumentos",
+          "entity": "argumento",
+          "field": {
+            "label": "Argumento"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Categorías",
+      "fields": [
+        {
+          "label": "Categorías",
+          "entity": "categoría",
+          "field": {
+            "label": "Categoría"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Resumen",
+      "default": "Resumen"
+    },
+    {
+      "label": "Instrucción"
+    },
+    {
+      "label": "Recursos",
+      "fields": [
+        {
+          "label": "Recursos",
+          "description": "Enlaces opcionales a recursos."
+        }
+      ]
+    },
+    {
+      "description": "Estas opciones le permitirán controlar el comportamiento.",
+      "fields": [
+        {
+          "label": "¿Habilitar reintentar?",
+          "description": "Marque esto si quiere que el usuario pueda reintentar"
+        },
+        {
+          "label": "Aleatorizar los argumentos",
+          "description": "Aleatorizará los argumentos"
+        },
+        {
+          "label": "Permitirle a usuarios añadir sus propios argumentos",
+          "description": "Permitirle al usuario añadir sus propios argumentos"
+        },
+        {
+          "label": "Mostrar resumen",
+          "description": "¿Quiere que el usuario proporcione un resumen que explique las razones para su respuesta?"
+        }
+      ],
+      "label": "Configuraciones del comportamiento"
+    },
+    {
+      "label": "Localizar",
+      "fields": [
+        {
+          "label": "Reemplazable para las cajas de texto",
+          "default": "De un resumen breve en sus propias palabras"
+        },
+        {
+          "label": "Reemplazable cuando los argumentos no están conectados",
+          "default": "Sin argumentos"
+        },
+        {
+          "default": "Recursos",
+          "label": "Etiqueta para botón \"Recursos\""
+        },
+        {
+          "label": "Etiqueta para el botón \"Reiniciar\"",
+          "default": "Reiniciar"
+        },
+        {
+          "label": "Etiqueta para el botón \"Añadir argumento\"",
+          "default": "Añadir argumento"
+        },
+        {
+          "default": "Si usted continúa todos sus cambios se perderán",
+          "label": "Informar al usuario que se perderán datos si continúa"
+        },
+        {
+          "label": "Etiqueta para el botón \"Continuar\"",
+          "default": "Continuar"
+        },
+        {
+          "label": "Texto breve enfrente de las opciones adonde usted puede mover los argumentos",
+          "default": "Mover a"
+        },
+        {
+          "label": "Etiqueta usada para mostrar la acción de eliminar",
+          "default": "Eliminar argumento"
+        },
+        {
+          "default": "Dejar caer argumentos aquí",
+          "label": "Texto adentro de la zona de caída de los argumentos cuando está deshabilitado el añadir nuevos argumentos"
+        },
+        {
+          "label": "Texto adentro de la zona de caída de los argumentos cuando está habilitado el añadir nuevos argumentos",
+          "default": "Dejar caer argumento existente o escribir uno nuevo"
+        }
+      ]
+    },
+    {
+      "label": "Reporte de recursos",
+      "fields": [
+        {
+          "default": "Crear documento",
+          "label": "Etiqueta para botón \"Crear documento\""
+        },
+        {
+          "label": "Etiqueta para botón \"Exportar\"",
+          "default": "Exportar"
+        },
+        {
+          "label": "Etiqueta en botón \"Seleccionar todo\"",
+          "default": "Seleccionar todo"
+        },
+        {
+          "label": "Encabezado arriba de la tabla \"Recursos\"",
+          "default": "Recursos"
+        },
+        {
+          "default": "Título",
+          "label": "Encabezado de título en tabla de recursos"
+        },
+        {
+          "label": "Encabezado de Introducción en tabla de recursos",
+          "default": "Introducción"
+        },
+        {
+          "label": "Encabezado de URL en tabla de recursos",
+          "default": "URL"
+        },
+        {
+          "label": "Etiqueta cuando no se encontraron recursos",
+          "default": "Sin recursos"
+        },
+        {
+          "label": "Etiqueta cuando no es proporcionado ningún resumen",
+          "default": "Sin comentarios"
+        }
+      ]
+    },
+    {
+      "label": "Accesibilidad",
+      "fields": [
+        {
+          "label": "Usado en lugar del ícono para 'Cerrar'",
+          "default": "Cerrar"
+        },
+        {
+          "label": "Usado en lugar del ícono para 'Arrastrar'",
+          "default": "Arrastrar"
+        },
+        {
+          "label": "Etiqueta 'Elemento arrastrable' para lectores de texto en voz alta",
+          "description": "Variables disponibles son :argument",
+          "default": "Elemento arrastrable: :argument"
+        },
+        {
+          "label": "Título para el diálogo de menú de acciones",
+          "default": "Menú de acciones"
+        },
+        {
+          "label": "Descripción para el diálogo del menú de acciones",
+          "default": "Seleccionar la acción que quiere realizar en este argumento"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 import React, {useRef} from 'react';
 import {useCategoryTask} from "context/CategoryTaskContext";
 import {escapeHTML, stripHTML} from "../utils";
+import * as focusTrap from 'focus-trap';
 
 function Export() {
 
@@ -106,6 +107,27 @@ function Export() {
       exportObject
     );
     exportDocument.getElement().prependTo(exportContainer.current);
+
+    /*
+     * Focus 'Export' button on modal and trap focus.
+     * Should be fixed in H5P.ExportPage though.
+     */
+    const oldFocusElement = document.activeElement;
+    const trap = focusTrap.createFocusTrap(
+      exportDocument.getElement().get(0),
+      {
+        initialFocus: exportDocument.getElement().get(0)
+          .querySelector('.joubel-exportable-export-button')
+      }
+    );
+    trap.activate();
+
+    // Untrap focus and give focus back to previous focus element
+    exportDocument.on('closed', () => {
+      trap.deactivate();
+      oldFocusElement.focus();
+    });
+
     H5P.$window.on('resize', () => exportDocument.trigger('resize'));
   }
 

@@ -8,27 +8,43 @@
     },
     {
       "label": "Arguments",
-      "field": {
-        "label": "Argument",
-        "description": "The statement that the user needs to process"
-      }
+      "fields": [
+        {
+          "label": "Arguments",
+          "entity": "argument",
+          "field": {
+            "label": "Argument"
+          }
+        }
+      ]
     },
     {
       "label": "Categories",
-      "field": {
-        "label": "Category"
-      }
+      "fields": [
+        {
+          "label": "Categories",
+          "entity": "category",
+          "field": {
+            "label": "Category"
+          }
+        }
+      ]
     },
     {
-      "label": "Basis",
-      "default": "Basis"
+      "label": "Summary",
+      "default": "Summary"
     },
     {
-      "label": "Basis instruction"
+      "label": "Summary instruction"
     },
     {
       "label": "Resources",
-      "description": "Optional links to resources."
+      "fields": [
+        {
+          "label": "Resources",
+          "description": "Optional links to resources."
+        }
+      ]
     },
     {
       "label": "Behavioural settings",
@@ -39,12 +55,12 @@
           "description": "Tick off this if you want the user to be able to retry"
         },
         {
-          "label": "Randomize the statements",
-          "description": "Will randomize the pre-populated statements"
+          "label": "Randomize the arguments",
+          "description": "Will randomize the arguments"
         },
         {
-          "label": "Display the provided comments below the statement",
-          "description": "If the user has provided a comment, this is shown in the statements list"
+          "label": "Allow users to add their own arguments",
+          "description": "Lets the user add their own arguments"
         },
         {
           "label": "Show summary",
@@ -64,7 +80,7 @@
           "default": "No arguments"
         },
         {
-          "label": "Label for \"Resources\"-button",
+          "label": "Label for the \"Resources\"-button",
           "default": "Resources"
         },
         {
@@ -146,11 +162,11 @@
       "label": "Accessibility",
       "fields": [
         {
-          "label": "Close",
+          "label": "Used instead of 'Close'-icon",
           "default": "Close"
         },
         {
-          "label": "Drag",
+          "label": "Used instead of 'Drag'-icon",
           "default": "Drag"
         },
         {
