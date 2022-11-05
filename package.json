@@ -1,6 +1,6 @@
 {
   "name": "h5p-category-task",
-  "version": "0.0.1",
+  "version": "0.2.4",
   "description": "Reflect on statements and put them in categories",
   "main": "index.js",
   "scripts": {
