@@ -8,10 +8,10 @@ const Popover = ({handleClose, show, children, popoverContent, classnames = [], 
     <TinyPopover
       containerClassName={classnames.join(" ")}
       isOpen={show}
-      position={['top', 'bottom']}
-      windowBorderPadding={10}
+      positions={['top', 'bottom']}
+      padding={10}
       containerStyle={{
-        overflow: "unset",
+        overflow: 'unset',
       }}
       align={align}
       onClickOutside={handleClose}

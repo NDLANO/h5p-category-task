@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TinyPopover from "react-tiny-popover";
+import TinyPopover from 'react-tiny-popover';
 import classnames from 'classnames';
 import trash from './../../../../assets/trash.svg';
 import {useCategoryTask} from "context/CategoryTaskContext";
@@ -113,14 +113,14 @@ function ActionMenu(props) {
   return (
     <TinyPopover
       containerClassName={classNames.join(" ")}
-      contentDestination={innerRef}
+      ref={innerRef}
       contentLocation={() => {
         return {top: parentBox.borderBox.height, left: -parentBox.border.left};
       }}
       isOpen={show}
-      position={["bottom"]}
-      windowBorderPadding={0}
-      disableReposition={true}
+      positions={["bottom"]}
+      padding={0}
+      reposition={false}
       onClickOutside={handleClose}
       content={() => (
         <div
