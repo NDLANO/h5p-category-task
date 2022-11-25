@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import TinyPopover from 'react-tiny-popover';
+import { Popover as TinyPopover } from 'react-tiny-popover';
 import classnames from 'classnames';
-import trash from './../../../../assets/trash.svg';
-import {useCategoryTask} from "context/CategoryTaskContext";
-import {getBox} from 'css-box-model';
+import trash from '../../../../assets/trash.svg';
+import { useCategoryTask } from '../../../context/CategoryTaskContext';
+import { getBox } from 'css-box-model';
 
 function ActionMenu(props) {
 
@@ -19,8 +19,23 @@ function ActionMenu(props) {
     handleClose,
     actions,
     classNames = [],
-    innerRef,
+    parentElement,
   } = props;
+
+  const handleClickOutside = (/** @type {PointerEvent} */ event) => {
+    /** @type {HTMLElement} */
+    const target = event.target;
+    const clickedOutsideParentElement = !parentElement.contains(target);
+
+    if (clickedOutsideParentElement && handleClose) {
+      handleClose();
+    }
+  };
+  
+  useEffect(() => {
+    window.addEventListener('pointerdown', handleClickOutside);
+    return () => window.removeEventListener('pointerdown', handleClickOutside);
+  }, [parentElement]);
 
   classNames.push("h5p-category-task-actionmenu");
 
@@ -35,10 +50,9 @@ function ActionMenu(props) {
     }
   }
 
-  const parentBox = getBox(innerRef);
+  const parentBox = getBox(parentElement);
 
   function getCategory(settings, index) {
-
     let label;
     if (settings.label) {
       label = (<span
@@ -54,16 +68,18 @@ function ActionMenu(props) {
           id={"action-" + index}
           className={"h5p-category-task-popover-actionmenu-labeltext"}
         >
-          {translate('moveTo')} "<span>{settings.title}</span>"
+          {translate('moveTo')} &quot;<span>{settings.title}</span>&quot;
         </span>
 
       );
     }
 
     return (
+      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <label
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
         tabIndex={0}
-        onKeyUp={event => handleKeyUp(event, settings.onSelect)}
+        onKeyUp={(event) => handleKeyUp(event, settings.onSelect)}
       >
         <input
           tabIndex={-1}
@@ -72,7 +88,7 @@ function ActionMenu(props) {
           type={"checkbox"}
           checked={settings.activeCategory}
           onChange={() => {
-            if ( settings.activeCategory !== true) {
+            if (settings.activeCategory !== true) {
               handleSelect(settings.onSelect);
             }
           }}
@@ -113,15 +129,16 @@ function ActionMenu(props) {
   return (
     <TinyPopover
       containerClassName={classNames.join(" ")}
-      ref={innerRef}
-      contentLocation={() => {
-        return {top: parentBox.borderBox.height, left: -parentBox.border.left};
+      contentLocation={{
+        top: parentBox.borderBox.top,
+        left: -parentBox.borderBox.left,
       }}
       isOpen={show}
       positions={["bottom"]}
       padding={0}
       reposition={false}
-      onClickOutside={handleClose}
+      parentElement={parentElement}
+      containerStyle={{position: 'absolute', top: '56px'}}
       content={() => (
         <div
           className={"h5p-category-task-popover-actionmenu"}
@@ -137,7 +154,7 @@ function ActionMenu(props) {
             {actions.map((action, index) => {
               let content;
               if (action.type === 'delete') {
-                content = getDelete(action, index);
+                content = getDelete(action);
               }
               else {
                 content = getCategory(action, index);
@@ -173,7 +190,11 @@ ActionMenu.propTypes = {
   show: PropTypes.bool,
   handleClose: PropTypes.func,
   classNames: PropTypes.array,
-  innerRef: PropTypes.object,
+  parentElement: PropTypes.object,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]),
 };
 
 export default ActionMenu;
