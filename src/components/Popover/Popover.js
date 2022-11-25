@@ -11,6 +11,7 @@ const Popover = ({
   header,
   close,
   align = 'end',
+  openerRect,
 }) => {
   classnames.push('h5p-category-task-popover');
 
@@ -25,13 +26,13 @@ const Popover = ({
       }}
       align={align}
       onClickOutside={handleClose}
-      content={({ position, parentRect, popoverRect }) => (
+      content={({ position, popoverRect }) => (
         <ArrowContainer
           position={position}
-          targetRect={parentRect}
           popoverRect={popoverRect}
           arrowColor={'white'}
           arrowSize={10}
+          childRect={openerRect}
         >
           <div
             className={"h5p-category-task-popover-container"}
@@ -73,6 +74,7 @@ Popover.propTypes = {
   classnames: PropTypes.array,
   header: PropTypes.string,
   close: PropTypes.string,
+  openerRect: PropTypes.object,
 };
 
 export default Popover;
