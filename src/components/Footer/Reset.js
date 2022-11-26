@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {useMemo, useRef, useState} from 'react';
 import Popover from "../Popover/Popover";
 import {useCategoryTask} from "context/CategoryTaskContext";
 
@@ -6,8 +6,14 @@ function Reset() {
 
   const [showPopover, setPopover] = useState(false);
   const discussionProcessContext = useCategoryTask();
+  const resetButtonRef = useRef(null);
+  
+  function togglePopover(event) {
+    // The first event target to open the popover will be the reset button
+    if (!resetButtonRef.current) {
+      resetButtonRef.current = event?.target;
+    }
 
-  function togglePopover() {
     setPopover(!showPopover);
   }
 
@@ -24,8 +30,13 @@ function Reset() {
     translations
   } = discussionProcessContext;
 
+  const openerRect = useMemo(
+    () => resetButtonRef.current?.getBoundingClientRect(),
+    [resetButtonRef.current],
+  );
+  
   return (
-    <Fragment>
+    <>
       {enableRetry === true && (
         <Popover
           handleClose={togglePopover}
@@ -34,6 +45,7 @@ function Reset() {
           close={translations.close}
           header={translations.restart}
           align={"start"}
+          openerRect={openerRect}
           popoverContent={(
             <div
               role={"dialog"}
@@ -77,7 +89,7 @@ function Reset() {
           </button>
         </Popover>
       )}
-    </Fragment>
+    </>
   );
 }
 

@@ -1,15 +1,14 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import EditableArgument from "./components/EditableArgument";
-import UnEditableArgument from "./components/UnEditableArgument";
-import ActionMenu from "./components/ActionMenu";
-import classnames from "classnames";
-import DragArrows from "./components/DragArrows";
-import {getDnDId} from "../utils";
+import EditableArgument from './components/EditableArgument';
+import UnEditableArgument from './components/UnEditableArgument';
+import ActionMenu from './components/ActionMenu';
+import classnames from 'classnames';
+import DragArrows from './components/DragArrows';
+import { getDnDId } from '../utils';
 
 function Argument(props) {
-
-  const innerRef = useRef();
+  const innerRef = useRef(null);
   const [refReady, setRef] = useState(false);
 
   const {
@@ -24,7 +23,11 @@ function Argument(props) {
   const [showPopover, togglePopover] = useState(false);
 
   function toggle() {
-    togglePopover(prevState => !prevState);
+    togglePopover((prevState) => !prevState);
+  }
+
+  function closePopover() {
+    togglePopover(false);
   }
 
   useEffect(() => {
@@ -43,11 +46,7 @@ function Argument(props) {
     );
   }
   else {
-    displayStatement = (
-      <UnEditableArgument
-        argument={argument.argumentText}
-      />
-    );
+    displayStatement = <UnEditableArgument argument={argument.argumentText} />;
   }
 
   let argumentLayout = (
@@ -59,13 +58,13 @@ function Argument(props) {
     />
   );
 
-  if ( Array.isArray(actions) && actions.length > 0  && refReady) {
+  if (Array.isArray(actions) && actions.length > 0 && refReady) {
     argumentLayout = (
       <ActionMenu
         actions={actions}
         show={showPopover}
-        handleClose={toggle}
-        innerRef={innerRef.current}
+        handleClose={closePopover}
+        parentElement={innerRef.current}
       >
         {argumentLayout}
       </ActionMenu>
@@ -73,11 +72,7 @@ function Argument(props) {
   }
 
   return (
-    <div
-      id={getDnDId(argument)}
-      aria-expanded={showPopover}
-      ref={innerRef}
-    >
+    <div id={getDnDId(argument)} aria-expanded={showPopover} ref={innerRef}>
       {argumentLayout}
     </div>
   );
@@ -137,6 +132,7 @@ ArgumentLayout.propTypes = {
   isDragEnabled: PropTypes.bool,
   statementDisplay: PropTypes.object,
   toggle: PropTypes.func,
+  closePopover: PropTypes.func,
 };
 
 ArgumentLayout.defaultProps = {

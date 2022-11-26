@@ -1,27 +1,38 @@
 import React from 'react';
-import TinyPopover, {ArrowContainer} from 'react-tiny-popover';
-import PropTypes from "prop-types";
+import { ArrowContainer, Popover as TinyPopover } from 'react-tiny-popover';
+import PropTypes from 'prop-types';
 
-const Popover = ({handleClose, show, children, popoverContent, classnames = [], header, close, align = "end"}) => {
-  classnames.push("h5p-category-task-popover");
+const Popover = ({
+  handleClose,
+  show,
+  children,
+  popoverContent,
+  classnames = [],
+  header,
+  close,
+  align = 'end',
+  openerRect,
+}) => {
+  classnames.push('h5p-category-task-popover');
+
   return (
     <TinyPopover
-      containerClassName={classnames.join(" ")}
+      containerClassName={classnames.join(' ')}
       isOpen={show}
-      position={['top', 'bottom']}
-      windowBorderPadding={10}
+      positions={['top', 'bottom']}
+      padding={10}
       containerStyle={{
-        overflow: "unset",
+        overflow: 'unset',
       }}
       align={align}
       onClickOutside={handleClose}
-      content={({position, targetRect, popoverRect}) => (
+      content={({ position, popoverRect }) => (
         <ArrowContainer
           position={position}
-          targetRect={targetRect}
           popoverRect={popoverRect}
           arrowColor={'white'}
           arrowSize={10}
+          childRect={openerRect}
         >
           <div
             className={"h5p-category-task-popover-container"}
@@ -63,7 +74,7 @@ Popover.propTypes = {
   classnames: PropTypes.array,
   header: PropTypes.string,
   close: PropTypes.string,
+  openerRect: PropTypes.object,
 };
-
 
 export default Popover;
