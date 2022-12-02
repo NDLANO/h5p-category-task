@@ -1,7 +1,9 @@
+// @ts-check
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {Draggable} from 'react-beautiful-dnd';
+import Draggable from '../Draggable/Draggable';
 
 function Element(props) {
 
@@ -14,22 +16,23 @@ function Element(props) {
 
   return (
     <Draggable
-      draggableId={draggableId}
-      index={dragIndex}
+      id={draggableId}
+      // index={dragIndex}
     >
-      {(provided, snapshot) => (
-        <div
-          className={'h5p-category-task-draggable-container'}
+      {/* {(provided, snapshot) => ( */}
+      <div
+        className={'h5p-category-task-draggable-container'}
+        aria-label={ariaLabel}
+      >
+        <ElementLayout
+          // provided={provided}
+          // snapshot={snapshot}
+          ariaLabel={ariaLabel}
         >
-          <ElementLayout
-            provided={provided}
-            snapshot={snapshot}
-            ariaLabel={ariaLabel}
-          >
-            {children}
-          </ElementLayout>
-        </div>
-      )}
+          {children}
+        </ElementLayout>
+      </div>
+      {/* )} */}
     </Draggable>
   );
 }
@@ -47,9 +50,9 @@ function ElementLayout({children, provided, snapshot}) {
       className={classnames('h5p-category-task-draggable-element', {
         'h5p-category-task-active-draggable': snapshot.isDragging,
       })}
-      ref={provided.innerRef}
-      {...provided.dragHandleProps}
-      {...provided.draggableProps}
+      // ref={provided.innerRef}
+      // {...provided.dragHandleProps}
+      // {...provided.draggableProps}
     >
       {children}
     </div>
