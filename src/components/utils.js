@@ -35,7 +35,7 @@ export function ActionMenuDataObject(initValues) {
 }
 
 export function getDnDId(element) {
-  return [element.prefix, element.id].join("-");
+  return [element.prefix, element.id].join('-');
 }
 
 export function debounce(func, wait, immediate) {
@@ -68,8 +68,8 @@ export function stripHTML(html) {
 }
 
 export function sanitizeParams(params) {
-  const filterResourceList = element => Object.keys(element).length !== 0 && element.constructor === Object;
-  const handleObject = sourceObject => {
+  const filterResourceList = (element) => Object.keys(element).length !== 0 && element.constructor === Object;
+  const handleObject = (sourceObject) => {
     if ( sourceObject === undefined || sourceObject === null || !filterResourceList(sourceObject)) {
       return sourceObject;
     }
@@ -92,14 +92,14 @@ export function sanitizeParams(params) {
   } = params;
 
   if ( Array.isArray(argumentsList) ) {
-    argumentsList = argumentsList.map(argument => decodeHTML(argument));
+    argumentsList = argumentsList.map((argument) => decodeHTML(argument));
   }
 
   if (resources.params.resourceList && resources.params.resourceList.filter(filterResourceList).length > 0) {
     resources.params = {
       ...resources.params,
       l10n: handleObject(resources.params.l10n),
-      resourceList: resources.params.resourceList.filter(filterResourceList).map(resource => {
+      resourceList: resources.params.resourceList.filter(filterResourceList).map((resource) => {
         const {
           title,
           introduction,
@@ -146,16 +146,16 @@ const CategoryTaskClassnames = {
 export const breakpoints = () => {
   return [
     {
-      "className": CategoryTaskClassnames.mediumTablet,
-      "shouldAdd": ratio => ratio >= 22 && ratio < 40,
+      'className': CategoryTaskClassnames.mediumTablet,
+      'shouldAdd': (ratio) => ratio >= 22 && ratio < 40,
     },
     {
-      "className": CategoryTaskClassnames.largeTablet,
-      "shouldAdd": ratio => ratio >= 40 && ratio < 60,
+      'className': CategoryTaskClassnames.largeTablet,
+      'shouldAdd': (ratio) => ratio >= 40 && ratio < 60,
     },
     {
-      "className": CategoryTaskClassnames.large,
-      "shouldAdd": ratio => ratio >= 60,
+      'className': CategoryTaskClassnames.large,
+      'shouldAdd': (ratio) => ratio >= 60,
     },
   ];
 };

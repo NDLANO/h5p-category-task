@@ -1,6 +1,6 @@
 import React, {useRef} from 'react';
-import {useCategoryTask} from "context/CategoryTaskContext";
-import {escapeHTML, stripHTML} from "../utils";
+import {useCategoryTask} from 'context/CategoryTaskContext';
+import {escapeHTML, stripHTML} from '../utils';
 import * as focusTrap from 'focus-trap';
 
 function Export() {
@@ -43,13 +43,13 @@ function Export() {
       summaryComment: summary,
       resources: resources,
       unprocessedArguments: userInput.categories
-        .filter(category => category.isArgumentDefaultList)
-        .map(category => category.connectedArguments)
+        .filter((category) => category.isArgumentDefaultList)
+        .map((category) => category.connectedArguments)
         .reduce((acc, val) => acc.concat(val), []),
       categories: userInput.categories
-        .filter(category => !category.isArgumentDefaultList)
-        .map(category => {
-          category.connectedArguments = category.connectedArguments.map(argumentId => userInput.argumentsList[argumentId]);
+        .filter((category) => !category.isArgumentDefaultList)
+        .map((category) => {
+          category.connectedArguments = category.connectedArguments.map((argumentId) => userInput.argumentsList[argumentId]);
           return category;
         })
     });
@@ -134,17 +134,17 @@ function Export() {
   return (
     <>
       <button
-        className={"h5p-category-task-button-export"}
+        className={'h5p-category-task-button-export'}
         onClick={handleExport}
-        type={"button"}
+        type={'button'}
       >
         <span
-          className={"h5p-ri hri-document"}
+          className={'h5p-ri hri-document'}
           aria-hidden={true}
         />
         {translate('createDocument')}
       </button>
-      <div className={"export-container"} ref={exportContainer}/>
+      <div className={'export-container'} ref={exportContainer}/>
     </>
   );
 }

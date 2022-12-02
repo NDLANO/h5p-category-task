@@ -1,6 +1,6 @@
 import React, {useMemo, useRef, useState} from 'react';
-import Popover from "../Popover/Popover";
-import {useCategoryTask} from "context/CategoryTaskContext";
+import Popover from '../Popover/Popover';
+import {useCategoryTask} from 'context/CategoryTaskContext';
 
 function Reset() {
 
@@ -17,11 +17,6 @@ function Reset() {
     setPopover(!showPopover);
   }
 
-  function confirmReset() {
-    reset();
-    togglePopover();
-  }
-
   const {
     behaviour: {
       enableRetry = false
@@ -35,6 +30,11 @@ function Reset() {
     [resetButtonRef.current],
   );
   
+  function confirmReset() {
+    reset();
+    togglePopover();
+  }
+  
   return (
     <>
       {enableRetry === true && (
@@ -44,31 +44,31 @@ function Reset() {
           classnames={Array.from(discussionProcessContext.activeBreakpoints)}
           close={translations.close}
           header={translations.restart}
-          align={"start"}
+          align={'start'}
           openerRect={openerRect}
           popoverContent={(
             <div
-              role={"dialog"}
-              aria-labelledby={"resetTitle"}
-              className={"h5p-category-task-reset-modal"}
+              role={'dialog'}
+              aria-labelledby={'resetTitle'}
+              className={'h5p-category-task-reset-modal'}
             >
               <div
-                id={"resetTitle"}
+                id={'resetTitle'}
               >
                 {translations.ifYouContinueAllYourChangesWillBeLost}
               </div>
               <div>
                 <button
                   onClick={confirmReset}
-                  className={"continue"}
-                  type={"button"}
+                  className={'continue'}
+                  type={'button'}
                 >
                   {translations.continue}
                 </button>
                 <button
                   onClick={togglePopover}
-                  className={"cancel"}
-                  type={"button"}
+                  className={'cancel'}
+                  type={'button'}
                 >
                   {translations.cancel}
                 </button>
@@ -77,13 +77,13 @@ function Reset() {
           )}
         >
           <button
-            className={"h5p-category-task-button-restart"}
+            className={'h5p-category-task-button-restart'}
             onClick={togglePopover}
-            type={"button"}
+            type={'button'}
           >
             <span
-              className={"h5p-ri hri-restart"}
-              aria-hidden={"true"}
+              className={'h5p-ri hri-restart'}
+              aria-hidden={'true'}
             />
             {translations.restart}
           </button>

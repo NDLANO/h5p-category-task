@@ -24,10 +24,10 @@ function Summary() {
   return (
     <div
       className={classnames('h5p-category-task-summary')}
-      aria-labelledby={"summary-header"}
+      aria-labelledby={'summary-header'}
     >
       <label
-        id={"summary-header"}
+        id={'summary-header'}
         htmlFor={'summary'}
       >
         <h2>{summaryHeader ? summaryHeader : translate('summary')}</h2>
@@ -36,10 +36,10 @@ function Summary() {
         <div>{parseHtml(summaryInstruction)}</div>
       )}
       <textarea
-        id={"summary"}
+        id={'summary'}
         placeholder={translate('typeYourReasonsForSuchAnswers')}
         value={comment}
-        onChange={event => setComment(event.target.value)}
+        onChange={(event) => setComment(event.target.value)}
         aria-label={translate('typeYourReasonsForSuchAnswers')}
       />
     </div>

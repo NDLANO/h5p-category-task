@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "NODE_ENV=production webpack",
-    "watch": "NODE_ENV=development webpack --watch"
+    "watch": "NODE_ENV=development webpack --watch",
+    "lint:fix": "eslint . --fix",
+    "lint:check": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,7 @@
     "babel-loader": "^9.1.0",
     "css-loader": "^6.7.2",
     "eslint": "^8.28.0",
+    "eslint-config-ndla-h5p": "github:ndlano/eslint-config-ndla-h5p",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-react": "^7.31.11",
     "mini-css-extract-plugin": "^2.7.0",
@@ -51,6 +54,7 @@
     "react-device-detect": "^2.2.2",
     "react-dom": "^17.0.2",
     "react-tiny-popover": "^7.2.0",
+    "regenerator-runtime": "^0.13.11",
     "tween-functions": "^1.2.0"
   }
 }

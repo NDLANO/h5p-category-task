@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AddArgument from "./components/AddArgument";
+import AddArgument from './components/AddArgument';
 
 function Category(props) {
 
@@ -14,12 +14,12 @@ function Category(props) {
     children,
   } = props;
 
-  additionalClassName.unshift("h5p-category-task-category");
+  additionalClassName.unshift('h5p-category-task-category');
 
   return (
-    <div className={additionalClassName.join(" ")}>
+    <div className={additionalClassName.join(' ')}>
       {includeHeader && (
-        <div className={"h5p-category-task-category-header"}>
+        <div className={'h5p-category-task-category-header'}>
           {title}
           {addArgument && (
             <AddArgument
@@ -29,7 +29,7 @@ function Category(props) {
         </div>
       )}
       <div
-        className={"h5p-category-task-category-content"}
+        className={'h5p-category-task-category-content'}
         id={categoryId}
       >
         {children}
@@ -50,7 +50,7 @@ Category.propTypes = {
 Category.defaultProps = {
   columnClassName: [],
   additionalClassName: [],
-  title: "",
+  title: '',
   addArgument: true,
   includeHeader: true,
 };

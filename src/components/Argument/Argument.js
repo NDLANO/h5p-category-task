@@ -99,27 +99,27 @@ function ArgumentLayout(props) {
 
   return (
     <div
-      className={"h5p-category-task-argument-container"}
+      className={'h5p-category-task-argument-container'}
     >
       <div
-        className={classnames("h5p-category-task-argument", {
-          "h5p-category-task-active-draggable": activeDraggable
+        className={classnames('h5p-category-task-argument', {
+          'h5p-category-task-active-draggable': activeDraggable
         })}
       >
         <div
-          className={"h5p-category-task-argument-provided"}
+          className={'h5p-category-task-argument-provided'}
         >
           {isDragEnabled && (
             <DragArrows/>
           )}
           {statementDisplay}
           <button
-            className={"h5p-category-task-argument-actions"}
-            aria-label={"See available actions"}
+            className={'h5p-category-task-argument-actions'}
+            aria-label={'See available actions'}
             onClick={toggle}
-            type={"button"}
+            type={'button'}
           >
-            <span className={"fa fa-caret-down"}/>
+            <span className={'fa fa-caret-down'}/>
           </button>
         </div>
       </div>
