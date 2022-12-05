@@ -37,7 +37,7 @@ function ActionMenu(props) {
     return () => window.removeEventListener('pointerdown', handleClickOutside);
   }, [parentElement]);
 
-  classNames.push("h5p-category-task-actionmenu");
+  classNames.push('h5p-category-task-actionmenu');
 
   function handleSelect(callback) {
     handleClose();
@@ -56,8 +56,8 @@ function ActionMenu(props) {
     let label;
     if (settings.label) {
       label = (<span
-        id={"action-" + index}
-        className={"h5p-category-task-popover-actionmenu-labeltext"}
+        id={'action-' + index}
+        className={'h5p-category-task-popover-actionmenu-labeltext'}
       >
         {settings.label}
       </span>);
@@ -65,8 +65,8 @@ function ActionMenu(props) {
     else {
       label = (
         <span
-          id={"action-" + index}
-          className={"h5p-category-task-popover-actionmenu-labeltext"}
+          id={'action-' + index}
+          className={'h5p-category-task-popover-actionmenu-labeltext'}
         >
           {translate('moveTo')} &quot;<span>{settings.title}</span>&quot;
         </span>
@@ -83,19 +83,19 @@ function ActionMenu(props) {
       >
         <input
           tabIndex={-1}
-          id={"input-" + settings.id}
+          id={'input-' + settings.id}
           value={settings.id}
-          type={"checkbox"}
+          type={'checkbox'}
           checked={settings.activeCategory}
           onChange={() => {
             if (settings.activeCategory !== true) {
               handleSelect(settings.onSelect);
             }
           }}
-          aria-labelledby={"action-" + index}
+          aria-labelledby={'action-' + index}
         />
         <span
-          className={classnames("h5p-ri", {
+          className={classnames('h5p-ri', {
             'hri-checked': settings.activeCategory,
             'hri-unchecked': !settings.activeCategory,
           })}/>
@@ -107,10 +107,10 @@ function ActionMenu(props) {
   function getDelete(settings) {
     return (
       <button
-        className={"h5p-category-task-popover-actionmenu-delete"}
+        className={'h5p-category-task-popover-actionmenu-delete'}
         aria-label={settings.title}
-        type={"button"}
-        onClick={e => {
+        type={'button'}
+        onClick={(e) => {
           e.preventDefault();
           settings.onSelect();
         }}
@@ -121,34 +121,34 @@ function ActionMenu(props) {
           alt={translate('deleteArgument')}
         />
         <span
-          className={"h5p-category-task-popover-actionmenu-labeltext"}>{settings.title}</span>
+          className={'h5p-category-task-popover-actionmenu-labeltext'}>{settings.title}</span>
       </button>
     );
   }
 
   return (
     <TinyPopover
-      containerClassName={classNames.join(" ")}
+      containerClassName={classNames.join(' ')}
       contentLocation={{
         top: parentBox.borderBox.top,
         left: -parentBox.borderBox.left,
       }}
       isOpen={show}
-      positions={["bottom"]}
+      positions={['bottom']}
       padding={0}
       reposition={false}
       parentElement={parentElement}
       containerStyle={{position: 'absolute', top: '56px'}}
       content={() => (
         <div
-          className={"h5p-category-task-popover-actionmenu"}
-          role={"dialog"}
-          aria-labelledby={"actionMenuTitle"}
-          aria-describedby={"actionMenuDescription"}
+          className={'h5p-category-task-popover-actionmenu'}
+          role={'dialog'}
+          aria-labelledby={'actionMenuTitle'}
+          aria-describedby={'actionMenuDescription'}
         >
-          <div className={"visible-hidden"}>
-            <h1 id={"actionMenuTitle"}>{translate('actionMenuTitle')}</h1>
-            <p id={"actionMenuDescription"}>{translate('actionMenuDescription')}</p>
+          <div className={'visible-hidden'}>
+            <h1 id={'actionMenuTitle'}>{translate('actionMenuTitle')}</h1>
+            <p id={'actionMenuDescription'}>{translate('actionMenuDescription')}</p>
           </div>
           <ul>
             {actions.map((action, index) => {
@@ -161,7 +161,7 @@ function ActionMenu(props) {
               }
               return (
                 <li
-                  key={"action-" + index}
+                  key={'action-' + index}
                 >
                   {content}
                 </li>
@@ -170,8 +170,8 @@ function ActionMenu(props) {
           </ul>
           <button
             onClick={handleClose}
-            className={"visible-hidden"}
-            type={"button"}
+            className={'visible-hidden'}
+            type={'button'}
           >{translate('close')}
           </button>
         </div>

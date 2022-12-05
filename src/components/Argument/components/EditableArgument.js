@@ -1,7 +1,7 @@
 import React, {useState, useRef, useEffect} from 'react';
 import PropsTypes from 'prop-types';
 import classnames from 'classnames';
-import {debounce} from "../../utils";
+import {debounce} from '../../utils';
 
 function EditableArgument(props) {
 
@@ -23,7 +23,11 @@ function EditableArgument(props) {
     }
   };
 
-  const handleKeyUp = event => {
+  const handleBlur = () => {
+    toggleEditMode(false);
+  };
+
+  const handleKeyUp = (event) => {
     if (event.keyCode === 13) {
       if ( inEditMode ) {
         handleBlur();
@@ -34,19 +38,15 @@ function EditableArgument(props) {
     }
   };
 
-  const handleBlur = () => {
-    toggleEditMode(false);
-  };
-
-  const id = "es_" + props.idBase;
-  const labelId = "label_" + id;
-  const inputId = "input_" + id;
+  const id = 'es_' + props.idBase;
+  const labelId = 'label_' + id;
+  const inputId = 'input_' + id;
   return (
     <div
-      role={"textbox"}
+      role={'textbox'}
       tabIndex={0}
       onClick={handleClick}
-      className={"h5p-category-task-editable-container"}
+      className={'h5p-category-task-editable-container'}
       onKeyUp={handleKeyUp}
       aria-labelledby={labelId}
     >
@@ -55,25 +55,25 @@ function EditableArgument(props) {
           title={props.argument}
           htmlFor={inputId}
           id={labelId}
-          className={classnames("h5p-category-task-editable", {
-            "hidden": inEditMode === false,
+          className={classnames('h5p-category-task-editable', {
+            'hidden': inEditMode === false,
           })}
         >
-          <span className={"visible-hidden"}>Argument</span>
+          <span className={'visible-hidden'}>Argument</span>
           <input
-            className={"h5p-category-task-editable"}
+            className={'h5p-category-task-editable'}
             ref={inputRef}
             onBlur={handleBlur}
             onChange={debounce(() => props.onBlur(inputRef.current.value), 200)}
-            aria-label={"Edit argument " + props.argument}
+            aria-label={'Edit argument ' + props.argument}
             aria-hidden={!inEditMode}
             id={inputId}
           />
         </label>
         <p
           aria-hidden={inEditMode}
-          className={classnames("h5p-category-task-noneditable", {
-            "hidden": inEditMode === true,
+          className={classnames('h5p-category-task-noneditable', {
+            'hidden': inEditMode === true,
           })}
         >
           {props.argument}

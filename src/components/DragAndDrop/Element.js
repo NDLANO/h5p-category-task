@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from "classnames";
-import {Draggable} from "react-beautiful-dnd";
+import classnames from 'classnames';
+import {Draggable} from 'react-beautiful-dnd';
 
 function Element(props) {
 
@@ -19,7 +19,7 @@ function Element(props) {
     >
       {(provided, snapshot) => (
         <div
-          className={"h5p-category-task-draggable-container"}
+          className={'h5p-category-task-draggable-container'}
           aria-label={ariaLabel}
         >
           <ElementLayout
@@ -45,7 +45,7 @@ Element.propTypes = {
 function ElementLayout({children, provided, snapshot}) {
   return (
     <div
-      className={classnames("h5p-category-task-draggable-element", {
+      className={classnames('h5p-category-task-draggable-element', {
         'h5p-category-task-active-draggable': snapshot.isDragging,
       })}
       ref={provided.innerRef}

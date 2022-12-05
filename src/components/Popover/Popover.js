@@ -35,26 +35,26 @@ const Popover = ({
           childRect={openerRect}
         >
           <div
-            className={"h5p-category-task-popover-container"}
+            className={'h5p-category-task-popover-container'}
           >
-            <div className={"h5p-category-task-popover-header"}>
+            <div className={'h5p-category-task-popover-header'}>
               <div>
                 {header}
               </div>
               <button
                 onClick={handleClose}
                 aria-label={close}
-                type={"button"}
-                className={"close-button"}
+                type={'button'}
+                className={'close-button'}
               >
                 <span
-                  className={"h5p-ri hri-close"}
+                  className={'h5p-ri hri-close'}
                   aria-hidden={true}
                 />
               </button>
             </div>
             <div
-              className={"h5p-category-task-popover-content"}
+              className={'h5p-category-task-popover-content'}
             >
               {popoverContent}
             </div>

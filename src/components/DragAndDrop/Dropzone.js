@@ -1,5 +1,5 @@
 import React from 'react';
-import {Droppable} from "react-beautiful-dnd";
+import {Droppable} from 'react-beautiful-dnd';
 import classnames from 'classnames';
 
 function Dropzone({droppablePrefix, label, disableDrop}) {
@@ -16,8 +16,8 @@ function Dropzone({droppablePrefix, label, disableDrop}) {
             ref={provided.innerRef}
           >
             <div
-              className={classnames("h5p-category-task-dropzone", {
-                "h5p-category-task-active": snapshot.isDraggingOver
+              className={classnames('h5p-category-task-dropzone', {
+                'h5p-category-task-active': snapshot.isDraggingOver
               })}
             >
               <div>
