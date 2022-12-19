@@ -1,4 +1,4 @@
-import {escape, decode} from 'he';
+import { escape, decode } from 'he';
 
 export function ArgumentDataObject(initValues) {
   this.id = null;
@@ -10,6 +10,19 @@ export function ArgumentDataObject(initValues) {
   return Object.assign(this, initValues);
 }
 
+/**
+ * @param {{
+ *   id: string;
+ *   title?: string;
+ *   connectedArguments?: Array<ArgumentDataObject>;
+ *   isArgumentDefaultList?: boolean;
+ *   theme?: string;
+ *   useNoArgumentsPlaceholder?: boolean;
+ *   prefix?: string;
+ *   actionTargetContainer?: boolean
+ * }} initValues
+ * @returns {CategoryDataObject}
+ */
 export function CategoryDataObject(initValues) {
   this.id = null;
   this.title = null;
@@ -34,14 +47,26 @@ export function ActionMenuDataObject(initValues) {
   return Object.assign(this, initValues);
 }
 
+/**
+ * @param {CategoryDataObject | ArgumentDataObject} element 
+ * @returns {string}
+ */
 export function getDnDId(element) {
   return [element.prefix, element.id].join('-');
 }
 
+/**
+ * 
+ * @param {() => void} func 
+ * @param {number} wait 
+ * @param {boolean} immediate 
+ * @returns {() => void}
+ */
 export function debounce(func, wait, immediate) {
   let timeout;
   return function () {
-    const context = this, args = arguments;
+    const context = this,
+      args = arguments;
     const later = function () {
       timeout = null;
       if (!immediate) func.apply(context, args);
@@ -61,6 +86,10 @@ export function escapeHTML(html) {
   return html ? escape(html) : html;
 }
 
+/**
+ * @param {string} html 
+ * @returns {string}
+ */
 export function stripHTML(html) {
   const element = document.createElement('div');
   element.innerHTML = html;
@@ -68,9 +97,14 @@ export function stripHTML(html) {
 }
 
 export function sanitizeParams(params) {
-  const filterResourceList = (element) => Object.keys(element).length !== 0 && element.constructor === Object;
+  const filterResourceList = (element) =>
+    Object.keys(element).length !== 0 && element.constructor === Object;
   const handleObject = (sourceObject) => {
-    if ( sourceObject === undefined || sourceObject === null || !filterResourceList(sourceObject)) {
+    if (
+      sourceObject === undefined ||
+      sourceObject === null ||
+      !filterResourceList(sourceObject)
+    ) {
       return sourceObject;
     }
     return Object.keys(sourceObject).reduce((aggregated, current) => {
@@ -91,25 +125,27 @@ export function sanitizeParams(params) {
     resources,
   } = params;
 
-  if ( Array.isArray(argumentsList) ) {
+  if (Array.isArray(argumentsList)) {
     argumentsList = argumentsList.map((argument) => decodeHTML(argument));
   }
 
-  if (resources.params.resourceList && resources.params.resourceList.filter(filterResourceList).length > 0) {
+  if (
+    resources.params.resourceList &&
+    resources.params.resourceList.filter(filterResourceList).length > 0
+  ) {
     resources.params = {
       ...resources.params,
       l10n: handleObject(resources.params.l10n),
-      resourceList: resources.params.resourceList.filter(filterResourceList).map((resource) => {
-        const {
-          title,
-          introduction,
-        } = resource;
-        return {
-          ...resource,
-          title: decodeHTML(title),
-          introduction: decodeHTML(introduction),
-        };
-      })
+      resourceList: resources.params.resourceList
+        .filter(filterResourceList)
+        .map((resource) => {
+          const { title, introduction } = resource;
+          return {
+            ...resource,
+            title: decodeHTML(title),
+            introduction: decodeHTML(introduction),
+          };
+        }),
     };
   }
 
@@ -129,13 +165,11 @@ export function sanitizeParams(params) {
 
 /**
  * CSS classnames and breakpoints for the content type
- *
- * @type {{largeTablet: string, large: string, mediumTablet: string}}
  */
 const CategoryTaskClassnames = {
-  'mediumTablet': 'h5p-medium-tablet-size',
-  'largeTablet': 'h5p-large-tablet-size',
-  'large': 'h5p-large-size',
+  mediumTablet: 'h5p-medium-tablet-size',
+  largeTablet: 'h5p-large-tablet-size',
+  large: 'h5p-large-size',
 };
 
 /**
@@ -146,16 +180,16 @@ const CategoryTaskClassnames = {
 export const breakpoints = () => {
   return [
     {
-      'className': CategoryTaskClassnames.mediumTablet,
-      'shouldAdd': (ratio) => ratio >= 22 && ratio < 40,
+      className: CategoryTaskClassnames.mediumTablet,
+      shouldAdd: (ratio) => ratio >= 22 && ratio < 40,
     },
     {
-      'className': CategoryTaskClassnames.largeTablet,
-      'shouldAdd': (ratio) => ratio >= 40 && ratio < 60,
+      className: CategoryTaskClassnames.largeTablet,
+      shouldAdd: (ratio) => ratio >= 40 && ratio < 60,
     },
     {
-      'className': CategoryTaskClassnames.large,
-      'shouldAdd': (ratio) => ratio >= 60,
+      className: CategoryTaskClassnames.large,
+      shouldAdd: (ratio) => ratio >= 60,
     },
   ];
 };
@@ -166,10 +200,21 @@ export const breakpoints = () => {
  * @return {number}
  */
 export function getRatio(container) {
-  if ( !container) {
+  if (!container) {
     return;
   }
   const computedStyles = window.getComputedStyle(container);
-  return container.offsetWidth / parseFloat(computedStyles.getPropertyValue('font-size'));
+  return (
+    container.offsetWidth /
+    parseFloat(computedStyles.getPropertyValue('font-size'))
+  );
 }
 
+/**
+ * @template T
+ * @param {T} object 
+ * @returns {T}
+ */
+export function clone(object) {
+  return JSON.parse(JSON.stringify(object));
+}

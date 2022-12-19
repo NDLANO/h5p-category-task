@@ -24,15 +24,13 @@ export default function Draggable({ id, isDropDisabled, children }) {
   };
 
   return (
-    <button
-      type="button"
+    <div
       ref={setNodeRef}
       style={style}
-      disabled={isDropDisabled}
       {...listeners}
       {...attributes}
     >
       {children}
-    </button>
+    </div>
   );
 }

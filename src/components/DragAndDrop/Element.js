@@ -48,7 +48,7 @@ function ElementLayout({children, provided, snapshot}) {
   return (
     <div
       className={classnames('h5p-category-task-draggable-element', {
-        'h5p-category-task-active-draggable': snapshot.isDragging,
+        // 'h5p-category-task-active-draggable': snapshot.isDragging,
       })}
       // ref={provided.innerRef}
       // {...provided.dragHandleProps}
