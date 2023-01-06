@@ -1,24 +1,22 @@
 // @ts-check
 
-import React, { useEffect, useReducer, useCallback } from 'react';
-import { getBox } from 'css-box-model';
-import tweenFunctions from 'tween-functions';
-import { useCategoryTask } from '../../context/CategoryTaskContext';
-import Summary from '../Summary/Summary';
-import Category from '../Categories/Category';
-import { isMobile } from 'react-device-detect';
-import Element from '../DragAndDrop/Element';
-import Argument from '../Argument/Argument';
-import Column from '../DragAndDrop/Column';
-import {
-  CategoryDataObject,
-  ArgumentDataObject,
-  getDnDId,
-  ActionMenuDataObject,
-  clone,
-} from '../utils';
 import { DndContext, PointerSensor, useSensor } from '@dnd-kit/core';
 import { arraySwap } from '@dnd-kit/sortable';
+import React, { useCallback, useEffect, useReducer } from 'react';
+import { isMobile } from 'react-device-detect';
+import { useCategoryTask } from '../../context/CategoryTaskContext';
+import Argument from '../Argument/Argument';
+import Category from '../Categories/Category';
+import Column from '../DragAndDrop/Column';
+import Element from '../DragAndDrop/Element';
+import Summary from '../Summary/Summary';
+import {
+  ActionMenuDataObject,
+  ArgumentDataObject,
+  CategoryDataObject,
+  clone,
+  getDnDId,
+} from '../utils';
 
 /**
  * @typedef {{
@@ -279,8 +277,6 @@ function Surface() {
                 index2,
               ).filter((id) => id != null);
 
-              console.log('swap', { categoryId, connectedArguments });
-
               return {
                 ...category,
                 connectedArguments,
@@ -310,8 +306,6 @@ function Surface() {
 
   const memoizedReducer = useCallback(stateHeadQuarter, []);
   const [state, dispatch] = useReducer(memoizedReducer, init());
-
-  let api;
 
   useEffect(() => {
     context.trigger('resize');
@@ -392,7 +386,8 @@ function Surface() {
           argument2Id,
         },
       });
-    } else {
+    }
+    else {
       const argumentId = parseInt(activeArgumentIdStr, 10);
       const categoryId = collidedItemIdStr && parseInt(collidedItemIdStr, 10);
 
@@ -420,34 +415,6 @@ function Surface() {
   }
 
   /**
-   * @param {{ y: number }} position
-   */
-  function scroll(position) {
-    const frame = window.frameElement ? parent : window;
-    frame.scrollTo({
-      top: position.y,
-      behavior: 'smooth',
-    });
-  }
-
-  function moveStepByStep(drag, values) {
-    requestAnimationFrame(() => {
-      const newPosition = values.shift();
-      drag.move(newPosition);
-
-      const notAtTheEnd = values.length > 0;
-      if (notAtTheEnd) {
-        moveStepByStep(drag, values);
-      } else {
-        if (isMobile) {
-          scroll(newPosition);
-        }
-        drag.drop();
-      }
-    });
-  }
-
-  /**
    * @param {number} argumentId
    * @param {CategoryDataObject} newCategory
    */
@@ -456,7 +423,6 @@ function Surface() {
       category.connectedArguments.includes(argumentId),
     );
 
-    console.log({ argumentId, previousCategory, newCategory });
     if (!previousCategory) {
       return;
     }
@@ -469,28 +435,6 @@ function Surface() {
         to: newCategory,
       },
     });
-
-    // const targetContainer = getBox(targetEl);
-    // const dragElement = getBox(draggableEl);
-    // const start = dragElement.borderBox.center;
-    // const end = {
-    //   x: targetContainer.borderBox.center.x,
-    //   y:
-    //     targetContainer.borderBox.bottom -
-    //     Math.min(15, targetContainer.borderBox.height / 4),
-    // };
-    // // const drag = preDrag.fluidLift(start);
-
-    // const points = [];
-    // const numberOfPoints = 60;
-    // for (let i = 0; i < numberOfPoints; i++) {
-    //   points.push({
-    //     x: tweenFunctions.easeOutQuad(i, start.x, end.x, numberOfPoints),
-    //     y: tweenFunctions.easeOutQuad(i, start.y, end.y, numberOfPoints),
-    //   });
-    // }
-
-    // moveStepByStep(drag, points);
   };
 
   /**
@@ -636,14 +580,14 @@ function Surface() {
               >
                 {category.useNoArgumentsPlaceholder &&
                 category.connectedArguments.length === 0 ? (
-                  <span>
-                    {translate(
-                      allowAddingOfArguments
-                        ? 'dropExistingOrAddNewArgument'
-                        : 'dropArgumentsHere',
-                    )}
-                  </span>
-                ) : null}
+                    <span>
+                      {translate(
+                        allowAddingOfArguments
+                          ? 'dropExistingOrAddNewArgument'
+                          : 'dropArgumentsHere',
+                      )}
+                    </span>
+                  ) : null}
                 <>
                   {category.connectedArguments
                     .map(
