@@ -1,58 +1,76 @@
 // @ts-check
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Draggable from '../Draggable/Draggable';
+import { CSS } from '@dnd-kit/utilities';
+import { defaultAnimateLayoutChanges, useSortable } from '@dnd-kit/sortable';
 
-function Element(props) {
+/**
+ * @param {{
+ *   draggableId: string;
+ *   ariaLabel: string;
+ *   renderChildren: (
+ *     attributes: import('@dnd-kit/core').DraggableAttributes,
+ *     listeners: import('@dnd-kit/core/dist/hooks/utilities').SyntheticListenerMap | undefined,
+ *     isDragging: boolean,
+ *   ) => JSX.Element | Array<JSX.Element | null> | null
+ * }} props
+ * @returns
+ */
+function Element({ draggableId, ariaLabel, renderChildren }) {
+  /** @type {import('@dnd-kit/sortable').AnimateLayoutChanges} */
+  const animateLayoutChanges = (args) =>
+    defaultAnimateLayoutChanges({ ...args, wasDragging: true });
 
-  const {
-    children,
-    draggableId,
-    dragIndex,
-    ariaLabel,
-  } = props;
+  const { setNodeRef, transform, transition, attributes, listeners, isDragging } =
+    useSortable({
+      id: draggableId,
+      data: { draggableId },
+      animateLayoutChanges,
+    });
+
+  const style = {
+    transform: CSS.Translate.toString(transform),
+    transition,
+  };
 
   return (
-    <Draggable
-      id={draggableId}
-      // index={dragIndex}
+    <div
+      ref={setNodeRef}
+      style={style}
+      className={classnames('h5p-dnd-draggable', {
+        'h5p-dnd-draggable--dragging': isDragging,
+      })}
     >
-      {/* {(provided, snapshot) => ( */}
       <div
         className={'h5p-category-task-draggable-container'}
         aria-label={ariaLabel}
       >
-        <ElementLayout
-          // provided={provided}
-          // snapshot={snapshot}
-          ariaLabel={ariaLabel}
-        >
-          {children}
+        <ElementLayout ariaLabel={ariaLabel} isDragging={isDragging}>
+          {renderChildren(attributes, listeners, isDragging)}
         </ElementLayout>
       </div>
-      {/* )} */}
-    </Draggable>
+    </div>
   );
 }
 
-Element.propTypes = {
-  draggableId: PropTypes.string,
-  dragIndex: PropTypes.number,
-  disableTransform: PropTypes.bool,
-  ariaLabel: PropTypes.string,
-};
-
-function ElementLayout({children, provided, snapshot}) {
+/**
+ * @param {{
+ *   children: JSX.Element | Array<JSX.Element | null> | null;
+ *   isDragging: boolean;
+ *   ariaLabel: string;
+ * }} props
+ *
+ * @returns {JSX.Element}
+ */
+function ElementLayout({ children, isDragging, ariaLabel }) {
   return (
     <div
       className={classnames('h5p-category-task-draggable-element', {
-        // 'h5p-category-task-active-draggable': snapshot.isDragging,
+        'h5p-category-task-active-draggable': isDragging,
+        'h5p-category-task-draggable-element--dragging': isDragging,
       })}
-      // ref={provided.innerRef}
-      // {...provided.dragHandleProps}
-      // {...provided.draggableProps}
+      aria-label={ariaLabel}
     >
       {children}
     </div>
@@ -65,7 +83,4 @@ ElementLayout.propTypes = {
   ariaLabel: PropTypes.string,
 };
 
-export {
-  Element as default,
-  ElementLayout,
-};
+export { Element as default, ElementLayout };

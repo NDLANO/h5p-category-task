@@ -1,54 +1,100 @@
+// @ts-check
+
 import { escape, decode } from 'he';
 
-export function ArgumentDataObject(initValues) {
-  this.id = null;
-  this.added = false;
-  this.argumentText = null;
-  this.editMode = false;
-  this.prefix = 'argument';
+/**
+ * @param {{
+ *   id?: number | null;
+ *   added?: boolean;
+ *   argumentText?: string | null;
+ *   editMode?: boolean;
+ *   prefix?: string
+ * }} initValues
+ * @returns {ArgumentDataObject}
+ */
+export function ArgumentDataObject({
+  id,
+  added,
+  argumentText,
+  editMode,
+  prefix,
+}) {
+  this.id = id ?? null;
+  this.added = added ?? false;
+  this.argumentText = argumentText ?? null;
+  this.editMode = editMode ?? false;
+  this.prefix = prefix ?? 'argument';
 
-  return Object.assign(this, initValues);
+  return this;
 }
 
 /**
  * @param {{
- *   id: string;
- *   title?: string;
- *   connectedArguments?: Array<ArgumentDataObject>;
+ *   id: number;
+ *   title?: string | null;
+ *   connectedArguments?: Array<number>;
  *   isArgumentDefaultList?: boolean;
  *   theme?: string;
  *   useNoArgumentsPlaceholder?: boolean;
  *   prefix?: string;
  *   actionTargetContainer?: boolean
  * }} initValues
+ *
  * @returns {CategoryDataObject}
  */
-export function CategoryDataObject(initValues) {
-  this.id = null;
-  this.title = null;
-  this.connectedArguments = [];
-  this.isArgumentDefaultList = false;
-  this.theme = 'h5p-category-task-category-default';
-  this.useNoArgumentsPlaceholder = false;
-  this.prefix = 'category';
-  this.actionTargetContainer = false;
+export function CategoryDataObject({
+  id,
+  title,
+  connectedArguments,
+  isArgumentDefaultList,
+  theme,
+  useNoArgumentsPlaceholder,
+  prefix,
+  actionTargetContainer,
+}) {
+  this.id = id ?? null;
+  this.title = title ?? null;
+  this.connectedArguments = connectedArguments ?? [];
+  this.isArgumentDefaultList = isArgumentDefaultList ?? false;
+  this.theme = theme ?? 'h5p-category-task-category-default';
+  this.useNoArgumentsPlaceholder = useNoArgumentsPlaceholder ?? false;
+  this.prefix = prefix ?? 'category';
+  this.actionTargetContainer = actionTargetContainer ?? false;
 
-  return Object.assign(this, initValues);
-}
-
-export function ActionMenuDataObject(initValues) {
-  this.id = null;
-  this.title = null;
-  this.activeCategory = null;
-  this.onSelect = null;
-  this.type = null;
-  this.label = null;
-
-  return Object.assign(this, initValues);
+  return this;
 }
 
 /**
- * @param {CategoryDataObject | ArgumentDataObject} element 
+ *
+ * @param {{
+ *   id?: number;
+ *   title?: string | null;
+ *   activeCategory?: boolean;
+ *   onSelect?: () => void;
+ *   type?: string;
+ *   label?: string}} initValues
+ * @returns
+ */
+export function ActionMenuDataObject({
+  id,
+  title,
+  activeCategory,
+  onSelect,
+  type,
+  label,
+}) {
+  this.id = id ?? null;
+  this.title = title ?? null;
+  this.activeCategory = activeCategory ?? null;
+  this.onSelect = onSelect ?? null;
+  this.type = type ?? null;
+  this.label = label ?? null;
+
+  return this;
+}
+
+/**
+ * @param {CategoryDataObject | ArgumentDataObject} element
  * @returns {string}
  */
 export function getDnDId(element) {
@@ -56,10 +102,9 @@ export function getDnDId(element) {
 }
 
 /**
- * 
- * @param {() => void} func 
- * @param {number} wait 
- * @param {boolean} immediate 
+ * @param {() => void} func
+ * @param {number} wait
+ * @param {boolean} immediate
  * @returns {() => void}
  */
 export function debounce(func, wait, immediate) {
@@ -78,16 +123,24 @@ export function debounce(func, wait, immediate) {
   };
 }
 
+/**
+ * @param {string} html
+ * @returns {string}
+ */
 export function decodeHTML(html) {
   return html ? decode(html) : html;
 }
 
+/**
+ * @param {string} html
+ * @returns {string}
+ */
 export function escapeHTML(html) {
   return html ? escape(html) : html;
 }
 
 /**
- * @param {string} html 
+ * @param {string} html
  * @returns {string}
  */
 export function stripHTML(html) {
@@ -100,13 +153,10 @@ export function sanitizeParams(params) {
   const filterResourceList = (element) =>
     Object.keys(element).length !== 0 && element.constructor === Object;
   const handleObject = (sourceObject) => {
-    if (
-      sourceObject === undefined ||
-      sourceObject === null ||
-      !filterResourceList(sourceObject)
-    ) {
+    if (sourceObject == null || !filterResourceList(sourceObject)) {
       return sourceObject;
     }
+
     return Object.keys(sourceObject).reduce((aggregated, current) => {
       aggregated[current] = decodeHTML(sourceObject[current]);
       return aggregated;
@@ -129,10 +179,7 @@ export function sanitizeParams(params) {
     argumentsList = argumentsList.map((argument) => decodeHTML(argument));
   }
 
-  if (
-    resources.params.resourceList &&
-    resources.params.resourceList.filter(filterResourceList).length > 0
-  ) {
+  if (resources.params.resourceList?.filter(filterResourceList).length > 0) {
     resources.params = {
       ...resources.params,
       l10n: handleObject(resources.params.l10n),
@@ -175,7 +222,11 @@ const CategoryTaskClassnames = {
 /**
  * Get list of classname and conditions for when to add the classname to the content type
  *
- * @return {[{className: string, shouldAdd: (function(*): boolean)}, {className: string, shouldAdd: (function(*): boolean|boolean)}, {className: string, shouldAdd: (function(*): boolean)}]}
+ * @return {[
+ *   {className: string, shouldAdd: ((ratio: number) => boolean)},
+ *   {className: string, shouldAdd: ((ratio: number) => boolean)},
+ *   {className: string, shouldAdd: ((ratio: number) => boolean)}
+ * ]}
  */
 export const breakpoints = () => {
   return [
@@ -197,7 +248,9 @@ export const breakpoints = () => {
 /**
  * Get the ratio of the container
  *
- * @return {number}
+ * @param {HTMLElement} container
+ *
+ * @return {number | undefined}
  */
 export function getRatio(container) {
   if (!container) {
@@ -212,7 +265,7 @@ export function getRatio(container) {
 
 /**
  * @template T
- * @param {T} object 
+ * @param {T} object
  * @returns {T}
  */
 export function clone(object) {

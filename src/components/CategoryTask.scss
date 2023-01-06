@@ -195,9 +195,21 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     border-radius: $borderRadius;
   }
 
+  .h5p-category-task-draggable-element--dragging {
+    border-color: transparent;
+  }
+
   .h5p-category-task-argument-container, .h5p-category-task-argument-container:hover {
     box-shadow: none;
   }
+}
+
+.h5p-dnd-draggable {
+  position: relative;
+}
+
+.h5p-dnd-draggable--dragging {
+  z-index: 1;
 }
 
 .h5p-category-task-argument {
@@ -393,6 +405,7 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   margin: 0.8rem auto;
   position: relative;
 }
+
 
 .h5p-category-task-draggable-element > div {
   position: relative;

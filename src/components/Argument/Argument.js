@@ -1,3 +1,5 @@
+// @ts-check
+
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import EditableArgument from './components/EditableArgument';
@@ -7,18 +9,18 @@ import classnames from 'classnames';
 import DragArrows from './components/DragArrows';
 import { getDnDId } from '../utils';
 
-function Argument(props) {
+function Argument({
+  argument,
+  onArgumentChange,
+  enableEditing = false,
+  isDragging = false,
+  isDragEnabled = true,
+  actions,
+  attributes,
+  listeners,
+}) {
   const innerRef = useRef(null);
   const [refReady, setRef] = useState(false);
-
-  const {
-    argument,
-    onArgumentChange,
-    enableEditing = false,
-    isDragging = false,
-    isDragEnabled = true,
-    actions,
-  } = props;
 
   const [showPopover, togglePopover] = useState(false);
 
@@ -35,7 +37,7 @@ function Argument(props) {
   }, [innerRef]);
 
   let displayStatement;
-  if (enableEditing) {
+  if (enableEditing && !isDragging) {
     displayStatement = (
       <EditableArgument
         argument={argument.argumentText}
@@ -55,6 +57,9 @@ function Argument(props) {
       isDragEnabled={isDragEnabled}
       statementDisplay={displayStatement}
       toggle={toggle}
+      // draggableId={getDnDId(argument)}
+      attributes={attributes}
+      listeners={listeners}
     />
   );
 
@@ -83,34 +88,29 @@ Argument.propTypes = {
   onArgumentChange: PropTypes.func,
   enableEditing: PropTypes.bool,
   onArgumentDelete: PropTypes.func,
-  isDragging: PropTypes.bool,
+  isDragging: PropTypes.bool.isRequired,
   isDragEnabled: PropTypes.bool,
   actions: PropTypes.array,
 };
 
-function ArgumentLayout(props) {
-
-  const {
-    activeDraggable,
-    isDragEnabled,
-    statementDisplay,
-    toggle,
-  } = props;
-
+function ArgumentLayout({
+  activeDraggable,
+  isDragEnabled,
+  statementDisplay,
+  toggle,
+  attributes,
+  listeners,
+}) {
   return (
-    <div
-      className={'h5p-category-task-argument-container'}
-    >
+    <div className={'h5p-category-task-argument-container'}>
       <div
         className={classnames('h5p-category-task-argument', {
-          'h5p-category-task-active-draggable': activeDraggable
+          'h5p-category-task-active-draggable': activeDraggable,
         })}
       >
-        <div
-          className={'h5p-category-task-argument-provided'}
-        >
+        <div className={'h5p-category-task-argument-provided'}>
           {isDragEnabled && (
-            <DragArrows/>
+            <DragArrows attributes={attributes} listeners={listeners} />
           )}
           {statementDisplay}
           <button
@@ -119,7 +119,7 @@ function ArgumentLayout(props) {
             onClick={toggle}
             type={'button'}
           >
-            <span className={'fa fa-caret-down'}/>
+            <span className={'fa fa-caret-down'} />
           </button>
         </div>
       </div>
@@ -136,13 +136,9 @@ ArgumentLayout.propTypes = {
 };
 
 ArgumentLayout.defaultProps = {
-  toggle: () => {
-  },
+  toggle: () => {},
   isDragEnabled: true,
   activeDraggable: false,
 };
 
-export {
-  Argument as default,
-  ArgumentLayout
-};
+export { Argument as default, ArgumentLayout };

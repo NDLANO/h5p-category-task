@@ -4,26 +4,26 @@ import React from 'react';
 import classnames from 'classnames';
 import Droppable from './Droppable';
 
-function Dropzone({ droppablePrefix, label, disableDrop }) {
+/**
+ *
+ * @param {{
+ *   droppablePrefix: 'droppable';
+ *   label: string;
+ *   disableDrop: boolean;
+ *   isDraggingOver: boolean;
+ * }} props
+ * @returns
+ */
+function Dropzone({ droppablePrefix, label, disableDrop, isDraggingOver }) {
   return (
-    <Droppable
-      id={droppablePrefix + '-dzone'}
-      // isDropDisabled={disableDrop}
-    >
-      {/* {(provided, snapshot) => { */}
-      {/* return ( */}
-      {/* <div {...provided.droppableProps} ref={provided.innerRef}> */}
+    <Droppable id={`${droppablePrefix}-dzone`} isDropDisabled={disableDrop}>
       <div
         className={classnames('h5p-category-task-dropzone', {
-          // 'h5p-category-task-active': snapshot.isDraggingOver,
+          'h5p-category-task-active': isDraggingOver,
         })}
       >
         <div>{label}</div>
       </div>
-      {/* <div style={{ display: 'none' }}>{provided.placeholder}</div> */}
-      {/* </div> */}
-      {/* ); */}
-      {/* }} */}
     </Droppable>
   );
 }

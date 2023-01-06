@@ -1,3 +1,5 @@
+// @ts-check
+
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Popover as TinyPopover } from 'react-tiny-popover';
@@ -7,11 +9,8 @@ import { useCategoryTask } from '../../../context/CategoryTaskContext';
 import { getBox } from 'css-box-model';
 
 function ActionMenu(props) {
-
   const context = useCategoryTask();
-  const {
-    translate,
-  } = context;
+  const { translate } = context;
 
   const {
     children,
@@ -45,7 +44,8 @@ function ActionMenu(props) {
   }
 
   function handleKeyUp(event, callback) {
-    if (event.keyCode === 13) {
+    const enterKey = event.keyCode === 13;
+    if (enterKey) {
       handleSelect(callback);
     }
   }
@@ -55,13 +55,15 @@ function ActionMenu(props) {
   function getCategory(settings, index) {
     let label;
     if (settings.label) {
-      label = (<span
-        id={'action-' + index}
-        className={'h5p-category-task-popover-actionmenu-labeltext'}
-      >
-        {settings.label}
-      </span>);
-    }
+      label = (
+        <span
+          id={'action-' + index}
+          className={'h5p-category-task-popover-actionmenu-labeltext'}
+        >
+          {settings.label}
+        </span>
+      );
+    } 
     else {
       label = (
         <span
@@ -70,7 +72,6 @@ function ActionMenu(props) {
         >
           {translate('moveTo')} &quot;<span>{settings.title}</span>&quot;
         </span>
-
       );
     }
 
@@ -98,7 +99,8 @@ function ActionMenu(props) {
           className={classnames('h5p-ri', {
             'hri-checked': settings.activeCategory,
             'hri-unchecked': !settings.activeCategory,
-          })}/>
+          })}
+        />
         {label}
       </label>
     );
@@ -115,12 +117,10 @@ function ActionMenu(props) {
           settings.onSelect();
         }}
       >
-        <img
-          src={trash}
-          alt={''} // Merely decorational
-        />
-        <span
-          className={'h5p-category-task-popover-actionmenu-labeltext'}>{settings.title}</span>
+        <img src={trash} aria-hidden={true} alt={translate('deleteArgument')} />
+        <span className={'h5p-category-task-popover-actionmenu-labeltext'}>
+          {settings.title}
+        </span>
       </button>
     );
   }
@@ -137,7 +137,7 @@ function ActionMenu(props) {
       padding={0}
       reposition={false}
       parentElement={parentElement}
-      containerStyle={{position: 'absolute', top: '56px'}}
+      containerStyle={{ position: 'absolute', top: '56px' }}
       content={() => (
         <div
           className={'h5p-category-task-popover-actionmenu'}
@@ -146,8 +146,10 @@ function ActionMenu(props) {
           aria-describedby={'actionMenuDescription'}
         >
           <div className={'visible-hidden'}>
-            <p id={'actionMenuTitle'}>{translate('actionMenuTitle')}</p>
-            <p id={'actionMenuDescription'}>{translate('actionMenuDescription')}</p>
+            <h1 id={'actionMenuTitle'}>{translate('actionMenuTitle')}</h1>
+            <p id={'actionMenuDescription'}>
+              {translate('actionMenuDescription')}
+            </p>
           </div>
           <ul>
             {actions.map((action, index) => {
@@ -158,20 +160,15 @@ function ActionMenu(props) {
               else {
                 content = getCategory(action, index);
               }
-              return (
-                <li
-                  key={'action-' + index}
-                >
-                  {content}
-                </li>
-              );
+              return <li key={'action-' + index}>{content}</li>;
             })}
           </ul>
           <button
             onClick={handleClose}
             className={'visible-hidden'}
             type={'button'}
-          >{translate('close')}
+          >
+            {translate('close')}
           </button>
         </div>
       )}

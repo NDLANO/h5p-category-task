@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import AddArgument from './components/AddArgument';
 
 function Category(props) {
-
   const {
     additionalClassName,
     categoryId,
@@ -21,17 +20,10 @@ function Category(props) {
       {includeHeader && (
         <div className={'h5p-category-task-category-header'}>
           {title}
-          {addArgument && (
-            <AddArgument
-              onClick={onAddArgument}
-            />
-          )}
+          {addArgument && <AddArgument onClick={onAddArgument} />}
         </div>
       )}
-      <div
-        className={'h5p-category-task-category-content'}
-        id={categoryId}
-      >
+      <div className={'h5p-category-task-category-content'} id={categoryId}>
         {children}
       </div>
     </div>
@@ -45,6 +37,7 @@ Category.propTypes = {
   addArgument: PropTypes.bool,
   includeHeader: PropTypes.bool,
   onAddArgument: PropTypes.func,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
 };
 
 Category.defaultProps = {
