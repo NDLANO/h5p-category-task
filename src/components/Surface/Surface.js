@@ -1,7 +1,7 @@
 // @ts-check
 
 import { DndContext, PointerSensor, useSensor } from '@dnd-kit/core';
-import { arraySwap } from '@dnd-kit/sortable';
+import { arrayMove } from '@dnd-kit/sortable';
 import React, { useCallback, useEffect, useReducer } from 'react';
 import { isMobile } from 'react-device-detect';
 import { useCategoryTask } from '../../context/CategoryTaskContext';
@@ -271,7 +271,7 @@ function Surface() {
                 (argumentId) => argumentId === argument2Id,
               );
 
-              const connectedArguments = arraySwap(
+              const connectedArguments = arrayMove(
                 category.connectedArguments,
                 index1,
                 index2,
