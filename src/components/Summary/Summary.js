@@ -30,7 +30,7 @@ function Summary() {
         id={'summary-header'}
         htmlFor={'summary'}
       >
-        <h2>{summaryHeader ? summaryHeader : translate('summary')}</h2>
+        <div>{summaryHeader ? summaryHeader : translate('summary')}</div>
       </label>
       {summaryInstruction && (
         <div>{parseHtml(summaryInstruction)}</div>

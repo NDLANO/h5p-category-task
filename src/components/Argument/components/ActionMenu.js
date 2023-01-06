@@ -31,7 +31,7 @@ function ActionMenu(props) {
       handleClose();
     }
   };
-  
+
   useEffect(() => {
     window.addEventListener('pointerdown', handleClickOutside);
     return () => window.removeEventListener('pointerdown', handleClickOutside);
@@ -147,7 +147,7 @@ function ActionMenu(props) {
           aria-describedby={'actionMenuDescription'}
         >
           <div className={'visible-hidden'}>
-            <h1 id={'actionMenuTitle'}>{translate('actionMenuTitle')}</h1>
+            <p id={'actionMenuTitle'}>{translate('actionMenuTitle')}</p>
             <p id={'actionMenuDescription'}>{translate('actionMenuDescription')}</p>
           </div>
           <ul>
