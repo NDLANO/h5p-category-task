@@ -49,7 +49,6 @@ const Popover = ({
               >
                 <span
                   className={'h5p-ri hri-close'}
-                  aria-hidden={true}
                 />
               </button>
             </div>

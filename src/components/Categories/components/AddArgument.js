@@ -18,7 +18,6 @@ function AddArgument(props) {
     >
       <span
         className={'h5p-category-task-argument-add-icon fa fa-plus'}
-        aria-hidden={true}
       />
       <span className={'h5p-category-task-argument-add-text'}>{context.translate('addArgument')}</span>
     </button>
