@@ -46,8 +46,7 @@ function EditableArgument(props) {
    * TODO: Clean this up. This feels like a very weird construct. Why can't
    *       the `input` element be used on its own? Why the textbox wrapper that
    *       adds an extra level while there already is an input field? Also, why
-   *       is ARIA labelling handled that way? Having `aria-hidden` here even
-   *       conditionally, feels wrong.
+   *       is ARIA labelling handled that way?
    */
   return (
     <div
@@ -74,12 +73,10 @@ function EditableArgument(props) {
             onBlur={handleBlur}
             onChange={debounce(() => props.onBlur(inputRef.current.value), 200)}
             aria-label={'Edit argument ' + props.argument}
-            aria-hidden={!inEditMode}
             id={inputId}
           />
         </label>
         <p
-          aria-hidden={inEditMode}
           className={classnames('h5p-category-task-noneditable', {
             'hidden': inEditMode === true,
           })}
