@@ -31,7 +31,7 @@ function ActionMenu(props) {
       handleClose();
     }
   };
-  
+
   useEffect(() => {
     window.addEventListener('pointerdown', handleClickOutside);
     return () => window.removeEventListener('pointerdown', handleClickOutside);
@@ -117,8 +117,7 @@ function ActionMenu(props) {
       >
         <img
           src={trash}
-          aria-hidden={true}
-          alt={translate('deleteArgument')}
+          alt={''} // Merely decorational
         />
         <span
           className={'h5p-category-task-popover-actionmenu-labeltext'}>{settings.title}</span>

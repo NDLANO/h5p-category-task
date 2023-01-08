@@ -7,7 +7,7 @@ function Reset() {
   const [showPopover, setPopover] = useState(false);
   const discussionProcessContext = useCategoryTask();
   const resetButtonRef = useRef(null);
-  
+
   function togglePopover(event) {
     // The first event target to open the popover will be the reset button
     if (!resetButtonRef.current) {
@@ -29,12 +29,12 @@ function Reset() {
     () => resetButtonRef.current?.getBoundingClientRect(),
     [resetButtonRef.current],
   );
-  
+
   function confirmReset() {
     reset();
     togglePopover();
   }
-  
+
   return (
     <>
       {enableRetry === true && (
@@ -83,7 +83,6 @@ function Reset() {
           >
             <span
               className={'h5p-ri hri-restart'}
-              aria-hidden={'true'}
             />
             {translations.restart}
           </button>
