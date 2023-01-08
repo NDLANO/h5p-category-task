@@ -20,7 +20,6 @@ function Element(props) {
       {(provided, snapshot) => (
         <div
           className={'h5p-category-task-draggable-container'}
-          aria-label={ariaLabel}
         >
           <ElementLayout
             provided={provided}
