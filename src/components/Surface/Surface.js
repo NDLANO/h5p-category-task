@@ -498,6 +498,44 @@ function Surface() {
     return dynamicActions;
   }
 
+  function getElementAndArgument(argument, id) {
+    if (!argument) {
+      return <></>;
+    }
+
+    return (
+      <Element
+        key={id}
+        draggableId={id}
+        ariaLabel={translate("draggableItem", {
+          argument: argument.argumentText,
+        })}
+        renderChildren={(attributes, listeners, isDragging) => (
+          <Argument
+            actions={getDynamicActions(argument)}
+            isDragEnabled={!isMobile}
+            argument={argument}
+            enableEditing={allowAddingOfArguments}
+            attributes={attributes}
+            listeners={listeners}
+            isDragging={isDragging}
+            onArgumentChange={(argumentText) => {
+              if (!argument.id) {
+                return;
+              }
+
+              return dispatch({
+                type: "editArgument",
+                payload: { id: argument.id, argumentText },
+              });
+            }}
+          />
+        )}
+      ></Element>
+    );
+  }
+
+
   return (
     <div className="h5p-category-thttps://tietoevry.workplace.com/events/902152837451118?ref=newsfeedsk-surface">
       <DndContext
@@ -537,40 +575,7 @@ function Surface() {
                       )
                       .map((argument) => {
                         const id = getDnDId(argument);
-                        const element = (
-                          <Element
-                            key={id}
-                            draggableId={id}
-                            ariaLabel={translate("draggableItem", {
-                              argument: argument.argumentText,
-                            })}
-                            renderChildren={(
-                              attributes,
-                              listeners,
-                              isDragging
-                            ) => (
-                              <Argument
-                                actions={getDynamicActions(argument)}
-                                isDragEnabled={!isMobile}
-                                argument={argument}
-                                enableEditing={allowAddingOfArguments}
-                                attributes={attributes}
-                                listeners={listeners}
-                                isDragging={isDragging}
-                                onArgumentChange={(argumentText) => {
-                                  if (!argument.id) {
-                                    return;
-                                  }
-
-                                  return dispatch({
-                                    type: "editArgument",
-                                    payload: { id: argument.id, argumentText },
-                                  });
-                                }}
-                              />
-                            )}
-                          ></Element>
-                        );
+                        const element = getElementAndArgument(argument, id);
                         elements[id] = element;
                         return element;
                       })}
@@ -608,14 +613,14 @@ function Surface() {
               >
                 {category.useNoArgumentsPlaceholder &&
                 category.connectedArguments.length === 0 ? (
-                    <span>
-                      {translate(
-                        allowAddingOfArguments
-                          ? "dropExistingOrAddNewArgument"
-                          : "dropArgumentsHere"
-                      )}
-                    </span>
-                  ) : null}
+                  <span>
+                    {translate(
+                      allowAddingOfArguments
+                        ? "dropExistingOrAddNewArgument"
+                        : "dropArgumentsHere"
+                    )}
+                  </span>
+                ) : null}
                 <>
                   {category.connectedArguments
                     .map(
@@ -628,40 +633,7 @@ function Surface() {
                     )
                     .map((argument) => {
                       const id = getDnDId(argument);
-                      const element = (
-                        <Element
-                          key={id}
-                          draggableId={id}
-                          ariaLabel={translate("draggableItem", {
-                            argument: argument.argumentText,
-                          })}
-                          renderChildren={(
-                            attributes,
-                            listeners,
-                            isDragging
-                          ) => (
-                            <Argument
-                              actions={getDynamicActions(argument)}
-                              isDragEnabled={!isMobile}
-                              argument={argument}
-                              enableEditing={allowAddingOfArguments}
-                              attributes={attributes}
-                              listeners={listeners}
-                              isDragging={isDragging}
-                              onArgumentChange={(argumentText) => {
-                                if (!argument.id) {
-                                  return;
-                                }
-
-                                return dispatch({
-                                  type: "editArgument",
-                                  payload: { id: argument.id, argumentText },
-                                });
-                              }}
-                            />
-                          )}
-                        ></Element>
-                      );
+                      const element = getElementAndArgument(argument, id);
                       elements[id] = element;
                       return element;
                     })}
