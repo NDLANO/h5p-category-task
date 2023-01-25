@@ -32,6 +32,7 @@ function Element({ draggableId, ariaLabel, renderChildren }) {
   const style = {
     transform: CSS.Translate.toString(transform),
     transition,
+    opacity: isDragging ? 0 : 1
   };
 
   return (

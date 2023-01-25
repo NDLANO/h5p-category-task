@@ -641,7 +641,12 @@ function Surface() {
               </Column>
             </Category>
           ))}
-        <DragOverlay>
+        <DragOverlay 
+        dropAnimation={{
+          duration: 500,
+          easing: 'cubic-bezier(0.18, 0.67, 0.6, 1.22)',
+        }}
+        >
           {active ? (
             <Element
               key={active.id}
