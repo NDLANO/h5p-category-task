@@ -16,8 +16,6 @@ function Argument({
   isDragging = false,
   isDragEnabled = true,
   actions,
-  attributes,
-  listeners,
 }) {
   const innerRef = useRef(null);
   const [refReady, setRef] = useState(false);
@@ -58,8 +56,6 @@ function Argument({
       statementDisplay={displayStatement}
       toggle={toggle}
       // draggableId={getDnDId(argument)}
-      attributes={attributes}
-      listeners={listeners}
     />
   );
 
@@ -98,8 +94,6 @@ function ArgumentLayout({
   isDragEnabled,
   statementDisplay,
   toggle,
-  attributes,
-  listeners,
 }) {
   return (
     <div className={'h5p-category-task-argument-container'}>
@@ -110,7 +104,7 @@ function ArgumentLayout({
       >
         <div className={'h5p-category-task-argument-provided'}>
           {isDragEnabled && (
-            <DragArrows attributes={attributes} listeners={listeners} />
+            <DragArrows/>
           )}
           {statementDisplay}
           <button

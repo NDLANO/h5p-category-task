@@ -3,21 +3,23 @@
 import {
   DndContext,
   DragOverlay,
-  PointerSensor,
+  useSensors,
   useSensor,
+  MouseSensor,
+  TouchSensor,
+  KeyboardSensor,
 } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
+import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import React, {
   useCallback,
   useEffect,
-  useMemo,
   useReducer,
   useState,
 } from "react";
 import { isMobile } from "react-device-detect";
 import { useCategoryTask } from "../../context/CategoryTaskContext";
 import Argument from "../Argument/Argument";
-import DragArrows from "../Argument/components/DragArrows";
 import Category from "../Categories/Category";
 import Column from "../DragAndDrop/Column";
 import Element from "../DragAndDrop/Element";
@@ -72,7 +74,22 @@ import {
 
 function Surface() {
   const context = useCategoryTask();
-  const pointerSensor = useSensor(PointerSensor);
+  // const pointerSensor = useSensor(PointerSensor);
+  const sensors = useSensors(
+    useSensor(MouseSensor, {
+      activationConstraint: {
+        delay: 100
+      }
+    }),
+    useSensor(TouchSensor, {
+      activationConstraint: {
+        delay: 100
+      }
+    }),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates
+    })
+  );
 
   /**
    * @returns {State}
@@ -429,8 +446,6 @@ function Surface() {
         },
       });
     }
-    // console.log("elements");
-    // console.log(elements[active.id]);
   }
 
   /**
@@ -510,14 +525,12 @@ function Surface() {
         ariaLabel={translate("draggableItem", {
           argument: argument.argumentText,
         })}
-        renderChildren={(attributes, listeners, isDragging) => (
+        renderChildren={(isDragging) => (
           <Argument
             actions={getDynamicActions(argument)}
             isDragEnabled={!isMobile}
             argument={argument}
             enableEditing={allowAddingOfArguments}
-            attributes={attributes}
-            listeners={listeners}
             isDragging={isDragging}
             onArgumentChange={(argumentText) => {
               if (!argument.id) {
@@ -535,13 +548,12 @@ function Surface() {
     );
   }
 
-
   return (
     <div className="h5p-category-thttps://tietoevry.workplace.com/events/902152837451118?ref=newsfeedsk-surface">
       <DndContext
         onDragEnd={handleDragEnd}
         onDragStart={handleDragStart}
-        sensors={[pointerSensor]}
+        sensors={sensors}
       >
         <Category
           categoryId={"unprocessed"}
@@ -613,14 +625,14 @@ function Surface() {
               >
                 {category.useNoArgumentsPlaceholder &&
                 category.connectedArguments.length === 0 ? (
-                  <span>
-                    {translate(
-                      allowAddingOfArguments
-                        ? "dropExistingOrAddNewArgument"
-                        : "dropArgumentsHere"
-                    )}
-                  </span>
-                ) : null}
+                    <span>
+                      {translate(
+                        allowAddingOfArguments
+                          ? "dropExistingOrAddNewArgument"
+                          : "dropArgumentsHere"
+                      )}
+                    </span>
+                  ) : null}
                 <>
                   {category.connectedArguments
                     .map(
@@ -641,12 +653,7 @@ function Surface() {
               </Column>
             </Category>
           ))}
-        <DragOverlay 
-        dropAnimation={{
-          duration: 500,
-          easing: 'cubic-bezier(0.18, 0.67, 0.6, 1.22)',
-        }}
-        >
+        <DragOverlay>
           {active ? (
             <Element
               key={active.id}

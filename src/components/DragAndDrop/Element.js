@@ -10,8 +10,6 @@ import { defaultAnimateLayoutChanges, useSortable } from '@dnd-kit/sortable';
  *   draggableId: string;
  *   ariaLabel: string;
  *   renderChildren: (
- *     attributes: import('@dnd-kit/core').DraggableAttributes,
- *     listeners: import('@dnd-kit/core/dist/hooks/utilities').SyntheticListenerMap | undefined,
  *     isDragging: boolean,
  *   ) => JSX.Element | Array<JSX.Element | null> | null
  * }} props
@@ -32,7 +30,8 @@ function Element({ draggableId, ariaLabel, renderChildren }) {
   const style = {
     transform: CSS.Translate.toString(transform),
     transition,
-    opacity: isDragging ? 0 : 1
+    opacity: isDragging ? 0 : 1,
+    cursor: 'grab'
   };
 
   return (
@@ -42,13 +41,18 @@ function Element({ draggableId, ariaLabel, renderChildren }) {
       className={classnames('h5p-dnd-draggable', {
         'h5p-dnd-draggable--dragging': isDragging,
       })}
+      {...attributes}
+      {...listeners}
     >
       <div
         className={'h5p-category-task-draggable-container'}
         aria-label={ariaLabel}
       >
-        <ElementLayout ariaLabel={ariaLabel} isDragging={isDragging}>
-          {renderChildren(attributes, listeners, isDragging)}
+        <ElementLayout 
+          ariaLabel={ariaLabel} 
+          isDragging={isDragging}
+        >
+          {renderChildren(isDragging)}
         </ElementLayout>
       </div>
     </div>
