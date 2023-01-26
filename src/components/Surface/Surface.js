@@ -3,15 +3,10 @@
 import {
   DndContext,
   DragOverlay,
-  useSensors,
   useSensor,
-  MouseSensor,
-  TouchSensor,
-  KeyboardSensor,
   PointerSensor,
 } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
-import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import React, {
   useCallback,
   useEffect,
@@ -77,7 +72,7 @@ function Surface() {
   const context = useCategoryTask();
   const pointerSensor = useSensor(PointerSensor, {
     activationConstraint: {
-      delay: 100
+      delay: 125
     }
   });
 
@@ -523,7 +518,8 @@ function Surface() {
             enableEditing={allowAddingOfArguments}
             isDragging={isDragging}
             onArgumentChange={(argumentText) => {
-              if (!argument.id) {
+
+              if (argument.id === null) {
                 return;
               }
 
