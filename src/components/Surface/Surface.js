@@ -8,6 +8,7 @@ import {
   MouseSensor,
   TouchSensor,
   KeyboardSensor,
+  PointerSensor,
 } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import { sortableKeyboardCoordinates } from "@dnd-kit/sortable";
@@ -74,22 +75,11 @@ import {
 
 function Surface() {
   const context = useCategoryTask();
-  // const pointerSensor = useSensor(PointerSensor);
-  const sensors = useSensors(
-    useSensor(MouseSensor, {
-      activationConstraint: {
-        delay: 100
-      }
-    }),
-    useSensor(TouchSensor, {
-      activationConstraint: {
-        delay: 100
-      }
-    }),
-    useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates
-    })
-  );
+  const pointerSensor = useSensor(PointerSensor, {
+    activationConstraint: {
+      delay: 100
+    }
+  });
 
   /**
    * @returns {State}
@@ -553,7 +543,7 @@ function Surface() {
       <DndContext
         onDragEnd={handleDragEnd}
         onDragStart={handleDragStart}
-        sensors={sensors}
+        sensors={[pointerSensor]}
       >
         <Category
           categoryId={"unprocessed"}

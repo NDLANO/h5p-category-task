@@ -82,10 +82,4 @@ function ElementLayout({ children, isDragging, ariaLabel }) {
   );
 }
 
-ElementLayout.propTypes = {
-  provided: PropTypes.object,
-  snapshot: PropTypes.object,
-  ariaLabel: PropTypes.string,
-};
-
 export { Element as default, ElementLayout };
