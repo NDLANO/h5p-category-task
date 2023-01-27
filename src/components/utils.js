@@ -179,7 +179,7 @@ export function sanitizeParams(params) {
     argumentsList = argumentsList.map((argument) => decodeHTML(argument));
   }
 
-  if (resources.params.resourceList?.filter(filterResourceList).length > 0) {
+  if (resources?.params.resourceList?.filter(filterResourceList).length > 0) {
     resources.params = {
       ...resources.params,
       l10n: handleObject(resources.params.l10n),
