@@ -1,5 +1,3 @@
-// @ts-check
-
 import { escape, decode } from 'he';
 
 /**

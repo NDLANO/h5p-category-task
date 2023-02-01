@@ -1,5 +1,3 @@
-// @ts-check
-
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import EditableArgument from './components/EditableArgument';
@@ -55,7 +53,6 @@ function Argument({
       isDragEnabled={isDragEnabled}
       statementDisplay={displayStatement}
       toggle={toggle}
-      // draggableId={getDnDId(argument)}
     />
   );
 

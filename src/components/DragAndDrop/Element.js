@@ -1,5 +1,3 @@
-// @ts-check
-
 import React from 'react';
 import classnames from 'classnames';
 import { CSS } from '@dnd-kit/utilities';

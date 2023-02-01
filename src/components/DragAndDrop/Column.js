@@ -1,5 +1,3 @@
-// @ts-check
-
 import { SortableContext } from '@dnd-kit/sortable';
 import React from 'react';
 import Droppable from './Droppable';
