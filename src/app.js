@@ -1,7 +1,7 @@
 import 'core-js';
 import 'regenerator-runtime/runtime';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import Main from 'components/Main';
 import {CategoryTaskProvider} from 'context/CategoryTaskContext';
 import {breakpoints, getRatio, sanitizeParams} from './components/utils';
@@ -73,7 +73,8 @@ H5P.CategoryTask = (function () {
       wrapper.classList.add('h5p-category-task-wrapper');
       this.wrapper = wrapper;
 
-      ReactDOM.render(
+      const root = createRoot(wrapper);
+      root.render(
         <CategoryTaskProvider value={this}>
           <Main
             {...this.params}
@@ -81,8 +82,7 @@ H5P.CategoryTask = (function () {
             language={language}
             collectExportValues={this.collectExportValues}
           />
-        </CategoryTaskProvider>,
-        this.wrapper
+        </CategoryTaskProvider>
       );
     };
 
