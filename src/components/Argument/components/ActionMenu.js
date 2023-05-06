@@ -4,7 +4,6 @@ import { Popover as TinyPopover } from 'react-tiny-popover';
 import classnames from 'classnames';
 import trash from '../../../../assets/trash.svg';
 import { useCategoryTask } from '../../../context/CategoryTaskContext';
-import { getBox } from 'css-box-model';
 
 function ActionMenu(props) {
   const context = useCategoryTask();
@@ -48,7 +47,7 @@ function ActionMenu(props) {
     }
   }
 
-  const parentBox = getBox(parentElement);
+  const parentBox = parentElement.getBoundingClientRect();
 
   function getCategory(settings, index) {
     let label;
@@ -61,7 +60,7 @@ function ActionMenu(props) {
           {settings.label}
         </span>
       );
-    } 
+    }
     else {
       label = (
         <span
@@ -127,8 +126,8 @@ function ActionMenu(props) {
     <TinyPopover
       containerClassName={classNames.join(' ')}
       contentLocation={{
-        top: parentBox.borderBox.top,
-        left: -parentBox.borderBox.left,
+        top: parentBox.top,
+        left: -parentBox.left,
       }}
       isOpen={show}
       positions={['bottom']}

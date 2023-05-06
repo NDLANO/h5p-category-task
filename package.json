@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "NODE_ENV=production webpack",
-    "watch": "NODE_ENV=development webpack --watch",
-    "lint:fix": "eslint . --fix",
-    "lint:check": "eslint ."
+    "build": "webpack --mode=production",
+    "watch": "webpack --mode=development --watch",
+    "lint": "eslint './src/**/*.js'",
+    "lint:fix": "eslint --fix './src/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -24,11 +24,9 @@
     "@babel/plugin-proposal-class-properties": "^7.18.6",
     "@babel/preset-env": "^7.21.5",
     "@babel/preset-react": "^7.18.6",
-    "@types/react": "^18.2.5",
-    "@types/react-dom": "^18.2.3",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
-    "eslint": "^8.39.0",
+    "eslint": "^8.40.0",
     "eslint-config-ndla-h5p": "github:ndlano/eslint-config-ndla-h5p",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.32.2",
@@ -44,19 +42,14 @@
     "@dnd-kit/core": "^6.0.8",
     "@dnd-kit/sortable": "^7.0.2",
     "@dnd-kit/utilities": "^3.2.1",
-    "buffer": "^6.0.3",
     "classnames": "^2.3.2",
-    "core-js": "^3.30.1",
-    "css-box-model": "^1.2.1",
-    "domhandler": "^5.0.3",
     "focus-trap": "7.4.0",
     "he": "^1.2.0",
     "html-react-parser": "^3.0.16",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
-    "react-tiny-popover": "^7.2.4",
-    "regenerator-runtime": "^0.13.11",
-    "tween-functions": "^1.2.0"
-  }
+    "react-tiny-popover": "^7.2.4"
+  },
+  "browserslist": "> 0.5%, last 2 versions, Firefox ESR, not dead"
 }

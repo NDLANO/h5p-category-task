@@ -1,5 +1,3 @@
-import 'core-js';
-import 'regenerator-runtime/runtime';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Main from 'components/Main';
@@ -7,7 +5,6 @@ import {CategoryTaskProvider} from 'context/CategoryTaskContext';
 import {breakpoints, getRatio, sanitizeParams} from './components/utils';
 
 // Load library
-H5P = H5P || {};
 H5P.CategoryTask = (function () {
 
   function Wrapper(params, contentId, extras = {}) {
