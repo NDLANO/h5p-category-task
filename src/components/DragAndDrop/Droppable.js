@@ -1,3 +1,4 @@
+import classnames from 'classnames';
 import { useDroppable } from '@dnd-kit/core';
 import React from 'react';
 
@@ -23,8 +24,9 @@ export default function Droppable({ id, children, isDropDisabled }) {
 
   return (
     <div
-      className="h5p-category-task-droppable"
-      style={isOver ? { backgroundColor: '#E0E7F0' } : undefined}
+      className={classnames('h5p-category-task-droppable', {
+        'h5p-category-task-droppable--active': isOver,
+      })}
       ref={setNodeRef}
     >
       {children}
