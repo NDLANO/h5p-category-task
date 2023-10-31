@@ -572,6 +572,7 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   width: 100%;
   border: 2px solid #dbe2e8;
   border-radius: $borderRadius;
+  margin-bottom: 1.5rem !important;
 }
 
 .h5p-category-task-unprocessed-argument-list {
@@ -822,7 +823,7 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 
 
 .h5p-category-task-category {
-  margin-bottom: 0.7rem;
+  margin-bottom: 1rem;
   position: relative;
 }
 
