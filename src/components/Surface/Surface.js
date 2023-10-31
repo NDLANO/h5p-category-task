@@ -474,6 +474,20 @@ function Surface() {
     if (allowAddingOfArguments === true) {
       dynamicActions.push(
         new ActionMenuDataObject({
+          type: 'edit',
+          title: 'Edit argument',
+          onSelect: () => {
+            if (argument.id == null) {
+              return;
+            }
+            const argumentElement = document.getElementById(getDnDId(argument));
+            const textbox = argumentElement?.querySelector('input');
+            textbox?.click();
+          },
+        }),
+      );
+      dynamicActions.push(
+        new ActionMenuDataObject({
           type: 'delete',
           title: translate('deleteArgument'),
           onSelect: () => {

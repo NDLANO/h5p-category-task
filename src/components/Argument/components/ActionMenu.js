@@ -122,6 +122,25 @@ function ActionMenu(props) {
     );
   }
 
+  function getEdit(settings) {
+    return (
+      <button
+        className={'h5p-category-task-popover-actionmenu-edit'}
+        aria-label={settings.title}
+        type={'button'}
+        onClick={(e) => {
+          e.preventDefault();
+          handleSelect(settings.onSelect);
+        }}
+      >
+        <span class="h5p-ri hri-pencil" />
+        <span className={'h5p-category-task-popover-actionmenu-labeltext'}>
+          {settings.title}
+        </span>
+      </button>
+    );
+  }
+
   return (
     <TinyPopover
       containerClassName={classNames.join(' ')}
@@ -153,6 +172,9 @@ function ActionMenu(props) {
               let content;
               if (action.type === 'delete') {
                 content = getDelete(action);
+              }
+              else if (action.type === 'edit') {
+                content = getEdit(action);
               }
               else {
                 content = getCategory(action, index);
