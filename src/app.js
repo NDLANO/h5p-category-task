@@ -143,6 +143,12 @@ H5P.CategoryTask = (function () {
         return;
       }
       this.addBreakPoints(this.wrapper);
+
+      // Waint until css breakpints have been applied and layout has
+      // been run by browser before triggering resize.
+      requestAnimationFrame(() => {
+        this.trigger('resize');
+      });
     };
 
     /**
@@ -165,7 +171,9 @@ H5P.CategoryTask = (function () {
 
     this.getRect = this.getRect.bind(this);
     this.resize = this.resize.bind(this);
-    this.on('resize', this.resize);
+    // Use custom resizecontenttype event to avoid triggering resize
+    // until breakpoints have been applied.
+    this.on('resizecontenttype', this.resize);
   }
 
   // Inherit prototype properties
