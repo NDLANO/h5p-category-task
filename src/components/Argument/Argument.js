@@ -115,7 +115,7 @@ function ArgumentLayout({
             className={'h5p-category-task-argument-actions'}
             aria-label={'See available actions'}
             aria-expanded={showPopover}
-            aria-controls={menuId}
+            aria-controls={showPopover ? menuId : undefined}
             onClick={toggle}
             type={'button'}
           >
