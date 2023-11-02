@@ -15,7 +15,7 @@ function EditableArgument(props) {
     }
   }, []);
 
-  const handleClick = () => {
+  const startEditing = () => {
     if (inEditMode === false) {
       toggleEditMode(true);
       inputRef.current.value = props.argument;
@@ -23,23 +23,19 @@ function EditableArgument(props) {
     }
   };
 
-  const handleBlur = () => {
+  const stopEditing = () => {
     toggleEditMode(false);
   };
 
-  const handleKeyUp = (event) => {
-    if (event.keyCode === 13) {
-      if ( inEditMode ) {
-        handleBlur();
-      }
-      else {
-        handleClick();
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      if (inEditMode) {
+        stopEditing();
       }
     }
   };
 
   const id = 'es_' + props.idBase;
-  const labelId = 'label_' + id;
   const inputId = 'input_' + id;
 
   /*
@@ -49,41 +45,37 @@ function EditableArgument(props) {
    *       is ARIA labelling handled that way?
    */
   return (
-    <div
-      role={'textbox'}
-      tabIndex={0}
-      onClick={handleClick}
-      className={'h5p-category-task-editable-container'}
-      onKeyUp={handleKeyUp}
-      aria-labelledby={labelId}
-    >
-      <div>
-        <label
-          title={props.argument}
-          htmlFor={inputId}
-          id={labelId}
-          className={classnames('h5p-category-task-editable', {
-            'hidden': inEditMode === false,
-          })}
-        >
-          <span className={'visible-hidden'}>Argument</span>
-          <input
-            className={'h5p-category-task-editable'}
-            ref={inputRef}
-            onBlur={handleBlur}
-            onChange={debounce(() => props.onBlur(inputRef.current.value), 200)}
-            aria-label={'Edit argument ' + props.argument}
-            id={inputId}
-          />
-        </label>
-        <p
-          className={classnames('h5p-category-task-noneditable', {
-            'hidden': inEditMode === true,
-          })}
-        >
-          {props.argument}
-        </p>
-      </div>
+    <div className={'h5p-category-task-editable-container'}>
+      <button
+        className={'h5p-category-task-editable-button'}
+        onClick={startEditing}
+      >
+        <span className={'visible-hidden'}>{'Edit argument' + props.argument}</span>
+      </button>
+      <label
+        title={props.argument}
+        htmlFor={inputId}
+        className={classnames('h5p-category-task-editable', {
+          'hidden': inEditMode === false,
+        })}
+      >
+        <span className={'visible-hidden'}>Argument</span>
+        <input
+          className={'h5p-category-task-editable'}
+          ref={inputRef}
+          onBlur={stopEditing}
+          onChange={debounce(() => props.onBlur(inputRef.current.value), 200)}
+          onKeyDown={handleKeyDown}
+          id={inputId}
+        />
+      </label>
+      <p
+        className={classnames('h5p-category-task-noneditable', {
+          'hidden': inEditMode === true,
+        })}
+      >
+        {props.argument}
+      </p>
     </div>
   );
 }

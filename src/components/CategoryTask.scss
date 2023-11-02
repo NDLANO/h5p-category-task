@@ -452,6 +452,15 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   justify-content: flex-start;
   align-items: center;
   padding: 0.3em 0.6em;
+  position: relative;
+
+  .h5p-category-task-editable-button {
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    inset: 0;
+    position: absolute;
+  }
 
   label,
   div {
