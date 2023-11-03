@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import Droppable from './Droppable';
 
 /**
@@ -8,18 +7,13 @@ import Droppable from './Droppable';
  *   droppablePrefix: 'droppable';
  *   label: string;
  *   disableDrop: boolean;
- *   isDraggingOver: boolean;
  * }} props
  * @returns
  */
-function Dropzone({ droppablePrefix, label, disableDrop, isDraggingOver }) {
+function Dropzone({ droppablePrefix, label, disableDrop }) {
   return (
     <Droppable id={`${droppablePrefix}-dzone`} isDropDisabled={disableDrop}>
-      <div
-        className={classnames('h5p-category-task-dropzone', {
-          'h5p-category-task-active': isDraggingOver,
-        })}
-      >
+      <div className={'h5p-category-task-dropzone'}>
         <div>{label}</div>
       </div>
     </Droppable>

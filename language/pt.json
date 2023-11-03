@@ -86,10 +86,6 @@
         {
           "label": "A funcionalidade de inserção de texto dentro da zona para arrastar e largar argumentos ao adicionar novos argumentos está desactivada",
           "default": "Largue os argumentos aqui"
-        },
-        {
-          "label": "A funcionalidade de inserção de texto dentro da zona para arrastar e largar de argumentos ao adicionar novos argumentos está activo",
-          "default": "Largue o argumento existente ou escreva um novo"
         }
       ]
     },

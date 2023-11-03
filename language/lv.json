@@ -110,10 +110,6 @@
         {
           "default": "Ievietojiet argumentus šeit",
           "label": "Teksts argumentu nomešanas zonā, kad jaunu argumentu pievienošana ir atspējota"
-        },
-        {
-          "label": "Teksts argumentu nomešanas zonā, kad jaunu argumentu pievienošana ir iespējota",
-          "default": "Ievietojiet esošo vai ierakstiet jaunu argumentu"
         }
       ]
     },
