@@ -27,6 +27,11 @@ function EditableArgument(props) {
     toggleEditMode(false);
   };
 
+  /**
+   * Handle keydown events.
+   * KeyDown is used instead of KeyUp to prevent focused input to be blurred
+   * when arguments are added with the enter key.
+   */
   const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       if (inEditMode) {
@@ -50,7 +55,7 @@ function EditableArgument(props) {
         className={'h5p-category-task-editable-button'}
         onClick={startEditing}
       >
-        <span className={'visible-hidden'}>{'Edit argument' + props.argument}</span>
+        <span className={'visible-hidden'}>{'Edit argument ' + props.argument}</span>
       </button>
       <label
         title={props.argument}
