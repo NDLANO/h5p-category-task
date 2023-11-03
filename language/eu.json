@@ -110,10 +110,6 @@
         {
           "default": "Jaregin argudioak hemen",
           "label": "Askatze-eremuaren barruan argudio berriak gehitzea desgaituta dagoenean erakutsiko den testua"
-        },
-        {
-          "default": "Jaregin dagoen argudioa edo idatzi berri bat",
-          "label": "Askatze-eremuaren barruan argudio berriak gehitzea gaituta dagoenean erakutsiko den testua"
         }
       ]
     },

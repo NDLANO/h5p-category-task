@@ -110,10 +110,6 @@
         {
           "label": "Texto na zona de solta de argumentos cando a adición de argumentos está desactivada",
           "default": "Solta aquí os teus argumentos"
-        },
-        {
-          "label": "Texto na zona de solta de argumentos cando a adición de argumentos está activada",
-          "default": "Solta un argumento existente ou escribe un novo"
         }
       ]
     },

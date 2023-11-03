@@ -86,10 +86,6 @@
         {
           "label": "Text inside the arguments drop zone when adding new arguments are disabled",
           "default": "Drop arguments here"
-        },
-        {
-          "label": "Text inside the arguments drop zone when adding new arguments are enabled",
-          "default": "Drop existing or write new argument"
         }
       ]
     },

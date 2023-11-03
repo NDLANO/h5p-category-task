@@ -110,10 +110,6 @@
         {
           "default": "Dejar caer argumentos aquí",
           "label": "Texto adentro de la zona de caída de los argumentos cuando está deshabilitado el añadir nuevos argumentos"
-        },
-        {
-          "label": "Texto adentro de la zona de caída de los argumentos cuando está habilitado el añadir nuevos argumentos",
-          "default": "Dejar caer argumento existente o escribir uno nuevo"
         }
       ]
     },
