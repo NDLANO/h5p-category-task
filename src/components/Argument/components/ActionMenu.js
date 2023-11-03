@@ -10,6 +10,7 @@ function ActionMenu(props) {
   const { translate } = context;
 
   const {
+    menuId,
     children,
     show,
     handleClose,
@@ -137,6 +138,7 @@ function ActionMenu(props) {
       containerStyle={{ position: 'absolute', top: '56px' }}
       content={() => (
         <div
+          id={menuId}
           className={'h5p-category-task-popover-actionmenu'}
           role={'dialog'}
           aria-labelledby={'actionMenuTitle'}
