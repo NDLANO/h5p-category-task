@@ -458,8 +458,13 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     background-color: transparent;
     background-image: none;
     border: 0;
+    cursor: inherit;
     inset: 0;
     position: absolute;
+  }
+
+  .h5p-category-task-editable-button--editing {
+    cursor: text;
   }
 
   label,

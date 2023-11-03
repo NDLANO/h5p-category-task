@@ -52,7 +52,9 @@ function EditableArgument(props) {
   return (
     <div className={'h5p-category-task-editable-container'}>
       <button
-        className={'h5p-category-task-editable-button'}
+        className={classnames('h5p-category-task-editable-button', {
+          'h5p-category-task-editable-button--editing': inEditMode === true,
+        })}
         onClick={startEditing}
       >
         <span className={'visible-hidden'}>{'Edit argument ' + props.argument}</span>
