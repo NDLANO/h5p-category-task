@@ -134,7 +134,7 @@ function ActionMenu(props) {
           handleSelect(settings.onSelect);
         }}
       >
-        <span class="h5p-ri hri-pencil" />
+        <span className="h5p-ri hri-pencil" />
         <span className={'h5p-category-task-popover-actionmenu-labeltext'}>
           {settings.title}
         </span>

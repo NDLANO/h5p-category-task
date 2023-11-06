@@ -188,6 +188,25 @@ function Surface() {
           actionDropActive: false,
         };
       }
+      case 'startEditing': {
+        const {
+          id
+        } = action.payload;
+        const newArguments = clone(state.argumentsList).map((argument) => {
+          if (argument.id === id) {
+            return {
+              ...argument,
+              editMode: true,
+            };
+          }
+          return argument;
+        });
+
+        return {
+          ...state,
+          argumentsList: newArguments
+        };
+      }
       case 'editArgument': {
         const { id, argumentText } = action.payload;
 
@@ -481,9 +500,11 @@ function Surface() {
             if (argument.id == null) {
               return;
             }
-            const argumentElement = document.getElementById(getDnDId(argument));
-            const textbox = argumentElement?.querySelector('input');
-            textbox?.click();
+
+            return dispatch({
+              type: 'startEditing',
+              payload: { id: argument.id },
+            });
           },
         }),
       );

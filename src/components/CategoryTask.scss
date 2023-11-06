@@ -461,10 +461,12 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     cursor: inherit;
     inset: 0;
     position: absolute;
+    width: 100%;
   }
 
   .h5p-category-task-editable-button--editing {
     cursor: text;
+    pointer-events: none;
   }
 
   label,
@@ -599,6 +601,7 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   label,
   .h5p-category-task-popover-actionmenu-delete,
   .h5p-category-task-popover-actionmenu-edit {
+    color: #1a1616;
     padding: 1rem 0.9rem;
     display: flex;
     overflow: hidden;

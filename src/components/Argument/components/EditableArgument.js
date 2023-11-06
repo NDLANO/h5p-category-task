@@ -23,6 +23,12 @@ function EditableArgument(props) {
     }
   };
 
+  useEffect(() => {
+    if (inEditMode === false && props.inEditMode === true) {
+      startEditing();
+    }
+  }, [props.inEditMode]);
+
   const stopEditing = () => {
     toggleEditMode(false);
   };
