@@ -20,6 +20,8 @@ function Argument({
 
   const [showPopover, togglePopover] = useState(false);
 
+  const actionMenuId = `action-menu-${argument.id}_${H5P.createUUID()}`;
+
   function toggle() {
     togglePopover((prevState) => !prevState);
   }
@@ -52,6 +54,8 @@ function Argument({
       activeDraggable={isDragEnabled && isDragging}
       isDragEnabled={isDragEnabled}
       statementDisplay={displayStatement}
+      showPopover={showPopover}
+      menuId={actionMenuId}
       toggle={toggle}
     />
   );
@@ -59,6 +63,7 @@ function Argument({
   if (Array.isArray(actions) && actions.length > 0 && refReady) {
     argumentLayout = (
       <ActionMenu
+        menuId={actionMenuId}
         actions={actions}
         show={showPopover}
         handleClose={closePopover}
@@ -70,7 +75,7 @@ function Argument({
   }
 
   return (
-    <div id={getDnDId(argument)} aria-expanded={showPopover} ref={innerRef}>
+    <div id={getDnDId(argument)} ref={innerRef}>
       {argumentLayout}
     </div>
   );
@@ -90,6 +95,8 @@ function ArgumentLayout({
   activeDraggable,
   isDragEnabled,
   statementDisplay,
+  showPopover,
+  menuId,
   toggle,
 }) {
   return (
@@ -107,6 +114,8 @@ function ArgumentLayout({
           <button
             className={'h5p-category-task-argument-actions'}
             aria-label={'See available actions'}
+            aria-expanded={showPopover}
+            aria-controls={showPopover ? menuId : undefined}
             onClick={toggle}
             type={'button'}
           >

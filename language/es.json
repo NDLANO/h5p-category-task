@@ -110,10 +110,6 @@
         {
           "label": "Texto dentro de la zona para soltar argumentos cuando está deshabilitada la opción de añadir nuevos argumentos",
           "default": "Suelta tus argumentos aquí"
-        },
-        {
-          "default": "Suelta un argumento existente o escribe uno nuevo",
-          "label": "Texto dentro de la zona para soltar argumentos cuando está activada la opción de añadir nuevos argumentos"
         }
       ]
     },

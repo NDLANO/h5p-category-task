@@ -86,10 +86,6 @@
         {
           "label": "Texte à l'intérieur de la zone de dépôt des arguments lorsque l'ajout de nouveaux arguments est inactivé",
           "default": "Déposer les arguments ici"
-        },
-        {
-          "label": "Texte à l'intérieur de la zone de dépôt des arguments lorsque l'ajout de nouveaux arguments est activé",
-          "default": "Déposer un argument existant ou en rédiger un nouveau"
         }
       ]
     },

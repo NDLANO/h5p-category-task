@@ -13,6 +13,7 @@ import Category from '../Categories/Category';
 import Column from '../DragAndDrop/Column';
 import Element from '../DragAndDrop/Element';
 import Summary from '../Summary/Summary';
+import Dropzone from '../DragAndDrop/Dropzone';
 import {
   ActionMenuDataObject,
   ArgumentDataObject,
@@ -621,16 +622,13 @@ function Surface() {
                 }
                 connectedArguments={category.connectedArguments}
               >
-                {category.useNoArgumentsPlaceholder &&
-                category.connectedArguments.length === 0 ? (
-                    <span>
-                      {translate(
-                        allowAddingOfArguments
-                          ? 'dropExistingOrAddNewArgument'
-                          : 'dropArgumentsHere',
-                      )}
-                    </span>
-                  ) : null}
+                {category.connectedArguments.length === 0 && (
+                  <Dropzone
+                    droppablePrefix={getDnDId(category)}
+                    label={translate('dropArgumentsHere')}
+                    disableDrop={state.actionDropActive || (state.actionDropActive && !category.actionTargetContainer)}
+                  />
+                )}
                 <>
                   {category.connectedArguments
                     .map(

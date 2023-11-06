@@ -86,10 +86,6 @@
         {
           "label": "Maandishi ndani ya eneo la kushuka la hoja wakati wa kuongeza hoja mpya yamezimwa",
           "default": "Acha hoja hapa"
-        },
-        {
-          "label": "Maandishi ndani ya eneo la kushuka kwa hoja wakati wa kuongeza hoja mpya yamewashwa",
-          "default": "Acha hoja iliyopo au andika hoja mpya"
         }
       ]
     },

@@ -110,10 +110,6 @@
         {
           "default": "Zet argumenten hier neer",
           "label": "Tekst binnen het neerzetgebied voor argumenten wanneer nieuwe argumenten toevoegen uitgeschakeld is"
-        },
-        {
-          "label": "Tekst binnen het neerzetgebied voor argumenten wanneer nieuwe argumenten toevoegen is ingeschakeld",
-          "default": "Zet bestaande argumenten hier neer of schrijf een nieuw argument"
         }
       ]
     },
