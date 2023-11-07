@@ -84,6 +84,10 @@
           "default": "Supprimer l’argument"
         },
         {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
           "label": "Texte à l'intérieur de la zone de dépôt des arguments lorsque l'ajout de nouveaux arguments est inactivé",
           "default": "Déposer les arguments ici"
         }

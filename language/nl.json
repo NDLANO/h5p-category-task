@@ -108,6 +108,10 @@
           "label": "Label gebruikt voor tonen van de verwijder-actie"
         },
         {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
           "default": "Zet argumenten hier neer",
           "label": "Tekst binnen het neerzetgebied voor argumenten wanneer nieuwe argumenten toevoegen uitgeschakeld is"
         }

@@ -495,7 +495,7 @@ function Surface() {
       dynamicActions.push(
         new ActionMenuDataObject({
           type: 'edit',
-          title: 'Edit argument',
+          title: translate('editArgument'),
           onSelect: () => {
             if (argument.id == null) {
               return;

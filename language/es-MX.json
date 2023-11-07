@@ -108,6 +108,10 @@
           "default": "Eliminar argumento"
         },
         {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
           "default": "Dejar caer argumentos aquí",
           "label": "Texto adentro de la zona de caída de los argumentos cuando está deshabilitado el añadir nuevos argumentos"
         }

@@ -108,6 +108,10 @@
           "label": "Ezabatu ekintza erakusteko erabilitako etiketa"
         },
         {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
           "default": "Jaregin argudioak hemen",
           "label": "Askatze-eremuaren barruan argudio berriak gehitzea desgaituta dagoenean erakutsiko den testua"
         }

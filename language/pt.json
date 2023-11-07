@@ -84,6 +84,10 @@
           "default": "Eliminar argumento"
         },
         {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
           "label": "A funcionalidade de inserção de texto dentro da zona para arrastar e largar argumentos ao adicionar novos argumentos está desactivada",
           "default": "Largue os argumentos aqui"
         }

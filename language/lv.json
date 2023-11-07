@@ -108,6 +108,10 @@
           "default": "Dzēst argumentu"
         },
         {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
           "default": "Ievietojiet argumentus šeit",
           "label": "Teksts argumentu nomešanas zonā, kad jaunu argumentu pievienošana ir atspējota"
         }

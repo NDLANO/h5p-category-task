@@ -84,6 +84,10 @@
           "default": "Futa hoja"
         },
         {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
           "label": "Maandishi ndani ya eneo la kushuka la hoja wakati wa kuongeza hoja mpya yamezimwa",
           "default": "Acha hoja hapa"
         }

@@ -2,8 +2,12 @@ import React, {useState, useRef, useEffect} from 'react';
 import PropsTypes from 'prop-types';
 import classnames from 'classnames';
 import {debounce} from '../../utils';
+import { useCategoryTask } from '../../../context/CategoryTaskContext';
 
 function EditableArgument(props) {
+
+  const context = useCategoryTask();
+  const { translate } = context;
 
   const [inEditMode, toggleEditMode] = useState(props.inEditMode);
 
@@ -63,7 +67,7 @@ function EditableArgument(props) {
         })}
         onClick={startEditing}
       >
-        <span className={'visible-hidden'}>{'Edit argument ' + props.argument}</span>
+        <span className={'visible-hidden'}>{`${translate('editArgument')} ${props.argument}`}</span>
       </button>
       <label
         title={props.argument}
