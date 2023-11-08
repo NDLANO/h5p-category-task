@@ -188,15 +188,16 @@ function Surface() {
           actionDropActive: false,
         };
       }
-      case 'startEditing': {
+      case 'setEditMode': {
         const {
-          id
+          id,
+          editMode,
         } = action.payload;
         const newArguments = clone(state.argumentsList).map((argument) => {
           if (argument.id === id) {
             return {
               ...argument,
-              editMode: true,
+              editMode: editMode,
             };
           }
           return argument;
@@ -218,7 +219,6 @@ function Surface() {
         if (argumentIndex !== -1) {
           const argument = newArguments[argumentIndex];
           argument.argumentText = argumentText;
-          argument.editMode = false;
         }
 
         return {
@@ -502,8 +502,8 @@ function Surface() {
             }
 
             return dispatch({
-              type: 'startEditing',
-              payload: { id: argument.id },
+              type: 'setEditMode',
+              payload: { id: argument.id, editMode: true },
             });
           },
         }),
@@ -560,6 +560,24 @@ function Surface() {
               return dispatch({
                 type: 'editArgument',
                 payload: { id: argument.id, argumentText },
+              });
+            }}
+            startEditing={() => {
+              if (argument.id === null) {
+                return;
+              }
+              return dispatch({
+                type: 'setEditMode',
+                payload: { id: argument.id, editMode: true },
+              });
+            }}
+            stopEditing={() => {
+              if (argument.id === null) {
+                return;
+              }
+              return dispatch({
+                type: 'setEditMode',
+                payload: { id: argument.id, editMode: false },
               });
             }}
           />

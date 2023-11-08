@@ -1,41 +1,29 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useRef, useEffect} from 'react';
 import PropsTypes from 'prop-types';
 import classnames from 'classnames';
 import {debounce} from '../../utils';
 import { useCategoryTask } from '../../../context/CategoryTaskContext';
 
-function EditableArgument(props) {
+function EditableArgument({
+  argument,
+  inEditMode,
+  onChange,
+  startEditing,
+  stopEditing,
+  idBase,
+}) {
 
   const context = useCategoryTask();
   const { translate } = context;
-
-  const [inEditMode, toggleEditMode] = useState(props.inEditMode);
 
   const inputRef = useRef();
 
   useEffect(() => {
     if (inEditMode === true) {
+      inputRef.current.value = argument;
       inputRef.current.focus();
     }
-  }, []);
-
-  const startEditing = () => {
-    if (inEditMode === false) {
-      toggleEditMode(true);
-      inputRef.current.value = props.argument;
-      setTimeout(() => inputRef.current.focus(), 0);
-    }
-  };
-
-  useEffect(() => {
-    if (inEditMode === false && props.inEditMode === true) {
-      startEditing();
-    }
-  }, [props.inEditMode]);
-
-  const stopEditing = () => {
-    toggleEditMode(false);
-  };
+  }, [inEditMode]);
 
   /**
    * Handle keydown events.
@@ -50,7 +38,7 @@ function EditableArgument(props) {
     }
   };
 
-  const id = 'es_' + props.idBase;
+  const id = 'es_' + idBase;
   const inputId = 'input_' + id;
 
   /*
@@ -63,14 +51,14 @@ function EditableArgument(props) {
     <div className={'h5p-category-task-editable-container'}>
       <button
         className={classnames('h5p-category-task-editable-button', {
-          'h5p-category-task-editable-button--editing': inEditMode === true,
+          'hidden': inEditMode === true,
         })}
         onClick={startEditing}
       >
-        <span className={'visible-hidden'}>{`${translate('editArgument')} ${props.argument}`}</span>
+        <span className={'visible-hidden'}>{`${translate('editArgument')} ${argument}`}</span>
       </button>
       <label
-        title={props.argument}
+        title={argument}
         htmlFor={inputId}
         className={classnames('h5p-category-task-editable', {
           'hidden': inEditMode === false,
@@ -81,7 +69,7 @@ function EditableArgument(props) {
           className={'h5p-category-task-editable'}
           ref={inputRef}
           onBlur={stopEditing}
-          onChange={debounce(() => props.onBlur(inputRef.current.value), 200)}
+          onChange={debounce(() => onChange(inputRef.current.value), 200)}
           onKeyDown={handleKeyDown}
           id={inputId}
         />
@@ -91,7 +79,7 @@ function EditableArgument(props) {
           'hidden': inEditMode === true,
         })}
       >
-        {props.argument}
+        {argument}
       </p>
     </div>
   );
@@ -100,7 +88,9 @@ function EditableArgument(props) {
 EditableArgument.propTypes = {
   argument: PropsTypes.string,
   inEditMode: PropsTypes.bool,
-  onBlur: PropsTypes.func,
+  onChange: PropsTypes.func,
+  startEditing: PropsTypes.func,
+  stopEditing: PropsTypes.func,
   idBase: PropsTypes.oneOfType([
     PropsTypes.string,
     PropsTypes.number,
