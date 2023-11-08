@@ -12,7 +12,6 @@ function EditableArgument({
   stopEditing,
   idBase,
 }) {
-
   const context = useCategoryTask();
   const { translate } = context;
 
