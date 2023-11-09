@@ -7,10 +7,28 @@
       "label": "Užduoties aprašymas"
     },
     {
-      "label": "Argumentai"
+      "label": "Argumentai",
+      "fields": [
+        {
+          "label": "Arguments",
+          "entity": "argument",
+          "field": {
+            "label": "Argument"
+          }
+        }
+      ]
     },
     {
-      "label": "Kategorijos"
+      "label": "Kategorijos",
+      "fields": [
+        {
+          "label": "Categories",
+          "entity": "category",
+          "field": {
+            "label": "Category"
+          }
+        }
+      ]
     },
     {
       "label": "Summary",
@@ -20,7 +38,13 @@
       "label": "Summary instruction"
     },
     {
-      "label": "Resources"
+      "label": "Resources",
+      "fields": [
+        {
+          "label": "Resources",
+          "description": "Optional links to resources."
+        }
+      ]
     },
     {
       "label": "Behavioural settings",
@@ -98,6 +122,7 @@
       ]
     },
     {
+      "label": "Resource report",
       "fields": [
         {
           "label": "Label for \"Create document\"-button",
@@ -135,10 +160,10 @@
           "label": "Label when no summary is provided",
           "default": "No comment"
         }
-      ],
-      "label": "Resource report"
+      ]
     },
     {
+      "label": "Accessibility",
       "fields": [
         {
           "label": "Used instead of 'Close'-icon",
@@ -161,8 +186,7 @@
           "label": "Description for the actions menu dialog",
           "default": "Select the action you want to perform on this argument"
         }
-      ],
-      "label": "Accessibility"
+      ]
     }
   ]
 }

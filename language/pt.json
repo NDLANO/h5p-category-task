@@ -7,10 +7,28 @@
       "label": "Descrição da tarefa"
     },
     {
-      "label": "Argumentos"
+      "label": "Argumentos",
+      "fields": [
+        {
+          "label": "Arguments",
+          "entity": "argument",
+          "field": {
+            "label": "Argument"
+          }
+        }
+      ]
     },
     {
-      "label": "Categorias"
+      "label": "Categorias",
+      "fields": [
+        {
+          "label": "Categories",
+          "entity": "category",
+          "field": {
+            "label": "Category"
+          }
+        }
+      ]
     },
     {
       "label": "Base",
@@ -20,7 +38,13 @@
       "label": "Instrução básica"
     },
     {
-      "label": "Recursos"
+      "label": "Recursos",
+      "fields": [
+        {
+          "label": "Resources",
+          "description": "Optional links to resources."
+        }
+      ]
     },
     {
       "label": "Configurações comportamentais",

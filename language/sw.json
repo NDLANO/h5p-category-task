@@ -7,10 +7,28 @@
       "label": "Maelezo ya kazi"
     },
     {
-      "label": "Hoja"
+      "label": "Hoja",
+      "fields": [
+        {
+          "label": "Arguments",
+          "entity": "argument",
+          "field": {
+            "label": "Argument"
+          }
+        }
+      ]
     },
     {
-      "label": "Aina"
+      "label": "Aina",
+      "fields": [
+        {
+          "label": "Categories",
+          "entity": "category",
+          "field": {
+            "label": "Category"
+          }
+        }
+      ]
     },
     {
       "label": "Msingi",
@@ -20,7 +38,13 @@
       "label": "Maelekezo ya msingi"
     },
     {
-      "label": "Rasilimali"
+      "label": "Rasilimali",
+      "fields": [
+        {
+          "label": "Resources",
+          "description": "Optional links to resources."
+        }
+      ]
     },
     {
       "label": "Mipangilio ya tabia",
