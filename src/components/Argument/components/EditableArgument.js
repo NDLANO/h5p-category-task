@@ -12,8 +12,7 @@ function EditableArgument({
   stopEditing,
   idBase,
 }) {
-  const context = useCategoryTask();
-  const { translate } = context;
+  const { translate } = useCategoryTask();
 
   const [buttonFocus, setButtonFocus] = useState(false);
 
