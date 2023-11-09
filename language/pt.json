@@ -7,10 +7,28 @@
       "label": "Descrição da tarefa"
     },
     {
-      "label": "Argumentos"
+      "label": "Argumentos",
+      "fields": [
+        {
+          "label": "Arguments",
+          "entity": "argument",
+          "field": {
+            "label": "Argument"
+          }
+        }
+      ]
     },
     {
-      "label": "Categorias"
+      "label": "Categorias",
+      "fields": [
+        {
+          "label": "Categories",
+          "entity": "category",
+          "field": {
+            "label": "Category"
+          }
+        }
+      ]
     },
     {
       "label": "Base",
@@ -20,7 +38,13 @@
       "label": "Instrução básica"
     },
     {
-      "label": "Recursos"
+      "label": "Recursos",
+      "fields": [
+        {
+          "label": "Resources",
+          "description": "Optional links to resources."
+        }
+      ]
     },
     {
       "label": "Configurações comportamentais",
@@ -82,6 +106,14 @@
         {
           "label": "Notificação usada para mostrar a acção de eliminar",
           "default": "Eliminar argumento"
+        },
+        {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
+          "label": "Label for the argument",
+          "default": "Argument"
         },
         {
           "label": "A funcionalidade de inserção de texto dentro da zona para arrastar e largar argumentos ao adicionar novos argumentos está desactivada",

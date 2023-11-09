@@ -10,6 +10,8 @@ import { getDnDId } from '../utils';
 function Argument({
   argument,
   onArgumentChange,
+  startEditing,
+  stopEditing,
   enableEditing = false,
   isDragging = false,
   isDragEnabled = true,
@@ -40,7 +42,9 @@ function Argument({
       <EditableArgument
         argument={argument.argumentText}
         inEditMode={argument.editMode}
-        onBlur={onArgumentChange}
+        onChange={onArgumentChange}
+        startEditing={startEditing}
+        stopEditing={stopEditing}
         idBase={argument.id}
       />
     );
@@ -84,6 +88,8 @@ function Argument({
 Argument.propTypes = {
   argument: PropTypes.object,
   onArgumentChange: PropTypes.func,
+  startEditing: PropTypes.func,
+  stopEditing: PropTypes.func,
   enableEditing: PropTypes.bool,
   onArgumentDelete: PropTypes.func,
   isDragging: PropTypes.bool.isRequired,

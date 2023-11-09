@@ -7,10 +7,28 @@
       "label": "Maelezo ya kazi"
     },
     {
-      "label": "Hoja"
+      "label": "Hoja",
+      "fields": [
+        {
+          "label": "Arguments",
+          "entity": "argument",
+          "field": {
+            "label": "Argument"
+          }
+        }
+      ]
     },
     {
-      "label": "Aina"
+      "label": "Aina",
+      "fields": [
+        {
+          "label": "Categories",
+          "entity": "category",
+          "field": {
+            "label": "Category"
+          }
+        }
+      ]
     },
     {
       "label": "Msingi",
@@ -20,7 +38,13 @@
       "label": "Maelekezo ya msingi"
     },
     {
-      "label": "Rasilimali"
+      "label": "Rasilimali",
+      "fields": [
+        {
+          "label": "Resources",
+          "description": "Optional links to resources."
+        }
+      ]
     },
     {
       "label": "Mipangilio ya tabia",
@@ -82,6 +106,14 @@
         {
           "label": "Lebo inayotumiwa kuonyesha kitendo cha kufuta",
           "default": "Futa hoja"
+        },
+        {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
+          "label": "Label for the argument",
+          "default": "Argument"
         },
         {
           "label": "Maandishi ndani ya eneo la kushuka la hoja wakati wa kuongeza hoja mpya yamezimwa",

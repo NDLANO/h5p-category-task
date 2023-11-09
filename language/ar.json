@@ -7,10 +7,28 @@
       "label": "وصف المهام"
     },
     {
-      "label": "الحجج"
+      "label": "الحجج",
+      "fields": [
+        {
+          "label": "Arguments",
+          "entity": "argument",
+          "field": {
+            "label": "Argument"
+          }
+        }
+      ]
     },
     {
-      "label": "الفئات"
+      "label": "الفئات",
+      "fields": [
+        {
+          "label": "Categories",
+          "entity": "category",
+          "field": {
+            "label": "Category"
+          }
+        }
+      ]
     },
     {
       "default": "الأساس",
@@ -20,10 +38,17 @@
       "label": "تعليمات الأساس"
     },
     {
-      "label": "الموارد"
+      "label": "الموارد",
+      "fields": [
+        {
+          "label": "Resources",
+          "description": "Optional links to resources."
+        }
+      ]
     },
     {
       "label": "الإعدادات السلوكية",
+      "description": "ستتيح لك هذه الخيارات التحكم في السلوك.",
       "fields": [
         {
           "label": "تفعيل إعادة المحاولة؟",
@@ -41,8 +66,7 @@
           "description": "هل تريد أن يقدم المستخدم ملخصاً يشرح أسباب إجاباته/إجاباتها",
           "label": "عرض الملخص"
         }
-      ],
-      "description": "ستتيح لك هذه الخيارات التحكم في السلوك."
+      ]
     },
     {
       "label": "توطين",
@@ -82,6 +106,14 @@
         {
           "label": "تسمية مستخدمة لإظهار فعل الحذف",
           "default": "حذف الحجة"
+        },
+        {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
+          "label": "Label for the argument",
+          "default": "Argument"
         },
         {
           "label": "نص داخل منطقة إفلات الحجج عند يكون خيار إضافة حجج جديدة معطلاً",
@@ -131,6 +163,7 @@
       ]
     },
     {
+      "label": "إمكانية الوصول",
       "fields": [
         {
           "label": "إغلاق",
@@ -153,8 +186,7 @@
           "label": "وصف لمربع حوار قائمة الإجراءات",
           "default": "اختر الإجراء الذي تريد تنفيذه بخصوص هذه الحجة"
         }
-      ],
-      "label": "إمكانية الوصول"
+      ]
     }
   ]
 }

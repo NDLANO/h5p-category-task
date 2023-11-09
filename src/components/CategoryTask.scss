@@ -461,10 +461,7 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     cursor: inherit;
     inset: 0;
     position: absolute;
-  }
-
-  .h5p-category-task-editable-button--editing {
-    cursor: text;
+    width: 100%;
   }
 
   label,
@@ -597,7 +594,9 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   flex: auto;
 
   label,
-  .h5p-category-task-popover-actionmenu-delete {
+  .h5p-category-task-popover-actionmenu-delete,
+  .h5p-category-task-popover-actionmenu-edit {
+    color: #1a1616;
     padding: 1rem 0.9rem;
     display: flex;
     overflow: hidden;
@@ -638,7 +637,8 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     color: #121212;
   }
 
-  .h5p-category-task-popover-actionmenu-delete .h5p-category-task-popover-actionmenu-labeltext {
+  .h5p-category-task-popover-actionmenu-delete .h5p-category-task-popover-actionmenu-labeltext,
+  .h5p-category-task-popover-actionmenu-edit .h5p-category-task-popover-actionmenu-labeltext {
     color: #1a1616;
   }
 }

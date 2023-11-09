@@ -108,6 +108,14 @@
           "default": "Eliminar argumento"
         },
         {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
+          "label": "Label for the argument",
+          "default": "Argument"
+        },
+        {
           "label": "Texto dentro de la zona para soltar argumentos cuando está deshabilitada la opción de añadir nuevos argumentos",
           "default": "Suelta tus argumentos aquí"
         }

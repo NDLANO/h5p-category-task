@@ -108,6 +108,14 @@
           "default": "Аргументыг устгах"
         },
         {
+          "label": "Label used to show the edit action",
+          "default": "Edit argument"
+        },
+        {
+          "label": "Label for the argument",
+          "default": "Argument"
+        },
+        {
           "label": "Шинэ аргумент нэмэх үед аргументуудыг буулгах бүс доторх текстийг идэвхгүй болгосон",
           "default": "Аргументуудыг энд оруулаарай"
         }
