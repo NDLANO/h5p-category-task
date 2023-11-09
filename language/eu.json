@@ -112,6 +112,10 @@
           "default": "Edit argument"
         },
         {
+          "label": "Label for the argument",
+          "default": "Argument"
+        },
+        {
           "default": "Jaregin argudioak hemen",
           "label": "Askatze-eremuaren barruan argudio berriak gehitzea desgaituta dagoenean erakutsiko den testua"
         }

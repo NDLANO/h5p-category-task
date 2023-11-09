@@ -112,6 +112,10 @@
           "default": "Edit argument"
         },
         {
+          "label": "Label for the argument",
+          "default": "Argument"
+        },
+        {
           "default": "Ievietojiet argumentus šeit",
           "label": "Teksts argumentu nomešanas zonā, kad jaunu argumentu pievienošana ir atspējota"
         }

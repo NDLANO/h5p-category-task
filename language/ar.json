@@ -88,6 +88,10 @@
           "default": "Edit argument"
         },
         {
+          "label": "Label for the argument",
+          "default": "Argument"
+        },
+        {
           "label": "نص داخل منطقة إفلات الحجج عند يكون خيار إضافة حجج جديدة معطلاً",
           "default": "إفلات الحجج هنا"
         }

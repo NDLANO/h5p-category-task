@@ -88,6 +88,10 @@
           "default": "Edit argument"
         },
         {
+          "label": "Label for the argument",
+          "default": "Argument"
+        },
+        {
           "label": "Maandishi ndani ya eneo la kushuka la hoja wakati wa kuongeza hoja mpya yamezimwa",
           "default": "Acha hoja hapa"
         }

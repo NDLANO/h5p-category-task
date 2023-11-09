@@ -112,6 +112,10 @@
           "default": "Edit argument"
         },
         {
+          "label": "Label for the argument",
+          "default": "Argument"
+        },
+        {
           "label": "O texto dentro da zona de soltura de argumentos ao adicionar novos argumentos está desativado",
           "default": "Solte os argumentos aqui"
         }

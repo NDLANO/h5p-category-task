@@ -74,7 +74,7 @@ function EditableArgument({
           'hidden': inEditMode === false,
         })}
       >
-        <span className={'visible-hidden'}>Argument</span>
+        <span className={'visible-hidden'}>{translate('argument')}</span>
         <input
           className={'h5p-category-task-editable'}
           ref={inputRef}

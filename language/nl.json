@@ -112,6 +112,10 @@
           "default": "Edit argument"
         },
         {
+          "label": "Label for the argument",
+          "default": "Argument"
+        },
+        {
           "default": "Zet argumenten hier neer",
           "label": "Tekst binnen het neerzetgebied voor argumenten wanneer nieuwe argumenten toevoegen uitgeschakeld is"
         }
