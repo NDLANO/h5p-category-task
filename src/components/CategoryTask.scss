@@ -121,19 +121,35 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   }
 
   .h5p-category-task-category-container {
-    .h5p-category-task-header-argument-add {
-      display: flex;
-      align-items: center;
+    .h5p-category-task-add-button {
+      background-color: #fff;
+      border: 1px solid #dbe2e8;
+      border-radius: 0.3125rem;
       cursor: pointer;
+      display: inline-block;
+      margin: 0 1rem 1rem;
+      padding: 0.1875rem;
+      text-align: center;
+      width: fit-content;
 
-      :not(.fa){
-        display: block;
-        text-decoration: underline;
-      }
+      .h5p-category-task-add-button-content {
+        align-items: center;
+        background-color: rgba(219,226,232,.25);
+        background-size: cover;
+        border: none;
+        border-radius: inherit;
+        color: #363636;
+        display: flex;
+        flex-wrap: nowrap;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 0.3125rem;
 
-      .fa {
-        font-size: 0.8rem;
-        margin-right: 0.4rem;
+        .fa {
+          color: inherit;
+          font-size: 1.25rem;
+          margin-right: 0.5675rem;
+        }
       }
     }
   }

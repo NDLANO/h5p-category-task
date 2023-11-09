@@ -595,6 +595,7 @@ function Surface() {
       >
         <Category
           categoryId={'unprocessed'}
+          addArgument={false}
           includeHeader={false}
           additionalClassName={[
             'h5p-category-task-unprocessed',
