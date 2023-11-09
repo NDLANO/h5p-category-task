@@ -1,4 +1,4 @@
-import React, {useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import PropsTypes from 'prop-types';
 import classnames from 'classnames';
 import {debounce} from '../../utils';
@@ -15,12 +15,21 @@ function EditableArgument({
   const context = useCategoryTask();
   const { translate } = context;
 
+  const [buttonFocus, setButtonFocus] = useState(false);
+
   const inputRef = useRef();
+  const buttonRef = useRef();
 
   useEffect(() => {
     if (inEditMode === true) {
       inputRef.current.value = argument;
       inputRef.current.focus();
+    }
+    else {
+      if (buttonFocus) {
+        buttonRef.current.focus();
+        setButtonFocus(false);
+      }
     }
   }, [inEditMode]);
 
@@ -33,6 +42,8 @@ function EditableArgument({
     if (event.key === 'Enter') {
       if (inEditMode) {
         stopEditing();
+        setButtonFocus(true);
+        event.preventDefault();
       }
     }
   };
@@ -49,6 +60,7 @@ function EditableArgument({
   return (
     <div className={'h5p-category-task-editable-container'}>
       <button
+        ref={buttonRef}
         className={classnames('h5p-category-task-editable-button', {
           'hidden': inEditMode === true,
         })}
