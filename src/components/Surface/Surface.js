@@ -193,7 +193,7 @@ function Surface() {
           id,
           editMode,
         } = action.payload;
-        const newArguments = clone(state.argumentsList).map((argument) => {
+        const newArguments = state.argumentsList.map((argument) => {
           if (argument.id === id) {
             return {
               ...argument,
