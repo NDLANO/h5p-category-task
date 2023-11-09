@@ -103,6 +103,13 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
       display: flex;
     }
   }
+
+  .h5p-category-task-right-aligned {
+    .h5p-category-task-actionmenu {
+      left: unset !important;
+      right: 0;
+    }
+  }
 }
 
 .h5p-large-tablet-size,

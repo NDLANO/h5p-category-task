@@ -14,12 +14,14 @@ import Column from '../DragAndDrop/Column';
 import Element from '../DragAndDrop/Element';
 import Summary from '../Summary/Summary';
 import Dropzone from '../DragAndDrop/Dropzone';
+import classnames from 'classnames';
 import {
   ActionMenuDataObject,
   ArgumentDataObject,
   CategoryDataObject,
   clone,
   getDnDId,
+  isEven,
 } from '../utils';
 
 /**
@@ -603,12 +605,13 @@ function Surface() {
         >
           {state.categories
             .filter((category) => category.isArgumentDefaultList)
-            .map((category) => (
+            .map((category, index) => (
               <div key={category.id}>
                 <Column
-                  additionalClassName={
-                    'h5p-category-task-unprocessed-argument-list'
-                  }
+                  additionalClassName={classnames(
+                    'h5p-category-task-unprocessed-argument-list', {
+                    'h5p-category-task-right-aligned': isEven(index + 1),
+                  })}
                   droppableId={getDnDId(category)}
                   disableDrop={true}
                   connectedArguments={category.connectedArguments}
@@ -636,7 +639,7 @@ function Surface() {
         </Category>
         {state.categories
           .filter((category) => !category.isArgumentDefaultList)
-          .map((category) => (
+          .map((category, index) => (
             <Category
               key={category.id}
               categoryId={getDnDId(category)}
@@ -654,7 +657,9 @@ function Surface() {
               }
             >
               <Column
-                additionalClassName={'h5p-category-task-argument-list'}
+                additionalClassName={classnames('h5p-category-task-argument-list', {
+                  'h5p-category-task-right-aligned': isEven(index + 1),
+                })}
                 droppableId={getDnDId(category)}
                 disableDrop={
                   state.actionDropActive && !category.actionTargetContainer

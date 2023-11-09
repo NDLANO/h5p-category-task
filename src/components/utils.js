@@ -269,3 +269,13 @@ export function getRatio(container) {
 export function clone(object) {
   return JSON.parse(JSON.stringify(object));
 }
+
+/**
+ * Check if a number is even
+ * 
+ * @param {number} number
+ * @returns {boolean}
+ */
+export function isEven(number) {
+  return number % 2 === 0;
+}

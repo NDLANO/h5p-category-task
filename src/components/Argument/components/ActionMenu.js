@@ -152,7 +152,7 @@ function ActionMenu(props) {
       padding={0}
       reposition={false}
       parentElement={parentElement}
-      containerStyle={{ position: 'absolute', top: '56px' }}
+      containerStyle={{ position: 'absolute', top: `${parentBox.height}px` }}
       content={() => (
         <div
           id={menuId}
