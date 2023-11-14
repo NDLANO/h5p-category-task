@@ -20,11 +20,11 @@ function Category(props) {
       {includeHeader && (
         <div className={'h5p-category-task-category-header'}>
           {title}
-          {addArgument && <AddArgument onClick={onAddArgument} />}
         </div>
       )}
       <div className={'h5p-category-task-category-content'} id={categoryId}>
         {children}
+        {addArgument && <AddArgument onClick={onAddArgument} />}
       </div>
     </div>
   );
