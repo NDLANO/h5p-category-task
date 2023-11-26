@@ -343,7 +343,11 @@ function Surface() {
   };
 
   useEffect(() => {
-    context.trigger('resize');
+    requestAnimationFrame(() => {
+      // Trigger custom event instead of H5P event to avoid
+      // triggering resize until breakpoints have been applied.
+      context.trigger('resizecontenttype');
+    });
   }, [state.argumentsList, state.categories]);
 
   const {
