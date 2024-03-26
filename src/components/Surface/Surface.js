@@ -89,7 +89,7 @@ function Surface() {
      */
     const {
       params: { argumentsList: argumentDataList = [], categoriesList = [] },
-      behaviour: { randomizeArguments = true },
+      behaviour: { randomizeArguments = true, makeDiscussion = false },
     } = context;
 
     if (randomizeArguments === true) {
@@ -126,16 +126,38 @@ function Surface() {
         }),
       );
     }
-    categoriesList.forEach((category, index) =>
-      categories.push(
-        new CategoryDataObject({
-          id: index,
-          theme: 'h5p-category-task-category-container',
-          useNoArgumentsPlaceholder: true,
-          title: category,
-        }),
-      ),
-    );
+
+    console.log('first make', makeDiscussion)
+    if (makeDiscussion) {
+      categories.push(new CategoryDataObject({
+        id: 'pro',
+        theme: 'h5p-category-task-category-container h5p-discussion-pro',
+        useNoArgumentsPlaceholder: true,
+        title: 'Arugments FOR', // TODO translate
+        makeDiscussion: true,
+      }));
+
+      categories.push(new CategoryDataObject({
+        id: 'contra',
+        theme: 'h5p-category-task-category-container h5p-discussion-against',
+        useNoArgumentsPlaceholder: true,
+        title: 'Arugments AGAINST', // TODO translate
+        makeDiscussion: true,
+      }));
+    }
+
+    else {
+      categoriesList.forEach((category, index) => {
+        return categories.push(
+          new CategoryDataObject({
+            id: index,
+            theme: 'h5p-category-task-category-container',
+            useNoArgumentsPlaceholder: true,
+            title: category,
+          }),
+        );
+      });
+    }
 
     return {
       categories,
@@ -646,6 +668,7 @@ function Surface() {
               categoryId={getDnDId(category)}
               includeHeader={category.title !== null}
               title={category.title}
+              makeDiscussion={category.makeDiscussion}
               additionalClassName={[category.theme]}
               addArgument={allowAddingOfArguments}
               onAddArgument={() =>

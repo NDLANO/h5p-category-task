@@ -493,9 +493,63 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   border: 2px solid #dbe2e8;
   padding: 1rem;
 }
+.h5p-discussion-header-icon {
+  border-radius: 50%;
+  height: 3.125rem;
+  width: 3.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  box-shadow: 2px 2px 4px 1px rgba(3, 3, 3, 0.2);
+}
+
+.h5p-discussion-pro,
+.h5p-discussion-against {
+  width: 48%;
+  margin-top: 1rem;
+}
 
 .h5p-category-task-category-container {
-
+  
+  &.h5p-discussion-pro {
+      .h5p-category-task-category-header {
+        background-color: #458356;
+        color: #ffffff;
+        padding-left: 3.75rem;
+      }
+  
+      .h5p-discussion-header-icon {
+        background-color: #4D9360;
+        border: 3px solid #6CB27F;
+  
+        &::before {
+          content: "\f164";
+          filter: drop-shadow(2px 2px 2px rgba(0 0 0 / 0.2));
+        }
+      }
+    }
+  
+    &.h5p-discussion-against {
+      .h5p-category-task-category-header {
+        background-color: #D83131;
+        color: #ffffff;
+        padding-left: 3.75rem;
+      }
+  
+      .h5p-discussion-header-icon {
+        background-color: #DB4343;
+        border: 3px solid #E57676;
+  
+        &::before {
+          content: "\f165";
+          filter: drop-shadow(2px -2px 2px rgba(0 0 0 / 0.2));
+          top: 0.6em;
+        }
+      }
+    }
   .h5p-category-task-category-header {
     overflow: hidden;
     min-height: 2.5rem;
@@ -510,6 +564,14 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     background-color: #2679C5;
     color: #ffffff;
     font-size: 1.125rem;
+    .h5p-discussion-header-icon {
+        &::before {
+          font-family: "H5PFontAwesome4", sans-serif;
+          font-size: 1.5em;
+          font-style: normal;
+          position: absolute;
+        }
+      }
   }
 
   .h5p-category-task-add-button {

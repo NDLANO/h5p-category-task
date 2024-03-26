@@ -2,12 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AddArgument from './components/AddArgument';
 
+function HeaderIcon() {
+  return (
+    <span
+      className={'h5p-discussion-header-icon'}
+    >
+    </span>
+  );
+}
+
 function Category(props) {
   const {
     additionalClassName,
     categoryId,
     addArgument,
     title,
+    makeDiscussion,
     includeHeader,
     onAddArgument,
     children,
@@ -19,7 +29,8 @@ function Category(props) {
     <div className={additionalClassName.join(' ')}>
       {includeHeader && (
         <div className={'h5p-category-task-category-header'}>
-          {title}
+          {makeDiscussion && < HeaderIcon />}
+          {title} 
         </div>
       )}
       <div className={'h5p-category-task-category-content'} id={categoryId}>
