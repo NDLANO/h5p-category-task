@@ -150,6 +150,7 @@ export function stripHTML(html) {
 }
 
 export function sanitizeParams(params) {
+  console.log('sanitizeParams', params);
   const filterResourceList = (element) =>
     Object.keys(element).length !== 0 && element.constructor === Object;
   const handleObject = (sourceObject) => {

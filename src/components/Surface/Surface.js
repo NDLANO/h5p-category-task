@@ -92,6 +92,8 @@ function Surface() {
       behaviour: { randomizeArguments = true, makeDiscussion = false },
     } = context;
 
+    console.log(context.params, 'test')
+
     if (randomizeArguments === true) {
       argumentDataList.sort(() => 0.5 - Math.random());
     }
@@ -127,10 +129,9 @@ function Surface() {
       );
     }
 
-    console.log('first make', makeDiscussion)
     if (makeDiscussion) {
       categories.push(new CategoryDataObject({
-        id: 'pro',
+        id: 0,
         theme: 'h5p-category-task-category-container h5p-discussion-pro',
         useNoArgumentsPlaceholder: true,
         title: 'Arugments FOR', // TODO translate
@@ -138,7 +139,7 @@ function Surface() {
       }));
 
       categories.push(new CategoryDataObject({
-        id: 'contra',
+        id: 1,
         theme: 'h5p-category-task-category-container h5p-discussion-against',
         useNoArgumentsPlaceholder: true,
         title: 'Arugments AGAINST', // TODO translate

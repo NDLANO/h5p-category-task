@@ -44,12 +44,27 @@
         }
       ]
   },
+    {
+    "name": "makeDiscussion",
+    "type": "boolean",
+    "label": "Make Discussion",
+    "default": true
+  },
   {
     "name": "categoriesList",
     "label": "Categories",
     "type": "group",
     "importance": "high",
     "expanded": true,
+    "widget": "showWhen",
+    "showWhen": {
+      "rules": [
+        {
+          "field": "makeDiscussion",
+          "equals": false
+        }
+      ]
+    },
     "fields": [
       {
         "name": "categoriesList",
@@ -141,13 +156,6 @@
         "type": "boolean",
         "label": "Show summary",
         "description": "Do you want the user to provide a summary explaining the reasons for his/her answers",
-        "default": true
-      },
-      {
-        "name": "makeDiscussion",
-        "type": "boolean",
-        "label": "Make discussion",
-        "description": "Show pro and con fields for each argument",
         "default": true
       }
     ]
