@@ -53,7 +53,7 @@ export function CategoryDataObject({
 }) {
   this.id = id ?? null;
   this.title = title ?? null;
-  this.makeDiscussion = makeDiscussion ?? false;
+  this.makeDiscussion = makeDiscussion ?? true;
   this.connectedArguments = connectedArguments ?? [];
   this.isArgumentDefaultList = isArgumentDefaultList ?? false;
   this.theme = theme ?? 'h5p-category-task-category-default';
@@ -150,7 +150,7 @@ export function stripHTML(html) {
 }
 
 export function sanitizeParams(params) {
-  console.log('sanitizeParams', params);
+
   const filterResourceList = (element) =>
     Object.keys(element).length !== 0 && element.constructor === Object;
   const handleObject = (sourceObject) => {

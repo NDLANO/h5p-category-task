@@ -88,11 +88,9 @@ function Surface() {
      * }}
      */
     const {
-      params: { argumentsList: argumentDataList = [], categoriesList = [] },
-      behaviour: { randomizeArguments = true, makeDiscussion = false },
+      params: { argumentsList: argumentDataList = [], categoriesList = [], makeDiscussion = true },
+      behaviour: { randomizeArguments = true },
     } = context;
-
-    console.log(context.params, 'test')
 
     if (randomizeArguments === true) {
       argumentDataList.sort(() => 0.5 - Math.random());
@@ -135,7 +133,7 @@ function Surface() {
         theme: 'h5p-category-task-category-container h5p-discussion-pro',
         useNoArgumentsPlaceholder: true,
         title: 'Arugments FOR', // TODO translate
-        makeDiscussion: true,
+        makeDiscussion,
       }));
 
       categories.push(new CategoryDataObject({
@@ -143,21 +141,20 @@ function Surface() {
         theme: 'h5p-category-task-category-container h5p-discussion-against',
         useNoArgumentsPlaceholder: true,
         title: 'Arugments AGAINST', // TODO translate
-        makeDiscussion: true,
+        makeDiscussion,
       }));
     }
 
     else {
-      categoriesList.forEach((category, index) => {
-        return categories.push(
-          new CategoryDataObject({
-            id: index,
-            theme: 'h5p-category-task-category-container',
-            useNoArgumentsPlaceholder: true,
-            title: category,
-          }),
-        );
-      });
+      categoriesList.forEach((category, index) => categories.push(
+        new CategoryDataObject({
+          id: index,
+          theme: 'h5p-category-task-category-container',
+          useNoArgumentsPlaceholder: true,
+          title: category,
+          makeDiscussion,
+        })
+      ));
     }
 
     return {
