@@ -28,23 +28,23 @@
     "importance": "high",
     "expanded": true,
     "fields": [
-        {
-          "name": "argumentsList",
-          "type": "list",
-          "label": "Arguments",
-          "importance": "high",
-          "entity": "argument",
-          "optional": true,
-          "min": 1,
-          "field": {
-            "name": "text",
-            "type": "text",
-            "label": "Argument"
-          }
+      {
+        "name": "argumentsList",
+        "type": "list",
+        "label": "Arguments",
+        "importance": "high",
+        "entity": "argument",
+        "optional": true,
+        "min": 1,
+        "field": {
+          "name": "text",
+          "type": "text",
+          "label": "Argument"
         }
-      ]
+      }
+    ]
   },
-    {
+  {
     "name": "makeDiscussion",
     "type": "boolean",
     "label": "Make Discussion",

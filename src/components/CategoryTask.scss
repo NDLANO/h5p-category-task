@@ -836,6 +836,47 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     }
   }
 
+  .pro-arguments {
+    $proBorderColor: #54a169;
+
+    th {
+      background-color: $proBorderColor;
+      border: 1px solid $proBorderColor;
+    }
+
+    td {
+      border: 1px solid $proBorderColor;
+    }
+
+    tr {
+      background-color: #d9ead3;
+    }
+
+    ul li::before {
+      color: $proBorderColor;
+    }
+  }
+
+  .contra-arguments {
+    $contraBorderColor: #de5050;
+
+    th {
+      background-color: $contraBorderColor;
+      border: 1px solid $contraBorderColor
+    }
+
+    td {
+      border: 1px solid $contraBorderColor;
+    }
+    tr {
+      background-color: #f4cccc;
+    }
+
+    ul li::before {
+      color: $contraBorderColor;
+    }
+  }
+
   .page-resources {
     border: 1px solid rgba(0, 90, 255, 0.34);
 
