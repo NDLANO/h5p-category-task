@@ -43,7 +43,7 @@ function Export() {
       });
 
     // Style first two categories differently if makeDiscussion is enabled
-    if (makeDiscussion === false) {
+    if (makeDiscussion === true) {
       categories.forEach((category, index) => {
         if (index < 2) {
           category.makeDiscussionLimit = true;
