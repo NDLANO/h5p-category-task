@@ -8,6 +8,7 @@ function Category(props) {
     categoryId,
     addArgument,
     title,
+    makeDiscussion,
     includeHeader,
     onAddArgument,
     children,
@@ -19,7 +20,12 @@ function Category(props) {
     <div className={additionalClassName.join(' ')}>
       {includeHeader && (
         <div className={'h5p-category-task-category-header'}>
-          {title}
+          {makeDiscussion &&
+            (
+              <span className={'h5p-discussion-header-icon'}></span>
+            )
+          }
+          {title} 
         </div>
       )}
       <div className={'h5p-category-task-category-content'} id={categoryId}>

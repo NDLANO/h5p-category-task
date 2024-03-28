@@ -88,7 +88,7 @@ function Surface() {
      * }}
      */
     const {
-      params: { argumentsList: argumentDataList = [], categoriesList = [] },
+      params: { argumentsList: argumentDataList = [], categoriesList = [], makeDiscussion = true },
       behaviour: { randomizeArguments = true },
     } = context;
 
@@ -126,16 +126,36 @@ function Surface() {
         }),
       );
     }
-    categoriesList.forEach((category, index) =>
-      categories.push(
+
+    if (makeDiscussion) {
+      categories.push(new CategoryDataObject({
+        id: 0,
+        theme: 'h5p-category-task-category-container h5p-discussion-pro',
+        useNoArgumentsPlaceholder: true,
+        title: 'Arugments FOR', // TODO translate
+        makeDiscussion,
+      }));
+
+      categories.push(new CategoryDataObject({
+        id: 1,
+        theme: 'h5p-category-task-category-container h5p-discussion-against',
+        useNoArgumentsPlaceholder: true,
+        title: 'Arugments AGAINST', // TODO translate
+        makeDiscussion,
+      }));
+    }
+
+    else {
+      categoriesList.forEach((category, index) => categories.push(
         new CategoryDataObject({
           id: index,
           theme: 'h5p-category-task-category-container',
           useNoArgumentsPlaceholder: true,
           title: category,
-        }),
-      ),
-    );
+          makeDiscussion,
+        })
+      ));
+    }
 
     return {
       categories,
@@ -646,6 +666,7 @@ function Surface() {
               categoryId={getDnDId(category)}
               includeHeader={category.title !== null}
               title={category.title}
+              makeDiscussion={category.makeDiscussion}
               additionalClassName={[category.theme]}
               addArgument={allowAddingOfArguments}
               onAddArgument={() =>
