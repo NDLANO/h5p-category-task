@@ -19,6 +19,7 @@ function Export() {
         header,
         description = '',
         summaryHeader,
+        makeDiscussion,
       },
       behaviour: {
         provideSummary = true,
@@ -33,10 +34,29 @@ function Export() {
       userInput
     } = collectExportValues();
 
+    // Prepare categories
+    let categories = userInput.categories
+      .filter((category) => !category.isArgumentDefaultList)
+      .map((category) => {
+        category.connectedArguments = category.connectedArguments.map((argumentId) => userInput.argumentsList[argumentId]);
+        return category;
+      });
+
+    // Style first two categories differently if makeDiscussion is enabled
+    if (makeDiscussion === true) {
+      categories.forEach((category, index) => {
+        if (index < 2) {
+          category.makeDiscussionLimit = true;
+          category.cssClass = index === 0 ? 'pro-arguments' : 'contra-arguments';
+        }
+      });
+    }
+
     return Object.assign({}, translations, {
       mainTitle: header,
       description: stripHTML(description),
       summaryHeader,
+      makeDiscussion,
       hasResources: resources && resources.length > 0,
       useSummary: provideSummary,
       hasSummaryComment: summary && summary.length > 0,
@@ -46,12 +66,7 @@ function Export() {
         .filter((category) => category.isArgumentDefaultList)
         .map((category) => category.connectedArguments)
         .reduce((acc, val) => acc.concat(val), []),
-      categories: userInput.categories
-        .filter((category) => !category.isArgumentDefaultList)
-        .map((category) => {
-          category.connectedArguments = category.connectedArguments.map((argumentId) => userInput.argumentsList[argumentId]);
-          return category;
-        })
+      categories: categories,
     });
   }
 
@@ -63,7 +78,7 @@ function Export() {
             '</div>' +
             '<div class="page-description">{{description}}</div>' +
             '{{#categories}}' +
-            '<table class="page-category-arguments">' +
+            '<table class="page-category-arguments {{@index}} {{cssClass}}">' +
             '<tr><th>{{title}}</th></tr>' +
             '<tr><td><ul>{{#connectedArguments}}<li>{{argumentText}}</li>{{/connectedArguments}}</ul>{{^connectedArguments}}{{noArguments}}{{/connectedArguments}}</td></tr>' +
             '</table>' +

@@ -28,21 +28,27 @@
     "importance": "high",
     "expanded": true,
     "fields": [
-        {
-          "name": "argumentsList",
-          "type": "list",
-          "label": "Arguments",
-          "importance": "high",
-          "entity": "argument",
-          "optional": true,
-          "min": 1,
-          "field": {
-            "name": "text",
-            "type": "text",
-            "label": "Argument"
-          }
+      {
+        "name": "argumentsList",
+        "type": "list",
+        "label": "Arguments",
+        "importance": "high",
+        "entity": "argument",
+        "optional": true,
+        "min": 1,
+        "field": {
+          "name": "text",
+          "type": "text",
+          "label": "Argument"
         }
-      ]
+      }
+    ]
+  },
+  {
+    "name": "makeDiscussion",
+    "type": "boolean",
+    "label": "Make Discussion",
+    "default": true
   },
   {
     "name": "categoriesList",
@@ -50,6 +56,15 @@
     "type": "group",
     "importance": "high",
     "expanded": true,
+    "widget": "showWhen",
+    "showWhen": {
+      "rules": [
+        {
+          "field": "makeDiscussion",
+          "equals": false
+        }
+      ]
+    },
     "fields": [
       {
         "name": "categoriesList",
