@@ -108,8 +108,8 @@
           "default": "Eliminar argumento"
         },
         {
-          "label": "Label used to show the edit action",
-          "default": "Edit argument"
+          "label": "Etiqueta usada para mostrar la acción de editar",
+          "default": "Editar argumento"
         },
         {
           "label": "Label for the argument",
