@@ -6,6 +6,7 @@ import ActionMenu from './components/ActionMenu';
 import classnames from 'classnames';
 import DragArrows from './components/DragArrows';
 import { getDnDId } from '../utils';
+import {useCategoryTask} from 'context/CategoryTaskContext';
 
 function Argument({
   argument,
@@ -105,6 +106,8 @@ function ArgumentLayout({
   menuId,
   toggle,
 }) {
+  const { translations } = useCategoryTask();
+  
   return (
     <div className={'h5p-category-task-argument-container'}>
       <div
@@ -119,7 +122,7 @@ function ArgumentLayout({
           {statementDisplay}
           <button
             className={'h5p-category-task-argument-actions'}
-            aria-label={'See available actions'}
+            aria-label={translations.availableActions}
             aria-expanded={showPopover}
             aria-controls={showPopover ? menuId : undefined}
             onClick={toggle}
