@@ -47,6 +47,8 @@
       ]
     },
     {
+      "label": "Gedragsinstellingen",
+      "description": "Met deze opties kun je bepalen hoe de taak zich gedraagt.",
       "fields": [
         {
           "label": "Opnieuw inschakelen?",
@@ -64,9 +66,7 @@
           "label": "Toon samenvatting",
           "description": "Wil je dat de gebruiker een samenvatting kan geven voor de redenen voor zijn/haar antwoord"
         }
-      ],
-      "label": "Gedragsinstellingen",
-      "description": "Met deze opties kun je bepalen hoe de taak zich gedraagt."
+      ]
     },
     {
       "label": "Lokaliseren",
@@ -76,8 +76,8 @@
           "default": "Geef een korte samenvatting in je eigen woorden"
         },
         {
-          "default": "Geen argumenten",
-          "label": "Tijdelijke tekst wanneer er nog geen argumenten zijn verbonden"
+          "label": "Tijdelijke tekst wanneer er nog geen argumenten zijn verbonden",
+          "default": "Geen argumenten"
         },
         {
           "label": "Label van \"Hulpmiddelen\"-knop",
@@ -88,8 +88,8 @@
           "default": "Opnieuw starten"
         },
         {
-          "default": "Argument toevoegen",
-          "label": "Label van de \"Argument toevoegen\"-knop"
+          "label": "Label van de \"Argument toevoegen\"-knop",
+          "default": "Argument toevoegen"
         },
         {
           "label": "Informeer de gebruiker de gegevens verloren gaan aan hij/zij doorgaat",
@@ -100,12 +100,12 @@
           "default": "Doorgaan"
         },
         {
-          "default": "Verplaats naar",
-          "label": "Korte tekst vóór de opties waar je de argumenten heen kan verplaatsen"
+          "label": "Korte tekst vóór de opties waar je de argumenten heen kan verplaatsen",
+          "default": "Verplaats naar"
         },
         {
-          "default": "Verwijder argument",
-          "label": "Label gebruikt voor tonen van de verwijder-actie"
+          "label": "Label gebruikt voor tonen van de verwijder-actie",
+          "default": "Verwijder argument"
         },
         {
           "label": "Label used to show the edit action",
@@ -116,8 +116,12 @@
           "default": "Argument"
         },
         {
-          "default": "Zet argumenten hier neer",
-          "label": "Tekst binnen het neerzetgebied voor argumenten wanneer nieuwe argumenten toevoegen uitgeschakeld is"
+          "label": "Tekst binnen het neerzetgebied voor argumenten wanneer nieuwe argumenten toevoegen uitgeschakeld is",
+          "default": "Zet argumenten hier neer"
+        },
+        {
+          "label": "Label for the \"Available actions\"-button",
+          "default": "See available actions"
         }
       ]
     },
@@ -133,8 +137,8 @@
           "default": "Exporteer"
         },
         {
-          "default": "Selecteer alles",
-          "label": "Label van \"Alles selecteren\"-knop"
+          "label": "Label van \"Alles selecteren\"-knop",
+          "default": "Selecteer alles"
         },
         {
           "label": "Koptekst boven de \"Hulpmiddelen\"-tabel",
@@ -170,8 +174,8 @@
           "default": "Afsluiten"
         },
         {
-          "default": "Slepen",
-          "label": "Gebruikt i.p.v. 'Slepen'-icoon"
+          "label": "Gebruikt i.p.v. 'Slepen'-icoon",
+          "default": "Slepen"
         },
         {
           "label": "'Sleepbaar onderdeel' label voor schermlezers",

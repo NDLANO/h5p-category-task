@@ -48,6 +48,7 @@
     },
     {
       "label": "Portaeren ezarpenak",
+      "description": "Aukera hauek portaera kontrolatzea ahalbidetzen dizute.",
       "fields": [
         {
           "label": "Gaitu berriz saiatzea?",
@@ -65,8 +66,7 @@
           "label": "Erakutsi laburpena",
           "description": "Erabiltzaileak bere arrazoiak azaltzeko laburpen bat ematea nahi duzu?"
         }
-      ],
-      "description": "Aukera hauek portaera kontrolatzea ahalbidetzen dizute."
+      ]
     },
     {
       "label": "Kokatu",
@@ -84,12 +84,12 @@
           "default": "Baliabideak"
         },
         {
-          "default": "Berrabiarazi",
-          "label": "\"Berrabiarazi\" botoiarentzako etiketa"
+          "label": "\"Berrabiarazi\" botoiarentzako etiketa",
+          "default": "Berrabiarazi"
         },
         {
-          "default": "Gehitu argudioa",
-          "label": "\"Gehitu argudioa\" botoiarentzako etiketa"
+          "label": "\"Gehitu argudioa\" botoiarentzako etiketa",
+          "default": "Gehitu argudioa"
         },
         {
           "label": "Jakinarazi erabiltzaileari aurrera eginez gero datuak galduko direla",
@@ -100,12 +100,12 @@
           "default": "Jarraitu"
         },
         {
-          "default": "Mugitu hona:",
-          "label": "Argudioak mugitu ditzakezun aukeren aurreko testu laburra bertara"
+          "label": "Argudioak mugitu ditzakezun aukeren aurreko testu laburra bertara",
+          "default": "Mugitu hona:"
         },
         {
-          "default": "Ezabatu argudioa",
-          "label": "Ezabatu ekintza erakusteko erabilitako etiketa"
+          "label": "Ezabatu ekintza erakusteko erabilitako etiketa",
+          "default": "Ezabatu argudioa"
         },
         {
           "label": "Label used to show the edit action",
@@ -116,8 +116,12 @@
           "default": "Argument"
         },
         {
-          "default": "Jaregin argudioak hemen",
-          "label": "Askatze-eremuaren barruan argudio berriak gehitzea desgaituta dagoenean erakutsiko den testua"
+          "label": "Askatze-eremuaren barruan argudio berriak gehitzea desgaituta dagoenean erakutsiko den testua",
+          "default": "Jaregin argudioak hemen"
+        },
+        {
+          "label": "Label for the \"Available actions\"-button",
+          "default": "See available actions"
         }
       ]
     },
@@ -163,6 +167,7 @@
       ]
     },
     {
+      "label": "Eskuragarritasuna",
       "fields": [
         {
           "label": "'Itxi' ikonoaren ordez erabilia",
@@ -174,8 +179,8 @@
         },
         {
           "label": "'Elementu eramangarria' etiketa pantaila-irakurleentzat",
-          "default": "Elementu arrastagarria: :argument",
-          "description": "Eskuragarri dauden aldagaiak hauek dira: :argument"
+          "description": "Eskuragarri dauden aldagaiak hauek dira: :argument",
+          "default": "Elementu arrastagarria: :argument"
         },
         {
           "label": "Elkarrizketa-menuko ekintzen izenburua",
@@ -185,8 +190,7 @@
           "label": "Elkarrizketa-menuko ekintzen deskribapena",
           "default": "Aukeratu argudio honetan egin nahi duzun ekintza"
         }
-      ],
-      "label": "Eskuragarritasuna"
+      ]
     }
   ]
 }

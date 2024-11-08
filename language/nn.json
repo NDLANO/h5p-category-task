@@ -118,6 +118,10 @@
         {
           "label": "Tekst som vises inne i slippsonen for argumenter når det ikke er tillatt å legge til egne argumenter",
           "default": "Slipp argumenter her"
+        },
+        {
+          "label": "Label for the \"Available actions\"-button",
+          "default": "See available actions"
         }
       ]
     },
