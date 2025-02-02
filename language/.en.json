@@ -122,10 +122,6 @@
         {
           "label": "Label for the \"Available actions\"-button",
           "default": "See available actions"
-        },
-        {
-          "label": "Text on the button to see available actions",
-          "default": "See available actions"
         }
       ]
     },
