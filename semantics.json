@@ -28,21 +28,21 @@
     "importance": "high",
     "expanded": true,
     "fields": [
-        {
-          "name": "argumentsList",
-          "type": "list",
-          "label": "Arguments",
-          "importance": "high",
-          "entity": "argument",
-          "optional": true,
-          "min": 1,
-          "field": {
-            "name": "text",
-            "type": "text",
-            "label": "Argument"
-          }
+      {
+        "name": "argumentsList",
+        "type": "list",
+        "label": "Arguments",
+        "importance": "high",
+        "entity": "argument",
+        "optional": true,
+        "min": 1,
+        "field": {
+          "name": "text",
+          "type": "text",
+          "label": "Argument"
         }
-      ]
+      }
+    ]
   },
   {
     "name": "categoriesList",
@@ -223,6 +223,12 @@
         "type": "text",
         "label": "Text inside the arguments drop zone when adding new arguments are disabled",
         "default": "Drop arguments here"
+      },
+      {
+        "name": "availableActions",
+        "type": "text",
+        "label": "Label for the \"Available actions\"-button",
+        "default": "See available actions"
       }
     ]
   },

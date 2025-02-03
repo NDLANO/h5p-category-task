@@ -48,6 +48,7 @@
     },
     {
       "label": "Uzvedības iestatījumi",
+      "description": "Šie iestatījumi ļaus jums kontrolēt uzvedību.",
       "fields": [
         {
           "label": "Iespējot atkārtotu mēģinājumu?",
@@ -58,15 +59,14 @@
           "description": "Iepriekš aizpildītie apgalvojumi tiks izkārtoti nejaušā secībā"
         },
         {
-          "description": "Ja lietotājs ir sniedzis komentāru, tas tiek parādīts apgalvojumu sarakstā",
-          "label": "Sniegtos komentārus parādīt zem apgalvojuma"
+          "label": "Sniegtos komentārus parādīt zem apgalvojuma",
+          "description": "Ja lietotājs ir sniedzis komentāru, tas tiek parādīts apgalvojumu sarakstā"
         },
         {
           "label": "Rādīt kopsavilkumu",
           "description": "Vai vēlaties, lai lietotājs sniedz kopsavilkumu, izskaidrojot viņa/viņas atbilžu pamatojumu"
         }
-      ],
-      "description": "Šie iestatījumi ļaus jums kontrolēt uzvedību."
+      ]
     },
     {
       "label": "Lokalizēt",
@@ -92,8 +92,8 @@
           "default": "Pievienot argumentu"
         },
         {
-          "default": "Ja turpināsit, visas jūsu veiktās izmaiņas tiks zaudētas",
-          "label": "Informējiet lietotāju, ka dati tiks zaudēti, ja viņš/viņa turpinās"
+          "label": "Informējiet lietotāju, ka dati tiks zaudēti, ja viņš/viņa turpinās",
+          "default": "Ja turpināsit, visas jūsu veiktās izmaiņas tiks zaudētas"
         },
         {
           "label": "Pogas \"Turpināt\" etiķete",
@@ -116,8 +116,12 @@
           "default": "Argument"
         },
         {
-          "default": "Ievietojiet argumentus šeit",
-          "label": "Teksts argumentu nomešanas zonā, kad jaunu argumentu pievienošana ir atspējota"
+          "label": "Teksts argumentu nomešanas zonā, kad jaunu argumentu pievienošana ir atspējota",
+          "default": "Ievietojiet argumentus šeit"
+        },
+        {
+          "label": "Label for the \"Available actions\"-button",
+          "default": "See available actions"
         }
       ]
     },
@@ -125,8 +129,8 @@
       "label": "Resursu atskaite",
       "fields": [
         {
-          "default": "Izveidot dokumentu",
-          "label": "Pogas \"Izveidot dokumentu\" etiķete"
+          "label": "Pogas \"Izveidot dokumentu\" etiķete",
+          "default": "Izveidot dokumentu"
         },
         {
           "label": "Etiķete uz pogas \"Eksportēt\"",
@@ -141,8 +145,8 @@
           "default": "Resursi"
         },
         {
-          "default": "Nosaukums",
-          "label": "Nosaukuma galvene resursu tabulā"
+          "label": "Nosaukuma galvene resursu tabulā",
+          "default": "Nosaukums"
         },
         {
           "label": "Ievada galvene resursu tabulā",
@@ -166,8 +170,8 @@
       "label": "Pieejamība",
       "fields": [
         {
-          "default": "Aizvērt",
-          "label": "Aizvērt"
+          "label": "Aizvērt",
+          "default": "Aizvērt"
         },
         {
           "label": "Vilkt",
@@ -175,8 +179,8 @@
         },
         {
           "label": "'Velkams vienums' etiķete asistīvajām tehnoloģijām",
-          "default": "Velkams vienums: :argument",
-          "description": "Pieejamais mainīgais ir :argument"
+          "description": "Pieejamais mainīgais ir :argument",
+          "default": "Velkams vienums: :argument"
         },
         {
           "label": "Darbību izvēlnes dialoga nosaukums",

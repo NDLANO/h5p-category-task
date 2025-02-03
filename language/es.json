@@ -48,6 +48,7 @@
     },
     {
       "label": "Configuración del comportamiento",
+      "description": "Estas opciones le permitirán controlar el comportamiento.",
       "fields": [
         {
           "label": "¿Habilitar Intentar de nuevo?",
@@ -58,15 +59,14 @@
           "description": "Aleatorizará los argumentos"
         },
         {
-          "description": "Permitirle al usuario añadir sus propios argumentos",
-          "label": "Permitirle a usuarios añadir sus propios argumentos"
+          "label": "Permitirle a usuarios añadir sus propios argumentos",
+          "description": "Permitirle al usuario añadir sus propios argumentos"
         },
         {
           "label": "Mostrar resumen",
           "description": "¿Quieres que el usuario proporcione un resumen que explique las razones para su respuesta?"
         }
-      ],
-      "description": "Estas opciones le permitirán controlar el comportamiento."
+      ]
     },
     {
       "label": "Localizar",
@@ -92,16 +92,16 @@
           "default": "Añadir argumento"
         },
         {
-          "default": "Si continúas se perderán todos tus cambios",
-          "label": "Informar al usuario de que se perderán los datos si continúa"
+          "label": "Informar al usuario de que se perderán los datos si continúa",
+          "default": "Si continúas se perderán todos tus cambios"
         },
         {
           "label": "Etiqueta para el botón \"Continuar\"",
           "default": "Continuar"
         },
         {
-          "default": "Mover a",
-          "label": "Texto breve frente de las opciones a las que se pueden mover los argumentos"
+          "label": "Texto breve frente de las opciones a las que se pueden mover los argumentos",
+          "default": "Mover a"
         },
         {
           "label": "Etiqueta usada para mostrar la acción de eliminar",
@@ -118,6 +118,10 @@
         {
           "label": "Texto dentro de la zona para soltar argumentos cuando está deshabilitada la opción de añadir nuevos argumentos",
           "default": "Suelta tus argumentos aquí"
+        },
+        {
+          "label": "Label for the \"Available actions\"-button",
+          "default": "See available actions"
         }
       ]
     },
@@ -170,13 +174,13 @@
           "default": "Cerrar"
         },
         {
-          "default": "Arrastrar",
-          "label": "Usado en lugar del ícono para 'Arrastrar'"
+          "label": "Usado en lugar del ícono para 'Arrastrar'",
+          "default": "Arrastrar"
         },
         {
           "label": "Etiqueta \"Elemento arrastrable\" para lectores de pantalla",
-          "default": "Elemento arrastrable: :argument",
-          "description": "Las variables disponibles son :argument"
+          "description": "Las variables disponibles son :argument",
+          "default": "Elemento arrastrable: :argument"
         },
         {
           "label": "Título para el diálogo del menú de acciones",

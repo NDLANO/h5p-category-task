@@ -47,6 +47,7 @@
       ]
     },
     {
+      "label": "Configuraciones del comportamiento",
       "description": "Estas opciones le permitirán controlar el comportamiento.",
       "fields": [
         {
@@ -65,8 +66,7 @@
           "label": "Mostrar resumen",
           "description": "¿Quiere que el usuario proporcione un resumen que explique las razones para su respuesta?"
         }
-      ],
-      "label": "Configuraciones del comportamiento"
+      ]
     },
     {
       "label": "Localizar",
@@ -80,8 +80,8 @@
           "default": "Sin argumentos"
         },
         {
-          "default": "Recursos",
-          "label": "Etiqueta para botón \"Recursos\""
+          "label": "Etiqueta para botón \"Recursos\"",
+          "default": "Recursos"
         },
         {
           "label": "Etiqueta para el botón \"Reiniciar\"",
@@ -92,8 +92,8 @@
           "default": "Añadir argumento"
         },
         {
-          "default": "Si usted continúa todos sus cambios se perderán",
-          "label": "Informar al usuario que se perderán datos si continúa"
+          "label": "Informar al usuario que se perderán datos si continúa",
+          "default": "Si usted continúa todos sus cambios se perderán"
         },
         {
           "label": "Etiqueta para el botón \"Continuar\"",
@@ -116,8 +116,12 @@
           "default": "Argument"
         },
         {
-          "default": "Dejar caer argumentos aquí",
-          "label": "Texto adentro de la zona de caída de los argumentos cuando está deshabilitado el añadir nuevos argumentos"
+          "label": "Texto adentro de la zona de caída de los argumentos cuando está deshabilitado el añadir nuevos argumentos",
+          "default": "Dejar caer argumentos aquí"
+        },
+        {
+          "label": "Label for the \"Available actions\"-button",
+          "default": "See available actions"
         }
       ]
     },
@@ -125,8 +129,8 @@
       "label": "Reporte de recursos",
       "fields": [
         {
-          "default": "Crear documento",
-          "label": "Etiqueta para botón \"Crear documento\""
+          "label": "Etiqueta para botón \"Crear documento\"",
+          "default": "Crear documento"
         },
         {
           "label": "Etiqueta para botón \"Exportar\"",
@@ -141,8 +145,8 @@
           "default": "Recursos"
         },
         {
-          "default": "Título",
-          "label": "Encabezado de título en tabla de recursos"
+          "label": "Encabezado de título en tabla de recursos",
+          "default": "Título"
         },
         {
           "label": "Encabezado de Introducción en tabla de recursos",

@@ -118,10 +118,15 @@
         {
           "label": "O texto dentro da zona de soltura de argumentos ao adicionar novos argumentos está desativado",
           "default": "Solte os argumentos aqui"
+        },
+        {
+          "label": "Label for the \"Available actions\"-button",
+          "default": "See available actions"
         }
       ]
     },
     {
+      "label": "Relatório de recursos",
       "fields": [
         {
           "label": "Rótulo do botão \"Criar documento\"",
@@ -159,8 +164,7 @@
           "label": "Rótulo para quando nenhum resumo é fornecido",
           "default": "Sem comentários"
         }
-      ],
-      "label": "Relatório de recursos"
+      ]
     },
     {
       "label": "Acessibilidade",

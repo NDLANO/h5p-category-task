@@ -64,6 +64,7 @@ H5P.CategoryTask = (function () {
       actionMenuTitle: 'Action menu',
       actionMenuDescription: 'Select the action you want to perform on this argument',
       dropArgumentsHere: 'Drop arguments here',
+      availableActions: 'See available actions',
     }, this.params.l10n, this.params.resourceReport);
 
     const createElements = () => {
