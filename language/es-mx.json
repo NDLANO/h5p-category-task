@@ -108,20 +108,20 @@
           "default": "Eliminar argumento"
         },
         {
-          "label": "Label used to show the edit action",
-          "default": "Edit argument"
+          "label": "Etiqueta usada para mostrar la acción de editar",
+          "default": "Editar argumento"
         },
         {
-          "label": "Label for the argument",
-          "default": "Argument"
+          "label": "Etiqueta para el argumento",
+          "default": "Argumento"
         },
         {
           "label": "Texto adentro de la zona de caída de los argumentos cuando está deshabilitado el añadir nuevos argumentos",
           "default": "Dejar caer argumentos aquí"
         },
         {
-          "label": "Label for the \"Available actions\"-button",
-          "default": "See available actions"
+          "label": "Etiqueta para el botón \"Acciones disponibles\"",
+          "default": "Ver acciones disponibles"
         }
       ]
     },
