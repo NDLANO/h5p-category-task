@@ -108,8 +108,8 @@
           "default": "Borrar argumento"
         },
         {
-          "label": "Label used to show the edit action",
-          "default": "Edit argument"
+          "label": "Etiqueta utilizada para mostrar a acción de edición",
+          "default": "Editar argumento"
         },
         {
           "label": "Label for the argument",
@@ -120,8 +120,8 @@
           "default": "Solta aquí os teus argumentos"
         },
         {
-          "label": "Label for the \"Available actions\"-button",
-          "default": "See available actions"
+          "label": "Etiqueta para o botón \"Accións dispoñibles\"",
+          "default": "Ver accións dispoñibles"
         }
       ]
     },
