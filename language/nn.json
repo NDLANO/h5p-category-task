@@ -7,7 +7,7 @@
       "label": "Oppgåvebeskriving"
     },
     {
-      "label": "Argumenter",
+      "label": "Påstandar",
       "fields": [
         {
           "label": "Argumenter",
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "label": "Kategorier",
+      "label": "Kategoriar",
       "fields": [
         {
           "label": "Kategorier",
@@ -35,10 +35,10 @@
       "default": "Oppsummering"
     },
     {
-      "label": "Instruksjoner til oppsummeringen"
+      "label": "Instruksjonar til oppsummeringa"
     },
     {
-      "label": "Ressurser",
+      "label": "Ressursar",
       "fields": [
         {
           "label": "Ressurser",
@@ -47,69 +47,69 @@
       ]
     },
     {
-      "label": "Innstillinger",
-      "description": "Disse innstillingene lar deg bestemme oppførsel.",
+      "label": "Oppgåveinnstillingar",
+      "description": "Her kan du bestemme korleis oppgåva skal oppføre seg.",
       "fields": [
         {
-          "label": "Tillat å ta på nytt?",
-          "description": "Kryss av hvis du vil at brukeren skal kunne besvare på nytt"
+          "label": "Tillate å ta på nytt?",
+          "description": "Hak av dersom brukaren skal kunne svare på nytt."
         },
         {
-          "label": "Sett inn påstandende i tilfeldig rekkefølge",
-          "description": "Skal påstandene vises i tilfeldig rekkefølge?"
+          "label": "Tilfeldig rekkefølge",
+          "description": "Hak av for å vise påstandane i tilfeldig rekkefølge."
         },
         {
-          "label": "La brukeren legge inn egne påstander",
-          "description": "Lar brukeren opprette sine egne påstander"
+          "label": "Tillat eigne påstandar",
+          "description": "Hak av for å la brukaren legge til eigne påstandar."
         },
         {
           "label": "Vis oppsummering",
-          "description": "Vil du at brukeren skal oppgi en oppsummering der vedkommende begrunner sine valg?"
+          "description": "Hak av for å la brukaren gi ei oppsummering og/eller grunngi vala sine."
         }
       ]
     },
     {
-      "label": "Localize",
+      "label": "Tilpass språk",
       "fields": [
         {
-          "label": "Midlertidig tekst for tekstfeltene",
-          "default": "Skriv en begrunnelse for dine svar"
+          "label": "Fylltekst i skriveboksane",
+          "default": "Skriv her"
         },
         {
-          "label": "Plassholder som vises når ingen argumenter er satt",
-          "default": "Ingen argumenter"
+          "label": "Fylltekst når ingen påstandar er lagde inn",
+          "default": "Ingen påstandar"
         },
         {
-          "label": "Tekst på \"Ressurs\"-knappen",
-          "default": "Ressurser"
+          "label": "Tekst på \"Ressursar\"-knappen",
+          "default": "Ressursar"
         },
         {
           "label": "Tekst på \"Start på nytt\"-knappen",
           "default": "Start på nytt"
         },
         {
-          "label": "Tekst på \"Legg til argument\"-knappen",
-          "default": "Legg til argument"
+          "label": "Tekst på \"Legg til påstand\"-knappen",
+          "default": "Legg til påstand"
         },
         {
-          "label": "Informer brukeren om at all data vil gå tapt om vedkommende fortsetter",
-          "default": "Hvis du fortsetter vil alle data gå tapt."
+          "label": "Informasjon til brukaren om at alle data blir borte dersom hen held fram",
+          "default": "Dersom du held fram, vil alle data gå tapt."
         },
         {
-          "label": "Tekst på \"Fortsett\"-knappen",
-          "default": "Fortsett"
+          "label": "Tekst på \"Hald fram\"-knappen",
+          "default": "Hald fram"
         },
         {
-          "label": "Kort tekst foran alternativene man kan flytte argumenter til",
+          "label": "Kort tekst framfor alternativa som brukaren kan flytte påstandar til",
           "default": "Flytt til"
         },
         {
-          "label": "Tekst som brukes for i indikere 'Slett argument' muligheten",
-          "default": "Slett argument"
+          "label": "Tekst som fortel at påstanden kan slettast",
+          "default": "Slett påstand"
         },
         {
-          "label": "Tekst som brukes for i indikere 'Rediger argument' muligheten",
-          "default": "Rediger argument"
+          "label": "Tekst som fortel at påstanden kan redigerast",
+          "default": "Rediger påstand"
         },
         {
           "label": "Tekst for argumentet",
@@ -133,62 +133,62 @@
           "default": "Opprett dokument"
         },
         {
-          "label": "Tekst på \"Eksporter\"-knappen",
-          "default": "Eksporter"
+          "label": "Tekst på \"Last ned\"-knappen",
+          "default": "Last ned"
         },
         {
-          "label": "Tekst på \"Velg alt\"-knappen",
-          "default": "Velg alt"
+          "label": "Tekst på \"Vel alt\"-knappen",
+          "default": "Vel alt"
         },
         {
-          "label": "Overskrift over \"Ressurser\"-tabellen",
-          "default": "Ressurser"
+          "label": "Overskrift over tabellen \"Ressursar\"",
+          "default": "Ressursar"
         },
         {
-          "label": "Overskrift i 'Tittel'-kolonnen",
+          "label": "Overskrift i kolonnen \"Tittel\"",
           "default": "Tittel"
         },
         {
-          "label": "Overskrift i 'Ingress'-kolonnen",
-          "default": "Ingress"
+          "label": "Overskrift i kolonnen \"Informasjon\"",
+          "default": "Informasjon"
         },
         {
-          "label": "Overskrift i 'Lenke'-kolonnen",
+          "label": "Overskrift i kolonnen \"Lenke\"",
           "default": "Lenke"
         },
         {
-          "label": "Tekst når ingen ressurser er registrert",
-          "default": "Ingen ressurser"
+          "label": "Tekst når ingen ressursar er lagde til",
+          "default": "Ingen ressursar"
         },
         {
-          "label": "Tekst som vises når ingen oppsummering er gitt",
-          "default": "Ingen oppsummering"
+          "label": "Tekst når brukaren ikkje har skrive noko",
+          "default": "Ingen kommentar eller grunngiving"
         }
       ]
     },
     {
-      "label": "Tilgjengelighet",
+      "label": "Tilgjengelegheit",
       "fields": [
         {
-          "label": "Brukt istedenfor 'Lukk' ikonet",
+          "label": "Brukt i staden for \"Lukk\"-ikonet",
           "default": "Lukk"
         },
         {
-          "label": "Brukt istedenfor 'Dra' ikonet",
-          "default": "Dra"
+          "label": "Brukt i staden for \"Flytt\"-ikonet",
+          "default": "Flytt"
         },
         {
-          "label": "'Flyttbar element' etikett for skjermleser",
-          "description": "Tilgjengelige variabler er :argument",
-          "default": "Flyttbar element: :argument"
+          "label": "Etikett for flyttbart element (for skjermlesar)",
+          "description": "Tilgjengelege variablar er :argument",
+          "default": "Flyttbart element: :argument"
         },
         {
-          "label": "Tittel for handlingsmenyen i dialogboks",
+          "label": "Tittel på dialog om handlingsmenyen",
           "default": "Handlingsmeny"
         },
         {
-          "label": "Beskrivelse av tilgjengelige handlinger i dialogboksen",
-          "default": "Velg den handlingen du vil utføre på dette argumentet"
+          "label": "Beskriving av tilgjengelege handlingar i dialogboksen",
+          "default": "Vel kva du vil gjere med denne påstanden."
         }
       ]
     }
