@@ -108,8 +108,8 @@
           "default": "Ezabatu argudioa"
         },
         {
-          "label": "Label used to show the edit action",
-          "default": "Edit argument"
+          "label": "Editatze ekintza erakusteko erabiltzen den etiketa",
+          "default": "Editatu argumentua"
         },
         {
           "label": "Label for the argument",
