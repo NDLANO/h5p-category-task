@@ -118,6 +118,10 @@
         {
           "label": "Text inside the arguments drop zone when adding new arguments are disabled",
           "default": "Drop arguments here"
+        },
+        {
+          "label": "Label for the \"Available actions\"-button",
+          "default": "See available actions"
         }
       ]
     },

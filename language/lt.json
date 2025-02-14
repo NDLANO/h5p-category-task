@@ -118,6 +118,10 @@
         {
           "label": "Text inside the arguments drop zone when adding new arguments are disabled",
           "default": "Drop arguments here"
+        },
+        {
+          "label": "Label for the \"Available actions\"-button",
+          "default": "See available actions"
         }
       ]
     },
@@ -149,8 +153,8 @@
           "default": "Intro"
         },
         {
-          "default": "Url",
-          "label": "Url header in resource table"
+          "label": "Url header in resource table",
+          "default": "Url"
         },
         {
           "label": "Label when no resources are found",
@@ -179,8 +183,8 @@
           "default": "Draggable item: :argument"
         },
         {
-          "default": "Actions menu",
-          "label": "Title for the actions menu dialog"
+          "label": "Title for the actions menu dialog",
+          "default": "Actions menu"
         },
         {
           "label": "Description for the actions menu dialog",

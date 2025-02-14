@@ -118,6 +118,10 @@
         {
           "label": "Texto na zona de solta de argumentos cando a adición de argumentos está desactivada",
           "default": "Solta aquí os teus argumentos"
+        },
+        {
+          "label": "Label for the \"Available actions\"-button",
+          "default": "See available actions"
         }
       ]
     },
