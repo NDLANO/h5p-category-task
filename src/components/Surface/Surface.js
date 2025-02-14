@@ -359,6 +359,7 @@ function Surface() {
   const elements = {};
   const [active, setActive] = useState(null);
   const handleDragStart = ({ active }) => {
+    console.log('handleDragStart');
     setActive(active);
   };
 
@@ -642,9 +643,9 @@ function Surface() {
                       .map(
                         (argument) =>
                           state.argumentsList[
-                            state.argumentsList.findIndex(
-                              (element) => element.id === argument,
-                            )
+                          state.argumentsList.findIndex(
+                            (element) => element.id === argument,
+                          )
                           ],
                       )
                       .map((argument) => {
@@ -697,13 +698,8 @@ function Surface() {
                 )}
                 <>
                   {category.connectedArguments
-                    .map(
-                      (argument) =>
-                        state.argumentsList[
-                          state.argumentsList.findIndex(
-                            (element) => element.id === argument,
-                          )
-                        ],
+                    .map((argId) =>
+                      state.argumentsList.find((el) => el.id === argId)
                     )
                     .map((argument) => {
                       const id = getDnDId(argument);
@@ -715,19 +711,21 @@ function Surface() {
               </Column>
             </Category>
           ))}
+
+        {/* DRAG OVERLAY */}
         <DragOverlay>
           {active ? (
             <Element
               key={active.id}
               draggableId={active.id}
-              renderChildren={() => {
-                return elements[active.id];
-              }}
+              renderChildren={() => elements[active.id]}
               dragOverlay
             />
           ) : null}
         </DragOverlay>
       </DndContext>
+
+      {/* SUMMARY (IF ENABLED) */}
       {provideSummary === true && <Summary />}
     </div>
   );
