@@ -359,7 +359,6 @@ function Surface() {
   const elements = {};
   const [active, setActive] = useState(null);
   const handleDragStart = ({ active }) => {
-    console.log('handleDragStart');
     setActive(active);
   };
 
@@ -552,8 +551,8 @@ function Surface() {
   }
 
   /**
-   * @param {ArgumentDataObject} argument 
-   * @param {string} id 
+   * @param {ArgumentDataObject} argument
+   * @param {string} id
    * @returns {JSX.Element}
    */
   function getElementAndArgument(argument, id) {
@@ -632,8 +631,8 @@ function Surface() {
                 <Column
                   additionalClassName={classnames(
                     'h5p-category-task-unprocessed-argument-list', {
-                    'h5p-category-task-right-aligned': isEven(index + 1),
-                  })}
+                      'h5p-category-task-right-aligned': isEven(index + 1),
+                    })}
                   droppableId={getDnDId(category)}
                   disableDrop={true}
                   connectedArguments={category.connectedArguments}
@@ -643,9 +642,9 @@ function Surface() {
                       .map(
                         (argument) =>
                           state.argumentsList[
-                          state.argumentsList.findIndex(
-                            (element) => element.id === argument,
-                          )
+                            state.argumentsList.findIndex(
+                              (element) => element.id === argument,
+                            )
                           ],
                       )
                       .map((argument) => {
