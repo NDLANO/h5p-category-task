@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import EditableArgument from './components/EditableArgument';
 import UnEditableArgument from './components/UnEditableArgument';
@@ -6,7 +6,7 @@ import ActionMenu from './components/ActionMenu';
 import classnames from 'classnames';
 import DragArrows from './components/DragArrows';
 import { getDnDId } from '../utils';
-import {useCategoryTask} from 'context/CategoryTaskContext';
+import { useCategoryTask } from 'context/CategoryTaskContext';
 
 function Argument({
   argument,
@@ -98,54 +98,54 @@ Argument.propTypes = {
   actions: PropTypes.array,
 };
 
-function ArgumentLayout({
+const ArgumentLayout = forwardRef(function ArgumentLayout({
   activeDraggable,
   isDragEnabled,
   statementDisplay,
   showPopover,
   menuId,
   toggle,
-}) {
+}, ref) {
   const { translations } = useCategoryTask();
-  
   return (
-    <div className={'h5p-category-task-argument-container'}>
+    <div className="h5p-category-task-argument-container" ref={ref}>
       <div
         className={classnames('h5p-category-task-argument', {
           'h5p-category-task-active-draggable': activeDraggable,
         })}
       >
-        <div className={'h5p-category-task-argument-provided'}>
+        <div className="h5p-category-task-argument-provided">
           {isDragEnabled && (
-            <DragArrows/>
+            <DragArrows />
           )}
           {statementDisplay}
           <button
-            className={'h5p-category-task-argument-actions'}
+            className="h5p-category-task-argument-actions"
             aria-label={translations.availableActions}
             aria-expanded={showPopover}
             aria-controls={showPopover ? menuId : undefined}
             onClick={toggle}
-            type={'button'}
+            type="button"
           >
-            <span className={'fa fa-caret-down'} />
+            <span className="fa fa-caret-down" />
           </button>
         </div>
       </div>
     </div>
   );
-}
+});
 
 ArgumentLayout.propTypes = {
   activeDraggable: PropTypes.bool,
   isDragEnabled: PropTypes.bool,
   statementDisplay: PropTypes.object,
   toggle: PropTypes.func,
-  closePopover: PropTypes.func,
+  showPopover: PropTypes.bool,
+  menuId: PropTypes.string,
 };
 
 ArgumentLayout.defaultProps = {
-  toggle: () => {},
+  toggle: () => { },
   isDragEnabled: true,
   activeDraggable: false,
 };

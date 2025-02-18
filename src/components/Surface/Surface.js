@@ -88,7 +88,7 @@ function Surface() {
      * }}
      */
     const {
-      params: { argumentsList: argumentDataList = [], categoriesList = [] },
+      params: { argumentsList: argumentDataList = [], categoriesList = [], makeDiscussion = true },
       behaviour: { randomizeArguments = true },
     } = context;
 
@@ -126,16 +126,36 @@ function Surface() {
         }),
       );
     }
-    categoriesList.forEach((category, index) =>
-      categories.push(
+
+    if (makeDiscussion) {
+      categories.push(new CategoryDataObject({
+        id: 0,
+        theme: 'h5p-category-task-category-container h5p-discussion-pro',
+        useNoArgumentsPlaceholder: true,
+        title: 'Arugments FOR', // TODO translate
+        makeDiscussion,
+      }));
+
+      categories.push(new CategoryDataObject({
+        id: 1,
+        theme: 'h5p-category-task-category-container h5p-discussion-against',
+        useNoArgumentsPlaceholder: true,
+        title: 'Arugments AGAINST', // TODO translate
+        makeDiscussion,
+      }));
+    }
+
+    else {
+      categoriesList.forEach((category, index) => categories.push(
         new CategoryDataObject({
           id: index,
           theme: 'h5p-category-task-category-container',
           useNoArgumentsPlaceholder: true,
           title: category,
-        }),
-      ),
-    );
+          makeDiscussion,
+        })
+      ));
+    }
 
     return {
       categories,
@@ -531,8 +551,8 @@ function Surface() {
   }
 
   /**
-   * @param {ArgumentDataObject} argument 
-   * @param {string} id 
+   * @param {ArgumentDataObject} argument
+   * @param {string} id
    * @returns {JSX.Element}
    */
   function getElementAndArgument(argument, id) {
@@ -611,8 +631,8 @@ function Surface() {
                 <Column
                   additionalClassName={classnames(
                     'h5p-category-task-unprocessed-argument-list', {
-                    'h5p-category-task-right-aligned': isEven(index + 1),
-                  })}
+                      'h5p-category-task-right-aligned': isEven(index + 1),
+                    })}
                   droppableId={getDnDId(category)}
                   disableDrop={true}
                   connectedArguments={category.connectedArguments}
@@ -646,6 +666,7 @@ function Surface() {
               categoryId={getDnDId(category)}
               includeHeader={category.title !== null}
               title={category.title}
+              makeDiscussion={category.makeDiscussion}
               additionalClassName={[category.theme]}
               addArgument={allowAddingOfArguments}
               onAddArgument={() =>
@@ -676,13 +697,8 @@ function Surface() {
                 )}
                 <>
                   {category.connectedArguments
-                    .map(
-                      (argument) =>
-                        state.argumentsList[
-                          state.argumentsList.findIndex(
-                            (element) => element.id === argument,
-                          )
-                        ],
+                    .map((argId) =>
+                      state.argumentsList.find((el) => el.id === argId)
                     )
                     .map((argument) => {
                       const id = getDnDId(argument);
@@ -694,19 +710,21 @@ function Surface() {
               </Column>
             </Category>
           ))}
+
+        {/* DRAG OVERLAY */}
         <DragOverlay>
           {active ? (
             <Element
               key={active.id}
               draggableId={active.id}
-              renderChildren={() => {
-                return elements[active.id];
-              }}
+              renderChildren={() => elements[active.id]}
               dragOverlay
             />
           ) : null}
         </DragOverlay>
       </DndContext>
+
+      {/* SUMMARY (IF ENABLED) */}
       {provideSummary === true && <Summary />}
     </div>
   );

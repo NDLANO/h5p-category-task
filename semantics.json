@@ -45,11 +45,26 @@
     ]
   },
   {
+    "name": "makeDiscussion",
+    "type": "boolean",
+    "label": "Make Discussion",
+    "default": true
+  },
+  {
     "name": "categoriesList",
     "label": "Categories",
     "type": "group",
     "importance": "high",
     "expanded": true,
+    "widget": "showWhen",
+    "showWhen": {
+      "rules": [
+        {
+          "field": "makeDiscussion",
+          "equals": false
+        }
+      ]
+    },
     "fields": [
       {
         "name": "categoriesList",
