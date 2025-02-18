@@ -47,8 +47,7 @@ function EditableArgument({
     }
   };
 
-  const id = 'es_' + idBase;
-  const inputId = 'input_' + id;
+  const inputId = `input_es_${idBase}_${H5P.createUUID()}`;
 
   /*
    * TODO: Clean this up. This feels like a very weird construct. Why can't
