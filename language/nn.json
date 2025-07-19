@@ -103,6 +103,10 @@
           "default": "Fortsett"
         },
         {
+          "label": "Label for the \"Cancel\"-button",
+          "default": "Cancel"
+        },
+        {
           "label": "Kort tekst foran alternativene man kan flytte argumenter til",
           "default": "Flytt til"
         },
@@ -125,6 +129,14 @@
         {
           "label": "Label for the \"Available actions\"-button",
           "default": "See available actions"
+        },
+        {
+          "label": "Label for the pro arguments section",
+          "default": "Arguments FOR"
+        },
+        {
+          "label": "Label for the con arguments section",
+          "default": "Arguments AGAINST"
         }
       ]
     },

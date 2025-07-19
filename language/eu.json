@@ -103,6 +103,10 @@
           "default": "Jarraitu"
         },
         {
+          "label": "Label for the \"Cancel\"-button",
+          "default": "Cancel"
+        },
+        {
           "label": "Argudioak mugitu ditzakezun aukeren aurreko testu laburra bertara",
           "default": "Mugitu hona:"
         },
@@ -125,6 +129,14 @@
         {
           "label": "Label for the \"Available actions\"-button",
           "default": "See available actions"
+        },
+        {
+          "label": "Label for the pro arguments section",
+          "default": "Arguments FOR"
+        },
+        {
+          "label": "Label for the con arguments section",
+          "default": "Arguments AGAINST"
         }
       ]
     },

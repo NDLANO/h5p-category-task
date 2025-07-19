@@ -103,6 +103,10 @@
           "default": "Continuer"
         },
         {
+          "label": "Label for the \"Cancel\"-button",
+          "default": "Cancel"
+        },
+        {
           "label": "Court texte devant les options où vous pouvez déplacer les arguments",
           "default": "Déplacer vers"
         },
@@ -125,6 +129,14 @@
         {
           "label": "Label for the \"Available actions\"-button",
           "default": "See available actions"
+        },
+        {
+          "label": "Label for the pro arguments section",
+          "default": "Arguments FOR"
+        },
+        {
+          "label": "Label for the con arguments section",
+          "default": "Arguments AGAINST"
         }
       ]
     },
