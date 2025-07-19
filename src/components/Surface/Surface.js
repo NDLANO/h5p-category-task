@@ -69,6 +69,7 @@ function Surface() {
   const pointerSensor = useSensor(PointerSensor, {
     activationConstraint: {
       delay: 125,
+      tolerance: 5
     },
   });
 
