@@ -244,6 +244,18 @@
         "type": "text",
         "label": "Label for the \"Available actions\"-button",
         "default": "See available actions"
+      },
+      {
+        "name": "argumentsFor",
+        "type": "text",
+        "label": "Label for the pro arguments section",
+        "default": "Arguments FOR"
+      },
+      {
+        "name": "argumentsAgainst",
+        "type": "text",
+        "label": "Label for the con arguments section",
+        "default": "Arguments AGAINST"
       }
     ]
   },

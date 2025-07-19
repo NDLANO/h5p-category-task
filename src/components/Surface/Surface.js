@@ -133,7 +133,7 @@ function Surface() {
         id: 0,
         theme: 'h5p-category-task-category-container h5p-discussion-pro',
         useNoArgumentsPlaceholder: true,
-        title: 'Arugments FOR', // TODO translate
+        title: context.translate('argumentsFor'),
         makeDiscussion,
       }));
 
@@ -141,7 +141,7 @@ function Surface() {
         id: 1,
         theme: 'h5p-category-task-category-container h5p-discussion-against',
         useNoArgumentsPlaceholder: true,
-        title: 'Arugments AGAINST', // TODO translate
+        title: context.translate('argumentsAgainst'),
         makeDiscussion,
       }));
     }
