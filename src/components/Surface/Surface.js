@@ -595,6 +595,13 @@ function Surface() {
               });
             }}
             stopEditing={() => {
+              if ((argument.argumentText ?? '').trim() === '') {
+                return dispatch({
+                  type: 'deleteArgument',
+                  payload: { id: argument.id },
+                });
+              }
+
               if (argument.id === null) {
                 return;
               }
