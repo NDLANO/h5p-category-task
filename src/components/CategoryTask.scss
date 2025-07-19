@@ -513,36 +513,36 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 }
 
 .h5p-category-task-category-container {
-  
+
   &.h5p-discussion-pro {
       .h5p-category-task-category-header {
         background-color: #458356;
         color: #ffffff;
         padding-left: 3.75rem;
       }
-  
+
       .h5p-discussion-header-icon {
         background-color: #4D9360;
         border: 3px solid #6CB27F;
-  
+
         &::before {
           content: "\f164";
           filter: drop-shadow(2px 2px 2px rgba(0 0 0 / 0.2));
         }
       }
     }
-  
+
     &.h5p-discussion-against {
       .h5p-category-task-category-header {
         background-color: #D83131;
         color: #ffffff;
         padding-left: 3.75rem;
       }
-  
+
       .h5p-discussion-header-icon {
         background-color: #DB4343;
         border: 3px solid #E57676;
-  
+
         &::before {
           content: "\f165";
           filter: drop-shadow(2px -2px 2px rgba(0 0 0 / 0.2));
@@ -632,6 +632,8 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   background-color: #ffffff;
   border: 2px solid #ffffff;
   min-width: 100%;
+  top: unset !important;
+  transform: unset !important;
 
   input {
     position: absolute;
