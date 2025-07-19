@@ -210,6 +210,12 @@
         "default": "Continue"
       },
       {
+        "name": "cancel",
+        "type": "text",
+        "label": "Label for the \"Cancel\"-button",
+        "default": "Cancel"
+      },
+      {
         "name": "moveTo",
         "type": "text",
         "label": "Short text in front of the options to where you can move the arguments",
