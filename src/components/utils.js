@@ -274,7 +274,7 @@ export function clone(object) {
 
 /**
  * Check if a number is even
- * 
+ *
  * @param {number} number
  * @returns {boolean}
  */

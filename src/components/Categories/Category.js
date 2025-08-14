@@ -25,7 +25,7 @@ function Category(props) {
               <span className={'h5p-discussion-header-icon'}></span>
             )
           }
-          {title} 
+          {title}
         </div>
       )}
       <div className={'h5p-category-task-category-content'} id={categoryId}>

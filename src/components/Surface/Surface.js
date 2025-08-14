@@ -89,9 +89,11 @@ function Surface() {
      * }}
      */
     const {
-      params: { argumentsList: argumentDataList = [], categoriesList = [], makeDiscussion = true },
+      params: { argumentsList: argumentDataList = [], categoriesList = [], mode = 'discussion' },
       behaviour: { randomizeArguments = true },
     } = context;
+
+    const makeDiscussion = mode === 'discussion';
 
     if (randomizeArguments === true) {
       argumentDataList.sort(() => 0.5 - Math.random());

@@ -1,5 +1,23 @@
 [
   {
+    "name": "mode",
+    "type": "select",
+    "label": "Mode",
+    "description": "Choose the mode of the activity. \"Discussion\" uses the two categories \"for\" and \"against\" by default, whereas \"Category\" uses the categories that you provide.",
+    "importance": "high",
+    "options": [
+      {
+        "value": "discussion",
+        "label": "Discussion"
+      },
+      {
+        "value": "category",
+        "label": "Category"
+      }
+    ],
+    "default": "discussion"
+  },
+  {
     "name": "header",
     "type": "text",
     "label": "Header",
@@ -45,12 +63,6 @@
     ]
   },
   {
-    "name": "makeDiscussion",
-    "type": "boolean",
-    "label": "Make Discussion",
-    "default": true
-  },
-  {
     "name": "categoriesList",
     "label": "Categories",
     "type": "group",
@@ -60,8 +72,8 @@
     "showWhen": {
       "rules": [
         {
-          "field": "makeDiscussion",
-          "equals": false
+          "field": "mode",
+          "equals": "category"
         }
       ]
     },
