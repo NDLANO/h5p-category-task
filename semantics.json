@@ -15,7 +15,8 @@
         "label": "Category"
       }
     ],
-    "default": "discussion"
+    "default": "discussion",
+    "widget": "selectButtons"
   },
   {
     "name": "header",
