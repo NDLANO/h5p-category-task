@@ -12,6 +12,7 @@ function Main(props) {
 
   const resourceContainer = useRef();
   const [solution, setSolution] = useState(null);
+  const [disableSurface, setDisableSurface] = useState(false);
   const [hideSolutionButton, setHideSolutionButton] = useState(false);
   const context = useCategoryTask();
 
@@ -27,6 +28,7 @@ function Main(props) {
 
   context.registerReset(() => {
     setSolution(null);
+    setDisableSurface(false);
     setHideSolutionButton(false);
   });
 
@@ -52,13 +54,7 @@ function Main(props) {
     const solutionData = showSolution();
     if (solutionData) {
       setSolution(solutionData);
-
-      // TODO: Reusing Tim's solution, but this needs to cleanly disable components without using the DOM! Tim, why, oh, why?
-      const inputs = document.querySelectorAll('input, select, textarea, button:not(.h5p-category-task-button-restart):not(.h5p-category-task-button-export)');
-      inputs.forEach((input) => {
-        input.disabled = true;
-      });
-
+      setDisableSurface(true);
       setHideSolutionButton(true);
 
       context.trigger('resize');
@@ -84,7 +80,7 @@ function Main(props) {
             <div className={'h5p-category-task-description'}>{parseHtml(description)}</div>
           )}
         </div>
-        <Surface/>
+        <Surface disabled={disableSurface} />
       </div>
       {solution && <SolutionDisplay solution={solution} />}
       <Footer showSolution={handleShowSolution} hasSolution={hasSolution && !hideSolutionButton} />

@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import {useCategoryTask} from 'context/CategoryTaskContext';
 import parseHtml from 'html-react-parser';
 
-function Summary() {
+function Summary(props) {
 
   const context = useCategoryTask();
   const [comment, setComment] = useState('');
@@ -36,6 +36,7 @@ function Summary() {
         <div>{parseHtml(summaryInstruction)}</div>
       )}
       <textarea
+        disabled={props.disabled}
         id={'summary'}
         placeholder={translate('typeYourReasonsForSuchAnswers')}
         value={comment}

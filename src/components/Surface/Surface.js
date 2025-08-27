@@ -64,7 +64,7 @@ import {
  *   }} Action
  */
 
-function Surface() {
+function Surface(props) {
   const context = useCategoryTask();
   const pointerSensor = useSensor(PointerSensor, {
     activationConstraint: {
@@ -735,7 +735,7 @@ function Surface() {
       </DndContext>
 
       {/* SUMMARY (IF ENABLED) */}
-      {provideSummary === true && <Summary />}
+      {provideSummary === true && <Summary disabled={props.disabled} />}
     </div>
   );
 }
