@@ -50,6 +50,21 @@
       "label": "Instructies voor samenvatting"
     },
     {
+      "label": "Sample solution",
+      "description": "You can optionally add a sample solution that's shown after the student created a text. It's called sample solution because there probably is not only one solution.",
+      "fields": [
+        {
+          "label": "Introduction",
+          "description": "You can optionally leave the students some explanations about your example. The explanation will only show up if you add an example, too.",
+          "placeholder": "Please remember that you were not expected to come up with the exact same solution. It's just a good example."
+        },
+        {
+          "label": "Sample solution text",
+          "description": "The student will see a \"Show solution\" button if you provide some text here."
+        }
+      ]
+    },
+    {
       "label": "Hulpmiddelen",
       "fields": [
         {
@@ -146,6 +161,14 @@
         {
           "label": "Label for the con arguments section",
           "default": "Arguments AGAINST"
+        },
+        {
+          "label": "Show solution",
+          "default": "Show solution"
+        },
+        {
+          "label": "Label for the sample solution header",
+          "default": "Sample solution"
         }
       ]
     },

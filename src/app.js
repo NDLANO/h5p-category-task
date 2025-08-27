@@ -67,6 +67,8 @@ H5P.CategoryTask = (function () {
       availableActions: 'See available actions',
       argumentsFor: 'Arguments for',
       argumentsAgainst: 'Arguments against',
+      showSolution: 'Show solution',
+      headerSampleSolution: 'Sample solution'
     }, this.params.l10n, this.params.resourceReport);
 
     const createElements = () => {
@@ -82,9 +84,19 @@ H5P.CategoryTask = (function () {
             id={contentId}
             language={language}
             collectExportValues={this.collectExportValues}
+            showSolution={this.getSampleSolution.bind(this)}
           />
         </CategoryTaskProvider>
       );
+    };
+
+    /**
+     * Get sample solution if available.
+     * @returns {object|null} Sample solution.
+     */
+    this.getSampleSolution = () => {
+      const { sample, introduction } = this.params.solution;
+      return sample ? { sample, explanation: introduction || '' } : null;
     };
 
     this.collectExportValues = (index, callback) => {
