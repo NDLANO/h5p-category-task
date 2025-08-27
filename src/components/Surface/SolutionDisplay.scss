@@ -1,7 +1,8 @@
-.h5p-order-priority-solution-outer-container {
+.h5p-category-task-solution-outer-container {
+  margin-bottom: 1rem;
   margin-inline: 0.75rem;
 
-  .h5p-order-priority-solution-header {
+  .h5p-category-task-solution-header {
     display: block;
     font-size: 1.5em;
     margin-block-start: 0.83em;
@@ -11,23 +12,23 @@
     font-weight: bold;
   }
 
-  .h5p-order-priority-solution-container {
+  .h5p-category-task-solution-container {
     padding: 1em;
     background: #FAFAFA;
   }
 }
-.h5p-order-priority-solution-title {
+.h5p-category-task-solution-title {
   font-size: 1.125em;
   margin-bottom: 0.5em;
 }
 
-.h5p-order-priority-solution-introduction {
+.h5p-category-task-solution-introduction {
   font-size: 1em;
   line-height: 1.2;
   margin-bottom: 1em;
 }
 
-.h5p-order-priority-solution-sample {
+.h5p-category-task-solution-sample {
   background: #FFFFFF;
   border: 1px solid #e0e0e0;
   overflow: auto;
@@ -39,7 +40,7 @@
   flex-wrap: wrap;
 }
 
-.h5p-order-priority-solution-sample-text {
+.h5p-category-task-solution-sample-text {
   padding: 0.5em 1em 0.5em 1em;
   margin: 0;
   line-height: 1.4;

@@ -14,18 +14,18 @@ const SolutionDisplay = ({ solution }) => {
   const { translations } = useCategoryTask();
 
   return (
-    <div className="h5p-order-priority-solution-outer-container">
-      <div className="h5p-order-priority-solution-header">
+    <div className="h5p-category-task-solution-outer-container">
+      <div className="h5p-category-task-solution-header">
         {translations.headerSolution || 'Sample solution'}
       </div>
-      <div className="h5p-order-priority-solution-container">
+      <div className="h5p-category-task-solution-container">
         {solution.explanation && (
-          <div className="h5p-order-priority-solution-introduction">
+          <div className="h5p-category-task-solution-introduction">
             {ReactHtmlParser(solution.explanation)}
           </div>
         )}
-        <div className="h5p-order-priority-solution-sample">
-          <div className="h5p-order-priority-solution-sample-text">
+        <div className="h5p-category-task-solution-sample">
+          <div className="h5p-category-task-solution-sample-text">
             {ReactHtmlParser(solution.sample)}
           </div>
         </div>
