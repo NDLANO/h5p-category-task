@@ -26,9 +26,17 @@ function Main(props) {
     showSolution
   } = props;
 
+  // Workaround to make DnDKit elements non-interactive
+  const toggleDnDKitDOMElements = (disabled) => {
+    document.querySelectorAll('.h5p-dnd-draggable').forEach((element) => {
+      element.classList.toggle('disabled', disabled);
+    });
+  };
+
   context.registerReset(() => {
     setSolution(null);
     setDisableSurface(false);
+    toggleDnDKitDOMElements(false);
     setHideSolutionButton(false);
   });
 
@@ -55,6 +63,8 @@ function Main(props) {
     if (solutionData) {
       setSolution(solutionData);
       setDisableSurface(true);
+      toggleDnDKitDOMElements(true);
+
       setHideSolutionButton(true);
 
       context.trigger('resize');

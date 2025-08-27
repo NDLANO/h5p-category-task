@@ -633,6 +633,7 @@ function Surface(props) {
             'h5p-category-task-unprocessed',
             !state.hasRemainingUnprocessedArguments ? 'hidden' : '',
           ]}
+          disabled={props.disabled}
         >
           {state.categories
             .filter((category) => category.isArgumentDefaultList)
@@ -679,6 +680,7 @@ function Surface(props) {
               makeDiscussion={category.makeDiscussion}
               additionalClassName={[category.theme]}
               addArgument={allowAddingOfArguments}
+              disabled={props.disabled}
               onAddArgument={() =>
                 dispatch({
                   type: 'addArgument',

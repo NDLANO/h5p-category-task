@@ -15,6 +15,7 @@ function AddArgument(props) {
       className={'h5p-category-task-add-button'}
       onClick={onClick}
       type={'button'}
+      disabled={props.disabled}
     >
       <div className={'h5p-category-task-add-button-content'}>
         <span className={'h5p-category-task-add-button-icon fa fa-plus'} aria-hidden={true} />

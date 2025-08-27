@@ -196,6 +196,10 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 
 .h5p-dnd-draggable {
   position: relative;
+
+  &.disabled {
+    pointer-events: none;
+  }
 }
 
 .h5p-dnd-draggable--dragging {
@@ -579,7 +583,6 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
     background-color: #ffffff;
     border: 1px solid #dbe2e8;
     border-radius: 0.3125rem;
-    cursor: pointer;
     display: inline-block;
     margin: 0 1rem 1rem;
     padding: 0.1875rem;
@@ -607,9 +610,13 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
       }
     }
 
-    &:hover {
-      .h5p-category-task-add-button-content {
-        background-color: #ffffff;
+    &:not([disabled]) {
+      cursor: pointer;
+
+      &:hover {
+        .h5p-category-task-add-button-content {
+          background-color: #ffffff;
+        }
       }
     }
   }

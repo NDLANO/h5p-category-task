@@ -12,6 +12,7 @@ function Category(props) {
     includeHeader,
     onAddArgument,
     children,
+    disabled
   } = props;
 
   additionalClassName.unshift('h5p-category-task-category');
@@ -30,7 +31,7 @@ function Category(props) {
       )}
       <div className={'h5p-category-task-category-content'} id={categoryId}>
         {children}
-        {addArgument && <AddArgument onClick={onAddArgument} />}
+        {addArgument && <AddArgument disabled={disabled} onClick={onAddArgument} />}
       </div>
     </div>
   );
@@ -44,6 +45,7 @@ Category.propTypes = {
   includeHeader: PropTypes.bool,
   onAddArgument: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
+  disabled: PropTypes.bool
 };
 
 Category.defaultProps = {
@@ -52,6 +54,7 @@ Category.defaultProps = {
   title: '',
   addArgument: true,
   includeHeader: true,
+  disabled: false,
 };
 
 export default Category;
