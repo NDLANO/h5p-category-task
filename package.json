@@ -35,7 +35,7 @@
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.93.2",
     "sass-loader": "^16.0.5",
-    "webpack": "^5.101.3",
+    "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
   },
   "dependencies": {
@@ -45,7 +45,7 @@
     "classnames": "^2.5.1",
     "focus-trap": "7.6.5",
     "he": "^1.2.0",
-    "html-react-parser": "^5.2.6",
+    "html-react-parser": "^5.2.7",
     "react": "^18.2.0",
     "react-device-detect": "^2.2.3",
     "react-dom": "^18.2.0",
