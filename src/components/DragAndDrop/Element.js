@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { CSS } from '@dnd-kit/utilities';
 import { defaultAnimateLayoutChanges, useSortable } from '@dnd-kit/sortable';
+import PropTypes from 'prop-types';
 
 /**
  * @param {{

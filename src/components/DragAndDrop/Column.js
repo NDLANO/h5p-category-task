@@ -1,5 +1,6 @@
 import { SortableContext } from '@dnd-kit/sortable';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Droppable from './Droppable.js';
 
 /**

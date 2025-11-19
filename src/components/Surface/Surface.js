@@ -15,6 +15,7 @@ import Column from '../DragAndDrop/Column.js';
 import Element from '../DragAndDrop/Element.js';
 import Summary from '../Summary/Summary.js';
 import Dropzone from '../DragAndDrop/Dropzone.js';
+import PropTypes from 'prop-types';
 import {
   ActionMenuDataObject,
   ArgumentDataObject,

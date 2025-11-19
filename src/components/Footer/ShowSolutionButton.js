@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useCategoryTask } from 'context/CategoryTaskContext';
+import { useCategoryTask } from './../../context/CategoryTaskContext.js';
 
 /**
  * Show Solution button component.

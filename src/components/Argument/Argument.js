@@ -6,7 +6,7 @@ import UnEditableArgument from './components/UnEditableArgument.js';
 import ActionMenu from './components/ActionMenu.js';
 import DragArrows from './components/DragArrows.js';
 import { getDnDId } from '../utils.js';
-import { useCategoryTask } from './context/CategoryTaskContext.js';
+import { useCategoryTask } from './../../context/CategoryTaskContext.js';
 
 function Argument({
   argument,

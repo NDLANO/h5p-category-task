@@ -1,5 +1,6 @@
 import React from 'react';
 import Droppable from './Droppable.js';
+import PropTypes from 'prop-types';
 
 /**
  *

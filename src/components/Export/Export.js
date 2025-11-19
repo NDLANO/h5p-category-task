@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useCategoryTask } from 'context/CategoryTaskContext';
+import { useCategoryTask } from './../../context/CategoryTaskContext.js';
 import { escapeHTML, stripHTML } from '../utils.js';
 import * as focusTrap from 'focus-trap';
 

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import classnames from 'classnames';
-import { useCategoryTask } from 'context/CategoryTaskContext';
+import { useCategoryTask } from './../../context/CategoryTaskContext.js';
 import parseHtml from 'html-react-parser';
+import PropTypes from 'prop-types';
 
 function Summary(props) {
 

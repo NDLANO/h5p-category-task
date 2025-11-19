@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import { useDroppable } from '@dnd-kit/core';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * @typedef {{

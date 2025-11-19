@@ -2,6 +2,7 @@ import React from 'react';
 import Export from '../Export/Export.js';
 import ShowSolutionButton from './ShowSolutionButton.js';
 import Reset from './Reset.js';
+import PropTypes from 'prop-types';
 
 function Footer({ showSolution, hasSolution }) {
   return (
