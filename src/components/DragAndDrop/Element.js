@@ -46,8 +46,8 @@ function Element({ draggableId, ariaLabel, renderChildren }) {
         className={'h5p-category-task-draggable-container'}
         aria-label={ariaLabel}
       >
-        <ElementLayout 
-          ariaLabel={ariaLabel} 
+        <ElementLayout
+          ariaLabel={ariaLabel}
           isDragging={isDragging}
         >
           {renderChildren(isDragging)}
