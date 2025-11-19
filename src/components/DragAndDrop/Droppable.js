@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import { useDroppable } from '@dnd-kit/core';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /**
  * @typedef {{
@@ -33,3 +34,9 @@ export default function Droppable({ id, children, isDropDisabled }) {
     </div>
   );
 }
+
+Droppable.propTypes = {
+  id: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  isDropDisabled: PropTypes.bool,
+};

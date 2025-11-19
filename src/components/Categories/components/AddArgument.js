@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useCategoryTask } from 'context/CategoryTaskContext';
+import { useCategoryTask } from './../../../context/CategoryTaskContext.js';
 
 function AddArgument(props) {
 
@@ -28,6 +28,7 @@ function AddArgument(props) {
 AddArgument.propTypes = {
   displayFull: PropTypes.bool,
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 export default AddArgument;

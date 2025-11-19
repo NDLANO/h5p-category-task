@@ -1,12 +1,12 @@
 import React, { useEffect, useRef, useState, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import EditableArgument from './components/EditableArgument';
-import UnEditableArgument from './components/UnEditableArgument';
-import ActionMenu from './components/ActionMenu';
 import classnames from 'classnames';
-import DragArrows from './components/DragArrows';
-import { getDnDId } from '../utils';
-import { useCategoryTask } from 'context/CategoryTaskContext';
+import EditableArgument from './components/EditableArgument.js';
+import UnEditableArgument from './components/UnEditableArgument.js';
+import ActionMenu from './components/ActionMenu.js';
+import DragArrows from './components/DragArrows.js';
+import { getDnDId } from '../utils.js';
+import { useCategoryTask } from './../../context/CategoryTaskContext.js';
 
 function Argument({
   argument,

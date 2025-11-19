@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AddArgument from './components/AddArgument';
+import AddArgument from './components/AddArgument.js';
 
 function Category(props) {
   const {
@@ -42,6 +42,7 @@ Category.propTypes = {
   categoryId: PropTypes.string.isRequired,
   title: PropTypes.string,
   addArgument: PropTypes.bool,
+  makeDiscussion: PropTypes.bool,
   includeHeader: PropTypes.bool,
   onAddArgument: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
@@ -55,6 +56,8 @@ Category.defaultProps = {
   addArgument: true,
   includeHeader: true,
   disabled: false,
+  children: null,
+  onAddArgument: () => {},
 };
 
 export default Category;

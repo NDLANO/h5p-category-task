@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import { CSS } from '@dnd-kit/utilities';
 import { defaultAnimateLayoutChanges, useSortable } from '@dnd-kit/sortable';
+import PropTypes from 'prop-types';
 
 /**
  * @param {{
@@ -57,6 +58,12 @@ function Element({ draggableId, ariaLabel, renderChildren }) {
   );
 }
 
+Element.propTypes = {
+  draggableId: PropTypes.string.isRequired,
+  ariaLabel: PropTypes.string.isRequired,
+  renderChildren: PropTypes.func.isRequired,
+};
+
 /**
  * @param {{
  *   children: JSX.Element | Array<JSX.Element | null> | null;
@@ -79,5 +86,11 @@ function ElementLayout({ children, isDragging, ariaLabel }) {
     </div>
   );
 }
+
+ElementLayout.propTypes = {
+  children: PropTypes.node,
+  isDragging: PropTypes.bool.isRequired,
+  ariaLabel: PropTypes.string.isRequired,
+};
 
 export { Element as default, ElementLayout };

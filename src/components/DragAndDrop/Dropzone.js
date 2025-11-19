@@ -1,5 +1,6 @@
 import React from 'react';
-import Droppable from './Droppable';
+import Droppable from './Droppable.js';
+import PropTypes from 'prop-types';
 
 /**
  *
@@ -19,5 +20,11 @@ function Dropzone({ droppablePrefix, label, disableDrop }) {
     </Droppable>
   );
 }
+
+Dropzone.propTypes = {
+  droppablePrefix: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  disableDrop: PropTypes.bool,
+};
 
 export default Dropzone;

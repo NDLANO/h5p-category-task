@@ -74,6 +74,8 @@ Popover.propTypes = {
   header: PropTypes.string,
   close: PropTypes.string,
   openerRect: PropTypes.object,
+  align: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
 export default Popover;

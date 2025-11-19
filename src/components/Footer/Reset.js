@@ -1,6 +1,6 @@
 import React, { useMemo, useRef, useState } from 'react';
-import Popover from '../Popover/Popover';
-import { useCategoryTask } from 'context/CategoryTaskContext';
+import { useCategoryTask } from './../../context/CategoryTaskContext.js';
+import Popover from '../Popover/Popover.js';
 
 function Reset() {
 

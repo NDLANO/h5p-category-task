@@ -7,14 +7,15 @@ import {
 import { arrayMove } from '@dnd-kit/sortable';
 import React, { useCallback, useEffect, useReducer, useState } from 'react';
 import { isMobile } from 'react-device-detect';
-import { useCategoryTask } from '../../context/CategoryTaskContext';
-import Argument from '../Argument/Argument';
-import Category from '../Categories/Category';
-import Column from '../DragAndDrop/Column';
-import Element from '../DragAndDrop/Element';
-import Summary from '../Summary/Summary';
-import Dropzone from '../DragAndDrop/Dropzone';
 import classnames from 'classnames';
+import { useCategoryTask } from '../../context/CategoryTaskContext.js';
+import Argument from '../Argument/Argument.js';
+import Category from '../Categories/Category.js';
+import Column from '../DragAndDrop/Column.js';
+import Element from '../DragAndDrop/Element.js';
+import Summary from '../Summary/Summary.js';
+import Dropzone from '../DragAndDrop/Dropzone.js';
+import PropTypes from 'prop-types';
 import {
   ActionMenuDataObject,
   ArgumentDataObject,
@@ -22,7 +23,7 @@ import {
   clone,
   getDnDId,
   isEven,
-} from '../utils';
+} from '../utils.js';
 
 /**
  * @typedef {{
@@ -741,5 +742,9 @@ function Surface(props) {
     </div>
   );
 }
+
+Surface.propTypes = {
+  disabled: PropTypes.bool,
+};
 
 export default Surface;
