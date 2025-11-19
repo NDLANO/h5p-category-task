@@ -28,6 +28,7 @@ function AddArgument(props) {
 AddArgument.propTypes = {
   displayFull: PropTypes.bool,
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
 };
 
 export default AddArgument;

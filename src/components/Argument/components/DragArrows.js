@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCategoryTask } from '../../../context/CategoryTaskContext';
+import { useCategoryTask } from '../../../context/CategoryTaskContext.js';
 
 function DragArrows() {
 

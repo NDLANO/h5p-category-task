@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactHtmlParser from 'html-react-parser';
 import './SolutionDisplay.scss';
-import { useCategoryTask } from '../../context/CategoryTaskContext';
+import { useCategoryTask } from '../../context/CategoryTaskContext.js';
 
 /**
  * Solution Display component.

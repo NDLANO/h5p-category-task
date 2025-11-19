@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useCategoryTask } from 'context/CategoryTaskContext';
-import { escapeHTML, stripHTML } from '../utils';
+import { escapeHTML, stripHTML } from '../utils.js';
 import * as focusTrap from 'focus-trap';
 
 function Export() {
@@ -38,7 +38,8 @@ function Export() {
     let categories = userInput.categories
       .filter((category) => !category.isArgumentDefaultList)
       .map((category) => {
-        category.connectedArguments = category.connectedArguments.map((argumentId) => userInput.argumentsList[argumentId]);
+        category.connectedArguments =
+          category.connectedArguments.map((argumentId) => userInput.argumentsList[argumentId]);
         return category;
       });
 
@@ -72,7 +73,7 @@ function Export() {
 
   function getExportPreview() {
     const documentExportTemplate =
-            '<div class="export-preview">' +
+      '<div class="export-preview">' +
             '<div class="page-header" role="heading" tabindex="-1">' +
             ' <div class="page-title h1">{{mainTitle}}</div>' +
             '</div>' +
@@ -80,7 +81,9 @@ function Export() {
             '{{#categories}}' +
             '<table class="page-category-arguments {{@index}} {{cssClass}}">' +
             '<tr><th>{{title}}</th></tr>' +
-            '<tr><td><ul>{{#connectedArguments}}<li>{{argumentText}}</li>{{/connectedArguments}}</ul>{{^connectedArguments}}{{noArguments}}{{/connectedArguments}}</td></tr>' +
+            '<tr><td><ul>' +
+            '{{#connectedArguments}}<li>{{argumentText}}</li>{{/connectedArguments}}' +
+            '</ul>{{^connectedArguments}}{{noArguments}}{{/connectedArguments}}</td></tr>' +
             '</table>' +
             '{{/categories}}' +
             '{{#useSummary}}' +

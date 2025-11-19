@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropsTypes from 'prop-types';
 import classnames from 'classnames';
-import { debounce } from '../../utils';
-import { useCategoryTask } from '../../../context/CategoryTaskContext';
+import { debounce } from '../../utils.js';
+import { useCategoryTask } from '../../../context/CategoryTaskContext.js';
 
 function EditableArgument({
   argument,

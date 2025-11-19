@@ -1,6 +1,6 @@
 import { SortableContext } from '@dnd-kit/sortable';
 import React from 'react';
-import Droppable from './Droppable';
+import Droppable from './Droppable.js';
 
 /**
  *
@@ -32,5 +32,16 @@ function Column({
     </div>
   );
 }
+
+Column.propTypes = {
+  droppableId: PropTypes.string.isRequired,
+  disableDrop: PropTypes.bool,
+  connectedArguments: PropTypes.arrayOf(PropTypes.number).isRequired,
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
+  additionalClassName: PropTypes.string,
+};
 
 export default Column;

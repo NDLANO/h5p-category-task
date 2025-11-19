@@ -47,4 +47,8 @@ function Summary(props) {
   );
 }
 
+Summary.propTypes = {
+  disabled: PropTypes.bool,
+};
+
 export default Summary;

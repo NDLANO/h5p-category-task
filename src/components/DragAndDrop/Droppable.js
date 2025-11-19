@@ -33,3 +33,9 @@ export default function Droppable({ id, children, isDropDisabled }) {
     </div>
   );
 }
+
+Droppable.propTypes = {
+  id: PropTypes.string.isRequired,
+  children: PropTypes.element.isRequired,
+  isDropDisabled: PropTypes.bool,
+};

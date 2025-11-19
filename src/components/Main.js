@@ -2,11 +2,11 @@ import './CategoryTask.scss';
 import 'fonts/H5PReflectionFont.scss';
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
-import Surface from './Surface/Surface';
-import Footer from './Footer/Footer';
 import parseHtml from 'html-react-parser';
+import Surface from './Surface/Surface.js';
+import Footer from './Footer/Footer.js';
 import SolutionDisplay from './Surface/SolutionDisplay.js';
-import { useCategoryTask } from '../context/CategoryTaskContext';
+import { useCategoryTask } from '../context/CategoryTaskContext.js';
 
 function Main(props) {
 
@@ -107,6 +107,7 @@ Main.propTypes = {
   resources: PropTypes.object,
   surface: PropTypes.string,
   showSolution: PropTypes.func,
+  solution: PropTypes.object,
 };
 
 export default Main;

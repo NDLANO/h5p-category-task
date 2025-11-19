@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Popover as TinyPopover } from 'react-tiny-popover';
 import classnames from 'classnames';
 import trash from '../../../../assets/trash.svg';
-import { useCategoryTask } from '../../../context/CategoryTaskContext';
+import { useCategoryTask } from '../../../context/CategoryTaskContext.js';
 
 function ActionMenu(props) {
   const context = useCategoryTask();
@@ -74,9 +74,7 @@ function ActionMenu(props) {
     }
 
     return (
-      // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
       <label
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
         tabIndex={0}
         onKeyUp={(event) => handleKeyUp(event, settings.onSelect)}
       >
@@ -210,6 +208,7 @@ ActionMenu.propTypes = {
     PropTypes.arrayOf(PropTypes.element),
     PropTypes.element,
   ]),
+  menuId: PropTypes.string,
 };
 
 export default ActionMenu;
