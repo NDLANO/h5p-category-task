@@ -1,6 +1,6 @@
-import React, {useRef} from 'react';
-import {useCategoryTask} from 'context/CategoryTaskContext';
-import {escapeHTML, stripHTML} from '../utils';
+import React, { useRef } from 'react';
+import { useCategoryTask } from 'context/CategoryTaskContext';
+import { escapeHTML, stripHTML } from '../utils';
 import * as focusTrap from 'focus-trap';
 
 function Export() {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Main from 'components/Main';
-import {CategoryTaskProvider} from 'context/CategoryTaskContext';
-import {breakpoints, getRatio, sanitizeParams} from './components/utils';
+import { CategoryTaskProvider } from 'context/CategoryTaskContext';
+import { breakpoints, getRatio, sanitizeParams } from './components/utils';
 
 // Load library
 H5P.CategoryTask = (function () {
@@ -101,11 +101,11 @@ H5P.CategoryTask = (function () {
 
     this.collectExportValues = (index, callback) => {
       if (typeof index !== 'undefined') {
-        this.collectExportValuesStack.push({key: index, callback: callback});
+        this.collectExportValuesStack.push({ key: index, callback: callback });
       }
       else {
         const exportValues = {};
-        this.collectExportValuesStack.forEach(({key, callback}) => exportValues[key] = callback());
+        this.collectExportValuesStack.forEach(({ key, callback }) => exportValues[key] = callback());
         return exportValues;
       }
     };

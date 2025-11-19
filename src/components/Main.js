@@ -1,6 +1,6 @@
 import './CategoryTask.scss';
 import 'fonts/H5PReflectionFont.scss';
-import React, {useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import Surface from './Surface/Surface';
 import Footer from './Footer/Footer';
@@ -42,7 +42,7 @@ function Main(props) {
 
   useEffect(() => {
     const filterResourceList = (element) => Object.keys(element).length !== 0 && element.constructor === Object;
-    if (resourcesList.params.resourceList && resourcesList.params.resourceList.filter(filterResourceList).length > 0) {
+    if (resourcesList?.params?.resourceList.filter(filterResourceList).length > 0) {
       const resourceList = new H5P.ResourceList(resourcesList.params, id, language);
       resourceList.attach(resourceContainer.current);
 
@@ -56,7 +56,7 @@ function Main(props) {
     }
   }, [resourcesList]);
 
-  let hasSolution = props.solution.sample?.length > 0 && !props.solution.sample.includes('<div>&nbsp;</div>');
+  let hasSolution = props.solution?.sample?.length > 0 && !props.solution.sample.includes('<div>&nbsp;</div>');
 
   const handleShowSolution = () => {
     const solutionData = showSolution();

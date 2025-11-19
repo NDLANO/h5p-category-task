@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import React, { use } from 'react';
 
 const CategoryTaskContext = React.createContext();
 
-function CategoryTaskProvider({children, value}) {
+function CategoryTaskProvider({ children, value }) {
   return (
     <CategoryTaskContext.Provider value={value}>
       {children}
@@ -11,8 +11,8 @@ function CategoryTaskProvider({children, value}) {
 }
 
 function useCategoryTask() {
-  const context = useContext(CategoryTaskContext);
-  if ( context === undefined) {
+  const context = use(CategoryTaskContext);
+  if (context === undefined) {
     throw new Error('useCategoryTask must be used within a CategoryTaskProvider');
   }
   return context;
