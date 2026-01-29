@@ -151,14 +151,6 @@
           "default": "See available actions"
         },
         {
-          "label": "Label for the pro arguments section",
-          "default": "Arguments FOR"
-        },
-        {
-          "label": "Label for the con arguments section",
-          "default": "Arguments AGAINST"
-        },
-        {
           "label": "Show solution",
           "default": "Show solution"
         },
@@ -176,11 +168,11 @@
           "default": "إنشاء مستند"
         },
         {
-          "label": "تسمية زر ”التصدير\"",
+          "label": "تسمية زر \"التصدير\"",
           "default": "تصدير"
         },
         {
-          "label": "تسمية زر ”اختيار الكل\"",
+          "label": "تسمية زر \"اختيار الكل\"",
           "default": "اختيار الكل"
         },
         {
