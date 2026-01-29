@@ -22,6 +22,19 @@ H5PUpgrades['H5P.CategoryTask'] = (() => {
 
         finished(null, parameters, extras);
       },
+      /**
+       * Synchronous content upgrade hook.
+       * Remove the mode parameter.
+       * @param {object} parameters Content parameters.
+       * @param {function} finished Callback when finished.
+       * @param {object} extras Extra parameters such as metadata, etc.
+       */
+      7: (parameters, finished, extras) => {
+        if (parameters) {
+          delete parameters.mode;
+        }
+        finished(null, parameters, extras);
+      }
     }
   };
 })();

@@ -17,6 +17,8 @@ H5P.CategoryTask = (function () {
 
     let container;
     this.params = sanitizeParams(params);
+    this.params.mode = 'category';
+
     this.behaviour = this.params.behaviour || {};
     this.resetStack = [];
     this.collectExportValuesStack = [];

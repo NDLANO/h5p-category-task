@@ -90,11 +90,9 @@ function Surface(props) {
      * }}
      */
     const {
-      params: { argumentsList: argumentDataList = [], categoriesList = [], mode = 'discussion' },
+      params: { argumentsList: argumentDataList = [], categoriesList = [] },
       behaviour: { randomizeArguments = true },
     } = context;
-
-    const makeDiscussion = mode === 'discussion';
 
     if (randomizeArguments === true) {
       argumentDataList.sort(() => 0.5 - Math.random());
@@ -131,35 +129,14 @@ function Surface(props) {
       );
     }
 
-    if (makeDiscussion) {
-      categories.push(new CategoryDataObject({
-        id: 0,
-        theme: 'h5p-category-task-category-container h5p-discussion-pro',
+    categoriesList.forEach((category, index) => categories.push(
+      new CategoryDataObject({
+        id: index,
+        theme: 'h5p-category-task-category-container',
         useNoArgumentsPlaceholder: true,
-        title: context.translate('argumentsFor'),
-        makeDiscussion,
-      }));
-
-      categories.push(new CategoryDataObject({
-        id: 1,
-        theme: 'h5p-category-task-category-container h5p-discussion-against',
-        useNoArgumentsPlaceholder: true,
-        title: context.translate('argumentsAgainst'),
-        makeDiscussion,
-      }));
-    }
-
-    else {
-      categoriesList.forEach((category, index) => categories.push(
-        new CategoryDataObject({
-          id: index,
-          theme: 'h5p-category-task-category-container',
-          useNoArgumentsPlaceholder: true,
-          title: category,
-          makeDiscussion,
-        })
-      ));
-    }
+        title: category,
+      })
+    ));
 
     return {
       categories,
@@ -678,7 +655,6 @@ function Surface(props) {
               categoryId={getDnDId(category)}
               includeHeader={category.title !== null}
               title={category.title}
-              makeDiscussion={category.makeDiscussion}
               additionalClassName={[category.theme]}
               addArgument={allowAddingOfArguments}
               disabled={props.disabled}

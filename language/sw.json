@@ -1,18 +1,6 @@
 {
   "semantics": [
     {
-      "label": "Mode",
-      "description": "Choose the mode of the activity. \"Discussion\" uses the two categories \"for\" and \"against\" by default, whereas \"Category\" uses the categories that you provide.",
-      "options": [
-        {
-          "label": "Discussion"
-        },
-        {
-          "label": "Category"
-        }
-      ]
-    },
-    {
       "label": "Kichwa"
     },
     {
