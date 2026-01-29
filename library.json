@@ -68,11 +68,6 @@
       "minorVersion": 0
     },
     {
-      "machineName": "H5PEditor.SelectButtons",
-      "majorVersion": 1,
-      "minorVersion": 0
-    },
-    {
       "machineName": "H5PEditor.ColorSelector",
       "majorVersion": 1,
       "minorVersion": 3
