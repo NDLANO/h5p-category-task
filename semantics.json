@@ -60,9 +60,47 @@
         "optional": true,
         "min": 2,
         "field": {
-          "name": "text",
-          "type": "text",
-          "label": "Category"
+          "name": "categoryGroup",
+          "type": "group",
+          "label": "Category",
+          "fields": [
+            {
+              "name": "name",
+              "type": "text",
+              "label": "Category name"
+            },
+            {
+              "name": "colorBackground",
+              "type": "text",
+              "label": "Background color",
+              "importance": "medium",
+              "optional": true,
+              "default": "#2679C5",
+              "widget": "colorSelector",
+              "spectrum": {
+                "showInput": true,
+                "showInitial": true,
+                "showPalette": true,
+                "palette": [
+                  [
+                    "#2679C5"
+                  ],
+                  [
+                    "#006FBF"
+                  ],
+                  [
+                    "#256D1D"
+                  ],
+                  [
+                    "#a13236"
+                  ],
+                  [
+                    "#E6C81D"
+                  ]
+                ]
+              }
+            }
+          ]
         }
       }
     ]

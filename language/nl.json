@@ -25,7 +25,15 @@
           "label": "Categorieën",
           "entity": "categorie",
           "field": {
-            "label": "Categorie"
+            "label": "Categorie",
+            "fields": [
+              {
+                "label": "Categorienaam"
+              },
+              {
+                "label": "Achtergrondkleur"
+              }
+            ]
           }
         }
       ]

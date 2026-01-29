@@ -25,7 +25,15 @@
           "label": "Kategorien",
           "entity": "Kategorie",
           "field": {
-            "label": "Kategorie"
+            "label": "Kategorie",
+            "fields": [
+              {
+                "label": "Name"
+              },
+              {
+                "label": "Hintergrundfarbe"
+              }
+            ]
           }
         }
       ]

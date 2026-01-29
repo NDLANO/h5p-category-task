@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddArgument from './components/AddArgument.js';
+import { computeFocusColor } from '../utils.js';
 
 function Category(props) {
   const {
@@ -8,6 +9,7 @@ function Category(props) {
     categoryId,
     addArgument,
     title,
+    backgroundColor,
     includeHeader,
     onAddArgument,
     children,
@@ -19,7 +21,13 @@ function Category(props) {
   return (
     <div className={additionalClassName.join(' ')}>
       {includeHeader && (
-        <div className={'h5p-category-task-category-header'}>
+        <div
+          className={'h5p-category-task-category-header'}
+          style={{
+            '--background-color': backgroundColor,
+            '--color': computeFocusColor(backgroundColor),
+          }}
+        >
           {title}
         </div>
       )}
@@ -35,6 +43,7 @@ Category.propTypes = {
   additionalClassName: PropTypes.array,
   categoryId: PropTypes.string.isRequired,
   title: PropTypes.string,
+  backgroundColor: PropTypes.string,
   addArgument: PropTypes.bool,
   includeHeader: PropTypes.bool,
   onAddArgument: PropTypes.func,
@@ -46,6 +55,7 @@ Category.defaultProps = {
   columnClassName: [],
   additionalClassName: [],
   title: '',
+  backgroundColor: '#2679c5',
   addArgument: true,
   includeHeader: true,
   disabled: false,

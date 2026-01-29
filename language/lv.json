@@ -25,7 +25,15 @@
           "label": "Kategorijas",
           "entity": "kategorija",
           "field": {
-            "label": "Kategorija"
+            "label": "Kategorija",
+            "fields": [
+              {
+                "label": "Kategorijas nosaukums"
+              },
+              {
+                "label": "Fona krāsa"
+              }
+            ]
           }
         }
       ]

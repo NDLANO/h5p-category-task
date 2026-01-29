@@ -2,8 +2,8 @@
   "title": "Category",
   "description": "Reflect upon statements and sort them in categories",
   "majorVersion": 0,
-  "minorVersion": 6,
-  "patchVersion": 1,
+  "minorVersion": 7,
+  "patchVersion": 0,
   "runnable": 1,
   "hasIcon": 1,
   "author": "NDLA",
@@ -71,6 +71,11 @@
       "machineName": "H5PEditor.SelectButtons",
       "majorVersion": 1,
       "minorVersion": 0
+    },
+    {
+      "machineName": "H5PEditor.ColorSelector",
+      "majorVersion": 1,
+      "minorVersion": 3
     }
   ]
 }

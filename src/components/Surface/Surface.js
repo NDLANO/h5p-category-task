@@ -129,12 +129,14 @@ function Surface(props) {
       );
     }
 
+
     categoriesList.forEach((category, index) => categories.push(
       new CategoryDataObject({
         id: index,
         theme: 'h5p-category-task-category-container',
         useNoArgumentsPlaceholder: true,
-        title: category,
+        title: category.name,
+        backgroundColor: category.colorBackground,
       })
     ));
 
@@ -655,6 +657,7 @@ function Surface(props) {
               categoryId={getDnDId(category)}
               includeHeader={category.title !== null}
               title={category.title}
+              backgroundColor={category.backgroundColor}
               additionalClassName={[category.theme]}
               addArgument={allowAddingOfArguments}
               disabled={props.disabled}

@@ -25,7 +25,15 @@
           "label": "Categorias",
           "entity": "categoria",
           "field": {
-            "label": "Categoria"
+            "label": "Categoria",
+            "fields": [
+              {
+                "label": "Nome da categoria"
+              },
+              {
+                "label": "Cor de fundo"
+              }
+            ]
           }
         }
       ]

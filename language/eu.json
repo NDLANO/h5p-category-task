@@ -25,7 +25,15 @@
           "label": "Kategoriak",
           "entity": "kategoria",
           "field": {
-            "label": "Kategoria"
+            "label": "Kategoria",
+            "fields": [
+              {
+                "label": "Kategoriaren izena"
+              },
+              {
+                "label": "Atzeko planoaren kolorea"
+              }
+            ]
           }
         }
       ]

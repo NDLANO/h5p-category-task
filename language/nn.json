@@ -25,7 +25,15 @@
           "label": "Kategorier",
           "entity": "kategori",
           "field": {
-            "label": "Kategori"
+            "label": "Kategori",
+            "fields": [
+              {
+                "label": "Kategorinavn"
+              },
+              {
+                "label": "Bakgrunnsfarge"
+              }
+            ]
           }
         }
       ]
