@@ -26,6 +26,9 @@ export default {
     })
   ],
   resolve: {
+    alias: {
+      '@assets': path.resolve(__dirname, 'assets'),
+    },
     modules: [
       path.resolve('./src'),
       path.resolve('./node_modules')
@@ -56,9 +59,8 @@ export default {
         ]
       },
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg|gif)$/,
+        test: /\.(png|woff|woff2|eot|ttf|svg|gif|docx)$/,
         include: [
-          path.resolve(__dirname, 'src'),
           path.resolve(__dirname, 'assets'),
         ],
         type: 'asset/resource'
