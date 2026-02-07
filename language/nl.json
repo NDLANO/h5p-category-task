@@ -1,18 +1,6 @@
 {
   "semantics": [
     {
-      "label": "Mode",
-      "description": "Choose the mode of the activity. \"Discussion\" uses the two categories \"for\" and \"against\" by default, whereas \"Category\" uses the categories that you provide.",
-      "options": [
-        {
-          "label": "Discussion"
-        },
-        {
-          "label": "Category"
-        }
-      ]
-    },
-    {
       "label": "Koptekst"
     },
     {
@@ -37,7 +25,15 @@
           "label": "Categorieën",
           "entity": "categorie",
           "field": {
-            "label": "Categorie"
+            "label": "Categorie",
+            "fields": [
+              {
+                "label": "Categorienaam"
+              },
+              {
+                "label": "Achtergrondkleur"
+              }
+            ]
           }
         }
       ]
@@ -153,14 +149,6 @@
         {
           "label": "Label for the \"Available actions\"-button",
           "default": "See available actions"
-        },
-        {
-          "label": "Label for the pro arguments section",
-          "default": "Arguments FOR"
-        },
-        {
-          "label": "Label for the con arguments section",
-          "default": "Arguments AGAINST"
         },
         {
           "label": "Show solution",

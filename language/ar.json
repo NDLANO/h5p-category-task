@@ -1,18 +1,6 @@
 {
   "semantics": [
     {
-      "label": "Mode",
-      "description": "Choose the mode of the activity. \"Discussion\" uses the two categories \"for\" and \"against\" by default, whereas \"Category\" uses the categories that you provide.",
-      "options": [
-        {
-          "label": "Discussion"
-        },
-        {
-          "label": "Category"
-        }
-      ]
-    },
-    {
       "label": "رأس"
     },
     {
@@ -37,7 +25,15 @@
           "label": "Categories",
           "entity": "category",
           "field": {
-            "label": "Category"
+            "label": "Category",
+            "fields": [
+              {
+                "label": "Category name"
+              },
+              {
+                "label": "Background color"
+              }
+            ]
           }
         }
       ]
@@ -155,14 +151,6 @@
           "default": "See available actions"
         },
         {
-          "label": "Label for the pro arguments section",
-          "default": "Arguments FOR"
-        },
-        {
-          "label": "Label for the con arguments section",
-          "default": "Arguments AGAINST"
-        },
-        {
           "label": "Show solution",
           "default": "Show solution"
         },
@@ -180,11 +168,11 @@
           "default": "إنشاء مستند"
         },
         {
-          "label": "تسمية زر ”التصدير\"",
+          "label": "تسمية زر \"التصدير\"",
           "default": "تصدير"
         },
         {
-          "label": "تسمية زر ”اختيار الكل\"",
+          "label": "تسمية زر \"اختيار الكل\"",
           "default": "اختيار الكل"
         },
         {

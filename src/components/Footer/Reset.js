@@ -5,7 +5,7 @@ import Popover from '../Popover/Popover.js';
 function Reset() {
 
   const [showPopover, setPopover] = useState(false);
-  const discussionProcessContext = useCategoryTask();
+  const categoryTaskContext = useCategoryTask();
   const resetButtonRef = useRef(null);
 
   function togglePopover(event) {
@@ -23,7 +23,7 @@ function Reset() {
     },
     reset,
     translations
-  } = discussionProcessContext;
+  } = categoryTaskContext;
 
   const openerRect = useMemo(
     () => resetButtonRef.current?.getBoundingClientRect(),
@@ -41,7 +41,7 @@ function Reset() {
         <Popover
           handleClose={togglePopover}
           show={showPopover}
-          classnames={Array.from(discussionProcessContext.activeBreakpoints)}
+          classnames={Array.from(categoryTaskContext.activeBreakpoints)}
           close={translations.close}
           header={translations.restart}
           align={'start'}

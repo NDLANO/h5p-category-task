@@ -1,24 +1,5 @@
 [
   {
-    "name": "mode",
-    "type": "select",
-    "label": "Mode",
-    "description": "Choose the mode of the activity. \"Discussion\" uses the two categories \"for\" and \"against\" by default, whereas \"Category\" uses the categories that you provide.",
-    "importance": "high",
-    "options": [
-      {
-        "value": "discussion",
-        "label": "Discussion"
-      },
-      {
-        "value": "category",
-        "label": "Category"
-      }
-    ],
-    "default": "category",
-    "widget": "selectButtons"
-  },
-  {
     "name": "header",
     "type": "text",
     "label": "Header",
@@ -69,15 +50,6 @@
     "type": "group",
     "importance": "high",
     "expanded": true,
-    "widget": "showWhen",
-    "showWhen": {
-      "rules": [
-        {
-          "field": "mode",
-          "equals": "category"
-        }
-      ]
-    },
     "fields": [
       {
         "name": "categoriesList",
@@ -88,9 +60,47 @@
         "optional": true,
         "min": 2,
         "field": {
-          "name": "text",
-          "type": "text",
-          "label": "Category"
+          "name": "categoryGroup",
+          "type": "group",
+          "label": "Category",
+          "fields": [
+            {
+              "name": "name",
+              "type": "text",
+              "label": "Category name"
+            },
+            {
+              "name": "colorBackground",
+              "type": "text",
+              "label": "Background color",
+              "importance": "medium",
+              "optional": true,
+              "default": "#2679C5",
+              "widget": "colorSelector",
+              "spectrum": {
+                "showInput": true,
+                "showInitial": true,
+                "showPalette": true,
+                "palette": [
+                  [
+                    "#2679C5"
+                  ],
+                  [
+                    "#006FBF"
+                  ],
+                  [
+                    "#256D1D"
+                  ],
+                  [
+                    "#a13236"
+                  ],
+                  [
+                    "#E6C81D"
+                  ]
+                ]
+              }
+            }
+          ]
         }
       }
     ]
@@ -307,18 +317,6 @@
         "type": "text",
         "label": "Label for the \"Available actions\"-button",
         "default": "See available actions"
-      },
-      {
-        "name": "argumentsFor",
-        "type": "text",
-        "label": "Label for the pro arguments section",
-        "default": "Arguments FOR"
-      },
-      {
-        "name": "argumentsAgainst",
-        "type": "text",
-        "label": "Label for the con arguments section",
-        "default": "Arguments AGAINST"
       },
       {
         "name": "showSolution",

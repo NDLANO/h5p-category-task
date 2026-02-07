@@ -1,5 +1,46 @@
 import { escape, decode } from 'he';
 
+/** @constant {number} HEX Hexadecimal radix. */
+const HEX = 16;
+
+/** @constant {number} LUMINANCE_FACTOR_RED Red channel luminance factor for contrast calculation. */
+const LUMINANCE_FACTOR_RED = 0.299;
+
+/** @constant {number} LUMINANCE_FACTOR_GREEN Green channel luminance factor for contrast calculation. */
+const LUMINANCE_FACTOR_GREEN = 0.587;
+
+/** @constant {number} LUMINANCE_FACTOR_BLUE Blue channel luminance factor for contrast calculation. */
+const LUMINANCE_FACTOR_BLUE = 0.114;
+
+/** @constant {number} LUMINANCE_THRESHOLD Threshold for luminance to decide light/dark color. */
+const LUMINANCE_THRESHOLD = 0.5;
+
+/**
+ * Convert decimals to hexadecimals.
+ * @param {number} decimal Decimal.
+ * @param {number} [padding] Padding.
+ * @returns {string} Padded hexadecimal.
+ */
+const dec2hex = (decimal, padding = 0) => {
+  if (typeof decimal !== 'number') {
+    return null;
+  }
+
+  if (typeof padding !== 'number' || padding < 0) {
+    padding = 0;
+  }
+
+  let hex = Math.abs(Math.round(decimal)).toString(HEX);
+  while (hex.length < padding) {
+    hex = `0${hex}`;
+  }
+  if (decimal < 0) {
+    hex = `-${hex}`;
+  }
+
+  return hex;
+};
+
 /**
  * @param {{
  *   id?: number | null;
@@ -35,7 +76,8 @@ export function ArgumentDataObject({
  *   theme?: string;
  *   useNoArgumentsPlaceholder?: boolean;
  *   prefix?: string;
- *   actionTargetContainer?: boolean
+ *   actionTargetContainer?: boolean,
+ *   backgroundColor?: string
  * }} initValues
  *
  * @returns {CategoryDataObject}
@@ -43,23 +85,23 @@ export function ArgumentDataObject({
 export function CategoryDataObject({
   id,
   title,
-  makeDiscussion,
   connectedArguments,
   isArgumentDefaultList,
   theme,
   useNoArgumentsPlaceholder,
   prefix,
   actionTargetContainer,
+  backgroundColor,
 }) {
   this.id = id ?? null;
   this.title = title ?? null;
-  this.makeDiscussion = makeDiscussion ?? true;
   this.connectedArguments = connectedArguments ?? [];
   this.isArgumentDefaultList = isArgumentDefaultList ?? false;
   this.theme = theme ?? 'h5p-category-task-category-default';
   this.useNoArgumentsPlaceholder = useNoArgumentsPlaceholder ?? false;
   this.prefix = prefix ?? 'category';
   this.actionTargetContainer = actionTargetContainer ?? false;
+  this.backgroundColor = backgroundColor ?? '#2679c5';
 
   return this;
 }
@@ -281,3 +323,29 @@ export function clone(object) {
 export function isEven(number) {
   return number % 2 === 0;
 }
+
+/**
+ * Compute focus color to given color.
+ * @param {string} colorCode Color code in 6 char hex: #rrggbb.
+ * @returns {string} RGB focus color code in 6 char hex: #rrggbb.
+ */
+export const computeFocusColor = (colorCode) => {
+  if (typeof colorCode !== 'string' || !/#[0-9a-f]{6}/.test(colorCode)) {
+    return null;
+  }
+
+  colorCode = colorCode.substring(1);
+
+  // RGB as percentage
+  const rgb = [
+    parseInt(colorCode.substring(0, 2), HEX),
+    parseInt(colorCode.substring(2, 4), HEX),
+    parseInt(colorCode.substring(4, 6), HEX),
+  ];
+
+  // Calculate the luminance
+  const luminance =
+    (LUMINANCE_FACTOR_RED * rgb[0] + LUMINANCE_FACTOR_GREEN * rgb[1] + LUMINANCE_FACTOR_BLUE * rgb[2]) / 255;
+
+  return luminance < LUMINANCE_THRESHOLD ? '#ffffff' : '#000000';
+};

@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useCategoryTask } from './../../context/CategoryTaskContext.js';
 import { escapeHTML, stripHTML } from '../utils.js';
 import * as focusTrap from 'focus-trap';
+import templateURL from '@assets/exportTemplate.docx';
 
 function Export() {
 
@@ -19,7 +20,6 @@ function Export() {
         header,
         description = '',
         summaryHeader,
-        makeDiscussion,
       },
       behaviour: {
         provideSummary = true,
@@ -43,21 +43,10 @@ function Export() {
         return category;
       });
 
-    // Style first two categories differently if makeDiscussion is enabled
-    if (makeDiscussion === true) {
-      categories.forEach((category, index) => {
-        if (index < 2) {
-          category.makeDiscussionLimit = true;
-          category.cssClass = index === 0 ? 'pro-arguments' : 'contra-arguments';
-        }
-      });
-    }
-
     return Object.assign({}, translations, {
       mainTitle: header,
       description: stripHTML(description),
       summaryHeader,
-      makeDiscussion,
       hasResources: resources && resources.length > 0,
       useSummary: provideSummary,
       hasSummaryComment: summary && summary.length > 0,
@@ -121,7 +110,7 @@ function Export() {
       escapeHTML(translate('submitConfirmedText')),
       escapeHTML(translate('selectAll')),
       escapeHTML(translate('export')),
-      H5P.instances[0].getLibraryFilePath('exportTemplate.docx'),
+      templateURL,
       exportObject
     );
     exportDocument.getElement().prependTo(exportContainer.current);
