@@ -49,7 +49,7 @@ H5PUpgrades['H5P.CategoryTask'] = (() => {
                 .filter((category) => typeof category === 'string')
                 .map((category) => ({
                   name: category,
-                  colorBackground: '#2679c5',
+                  colorBackground: '#517aa4;',
                 }));
             }
             else {

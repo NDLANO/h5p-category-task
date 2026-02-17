@@ -141,13 +141,10 @@ function Export() {
   return (
     <>
       <button
-        className={'h5p-category-task-button-export'}
+        className={'h5p-category-task-button h5p-category-task-button-export'}
         onClick={handleExport}
         type={'button'}
       >
-        <span
-          className={'h5p-ri hri-document'}
-        />
         {translate('createDocument')}
       </button>
       <div className={'export-container'} ref={exportContainer}/>

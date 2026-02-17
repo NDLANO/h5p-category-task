@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 function Footer({ showSolution, hasSolution }) {
   return (
     <section className={'h5p-category-task-footer'}>
-      <Reset/>
       {hasSolution && <ShowSolutionButton showSolution={showSolution} />}
+      <Reset/>
       <Export/>
     </section>
   );

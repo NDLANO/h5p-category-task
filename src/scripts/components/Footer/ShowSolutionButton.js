@@ -15,11 +15,8 @@ const ShowSolutionButton = ({ showSolution }) => {
   return (
     <button
       onClick={showSolution}
-      className="h5p-category-task-footer-button h5p-category-task-button-show-solution"
+      className="h5p-category-task-button h5p-category-task-button-show-solution"
     >
-      <span
-        className={'h5p-ri hri-show-solution'}
-      />
       {translations.showSolution}
     </button>
   );

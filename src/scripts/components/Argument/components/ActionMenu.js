@@ -51,6 +51,7 @@ function ActionMenu(props) {
 
   function getCategory(settings, index) {
     let label;
+
     if (settings.label) {
       label = (
         <span
@@ -73,38 +74,23 @@ function ActionMenu(props) {
     }
 
     return (
-      <label
-        tabIndex={0}
-        onKeyUp={(event) => handleKeyUp(event, settings.onSelect)}
+      <button
+        className={'h5p-category-task-popover-actionmenu category'}
+        type={'button'}
+        aria-labelledby={'action-' + index}
+        onClick={(event) => {
+          handleKeyUp(event, settings.onSelect);
+        }}
       >
-        <input
-          tabIndex={-1}
-          id={'input-' + settings.id}
-          value={settings.id}
-          type={'checkbox'}
-          checked={settings.activeCategory}
-          onChange={() => {
-            if (settings.activeCategory !== true) {
-              handleSelect(settings.onSelect);
-            }
-          }}
-          aria-labelledby={'action-' + index}
-        />
-        <span
-          className={classnames('h5p-ri', {
-            'hri-checked': settings.activeCategory,
-            'hri-unchecked': !settings.activeCategory,
-          })}
-        />
         {label}
-      </label>
+      </button>
     );
   }
 
   function getDelete(settings) {
     return (
       <button
-        className={'h5p-category-task-popover-actionmenu-delete'}
+        className={'h5p-category-task-popover-actionmenu delete'}
         type={'button'}
         onClick={(e) => {
           e.preventDefault();
@@ -119,18 +105,13 @@ function ActionMenu(props) {
   function getEdit(settings) {
     return (
       <button
-        className={'h5p-category-task-popover-actionmenu-edit'}
+        className={'h5p-category-task-popover-actionmenu edit'}
         type={'button'}
         onClick={(e) => {
           e.preventDefault();
           handleSelect(settings.onSelect);
         }}
-      >
-        <span className="h5p-ri hri-pencil" aria-hidden={true} />
-        <span className={'h5p-category-task-popover-actionmenu-labeltext'}>
-          {settings.title}
-        </span>
-      </button>
+      >{settings.title}</button>
     );
   }
 
@@ -162,7 +143,7 @@ function ActionMenu(props) {
             </p>
           </div>
           <ul>
-            {actions.map((action, index) => {
+            {actions.filter((action) => action.activeCategory !== true).map((action, index) => {
               let content;
               if (action.type === 'delete') {
                 content = getDelete(action);
@@ -173,7 +154,12 @@ function ActionMenu(props) {
               else {
                 content = getCategory(action, index);
               }
-              return <li key={'action-' + index}>{content}</li>;
+              return <li
+                key={'action-' + index}
+                className={`h5p-category-task-popover-actionmenu-item ${action.type}`}
+              >
+                {content}
+              </li>;
             })}
           </ul>
           <button

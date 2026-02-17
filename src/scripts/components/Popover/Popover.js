@@ -12,11 +12,13 @@ const Popover = ({
   close,
   align = 'end',
   openerRect,
+  parentElement,
 }) => {
   classnames.push('h5p-category-task-popover');
 
   return (
     <TinyPopover
+      parentElement={parentElement}
       containerClassName={classnames.join(' ')}
       isOpen={show}
       positions={['top', 'bottom']}
@@ -47,9 +49,6 @@ const Popover = ({
                 type={'button'}
                 className={'close-button'}
               >
-                <span
-                  className={'h5p-ri hri-close'}
-                />
               </button>
             </div>
             <div
@@ -76,6 +75,7 @@ Popover.propTypes = {
   openerRect: PropTypes.object,
   align: PropTypes.string,
   children: PropTypes.node.isRequired,
+  parentElement: PropTypes.oneOf([PropTypes.instanceOf(HTMLElement), undefined]),
 };
 
 export default Popover;

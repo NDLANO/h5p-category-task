@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
 $borderRadius: 5px;
 
 article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
@@ -7,7 +5,53 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 }
 
 .h5p-category-task {
+/* Sizing */
+  --border-radius: var(--h5p-theme-border-radius-medium, 5px);
+  --spacing-xl: var(--h5p-theme-spacing-xl, 3.0rem);
+  --spacing-l: var(--h5p-theme-spacing-l, 2.0rem);
+  --spacing-m: var(--h5p-theme-spacing-m, 1.5rem);
+  --spacing-s: var(--h5p-theme-spacing-s, 1rem);
+  --spacing-xs: var(--h5p-theme-spacing-xs, 0.65rem);
+  --spacing-xxs: var(--h5p-theme-spacing-xss, 0.5rem);
+  --font-size-m: var(--h5p-theme-font-size-m, 1rem);
+  --font-size-xl: var(--h5p-theme-font-size-xl, 1.25rem);
+  --font-size-xxl: var(--h5p-theme-font-size-xxl, 1.5rem);
+
+  /* Icons */
+  --icon-fontawesome-arrow-rotate-right: "\f01e";
+  --icon-fontawesome-arrows-up-down-left-right: "\f047";
+  --icon-fontawesome-comment: "\f075";
+  --icon-fontawesome-eye: "\f06e";
+  --icon-fontawesome-file: "\f016";
+  --icon-fontawesome-plus: "\f067";
+  --icon-fontawesome-pen: "\f040";
+  --icon-fontawesome-trash: "\f1f8";
+  --icon-fontawesome-xmark: "\f00d";
+
+  --ndla-blue: hsl(210, 34%, 48%);
+  --ndla-blue-light: hsl(from var(--ndla-blue) l c calc(h + 5) );
+  --ndla-blue-dark: hsl(from var(--ndla-blue) l c calc(h - 5) );
+
+  /* Colors */
+  --color-primary: var(--h5p-theme-main-cta-base, var(--ndla-blue));
+  --color-primary-contrast: var(--h5p-theme-contrast-cta, #ffffff);
+  --color-primary-contrast-to-white: var(--h5p-theme-contrast-cta-white, var(--ndla-blue));
+  --color-primary-light: var(--h5p-theme-main-cta-light, var(--ndla-blue-light));
+  --color-primary-dark: var(--h5p-theme-main-cta-dark, var(--ndla-blue-dark));
+  --color-text-primary: var(--h5p-theme-text-primary, #101729);
+  --color-text-secondary: var(--h5p-theme-text-secondary, #354054);
+  --color-text-third: var(--h5p-theme-text-third, #737373);
+  --color-alternative: var(--h5p-theme-alternative-base, #f1f5fb);
+  --color-alternative-darker: var(--h5p-theme-alternative-darker, #ced1ee);
+  --color-background: var(--h5p-theme-ui-base, #ffffff);
+  --color-red: var(--h5p-theme-feedback-incorrect-main, #a13236);
+
+  background-color: var(--color-background);
+  container-name: h5p-category-task;
+  container-type: inline-size;
   font-family: "Open Sans", sans-serif;
+  font-size: var(--font-size-m);
+  position: relative;
 }
 
 .h5p-category-task-surface-main {
@@ -16,7 +60,6 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 }
 
 .h5p-category-task-button {
-  @extend .h5p-category-task;
   border: 0;
   border-radius: 90px;
   color: white;
@@ -24,9 +67,6 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   font-weight: bold;
 }
 
-.h5p-category-task-button-restart,
-.h5p-category-task-button-show-solution,
-.h5p-category-task-button-export,
 .h5p-category-task-reset-modal .continue {
   @extend .h5p-category-task-button;
   background-color: #507AA4;
@@ -356,10 +396,10 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   max-width: 95vw;
 
   .h5p-category-task-popover-header {
-    padding: 0.875rem;
+    align-items: center;
     border-bottom: 0.0625rem solid #dbe2e8;
     display: flex;
-    align-items: center;
+    padding: 0.875rem;
     font-weight: bold;
   }
 
@@ -368,11 +408,26 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   }
 
   .close-button {
-    background: white;
-    color: black;
+    aspect-ratio: 1;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    color: var(--color-text-primary);
+    cursor: pointer;
     margin-left: auto;
     padding: 0;
-    font-size: 180%;
+    position: relative;
+    width: var(--spacing-l);
+
+    &::before {
+      content: var(--icon-fontawesome-xmark);
+      font-family: "H5PFontAwesome4", sans-serif;
+      font-size: var(--font-size-xxl);
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
   }
 
   textarea {
@@ -393,6 +448,17 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
   padding: 0 0.625rem;
   color: #535c69;
   font-size: 1.2rem;
+  position: relative;
+
+  &::before {
+    content: var(--icon-fontawesome-arrows-up-down-left-right);
+    font-family: "H5PFontAwesome4", sans-serif;
+    font-weight: normal;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .h5p-category-task-draggable-container {
@@ -472,20 +538,54 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 }
 
 .h5p-category-task-footer {
-  background-color: #507AA4;
-  color: white;
-  padding: 1.25rem;
+  background-color: var(--color-primary);
+  color: var(--color-primary-contrast);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: var(--spacing-s);
+  padding: var(--spacing-m);
 
-  & > button {
-    background-color: transparent;
-    margin: 0.3125rem;
+  .h5p-category-task-button {
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-primary-contrast);
+    border-radius: var(--border-radius);
+    color: var(--color-primary-contrast);
+    cursor: pointer;
+    font: inherit;
     font-weight: bold;
-  }
+    padding: var(--spacing-xs) var(--spacing-s);
 
-  .h5p-ri {
-    margin-right: 0.4375rem;
+    &:focus,
+    &:hover {
+      background-color: var(--color-primary-contrast);
+      color: var(--color-primary);
+    }
+
+    &:focus-visible {
+      outline: 2px ridge var(--color-primary-contrast);
+      outline-offset: 2px;
+    }
+
+    &:active {
+      background-color: oklch(from var(--color-primary-contrast) calc(l * 0.95) c h);
+    }
+
+    &::before {
+      font-family: "H5PFontAwesome4", sans-serif;
+      margin-right: var(--spacing-xxs);
+    }
+
+    &.h5p-category-task-button-show-solution::before {
+      content: var(--icon-fontawesome-eye);
+    }
+
+    &.h5p-category-task-button-restart::before {
+      content: var(--icon-fontawesome-arrow-rotate-right);
+    }
+
+    &.h5p-category-task-button-export::before {
+      content: var(--icon-fontawesome-file);
+    }
   }
 }
 
@@ -608,23 +708,33 @@ article, aside, details, figcaption, figure, footer, header, main, menu, nav, se
 .h5p-category-task-popover-actionmenu {
   flex: auto;
 
-  label,
-  .h5p-category-task-popover-actionmenu-delete,
-  .h5p-category-task-popover-actionmenu-edit {
+  .h5p-category-task-popover-actionmenu {
     color: #1a1616;
     padding: 1rem 0.9rem;
     display: flex;
     overflow: hidden;
     align-items: center;
+
     &:hover {
       background-color: rgba(3,3,3,0.05);
     }
-  }
 
-  .h5p-category-task-popover-actionmenu-delete::before {
-    content: "\f1f8";
-    font-family: "H5PFontAwesome4", sans-serif;
-    margin-right: 0.5rem;
+    &::before {
+      font-family: "H5PFontAwesome4", sans-serif;
+      margin-right: 0.5rem;
+    }
+
+    &.category::before {
+      content: var(--icon-fontawesome-arrows-up-down-left-right);
+    }
+
+    &.edit::before {
+      content: var(--icon-fontawesome-pen);
+    }
+
+    &.delete::before {
+      content: var(--icon-fontawesome-trash);
+    }
   }
 
   ul button {

@@ -39,6 +39,7 @@ function Reset() {
     <>
       {enableRetry === true && (
         <Popover
+          parentElement={categoryTaskContext.container}
           handleClose={togglePopover}
           show={showPopover}
           classnames={Array.from(categoryTaskContext.activeBreakpoints)}
@@ -77,13 +78,10 @@ function Reset() {
           )}
         >
           <button
-            className={'h5p-category-task-button-restart'}
+            className={'h5p-category-task-button h5p-category-task-button-restart'}
             onClick={togglePopover}
             type={'button'}
           >
-            <span
-              className={'h5p-ri hri-restart'}
-            />
             {translations.restart}
           </button>
         </Popover>
