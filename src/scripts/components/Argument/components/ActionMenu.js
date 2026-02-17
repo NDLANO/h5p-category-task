@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Popover as TinyPopover } from 'react-tiny-popover';
 import classnames from 'classnames';
-import trash from '../../../../assets/trash.svg';
 import { useCategoryTask } from '../../../context/CategoryTaskContext.js';
 
 function ActionMenu(props) {
@@ -112,10 +111,7 @@ function ActionMenu(props) {
           settings.onSelect();
         }}
       >
-        <img src={trash} aria-hidden={true} alt={''} />
-        <span className={'h5p-category-task-popover-actionmenu-labeltext'}>
-          {settings.title}
-        </span>
+        {settings.title}
       </button>
     );
   }

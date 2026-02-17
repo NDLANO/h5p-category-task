@@ -12,35 +12,6 @@ const LUMINANCE_FACTOR_GREEN = 0.587;
 /** @constant {number} LUMINANCE_FACTOR_BLUE Blue channel luminance factor for contrast calculation. */
 const LUMINANCE_FACTOR_BLUE = 0.114;
 
-/** @constant {number} LUMINANCE_THRESHOLD Threshold for luminance to decide light/dark color. */
-const LUMINANCE_THRESHOLD = 0.5;
-
-/**
- * Convert decimals to hexadecimals.
- * @param {number} decimal Decimal.
- * @param {number} [padding] Padding.
- * @returns {string} Padded hexadecimal.
- */
-const dec2hex = (decimal, padding = 0) => {
-  if (typeof decimal !== 'number') {
-    return null;
-  }
-
-  if (typeof padding !== 'number' || padding < 0) {
-    padding = 0;
-  }
-
-  let hex = Math.abs(Math.round(decimal)).toString(HEX);
-  while (hex.length < padding) {
-    hex = `0${hex}`;
-  }
-  if (decimal < 0) {
-    hex = `-${hex}`;
-  }
-
-  return hex;
-};
-
 /**
  * @param {{
  *   id?: number | null;
@@ -139,9 +110,9 @@ export function ActionMenuDataObject({
  * @param {CategoryDataObject | ArgumentDataObject} element
  * @returns {string}
  */
-export function getDnDId(element) {
+export const getDnDId = (element) => {
   return [element.prefix, element.id].join('-');
-}
+};
 
 /**
  * @param {() => void} func
@@ -149,7 +120,7 @@ export function getDnDId(element) {
  * @param {boolean} immediate
  * @returns {() => void}
  */
-export function debounce(func, wait, immediate) {
+export const debounce = (func, wait, immediate) => {
   let timeout;
   return function () {
     const context = this,
@@ -163,35 +134,35 @@ export function debounce(func, wait, immediate) {
     timeout = setTimeout(later, wait);
     if (callNow) func.apply(context, args);
   };
-}
+};
 
 /**
  * @param {string} html
  * @returns {string}
  */
-export function decodeHTML(html) {
+export const decodeHTML = (html) => {
   return html ? decode(html) : html;
-}
+};
 
 /**
  * @param {string} html
  * @returns {string}
  */
-export function escapeHTML(html) {
+export const escapeHTML = (html) => {
   return html ? escape(html) : html;
-}
+};
 
 /**
  * @param {string} html
  * @returns {string}
  */
-export function stripHTML(html) {
+export const stripHTML = (html) => {
   const element = document.createElement('div');
   element.innerHTML = html;
   return element.innerText;
-}
+};
 
-export function sanitizeParams(params) {
+export const sanitizeParams = (params) => {
   const filterResourceList = (element) =>
     Object.keys(element).length !== 0 && element.constructor === Object;
   const handleObject = (sourceObject) => {
@@ -250,7 +221,7 @@ export function sanitizeParams(params) {
     l10n: handleObject(l10n),
     resourceReport: handleObject(resourceReport),
   };
-}
+};
 
 /**
  * CSS classnames and breakpoints for the content type
@@ -294,7 +265,7 @@ export const breakpoints = () => {
  *
  * @return {number | undefined}
  */
-export function getRatio(container) {
+export const getRatio = (container) => {
   if (!container) {
     return;
   }
@@ -303,16 +274,16 @@ export function getRatio(container) {
     container.offsetWidth /
     parseFloat(computedStyles.getPropertyValue('font-size'))
   );
-}
+};
 
 /**
  * @template T
  * @param {T} object
  * @returns {T}
  */
-export function clone(object) {
+export const clone = (object) => {
   return JSON.parse(JSON.stringify(object));
-}
+};
 
 /**
  * Check if a number is even
@@ -320,9 +291,60 @@ export function clone(object) {
  * @param {number} number
  * @returns {boolean}
  */
-export function isEven(number) {
+export const isEven = (number) => {
   return number % 2 === 0;
-}
+};
+
+/**
+ * Convert RGB color to relative luminance.
+ * @param {number} r Red channel (0-255).
+ * @param {number} g Green channel (0-255).
+ * @param {number} b Blue channel (0-255).
+ * @returns {number} Relative luminance (0-1).
+ */
+const getRelativeLuminance = (r, g, b) => {
+  const [rs, gs, bs] = [r, g, b].map((channel) => {
+    const sRGB = channel / 255;
+    return sRGB <= 0.03928 ? sRGB / 12.92 : Math.pow((sRGB + 0.055) / 1.055, 2.4);
+  });
+
+  return LUMINANCE_FACTOR_RED * rs + LUMINANCE_FACTOR_GREEN * gs + LUMINANCE_FACTOR_BLUE * bs;
+};
+
+/**
+ * Compute contrast ratio between two colors.
+ * @param {string} color1 First color in 6 char hex: #rrggbb.
+ * @param {string} color2 Second color in 6 char hex: #rrggbb.
+ * @returns {number|null} Contrast ratio (1-21) or null if invalid input.
+ */
+export const computeContrastRatio = (color1, color2) => {
+  if (
+    typeof color1 !== 'string' || !/#[0-9a-f]{6}/i.test(color1) ||
+    typeof color2 !== 'string' || !/#[0-9a-f]{6}/i.test(color2)
+  ) {
+    return null;
+  }
+
+  const rgb1 = [
+    parseInt(color1.substring(1, 3), HEX),
+    parseInt(color1.substring(3, 5), HEX),
+    parseInt(color1.substring(5, 7), HEX),
+  ];
+
+  const rgb2 = [
+    parseInt(color2.substring(1, 3), HEX),
+    parseInt(color2.substring(3, 5), HEX),
+    parseInt(color2.substring(5, 7), HEX),
+  ];
+
+  const l1 = getRelativeLuminance(...rgb1);
+  const l2 = getRelativeLuminance(...rgb2);
+
+  const lighter = Math.max(l1, l2);
+  const darker = Math.min(l1, l2);
+
+  return (lighter + 0.05) / (darker + 0.05);
+};
 
 /**
  * Compute focus color to given color.
@@ -330,22 +352,17 @@ export function isEven(number) {
  * @returns {string} RGB focus color code in 6 char hex: #rrggbb.
  */
 export const computeFocusColor = (colorCode) => {
-  if (typeof colorCode !== 'string' || !/#[0-9a-f]{6}/.test(colorCode)) {
+  if (typeof colorCode !== 'string' || !/#[0-9a-fA-F]{6}/.test(colorCode)) {
     return null;
   }
 
-  colorCode = colorCode.substring(1);
+  const contrastToWhite = computeContrastRatio(colorCode, '#ffffff');
+  const contrastToBlack = computeContrastRatio(colorCode, '#000000');
 
-  // RGB as percentage
-  const rgb = [
-    parseInt(colorCode.substring(0, 2), HEX),
-    parseInt(colorCode.substring(2, 4), HEX),
-    parseInt(colorCode.substring(4, 6), HEX),
-  ];
-
-  // Calculate the luminance
-  const luminance =
-    (LUMINANCE_FACTOR_RED * rgb[0] + LUMINANCE_FACTOR_GREEN * rgb[1] + LUMINANCE_FACTOR_BLUE * rgb[2]) / 255;
-
-  return luminance < LUMINANCE_THRESHOLD ? '#ffffff' : '#000000';
+  if (contrastToWhite > contrastToBlack) {
+    return '#ffffff';
+  }
+  else {
+    return '#000000';
+  }
 };
