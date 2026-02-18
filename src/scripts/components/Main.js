@@ -3,11 +3,14 @@ import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import parseHtml from 'html-react-parser';
 import Surface from './Surface/Surface.js';
+import Summary from './Summary/Summary.js';
 import Footer from './Footer/Footer.js';
 import SolutionDisplay from './Surface/SolutionDisplay.js';
 import { useCategoryTask } from '../context/CategoryTaskContext.js';
 
-function Main(props) {
+import './Main.scss';
+
+const Main = (props) => {
 
   const resourceContainer = useRef();
   const [solution, setSolution] = useState(null);
@@ -47,15 +50,16 @@ function Main(props) {
 
       collectExportValues('resources', () => resourcesList.params.resourceList
         .filter(filterResourceList)
-        .map((resource) => Object.assign({}, {
+        .map((resource) => ({
           title: '',
           url: '',
           introduction: '',
-        }, resource)) || []);
+          ...resource,
+        })) || []);
     }
   }, [resourcesList]);
 
-  let hasSolution = props.solution?.sample?.length > 0 && !props.solution.sample.includes('<div>&nbsp;</div>');
+  const hasSolution = props.solution?.sample?.length > 0 && !props.solution.sample.includes('<div>&nbsp;</div>');
 
   const handleShowSolution = () => {
     const solutionData = showSolution();
@@ -74,13 +78,9 @@ function Main(props) {
   };
 
   return (
-    <article>
-      <div
-        className={'h5p-category-task-header'}
-      >{header}</div>
-      <div
-        className={'h5p-category-task-surface-main'}
-      >
+    <article className='h5p-category-task-main'>
+      <div className={'h5p-category-task-header'}>{header}</div>
+      <div className={'h5p-category-task-surface-main'}>
         <div
           className={'h5p-category-task-surface-info'}
           ref={resourceContainer}
@@ -90,12 +90,21 @@ function Main(props) {
           )}
         </div>
         <Surface disabled={disableSurface} />
+        {context.behaviour.provideSummary && (
+          <Summary
+            // reset={registerReset}
+            // exportValues={collectExportValues}
+            // summaryHeader={params.summaryHeader}
+            // summaryInstruction={params.summaryInstruction}
+            disabled={disableSurface}
+          />
+        )}
       </div>
       {solution && <SolutionDisplay solution={solution} />}
       <Footer showSolution={handleShowSolution} hasSolution={hasSolution && !hideSolutionButton} />
     </article>
   );
-}
+};
 
 Main.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),

@@ -1,0 +1,58 @@
+.h5p-category-task-footer {
+  background-color: var(--color-primary);
+  color: var(--color-primary-contrast);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--spacing-s);
+  padding: var(--spacing-m);
+
+  .h5p-category-task-button {
+    background-color: var(--color-primary);
+    border: 2px solid var(--color-primary-contrast);
+    border-radius: var(--border-radius);
+    color: var(--color-primary-contrast);
+    cursor: pointer;
+    font: inherit;
+    font-weight: bold;
+    padding: var(--spacing-xs) var(--spacing-s);
+
+    &:focus,
+    &:hover {
+      background-color: var(--color-primary-contrast);
+      color: var(--color-primary);
+    }
+
+    &:focus-visible {
+      outline: 2px ridge var(--color-primary-contrast);
+      outline-offset: 2px;
+    }
+
+    &:active {
+      background-color: oklch(from var(--color-primary-contrast) calc(l * 0.95) c h);
+    }
+
+    &::before {
+      font-family: "H5PFontAwesome4", sans-serif;
+      margin-right: var(--spacing-xxs);
+    }
+
+    &.h5p-category-task-button-show-solution::before {
+      content: var(--icon-fontawesome-eye);
+    }
+
+    &.h5p-category-task-button-restart::before {
+      content: var(--icon-fontawesome-arrow-rotate-right);
+    }
+
+    &.h5p-category-task-button-export::before {
+      content: var(--icon-fontawesome-file);
+    }
+  }
+}
+
+@container h5p-category-task (width < 640px) {
+  .h5p-category-task-footer {
+    flex-direction: column;
+  }
+}

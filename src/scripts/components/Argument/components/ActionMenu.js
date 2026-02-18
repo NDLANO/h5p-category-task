@@ -4,7 +4,9 @@ import { Popover as TinyPopover } from 'react-tiny-popover';
 import classnames from 'classnames';
 import { useCategoryTask } from '../../../context/CategoryTaskContext.js';
 
-function ActionMenu(props) {
+import './ActionMenu.scss';
+
+const ActionMenu = (props) => {
   const context = useCategoryTask();
   const { translate } = context;
 
@@ -35,49 +37,42 @@ function ActionMenu(props) {
 
   classNames.push('h5p-category-task-actionmenu');
 
-  function handleSelect(callback) {
+  const handleSelect = (callback) => {
     handleClose();
     callback();
-  }
+  };
 
-  function handleKeyUp(event, callback) {
+  const handleKeyUp = (event, callback) => {
     const enterKey = event.keyCode === 13;
     if (enterKey) {
       handleSelect(callback);
     }
-  }
+  };
 
   const parentBox = parentElement.getBoundingClientRect();
 
-  function getCategory(settings, index) {
-    let label;
-
-    if (settings.label) {
-      label = (
-        <span
-          id={'action-' + index}
-          className={'h5p-category-task-popover-actionmenu-labeltext'}
-        >
-          {settings.label}
-        </span>
-      );
-    }
-    else {
-      label = (
-        <span
-          id={'action-' + index}
-          className={'h5p-category-task-popover-actionmenu-labeltext'}
-        >
-          {translate('moveTo')} &quot;<span>{settings.title}</span>&quot;
-        </span>
-      );
-    }
+  const getCategory = (settings, index) => {
+    const label = settings.label ? (
+      <span
+        id={`action-${index}`}
+        className={'h5p-category-task-popover-actionmenu-labeltext'}
+      >
+        {settings.label}
+      </span>
+    ) : (
+      <span
+        id={`action-${index}`}
+        className={'h5p-category-task-popover-actionmenu-labeltext'}
+      >
+        {translate('moveTo')} &quot;<span>{settings.title}</span>&quot;
+      </span>
+    );
 
     return (
       <button
         className={'h5p-category-task-popover-actionmenu category'}
         type={'button'}
-        aria-labelledby={'action-' + index}
+        aria-labelledby={`action-${index}`}
         onClick={(event) => {
           handleKeyUp(event, settings.onSelect);
         }}
@@ -85,9 +80,9 @@ function ActionMenu(props) {
         {label}
       </button>
     );
-  }
+  };
 
-  function getDelete(settings) {
+  const getDelete = (settings) => {
     return (
       <button
         className={'h5p-category-task-popover-actionmenu delete'}
@@ -100,9 +95,9 @@ function ActionMenu(props) {
         {settings.title}
       </button>
     );
-  }
+  };
 
-  function getEdit(settings) {
+  const getEdit = (settings) => {
     return (
       <button
         className={'h5p-category-task-popover-actionmenu edit'}
@@ -113,7 +108,7 @@ function ActionMenu(props) {
         }}
       >{settings.title}</button>
     );
-  }
+  };
 
   return (
     <TinyPopover
@@ -131,7 +126,7 @@ function ActionMenu(props) {
       content={() => (
         <div
           id={menuId}
-          className={'h5p-category-task-popover-actionmenu'}
+          className={'h5p-category-task-popover-actionmenu-dialog'}
           role={'dialog'}
           aria-labelledby={'actionMenuTitle'}
           aria-describedby={'actionMenuDescription'}
@@ -143,7 +138,7 @@ function ActionMenu(props) {
             </p>
           </div>
           <ul>
-            {actions.filter((action) => action.activeCategory !== true).map((action, index) => {
+            {actions.filter((action) => !action.activeCategory).map((action, index) => {
               let content;
               if (action.type === 'delete') {
                 content = getDelete(action);
@@ -155,7 +150,7 @@ function ActionMenu(props) {
                 content = getCategory(action, index);
               }
               return <li
-                key={'action-' + index}
+                key={`action-${index}`}
                 className={`h5p-category-task-popover-actionmenu-item ${action.type}`}
               >
                 {content}
@@ -175,7 +170,7 @@ function ActionMenu(props) {
       {children}
     </TinyPopover>
   );
-}
+};
 
 ActionMenu.propTypes = {
   canDelete: PropTypes.bool,

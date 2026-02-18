@@ -1,10 +1,9 @@
 import React from 'react';
 
-function DragArrows() {
+import './DragArrows.scss';
 
-  return (
-    <div className={'h5p-category-task-drag-element'}></div>
-  );
-}
+const DragArrows = () => (
+  <div className={'h5p-category-task-drag-element'}></div>
+);
 
 export default DragArrows;

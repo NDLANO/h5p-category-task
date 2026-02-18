@@ -4,8 +4,9 @@ import { escapeHTML, stripHTML } from '../utils.js';
 import * as focusTrap from 'focus-trap';
 import templateURL from '@assets/exportTemplate.docx';
 
-function Export() {
+import './Export.scss';
 
+const Export = () => {
   const context = useCategoryTask();
   const {
     translate
@@ -14,7 +15,7 @@ function Export() {
   let exportDocument;
   let exportObject;
 
-  function getExportObject() {
+  const getExportObject = () => {
     const {
       params: {
         header,
@@ -35,7 +36,7 @@ function Export() {
     } = collectExportValues();
 
     // Prepare categories
-    let categories = userInput.categories
+    const categories = userInput.categories
       .filter((category) => !category.isArgumentDefaultList)
       .map((category) => {
         category.connectedArguments =
@@ -43,7 +44,8 @@ function Export() {
         return category;
       });
 
-    return Object.assign({}, translations, {
+    return {
+      ...translations,
       mainTitle: header,
       description: stripHTML(description),
       summaryHeader,
@@ -57,10 +59,10 @@ function Export() {
         .map((category) => category.connectedArguments)
         .reduce((acc, val) => acc.concat(val), []),
       categories: categories,
-    });
-  }
+    };
+  };
 
-  function getExportPreview() {
+  const getExportPreview = () => {
     const documentExportTemplate =
       '<div class="export-preview">' +
             '<div class="page-header" role="heading" tabindex="-1">' +
@@ -91,9 +93,9 @@ function Export() {
             '</div>';
 
     return Mustache.render(documentExportTemplate, exportObject);
-  }
+  };
 
-  function handleExport() {
+  const handleExport = () => {
     const {
       translate,
     } = context;
@@ -136,7 +138,7 @@ function Export() {
     });
 
     H5P.$window.on('resize', () => exportDocument.trigger('resize'));
-  }
+  };
 
   return (
     <>
@@ -150,6 +152,6 @@ function Export() {
       <div className={'export-container'} ref={exportContainer}/>
     </>
   );
-}
+};
 
 export default Export;

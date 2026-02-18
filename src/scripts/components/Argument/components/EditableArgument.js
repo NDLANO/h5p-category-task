@@ -4,14 +4,16 @@ import classnames from 'classnames';
 import { debounce } from '../../utils.js';
 import { useCategoryTask } from '../../../context/CategoryTaskContext.js';
 
-function EditableArgument({
+import './EditableArgument.scss';
+
+const EditableArgument = ({
   argument,
-  inEditMode,
+  inEditMode = false,
   onChange,
   startEditing,
   stopEditing,
   idBase,
-}) {
+}) => {
   const { translate } = useCategoryTask();
 
   const [buttonFocus, setButtonFocus] = useState(false);
@@ -20,7 +22,7 @@ function EditableArgument({
   const buttonRef = useRef();
 
   useEffect(() => {
-    if (inEditMode === true) {
+    if (inEditMode) {
       inputRef.current.value = argument;
       inputRef.current.focus();
     }
@@ -60,7 +62,7 @@ function EditableArgument({
       <button
         ref={buttonRef}
         className={classnames('h5p-category-task-editable-button', {
-          'hidden': inEditMode === true,
+          'display-none': inEditMode,
         })}
         onClick={startEditing}
       >
@@ -70,7 +72,7 @@ function EditableArgument({
         title={argument}
         htmlFor={inputId}
         className={classnames('h5p-category-task-editable', {
-          'hidden': inEditMode === false,
+          'display-none': !inEditMode,
         })}
       >
         <span className={'visible-hidden'}>{translate('argument')}</span>
@@ -85,14 +87,14 @@ function EditableArgument({
       </label>
       <p
         className={classnames('h5p-category-task-noneditable', {
-          'hidden': inEditMode === true,
+          'display-none': inEditMode,
         })}
       >
         {argument}
       </p>
     </div>
   );
-}
+};
 
 EditableArgument.propTypes = {
   argument: PropsTypes.string,
@@ -104,10 +106,6 @@ EditableArgument.propTypes = {
     PropsTypes.string,
     PropsTypes.number,
   ]),
-};
-
-EditableArgument.defaultProps = {
-  inEditMode: false,
 };
 
 export default EditableArgument;

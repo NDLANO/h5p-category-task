@@ -4,15 +4,15 @@ import ShowSolutionButton from './ShowSolutionButton.js';
 import Reset from './Reset.js';
 import PropTypes from 'prop-types';
 
-function Footer({ showSolution, hasSolution }) {
-  return (
-    <section className={'h5p-category-task-footer'}>
-      {hasSolution && <ShowSolutionButton showSolution={showSolution} />}
-      <Reset/>
-      <Export/>
-    </section>
-  );
-}
+import './Footer.scss';
+
+const Footer = ({ showSolution, hasSolution }) => (
+  <section className={'h5p-category-task-footer'}>
+    {hasSolution && <ShowSolutionButton showSolution={showSolution} />}
+    <Reset/>
+    <Export/>
+  </section>
+);
 
 Footer.propTypes = {
   showSolution: PropTypes.bool,

@@ -8,7 +8,9 @@ import DragArrows from './components/DragArrows.js';
 import { getDnDId } from '../utils.js';
 import { useCategoryTask } from './../../context/CategoryTaskContext.js';
 
-function Argument({
+import './Argument.scss';
+
+const Argument = ({
   argument,
   onArgumentChange,
   startEditing,
@@ -17,7 +19,7 @@ function Argument({
   isDragging = false,
   isDragEnabled = true,
   actions,
-}) {
+}) => {
   const innerRef = useRef(null);
   const [refReady, setRef] = useState(false);
 
@@ -25,13 +27,13 @@ function Argument({
 
   const actionMenuId = `action-menu-${argument.id}_${H5P.createUUID()}`;
 
-  function toggle() {
+  const toggle = () => {
     togglePopover((prevState) => !prevState);
-  }
+  };
 
-  function closePopover() {
+  const closePopover = () => {
     togglePopover(false);
-  }
+  };
 
   useEffect(() => {
     setRef(true);
@@ -84,7 +86,7 @@ function Argument({
       {argumentLayout}
     </div>
   );
-}
+};
 
 Argument.propTypes = {
   argument: PropTypes.object,
@@ -98,14 +100,14 @@ Argument.propTypes = {
   actions: PropTypes.array,
 };
 
-const ArgumentLayout = forwardRef(function ArgumentLayout({
+const ArgumentLayout = forwardRef(({
   activeDraggable,
   isDragEnabled,
   statementDisplay,
   showPopover,
   menuId,
   toggle,
-}, ref) {
+}, ref) => {
   const { translations } = useCategoryTask();
   return (
     <div className="h5p-category-task-argument-container" ref={ref}>
@@ -127,13 +129,14 @@ const ArgumentLayout = forwardRef(function ArgumentLayout({
             onClick={toggle}
             type="button"
           >
-            <span className="fa fa-caret-down" />
           </button>
         </div>
       </div>
     </div>
   );
 });
+
+ArgumentLayout.displayName = 'ArgumentLayout';
 
 ArgumentLayout.propTypes = {
   activeDraggable: PropTypes.bool,
@@ -145,7 +148,7 @@ ArgumentLayout.propTypes = {
 };
 
 ArgumentLayout.defaultProps = {
-  toggle: () => { },
+  toggle: () => {},
   isDragEnabled: true,
   activeDraggable: false,
 };

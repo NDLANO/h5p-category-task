@@ -1,0 +1,31 @@
+.h5p-category-task-summary {
+  display: flex;
+  flex-flow: column;
+
+  .h5p-category-task-summary-header {
+    font-size: var(--font-size-xxl);
+    font-weight: bold;
+  }
+
+  .h5p-category-task-summary-instruction p {
+    margin-block: var(--font-size-m);
+  }
+
+  .h5p-category-task-summary-textarea {
+    background-color: var(--color-background);
+    border: 2px solid var(--color-alternative-darker);
+    border-radius: var(--border-radius);
+    box-sizing: border-box;
+    color: var(--color-text-primary);
+    font: inherit;
+    min-height: calc(5 * var(--font-size-m));
+    padding: var(--spacing-xs);
+    resize: vertical;
+    width: 100%;
+
+    &:disabled {
+      background-color: var(--color-alternative);
+      color: var(--color-text-secondary);
+    }
+  }
+}

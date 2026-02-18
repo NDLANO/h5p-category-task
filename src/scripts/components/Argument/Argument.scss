@@ -1,0 +1,76 @@
+.h5p-category-task-argument-container {
+  border: 2px solid var(--color-alternative-darker);
+  border-radius: var(--border-radius);
+  box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--color-alternative);
+
+  &:hover {
+    box-shadow: none;
+  }
+
+  .h5p-category-task-argument {
+    padding: 0.25rem;
+    display: flex;
+    flex-grow: 1;
+    overflow: hidden;
+    background-color: var(--color-alternative);
+    min-height: 2.625rem;
+    font-weight: bold;
+    padding: 0;
+    border-radius: var(--border-radius);
+
+    &:hover,
+    &:active {
+      .h5p-category-task-delete-button {
+        opacity: 1;
+      }
+    }
+
+    .h5p-category-task-delete-button {
+      border: 0;
+      font: inherit;
+      padding: 0;
+      background-color: transparent;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    p,
+    ul {
+      margin: 0;
+    }
+
+    .h5p-category-task-argument-provided {
+      display: flex;
+      flex: auto;
+
+      .h5p-category-task-argument-actions {
+        align-items: center;
+        background-color: color-mix(in srgb, var(--color-alternative-darker), transparent 30%);
+        border: none;
+        color: var(--color-text-third);
+        display: flex;
+        font-size: var(--font-size-l) !important; /* Remove once inheritance fixed */
+        justify-content: center;
+        padding: 0 0.625rem;
+        position: relative;
+
+        &::before {
+          content: var(--icon-fontawesome-caret-down);
+          font-family: "H5PFontAwesome4", sans-serif;
+          font-weight: normal;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+
+  &:hover,
+  &:active,
+  &.h5p-category-task-active-draggable {
+    box-shadow: 0 0 0.1875rem 0.125rem rgba(26,115,217,0.2);
+  }
+}

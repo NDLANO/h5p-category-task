@@ -2,20 +2,22 @@ import React, { useMemo, useRef, useState } from 'react';
 import { useCategoryTask } from './../../context/CategoryTaskContext.js';
 import Popover from '../Popover/Popover.js';
 
-function Reset() {
+import './Reset.scss';
+
+const Reset = () => {
 
   const [showPopover, setPopover] = useState(false);
   const categoryTaskContext = useCategoryTask();
   const resetButtonRef = useRef(null);
 
-  function togglePopover(event) {
+  const togglePopover = (event) => {
     // The first event target to open the popover will be the reset button
     if (!resetButtonRef.current) {
       resetButtonRef.current = event?.target;
     }
 
     setPopover(!showPopover);
-  }
+  };
 
   const {
     behaviour: {
@@ -30,14 +32,14 @@ function Reset() {
     [resetButtonRef.current],
   );
 
-  function confirmReset() {
+  const confirmReset = () => {
     reset();
     togglePopover();
-  }
+  };
 
   return (
     <>
-      {enableRetry === true && (
+      {enableRetry && (
         <Popover
           parentElement={categoryTaskContext.container}
           handleClose={togglePopover}
@@ -58,7 +60,7 @@ function Reset() {
               >
                 {translations.ifYouContinueAllYourChangesWillBeLost}
               </div>
-              <div>
+              <div className="h5p-category-task-reset-modal-buttons">
                 <button
                   onClick={confirmReset}
                   className={'continue'}
@@ -88,6 +90,6 @@ function Reset() {
       )}
     </>
   );
-}
+};
 
 export default Reset;

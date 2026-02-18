@@ -3,6 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Droppable from './Droppable.js';
 
+import './Column.scss';
+
 /**
  *
  * @param {{
@@ -14,13 +16,13 @@ import Droppable from './Droppable.js';
  * }} props
  * @returns
  */
-function Column({
+const Column = ({
   droppableId,
   children,
   additionalClassName,
   disableDrop,
   connectedArguments,
-}) {
+}) => {
   return (
     <div className={additionalClassName}>
       <SortableContext
@@ -32,7 +34,7 @@ function Column({
       </SortableContext>
     </div>
   );
-}
+};
 
 Column.propTypes = {
   droppableId: PropTypes.string.isRequired,

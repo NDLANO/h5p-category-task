@@ -1,0 +1,142 @@
+.export-container {
+  .joubel-create-document {
+    top: 0;
+  }
+
+  button {
+    float: right;
+    cursor: pointer;
+    padding: 0 1em !important;
+    height: 100%;
+    box-sizing: border-box;
+    line-height: 3.5em;
+    color: #555;
+    font-family: Sans-Serif, sans-serif;
+    font-size: 1em;
+    background: none;
+    border: 0;
+    overflow: visible;
+  }
+
+  .export-preview {
+    .h1 {
+      display: block;
+      font-size: 2em;
+      margin-block-start: 0.67em;
+      margin-block-end: 0.67em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+
+    .h2 {
+      display: block;
+      font-size: 1.5em;
+      margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+
+    .page-description {
+      font-style: italic;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+    }
+
+    .page-category-arguments {
+      th {
+        text-align: start;
+        color: #ffffff;
+        border-collapse: collapse;
+        font-size: 1.5rem;
+        font-style: italic;
+        padding: 0.6rem;
+        background-color: #698ab3;
+        border: 1px solid #698ab3;
+      }
+
+      td {
+        border: 1px solid #dbe2e8;
+        border-top: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      ul li::before {
+        content: "\2022";
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+      }
+    }
+
+    .pro-arguments {
+      $proBorderColor: #54a169;
+
+      th {
+        background-color: $proBorderColor;
+        border: 1px solid $proBorderColor;
+      }
+
+      td {
+        border: 1px solid $proBorderColor;
+      }
+
+      tr {
+        background-color: #d9ead3;
+      }
+
+      ul li::before {
+        color: $proBorderColor;
+      }
+    }
+
+    .contra-arguments {
+      $contraBorderColor: #de5050;
+
+      th {
+        background-color: $contraBorderColor;
+        border: 1px solid $contraBorderColor
+      }
+
+      td {
+        border: 1px solid $contraBorderColor;
+      }
+      tr {
+        background-color: #f4cccc;
+      }
+
+      ul li::before {
+        color: $contraBorderColor;
+      }
+    }
+
+    .page-resources {
+      border: 1px solid rgba(0, 90, 255, 0.34);
+
+      & tr:nth-child(even){
+        background-color: rgba(176, 200, 236, 0.34);
+      }
+
+      th {
+        text-align: start;
+        background-color: rgba(45, 119, 193, 0.34);
+        border-collapse: collapse;
+      }
+    }
+
+    li {
+      margin-left: 0.3125rem;
+    }
+  }
+
+}

@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 import AddArgument from './components/AddArgument.js';
 import { computeFocusColor } from '../utils.js';
 
-function Category(props) {
-  const {
-    additionalClassName,
-    categoryId,
-    addArgument,
-    title,
-    backgroundColor,
-    includeHeader,
-    onAddArgument,
-    children,
-    disabled
-  } = props;
+import './Category.scss';
 
+const Category = ({
+  additionalClassName = [],
+  categoryId,
+  addArgument = true,
+  title = '',
+  backgroundColor = '#2679c5',
+  includeHeader = true,
+  onAddArgument = () => {},
+  children = null,
+  disabled = false,
+}) => {
   additionalClassName.unshift('h5p-category-task-category');
 
   return (
@@ -37,7 +37,7 @@ function Category(props) {
       </div>
     </div>
   );
-}
+};
 
 Category.propTypes = {
   additionalClassName: PropTypes.array,
@@ -49,18 +49,6 @@ Category.propTypes = {
   onAddArgument: PropTypes.func,
   children: PropTypes.oneOfType([PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
   disabled: PropTypes.bool
-};
-
-Category.defaultProps = {
-  columnClassName: [],
-  additionalClassName: [],
-  title: '',
-  backgroundColor: '#2679c5',
-  addArgument: true,
-  includeHeader: true,
-  disabled: false,
-  children: null,
-  onAddArgument: () => {},
 };
 
 export default Category;

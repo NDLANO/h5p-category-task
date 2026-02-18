@@ -4,8 +4,9 @@ import { useCategoryTask } from './../../context/CategoryTaskContext.js';
 import parseHtml from 'html-react-parser';
 import PropTypes from 'prop-types';
 
-function Summary(props) {
+import './Summary.scss';
 
+const Summary = ({ disabled }) => {
   const context = useCategoryTask();
   const [comment, setComment] = useState('');
 
@@ -28,16 +29,18 @@ function Summary(props) {
       aria-labelledby={'summary-header'}
     >
       <label
+        className={classnames('h5p-category-task-summary-header')}
         id={'summary-header'}
         htmlFor={'summary'}
       >
-        <div>{summaryHeader ? summaryHeader : translate('summary')}</div>
+        <div>{summaryHeader || translate('summary')}</div>
       </label>
       {summaryInstruction && (
-        <div>{parseHtml(summaryInstruction)}</div>
+        <div className={classnames('h5p-category-task-summary-instruction')}>{parseHtml(summaryInstruction)}</div>
       )}
       <textarea
-        disabled={props.disabled}
+        className={classnames('h5p-category-task-summary-textarea')}
+        disabled={disabled}
         id={'summary'}
         placeholder={translate('typeYourReasonsForSuchAnswers')}
         value={comment}
@@ -46,7 +49,7 @@ function Summary(props) {
       />
     </div>
   );
-}
+};
 
 Summary.propTypes = {
   disabled: PropTypes.bool,

@@ -71,6 +71,7 @@ export default class CategoryTask extends H5P.EventDispatcher {
 
     this.getRect = this.getRect.bind(this);
     this.resize = this.resize.bind(this);
+    this.reset = this.reset.bind(this);
     this.registerReset = this.registerReset.bind(this);
     this.collectExportValues = this.collectExportValues.bind(this);
     this.translate = this.translate.bind(this);

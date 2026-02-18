@@ -13,7 +13,6 @@ import Argument from '../Argument/Argument.js';
 import Category from '../Categories/Category.js';
 import Column from '../DragAndDrop/Column.js';
 import Element from '../DragAndDrop/Element.js';
-import Summary from '../Summary/Summary.js';
 import Dropzone from '../DragAndDrop/Dropzone.js';
 import PropTypes from 'prop-types';
 import {
@@ -24,6 +23,8 @@ import {
   getDnDId,
   isEven,
 } from '../utils.js';
+
+import './Surface.scss';
 
 /**
  * @typedef {{
@@ -65,7 +66,7 @@ import {
  *   }} Action
  */
 
-function Surface(props) {
+const Surface = ({ disabled }) => {
   const context = useCategoryTask();
   const pointerSensor = useSensor(PointerSensor, {
     activationConstraint: {
@@ -77,7 +78,7 @@ function Surface(props) {
   /**
    * @returns {State}
    */
-  function init() {
+  const init = () => {
     /**
      * @type {{
      *   params: {
@@ -94,7 +95,7 @@ function Surface(props) {
       behaviour: { randomizeArguments = true },
     } = context;
 
-    if (randomizeArguments === true) {
+    if (randomizeArguments) {
       argumentDataList.sort(() => 0.5 - Math.random());
     }
 
@@ -147,7 +148,7 @@ function Surface(props) {
       hasRemainingUnprocessedArguments: argumentsList.length > 0,
       actionDropActive: false,
     };
-  }
+  };
 
   /**
    * @param {State} state
@@ -155,7 +156,7 @@ function Surface(props) {
    *
    * @returns {State}
    */
-  function stateHeadQuarter(state, action) {
+  const stateHeadQuarter = (state, action) => {
     switch (action.type) {
       case 'move': {
         const { argumentId, from, to } = action.payload;
@@ -334,7 +335,7 @@ function Surface(props) {
       default:
         return state;
     }
-  }
+  };
 
   const memoizedReducer = useCallback(stateHeadQuarter, []);
   const [state, dispatch] = useReducer(memoizedReducer, init());
@@ -353,7 +354,7 @@ function Surface(props) {
     collectExportValues,
     registerReset,
     translate,
-    behaviour: { allowAddingOfArguments = true, provideSummary = true },
+    behaviour: { allowAddingOfArguments = true },
   } = context;
 
   registerReset(() => dispatch({ type: 'reset' }));
@@ -367,7 +368,7 @@ function Surface(props) {
   /**
    * @param {import('@dnd-kit/core').DragEndEvent} dragResult
    */
-  function handleDragEnd(dragResult) {
+  const handleDragEnd = (dragResult) => {
     const { active, over } = dragResult;
 
     const [, activeArgumentIdStr] = active.id.toString().split('-') ?? [];
@@ -450,13 +451,13 @@ function Surface(props) {
         },
       });
     }
-  }
+  };
 
   /**
    * @param {number} argumentId
    * @param {CategoryDataObject} newCategory
    */
-  const startMoving = function start(argumentId, newCategory) {
+  const startMoving = (argumentId, newCategory) => {
     const previousCategory = state.categories.find((category) =>
       category.connectedArguments.includes(argumentId),
     );
@@ -479,7 +480,7 @@ function Surface(props) {
    * @param {ArgumentDataObject} argument
    * @returns {Array<ActionMenuDataObject>}
    */
-  function getDynamicActions(argument) {
+  const getDynamicActions = (argument) => {
     const dynamicActions = state.categories
       .filter((category) => !category.isArgumentDefaultList)
       .map(
@@ -496,7 +497,7 @@ function Surface(props) {
           }),
       );
 
-    if (allowAddingOfArguments === true) {
+    if (allowAddingOfArguments) {
       dynamicActions.push(
         new ActionMenuDataObject({
           type: 'edit',
@@ -531,14 +532,14 @@ function Surface(props) {
       );
     }
     return dynamicActions;
-  }
+  };
 
   /**
    * @param {ArgumentDataObject} argument
    * @param {string} id
    * @returns {JSX.Element}
    */
-  function getElementAndArgument(argument, id) {
+  const getElementAndArgument = (argument, id) => {
     if (!argument) {
       return <></>;
     }
@@ -596,7 +597,7 @@ function Surface(props) {
         )}
       ></Element>
     );
-  }
+  };
 
   return (
     <div className="h5p-category-task-surface">
@@ -611,9 +612,9 @@ function Surface(props) {
           includeHeader={false}
           additionalClassName={[
             'h5p-category-task-unprocessed',
-            !state.hasRemainingUnprocessedArguments ? 'hidden' : '',
+            !state.hasRemainingUnprocessedArguments ? 'display-none' : '',
           ]}
-          disabled={props.disabled}
+          disabled={disabled}
         >
           {state.categories
             .filter((category) => category.isArgumentDefaultList)
@@ -660,7 +661,7 @@ function Surface(props) {
               backgroundColor={category.backgroundColor}
               additionalClassName={[category.theme]}
               addArgument={allowAddingOfArguments}
-              disabled={props.disabled}
+              disabled={disabled}
               onAddArgument={() =>
                 dispatch({
                   type: 'addArgument',
@@ -715,12 +716,9 @@ function Surface(props) {
           ) : null}
         </DragOverlay>
       </DndContext>
-
-      {/* SUMMARY (IF ENABLED) */}
-      {provideSummary === true && <Summary disabled={props.disabled} />}
     </div>
   );
-}
+};
 
 Surface.propTypes = {
   disabled: PropTypes.bool,

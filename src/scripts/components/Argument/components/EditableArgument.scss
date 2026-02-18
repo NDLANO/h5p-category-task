@@ -1,0 +1,62 @@
+.h5p-category-task-editable-container {
+  display: flex;
+  flex: auto;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.3em 0.6em;
+  position: relative;
+
+  .h5p-category-task-editable-button {
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    cursor: inherit;
+    font: inherit;
+    inset: 0;
+    position: absolute;
+    width: 100%;
+
+    &.display-none {
+      display: none;
+    }
+
+    .visible-hidden {
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+
+      &:focus {
+        clip: auto;
+        height: auto;
+        overflow: auto;
+        position: absolute;
+        width: auto;
+      }
+    }
+  }
+
+  label.h5p-category-task-editable {
+    width: 100%;
+
+    &.display-none {
+      display: none;
+    }
+  }
+
+  input.h5p-category-task-editable{
+    min-height: 80%;
+    flex: auto;
+    font-size: inherit;
+    font: inherit;
+    width: 100%;
+  }
+
+  .h5p-category-task-noneditable {
+    &.display-none {
+      display: none;
+    }
+  }
+}

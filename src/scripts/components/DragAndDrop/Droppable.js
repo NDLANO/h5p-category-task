@@ -3,6 +3,8 @@ import { useDroppable } from '@dnd-kit/core';
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import './Droppable.scss';
+
 /**
  * @typedef {{
  *   id: string;
@@ -16,7 +18,7 @@ import PropTypes from 'prop-types';
  *
  * @return {React.ReactElement}
  */
-export default function Droppable({ id, children, isDropDisabled }) {
+const Droppable = ({ id, children, isDropDisabled }) => {
   const { setNodeRef, isOver } = useDroppable({
     id,
     data: { droppableId: id },
@@ -33,10 +35,12 @@ export default function Droppable({ id, children, isDropDisabled }) {
       {children}
     </div>
   );
-}
+};
 
 Droppable.propTypes = {
   id: PropTypes.string.isRequired,
   children: PropTypes.element.isRequired,
   isDropDisabled: PropTypes.bool,
 };
+
+export default Droppable;

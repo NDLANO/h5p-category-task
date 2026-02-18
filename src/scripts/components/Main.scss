@@ -1,0 +1,38 @@
+.h5p-category-task-main {
+  .h5p-category-task-header {
+    align-items: center;
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
+    display: flex;
+    font-size: var(--font-size-xl);
+    font-weight: bold;
+    padding: var(--spacing-m);
+  }
+
+  .h5p-category-task-surface-main {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-s);
+    margin: var(--spacing-m);
+
+    .h5p-category-task-surface-info {
+      align-items: flex-start;
+      display: flex;
+      gap: var(--spacing-xs);
+
+      .h5p-category-task-description {
+        flex-grow: 5;
+      }
+
+      .h5p-resource-list-wrapper {
+        margin: 0 0 0 auto;
+
+        .h5p-resource-list-button {
+          font: inherit;
+        }
+      }
+    }
+  }
+}
