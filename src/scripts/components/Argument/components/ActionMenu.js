@@ -73,7 +73,10 @@ const ActionMenu = (props) => {
         className={'h5p-category-task-popover-actionmenu-button category'}
         type={'button'}
         aria-labelledby={`action-${index}`}
-        onClick={(event) => {
+        onClick={() => {
+          handleSelect(settings.onSelect);
+        }}
+        onKeyUp={(event) => {
           handleKeyUp(event, settings.onSelect);
         }}
       >
