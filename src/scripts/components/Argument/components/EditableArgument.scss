@@ -19,23 +19,6 @@
     &.display-none {
       display: none;
     }
-
-    .visible-hidden {
-      clip: rect(1px, 1px, 1px, 1px);
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      white-space: nowrap;
-      width: 1px;
-
-      &:focus {
-        clip: auto;
-        height: auto;
-        overflow: auto;
-        position: absolute;
-        width: auto;
-      }
-    }
   }
 
   label.h5p-category-task-editable {
@@ -57,6 +40,23 @@
   .h5p-category-task-noneditable {
     &.display-none {
       display: none;
+    }
+  }
+
+  .visible-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+
+    &:focus {
+      clip: auto;
+      height: auto;
+      overflow: auto;
+      position: absolute;
+      width: auto;
     }
   }
 }
