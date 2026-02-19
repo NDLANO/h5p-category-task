@@ -224,59 +224,6 @@ export const sanitizeParams = (params) => {
 };
 
 /**
- * CSS classnames and breakpoints for the content type
- */
-const CategoryTaskClassnames = {
-  mediumTablet: 'h5p-medium-tablet-size',
-  largeTablet: 'h5p-large-tablet-size',
-  large: 'h5p-large-size',
-};
-
-/**
- * Get list of classname and conditions for when to add the classname to the content type
- *
- * @return {[
- *   {className: string, shouldAdd: ((ratio: number) => boolean)},
- *   {className: string, shouldAdd: ((ratio: number) => boolean)},
- *   {className: string, shouldAdd: ((ratio: number) => boolean)}
- * ]}
- */
-export const breakpoints = () => {
-  return [
-    {
-      className: CategoryTaskClassnames.mediumTablet,
-      shouldAdd: (ratio) => ratio >= 22 && ratio < 40,
-    },
-    {
-      className: CategoryTaskClassnames.largeTablet,
-      shouldAdd: (ratio) => ratio >= 40 && ratio < 60,
-    },
-    {
-      className: CategoryTaskClassnames.large,
-      shouldAdd: (ratio) => ratio >= 60,
-    },
-  ];
-};
-
-/**
- * Get the ratio of the container
- *
- * @param {HTMLElement} container
- *
- * @return {number | undefined}
- */
-export const getRatio = (container) => {
-  if (!container) {
-    return;
-  }
-  const computedStyles = window.getComputedStyle(container);
-  return (
-    container.offsetWidth /
-    parseFloat(computedStyles.getPropertyValue('font-size'))
-  );
-};
-
-/**
  * @template T
  * @param {T} object
  * @returns {T}

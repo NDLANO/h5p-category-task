@@ -2,15 +2,17 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Main from '@components/Main.js';
 import { CategoryTaskProvider } from './context/CategoryTaskContext.js';
-import { breakpoints, getRatio, sanitizeParams } from './components/utils.js';
+import { sanitizeParams } from './components/utils.js';
 
 export default class CategoryTask extends H5P.EventDispatcher {
   constructor(params, contentId, extras = {}) {
     super();
 
-    const {
-      language = 'en'
-    } = extras;
+    const { language = 'en' } = extras;
+
+    // TODO: Complete theming and styling
+    // TODO: Fix keyboard
+    // TODO: Fix draggable editing
 
     this.params = sanitizeParams(params);
     this.params.mode = 'category';
@@ -22,7 +24,6 @@ export default class CategoryTask extends H5P.EventDispatcher {
     this.id = contentId;
     this.language = language;
     this.activityStartTime = new Date();
-    this.activeBreakpoints = [];
     this.container = null;
 
     this.translations = Object.assign({}, {
@@ -70,13 +71,10 @@ export default class CategoryTask extends H5P.EventDispatcher {
     }, this.params.l10n, this.params.resourceReport);
 
     this.getRect = this.getRect.bind(this);
-    this.resize = this.resize.bind(this);
     this.reset = this.reset.bind(this);
     this.registerReset = this.registerReset.bind(this);
     this.collectExportValues = this.collectExportValues.bind(this);
     this.translate = this.translate.bind(this);
-    this.addBreakPoints = this.addBreakPoints.bind(this);
-    this.on('resize', this.resize);
   }
 
   /**
@@ -139,36 +137,6 @@ export default class CategoryTask extends H5P.EventDispatcher {
 
   reset() {
     this.resetStack.forEach((callback) => callback());
-  }
-
-  /**
-   * Set css classes based on ratio available to the container
-   *
-   * @param wrapper
-   * @param ratio
-   */
-  addBreakPoints(wrapper, ratio = getRatio(this.container)) {
-    if ( ratio === this.currentRatio) {
-      return;
-    }
-    this.activeBreakpoints = [];
-    breakpoints().forEach((item) => {
-      if (item.shouldAdd(ratio)) {
-        wrapper.classList.add(item.className);
-        this.activeBreakpoints.push(item.className);
-      }
-      else {
-        wrapper.classList.remove(item.className);
-      }
-    });
-    this.currentRatio = ratio;
-  }
-
-  resize() {
-    if (!this.wrapper) {
-      return;
-    }
-    this.addBreakPoints(this.wrapper);
   }
 
   /**

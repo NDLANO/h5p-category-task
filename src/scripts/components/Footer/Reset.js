@@ -44,7 +44,6 @@ const Reset = () => {
           parentElement={categoryTaskContext.container}
           handleClose={togglePopover}
           show={showPopover}
-          classnames={Array.from(categoryTaskContext.activeBreakpoints)}
           close={translations.close}
           header={translations.restart}
           align={'start'}
