@@ -19,6 +19,11 @@
     &.display-none {
       display: none;
     }
+
+    &:focus-visible {
+      outline: 2px ridge var(--color-primary-contrast-to-white);
+      outline-offset: -2px;
+    }
   }
 
   label.h5p-category-task-editable {
@@ -31,7 +36,6 @@
     input.h5p-category-task-editable {
       border: 0;
       box-sizing: border-box;
-      outline: 1px solid red;
       flex: auto;
       font: inherit;
       font-size: inherit;
