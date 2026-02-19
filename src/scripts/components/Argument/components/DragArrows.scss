@@ -5,9 +5,8 @@
   display: flex;
   font-size: var(--font-size-l);
   justify-content: center;
-  padding: 0 0.625rem;
   position: relative;
-  width: var(--spacing-xs);
+  width: var(--spacing-l);
 
   &::before {
     content: var(--icon-fontawesome-arrows-up-down-left-right);

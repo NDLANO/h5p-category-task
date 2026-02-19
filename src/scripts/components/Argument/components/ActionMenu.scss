@@ -1,11 +1,11 @@
 .h5p-category-task-actionmenu {
   z-index: 1;
   box-shadow: 0 11px 12px rgba(0,0,0,0.2);
-  background-color: #ffffff;
-  border: 2px solid #ffffff;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-alternative-darker);
   min-width: 100%;
-  top: unset !important;
-  transform: unset !important;
+  top: unset !important; /* Fighting against tiny-popover */
+  transform: unset !important; /* Fighting against tiny-popover */
 
   input {
     cursor: pointer;
@@ -41,9 +41,9 @@
       flex: auto;
     }
 
-    .h5p-category-task-popover-actionmenu {
-      color: #1a1616;
-      padding: 1rem 0.9rem;
+    .h5p-category-task-popover-actionmenu-button {
+      color: var(--color-text-primary);
+      padding: var(--spacing-xxs);
       display: flex;
       overflow: hidden;
       align-items: center;
@@ -54,7 +54,7 @@
 
       &::before {
         font-family: "H5PFontAwesome4", sans-serif;
-        margin-right: 0.5rem;
+        margin-right: var(--spacing-xxs);
       }
 
       &.category::before {
@@ -81,7 +81,7 @@
 
     li {
       width: 100%;
-      border-bottom: 1px solid #dadada;
+      border-bottom: 1px solid var(--color-alternative-darker);
       white-space: nowrap;
     }
 
@@ -89,20 +89,12 @@
       border-bottom: 0;
     }
 
-    img {
-      margin: 0 0.25rem 0 0;
-    }
-
-    .h5i-checked {
-      color: #121212;
-    }
-
     .h5p-category-task-popover-actionmenu-labeltext {
-      color: #757575;
+      color: var(--color-text-third);
       font-style: italic;
 
       span {
-        color: #1a1616;
+        color: var(--color-text-primary);
         font-weight: 600;
       }
     }

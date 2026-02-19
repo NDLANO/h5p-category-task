@@ -1,10 +1,10 @@
 .h5p-category-task-surface {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  gap: var(--spacing-s);
 
   .h5p-category-task-category.h5p-category-task-unprocessed {
-    border: 2px solid #dbe2e8;
+    border: 2px solid var(--color-alternative-darker);
     border-radius: var(--border-radius);
     box-sizing: border-box;
     grid-column: 1 / -1;
@@ -17,18 +17,13 @@
     .h5p-category-task-category-content {
       box-sizing: border-box;
       display: flex;
-      column-gap: 1rem;
-      padding: 0.5rem;
-      row-gap: 0.5rem;
-      width: 100%;
+      column-gap: var(--spacing-s);
+      padding: var(--spacing-xxs);
+      row-gap: var(--spacing-xxs);
 
       & > div {
         width: 100%;
       }
-    }
-
-    .h5p-category-task-unprocessed-argument-list {
-      width: 100%;
     }
   }
 
@@ -36,44 +31,32 @@
     width: 100%;
 
     .h5p-category-task-category-header {
-      overflow: hidden;
-      min-height: 2.5rem;
-      padding: 0 1.1875rem;
       display: flex;
+      overflow: hidden;
+      min-height: calc(2.5 * var(--spacing-s));
+      padding-inline: var(--spacing-s);
       align-items: center;
       font-style: italic;
-      text-decoration: none solid rgb(255, 255, 255);
-      line-height: 1.5625rem;
-      text-shadow: 2px 1px 3px rgba(28,28,28,0.5);
+      line-height: 1.5;
       border-radius: var(--border-radius) var(--border-radius) 0 0;
       background-color: var(--background-color, #2679C5);
       color: var(--color, #ffffff);
-      font-size: 1.125rem;
+      font-size: var(--font-size-l);
     }
 
     .h5p-category-task-category-content {
-      border: 2px solid #dbe2e8;
+      border: 2px solid var(--background-color, var(--color-alternative-darker));
       border-radius: 0 0 var(--border-radius) var(--border-radius);
       border-top: 0;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
-      padding: 0.75rem;
+      gap: var(--spacing-xxs);
+      padding: var(--spacing-xxs);
 
-      .h5p-category-task-draggable-container:first-of-type {
-        margin-top: 0;
-      }
-
-      /* TODO: Should this be here or in Element.scss? */
-      .h5p-category-task-draggable-element {
-        border: 2px dashed #cfcfcf;
-        padding: 0.3125rem;
+      .h5p-category-task-column {
+        border: 2px dashed var(--color-alternative-darker);
         border-radius: var(--border-radius);
-      }
-
-      /* TODO: Should this be here or in Element.scss? */
-      .h5p-category-task-draggable-element--dragging {
-        border-color: transparent;
+        padding: var(--spacing-xxs);
       }
     }
   }

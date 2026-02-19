@@ -91,10 +91,6 @@ const Main = (props) => {
         <Surface disabled={disableSurface} />
         {context.behaviour.provideSummary && (
           <Summary
-            // reset={registerReset}
-            // exportValues={collectExportValues}
-            // summaryHeader={params.summaryHeader}
-            // summaryInstruction={params.summaryInstruction}
             disabled={disableSurface}
           />
         )}

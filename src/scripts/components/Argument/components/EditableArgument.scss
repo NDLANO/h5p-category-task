@@ -3,7 +3,7 @@
   flex: auto;
   justify-content: flex-start;
   align-items: center;
-  padding: 0.3em 0.6em;
+  padding: calc(0.5 * var(--spacing-xxs)) var(--spacing-xxs);
   position: relative;
 
   .h5p-category-task-editable-button {
@@ -27,17 +27,24 @@
     &.display-none {
       display: none;
     }
-  }
 
-  input.h5p-category-task-editable{
-    min-height: 80%;
-    flex: auto;
-    font-size: inherit;
-    font: inherit;
-    width: 100%;
+    input.h5p-category-task-editable {
+      border: 0;
+      box-sizing: border-box;
+      outline: 1px solid red;
+      flex: auto;
+      font: inherit;
+      font-size: inherit;
+      padding: 0;
+      width: 100%;
+    }
   }
 
   .h5p-category-task-noneditable {
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+
     &.display-none {
       display: none;
     }

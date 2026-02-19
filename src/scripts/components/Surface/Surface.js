@@ -621,10 +621,7 @@ const Surface = ({ disabled }) => {
             .map((category, index) => (
               <div key={category.id}>
                 <Column
-                  additionalClassName={classnames(
-                    'h5p-category-task-unprocessed-argument-list', {
-                      'h5p-category-task-right-aligned': isEven(index + 1),
-                    })}
+                  additionalClassName={classnames('h5p-category-task-unprocessed-argument-list')}
                   droppableId={getDnDId(category)}
                   disableDrop={true}
                   connectedArguments={category.connectedArguments}
@@ -672,9 +669,7 @@ const Surface = ({ disabled }) => {
               }
             >
               <Column
-                additionalClassName={classnames('h5p-category-task-argument-list', {
-                  'h5p-category-task-right-aligned': isEven(index + 1),
-                })}
+                additionalClassName={classnames('h5p-category-task-argument-list')}
                 droppableId={getDnDId(category)}
                 disableDrop={
                   state.actionDropActive && !category.actionTargetContainer

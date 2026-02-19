@@ -16,7 +16,7 @@ import './Dropzone.scss';
 const Dropzone = ({ droppablePrefix, label, disableDrop }) => (
   <Droppable id={`${droppablePrefix}-dzone`} isDropDisabled={disableDrop}>
     <div className={'h5p-category-task-dropzone'}>
-      <div>{label}</div>
+      {label}
     </div>
   </Droppable>
 );

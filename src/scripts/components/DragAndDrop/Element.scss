@@ -1,5 +1,6 @@
 .h5p-dnd-draggable {
   position: relative;
+  border-radius: var(--border-radius);
 
   &.disabled {
     pointer-events: none;
@@ -14,6 +15,10 @@
 
     .h5p-category-task-draggable-element > div {
       position: relative;
+    }
+
+    .h5p-category-task-draggable-element--dragging {
+      border-color: transparent;
     }
   }
 }

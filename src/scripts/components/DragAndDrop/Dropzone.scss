@@ -1,16 +1,11 @@
 .h5p-category-task-dropzone {
-  border: 2px dashed #cfcfcf;
-  border-radius: 5px;
-
-  & > div {
-    font-size: 0.875rem;
-    color: #666666;
-    text-decoration: none solid rgb(102, 102, 102);
-    line-height: 1.25rem;
-    flex: auto;
-    height: 4rem;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-  }
+  align-items: center;
+  color: var(--color-text-third);
+  display: flex;
+  flex: auto;
+  font-size: var(--font-size-s);
+  height: calc(4 * var(--spacing-s));
+  justify-content: center;
+  line-height: 1.25;
+  text-align: center;
 }

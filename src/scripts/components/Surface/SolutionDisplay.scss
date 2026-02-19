@@ -1,47 +1,44 @@
-.h5p-category-task-solution-outer-container {
-  margin-bottom: 1rem;
-  margin-inline: 0.75rem;
+.h5p-category-task-solution-container {
+  background: var(--color-background);
+  border: 2px solid var(--color-alternative-darker);
+  border-radius: var(--border-radius);
+  color: var(--color-text-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-inline: var(--spacing-m);
+  margin-bottom: var(--spacing-s);
+  padding: var(--spacing-xs);
 
-  .h5p-category-task-solution-header {
-    display: block;
-    font-size: 1.5em;
-    margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+  & .h5p-category-task-solution-header {
+    font-size: var(--font-size-xxl);
     font-weight: bold;
+    margin-block-start: var(--spacing-xs);
+    margin-block-end: var(--spacing-xs);
+    margin-inline-start: 0;
+    margin-inline-end: 0;
   }
 
-  .h5p-category-task-solution-container {
-    padding: 1em;
-    background: #FAFAFA;
+  .h5p-category-task-solution-introduction {
+    font-size: var(--font-size-m);
   }
-}
-.h5p-category-task-solution-title {
-  font-size: 1.125em;
-  margin-bottom: 0.5em;
-}
 
-.h5p-category-task-solution-introduction {
-  font-size: 1em;
-  line-height: 1.2;
-  margin-bottom: 1em;
-}
+  .h5p-category-task-solution-sample {
+    overflow: auto;
+    overflow-x: hidden;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
 
-.h5p-category-task-solution-sample {
-  background: #FFFFFF;
-  border: 1px solid #e0e0e0;
-  overflow: auto;
-  overflow-x: hidden;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex-shrink: 0;
-  flex-wrap: wrap;
-}
+  .h5p-category-task-solution-sample-text {
+    background-color: var(--color-alternative);
+    border-radius: var(--border-radius);
+    color: var(--color-text-secondary);
+    line-height: 1.4;
+    padding: var(--spacing-xxs) var(--spacing-s);
+  }
 
-.h5p-category-task-solution-sample-text {
-  padding: 0.5em 1em 0.5em 1em;
-  margin: 0;
-  line-height: 1.4;
 }

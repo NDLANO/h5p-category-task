@@ -19,17 +19,15 @@ const Category = ({
   additionalClassName.unshift('h5p-category-task-category');
 
   return (
-    <div className={additionalClassName.join(' ')}>
+    <div
+      className={additionalClassName.join(' ')}
+      style={{
+        '--background-color': backgroundColor,
+        '--color': computeFocusColor(backgroundColor),
+      }}
+    >
       {includeHeader && (
-        <div
-          className={'h5p-category-task-category-header'}
-          style={{
-            '--background-color': backgroundColor,
-            '--color': computeFocusColor(backgroundColor),
-          }}
-        >
-          {title}
-        </div>
+        <div className={'h5p-category-task-category-header'}>{title}</div>
       )}
       <div className={'h5p-category-task-category-content'} id={categoryId}>
         {children}

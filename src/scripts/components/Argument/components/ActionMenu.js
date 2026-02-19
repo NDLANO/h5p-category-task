@@ -70,7 +70,7 @@ const ActionMenu = (props) => {
 
     return (
       <button
-        className={'h5p-category-task-popover-actionmenu category'}
+        className={'h5p-category-task-popover-actionmenu-button category'}
         type={'button'}
         aria-labelledby={`action-${index}`}
         onClick={(event) => {
@@ -85,7 +85,7 @@ const ActionMenu = (props) => {
   const getDelete = (settings) => {
     return (
       <button
-        className={'h5p-category-task-popover-actionmenu delete'}
+        className={'h5p-category-task-popover-actionmenu-button delete'}
         type={'button'}
         onClick={(e) => {
           e.preventDefault();
@@ -100,7 +100,7 @@ const ActionMenu = (props) => {
   const getEdit = (settings) => {
     return (
       <button
-        className={'h5p-category-task-popover-actionmenu edit'}
+        className={'h5p-category-task-popover-actionmenu-button edit'}
         type={'button'}
         onClick={(e) => {
           e.preventDefault();
