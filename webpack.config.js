@@ -12,7 +12,7 @@ const mode = process.argv.includes('--mode=production') ?
 export default {
   mode: mode,
   entry: {
-    'h5p-category-task': path.join(__dirname, 'src', 'app.js')
+    'h5p-category-task': path.join(__dirname, 'src', 'entries/dist.js')
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -28,6 +28,12 @@ export default {
   resolve: {
     alias: {
       '@assets': path.resolve(__dirname, 'assets'),
+      '@components': path.resolve(__dirname, 'src/scripts/components'),
+      '@context': path.resolve(__dirname, 'src/scripts/context'),
+      '@models': path.resolve(__dirname, 'src/scripts/models'),
+      '@root': path.resolve(__dirname, '.'),
+      '@scripts': path.resolve(__dirname, 'src/scripts'),
+      '@services': path.resolve(__dirname, 'src/scripts/services'),
     },
     modules: [
       path.resolve('./src'),
@@ -55,7 +61,7 @@ export default {
             }
           },
           { loader: 'css-loader' },
-          { loader: 'sass-loader' }
+          { loader: 'sass-loader' },
         ]
       },
       {

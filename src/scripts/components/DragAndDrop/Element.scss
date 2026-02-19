@@ -1,0 +1,24 @@
+.h5p-dnd-draggable {
+  position: relative;
+  border-radius: var(--border-radius);
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &.h5p-dnd-draggable--dragging {
+    z-index: 1;
+  }
+
+  .h5p-category-task-draggable-container {
+    position: relative;
+
+    .h5p-category-task-draggable-element > div {
+      position: relative;
+    }
+
+    .h5p-category-task-draggable-element--dragging {
+      border-color: transparent;
+    }
+  }
+}

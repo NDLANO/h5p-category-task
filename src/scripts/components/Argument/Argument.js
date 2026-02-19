@@ -1,0 +1,156 @@
+import React, { useEffect, useRef, useState, forwardRef } from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import EditableArgument from './components/EditableArgument.js';
+import UnEditableArgument from './components/UnEditableArgument.js';
+import ActionMenu from './components/ActionMenu.js';
+import DragArrows from './components/DragArrows.js';
+import { getDnDId } from '../utils.js';
+import { useCategoryTask } from './../../context/CategoryTaskContext.js';
+
+import './Argument.scss';
+
+const Argument = ({
+  argument,
+  onArgumentChange,
+  startEditing,
+  stopEditing,
+  enableEditing = false,
+  isDragging = false,
+  isDragEnabled = true,
+  actions,
+}) => {
+  const innerRef = useRef(null);
+  const [refReady, setRef] = useState(false);
+
+  const [showPopover, togglePopover] = useState(false);
+
+  const actionMenuId = `action-menu-${argument.id}_${H5P.createUUID()}`;
+
+  const toggle = () => {
+    togglePopover((prevState) => !prevState);
+  };
+
+  const closePopover = () => {
+    togglePopover(false);
+  };
+
+  useEffect(() => {
+    setRef(true);
+  }, [innerRef]);
+
+  let displayStatement;
+  if (enableEditing && !isDragging) {
+    displayStatement = (
+      <EditableArgument
+        argument={argument.argumentText}
+        inEditMode={argument.editMode}
+        onChange={onArgumentChange}
+        startEditing={startEditing}
+        stopEditing={stopEditing}
+        idBase={argument.id}
+      />
+    );
+  }
+  else {
+    displayStatement = <UnEditableArgument argument={argument.argumentText} />;
+  }
+
+  let argumentLayout = (
+    <ArgumentLayout
+      activeDraggable={isDragEnabled && isDragging}
+      isDragEnabled={isDragEnabled}
+      statementDisplay={displayStatement}
+      showPopover={showPopover}
+      menuId={actionMenuId}
+      toggle={toggle}
+    />
+  );
+
+  if (Array.isArray(actions) && actions.length > 0 && refReady) {
+    argumentLayout = (
+      <ActionMenu
+        menuId={actionMenuId}
+        actions={actions}
+        show={showPopover}
+        handleClose={closePopover}
+        parentElement={innerRef.current}
+      >
+        {argumentLayout}
+      </ActionMenu>
+    );
+  }
+
+  return (
+    <div id={getDnDId(argument)} ref={innerRef}>
+      {argumentLayout}
+    </div>
+  );
+};
+
+Argument.propTypes = {
+  argument: PropTypes.object,
+  onArgumentChange: PropTypes.func,
+  startEditing: PropTypes.func,
+  stopEditing: PropTypes.func,
+  enableEditing: PropTypes.bool,
+  onArgumentDelete: PropTypes.func,
+  isDragging: PropTypes.bool.isRequired,
+  isDragEnabled: PropTypes.bool,
+  actions: PropTypes.array,
+};
+
+const ArgumentLayout = forwardRef(({
+  activeDraggable,
+  isDragEnabled,
+  statementDisplay,
+  showPopover,
+  menuId,
+  toggle,
+}, ref) => {
+  const { translations } = useCategoryTask();
+  return (
+    <div className="h5p-category-task-argument-container" ref={ref}>
+      <div
+        className={classnames('h5p-category-task-argument', {
+          'h5p-category-task-active-draggable': activeDraggable,
+        })}
+      >
+        <div className="h5p-category-task-argument-provided">
+          {isDragEnabled && (
+            <DragArrows />
+          )}
+          {statementDisplay}
+          <button
+            className="h5p-category-task-argument-actions"
+            aria-label={translations.availableActions}
+            aria-expanded={showPopover}
+            aria-controls={showPopover ? menuId : undefined}
+            onClick={toggle}
+            type="button"
+          >
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+ArgumentLayout.displayName = 'ArgumentLayout';
+
+ArgumentLayout.propTypes = {
+  activeDraggable: PropTypes.bool,
+  isDragEnabled: PropTypes.bool,
+  statementDisplay: PropTypes.object,
+  toggle: PropTypes.func,
+  showPopover: PropTypes.bool,
+  menuId: PropTypes.string,
+};
+
+ArgumentLayout.defaultProps = {
+  toggle: () => {},
+  isDragEnabled: true,
+  activeDraggable: false,
+};
+
+export { Argument as default, ArgumentLayout };

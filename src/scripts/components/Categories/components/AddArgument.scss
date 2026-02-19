@@ -1,0 +1,26 @@
+.h5p-category-task-add-button {
+  background-color: var(--color-primary);
+  border: 3px solid var(--color-primary);
+  border-radius: var(--border-radius);
+  color: var(--color-primary-contrast);
+  font: inherit;
+  font-weight: bold;
+  padding: calc(0.5 * var(--spacing-xs)) var(--spacing-xs);
+  width: fit-content;
+
+  &::before {
+    content: var(--icon-fontawesome-plus);
+    font-family: "H5PFontAwesome4", sans-serif;
+    margin-right: var(--spacing-xxs);
+  }
+
+  &:not([disabled]) {
+    cursor: pointer;
+
+    &:focus,
+    &:hover {
+      background-color: var(--color-primary-light);
+      border-color: var(--color-primary-light);
+    }
+  }
+}

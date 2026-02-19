@@ -1,0 +1,7 @@
+.h5p-category-task-droppable {
+  /* Odd, yes. Who designed that HTML structure? */
+  &.h5p-category-task-droppable--active > .h5p-category-task-column,
+  & > .h5p-category-task-column:has(.h5p-category-task-droppable--active) {
+    background-color: var(--color-alternative);
+  }
+}

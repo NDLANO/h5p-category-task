@@ -1,0 +1,59 @@
+.h5p-category-task-argument-container {
+  border: 2px solid var(--color-alternative-darker);
+  border-radius: var(--border-radius);
+  box-shadow: 3px 3px 4px 0 rgba(0, 0, 0, 0.2);
+  background-color: var(--color-alternative);
+
+  &:hover {
+    box-shadow: none;
+  }
+
+  .h5p-category-task-argument {
+    background-color: var(--color-alternative);
+    display: flex;
+    flex-grow: 1;
+    font-weight: bold;
+    min-height: var(--spacing-xl);
+    overflow: hidden;
+
+    .h5p-category-task-argument-provided {
+      display: flex;
+      flex: auto;
+
+      .h5p-category-task-argument-actions {
+        align-items: center;
+        background-color: color-mix(in srgb, var(--color-alternative-darker), transparent 30%);
+        border: none;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0; /* Used by outline */
+        color: var(--color-text-third);
+        display: flex;
+        flex-shrink: 0;
+        font-size: var(--font-size-l);
+        justify-content: center;
+        position: relative;
+        width: var(--spacing-l);
+
+        &::before {
+          content: var(--icon-fontawesome-caret-down);
+          font-family: "H5PFontAwesome4", sans-serif;
+          font-weight: normal;
+          left: 50%;
+          position: absolute;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &:focus-visible {
+          outline: 2px ridge var(--color-primary-contrast-to-white);
+          outline-offset: -2px;
+        }
+      }
+    }
+  }
+
+  &:hover,
+  &:active,
+  &.h5p-category-task-active-draggable {
+    box-shadow: 0 0 3px 2px rgba(26,115,217,0.2);
+  }
+}

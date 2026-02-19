@@ -1,0 +1,73 @@
+.h5p-category-task-editable-container {
+  display: flex;
+  flex: auto;
+  justify-content: flex-start;
+  align-items: center;
+  padding: calc(0.5 * var(--spacing-xxs)) var(--spacing-xxs);
+  position: relative;
+
+  .h5p-category-task-editable-button {
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    cursor: inherit;
+    font: inherit;
+    inset: 0;
+    position: absolute;
+    width: 100%;
+
+    &.display-none {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 2px ridge var(--color-primary-contrast-to-white);
+      outline-offset: -2px;
+    }
+  }
+
+  label.h5p-category-task-editable {
+    width: 100%;
+
+    &.display-none {
+      display: none;
+    }
+
+    input.h5p-category-task-editable {
+      border: 0;
+      box-sizing: border-box;
+      flex: auto;
+      font: inherit;
+      font-size: inherit;
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  .h5p-category-task-noneditable {
+    box-sizing: border-box;
+    margin: 0;
+    width: 100%;
+
+    &.display-none {
+      display: none;
+    }
+  }
+
+  .visible-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+
+    &:focus {
+      clip: auto;
+      height: auto;
+      overflow: auto;
+      position: absolute;
+      width: auto;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+.h5p-category-task-drag-element {
+  align-items: center;
+  background-color: color-mix(in srgb, var(--color-alternative-darker), transparent 30%);
+  color: var(--color-text-third);
+  display: flex;
+  flex-shrink: 0;
+  font-size: var(--font-size-l);
+  justify-content: center;
+  position: relative;
+  width: var(--spacing-l);
+
+  &::before {
+    content: var(--icon-fontawesome-arrows-up-down-left-right);
+    font-family: "H5PFontAwesome4", sans-serif;
+    font-weight: normal;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

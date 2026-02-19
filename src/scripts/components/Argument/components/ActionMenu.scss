@@ -1,0 +1,102 @@
+.h5p-category-task-actionmenu {
+  z-index: 1;
+  box-shadow: 0 11px 12px rgba(0,0,0,0.2);
+  background-color: var(--color-background);
+  border: 2px solid var(--color-alternative-darker);
+  min-width: 100%;
+  top: unset !important; /* Fighting against tiny-popover */
+  transform: unset !important; /* Fighting against tiny-popover */
+
+  input {
+    cursor: pointer;
+    font: inherit;
+    opacity: 0;
+    position: absolute;
+  }
+
+  .h5p-category-task-popover-actionmenu-dialog {
+    flex: auto;
+
+    .visible-hidden {
+      clip: rect(1px, 1px, 1px, 1px);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+
+      &:focus {
+        clip: auto;
+        height: auto;
+        overflow: auto;
+        position: absolute;
+        width: auto;
+      }
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex: auto;
+    }
+
+    .h5p-category-task-popover-actionmenu-button {
+      color: var(--color-text-primary);
+      padding: var(--spacing-xxs);
+      display: flex;
+      overflow: hidden;
+      align-items: center;
+
+      &:hover {
+        background-color: rgba(3,3,3,0.05);
+      }
+
+      &::before {
+        font-family: "H5PFontAwesome4", sans-serif;
+        margin-right: var(--spacing-xxs);
+      }
+
+      &.category::before {
+        content: var(--icon-fontawesome-arrows-up-down-left-right);
+      }
+
+      &.edit::before {
+        content: var(--icon-fontawesome-pen);
+      }
+
+      &.delete::before {
+        content: var(--icon-fontawesome-trash);
+      }
+    }
+
+    ul button {
+      border: 0;
+      background-color: transparent;
+      font: inherit;
+      padding: 0;
+      display: flex;
+      width: 100%;
+    }
+
+    li {
+      width: 100%;
+      border-bottom: 1px solid var(--color-alternative-darker);
+      white-space: nowrap;
+    }
+
+    li:last-child {
+      border-bottom: 0;
+    }
+
+    .h5p-category-task-popover-actionmenu-labeltext {
+      color: var(--color-text-third);
+      font-style: italic;
+
+      span {
+        color: var(--color-text-primary);
+        font-weight: 600;
+      }
+    }
+  }
+}
