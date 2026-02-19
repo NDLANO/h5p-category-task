@@ -1,4 +1,3 @@
-import './CategoryTask.scss';
 import React, { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import parseHtml from 'html-react-parser';

@@ -4,6 +4,8 @@ import Main from '@components/Main.js';
 import { CategoryTaskProvider } from './context/CategoryTaskContext.js';
 import { sanitizeParams } from './components/utils.js';
 
+import './h5p-category-task.scss';
+
 export default class CategoryTask extends H5P.EventDispatcher {
   constructor(params, contentId, extras = {}) {
     super();
@@ -70,7 +72,6 @@ export default class CategoryTask extends H5P.EventDispatcher {
       headerSampleSolution: 'Sample solution'
     }, this.params.l10n, this.params.resourceReport);
 
-    this.getRect = this.getRect.bind(this);
     this.reset = this.reset.bind(this);
     this.registerReset = this.registerReset.bind(this);
     this.collectExportValues = this.collectExportValues.bind(this);
@@ -129,10 +130,6 @@ export default class CategoryTask extends H5P.EventDispatcher {
     $container[0].appendChild(this.wrapper);
     $container[0].classList.add('h5p-category-task');
     this.container = $container[0];
-  }
-
-  getRect() {
-    return this.wrapper.getBoundingClientRect();
   }
 
   reset() {
