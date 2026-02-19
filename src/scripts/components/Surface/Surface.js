@@ -70,8 +70,7 @@ const Surface = ({ disabled }) => {
   const context = useCategoryTask();
   const pointerSensor = useSensor(PointerSensor, {
     activationConstraint: {
-      delay: 125,
-      tolerance: 5
+      distance: 1,
     },
   });
 

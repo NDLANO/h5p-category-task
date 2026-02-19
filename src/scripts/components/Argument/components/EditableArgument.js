@@ -64,7 +64,7 @@ const EditableArgument = ({
         className={classnames('h5p-category-task-editable-button', {
           'display-none': inEditMode,
         })}
-        onClick={startEditing}
+        onDoubleClick={startEditing}
       >
         <span className={'visible-hidden'}>{`${translate('editArgument')} ${argument}`}</span>
       </button>
