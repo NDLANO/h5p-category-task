@@ -26,6 +26,7 @@
         border: none;
         color: var(--color-text-third);
         display: flex;
+        flex-shrink: 0;
         font-size: var(--font-size-l);
         justify-content: center;
         position: relative;

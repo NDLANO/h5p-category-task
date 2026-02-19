@@ -1,4 +1,8 @@
 .h5p-category-task-element{
-  display: flex;
   align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  margin: 0;
+  padding: calc(0.5 * var(--spacing-xxs)) var(--spacing-xxs);
+  width: 100%;
 }
