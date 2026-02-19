@@ -24,6 +24,7 @@
         align-items: center;
         background-color: color-mix(in srgb, var(--color-alternative-darker), transparent 30%);
         border: none;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0; /* Used by outline */
         color: var(--color-text-third);
         display: flex;
         flex-shrink: 0;
@@ -40,6 +41,11 @@
           position: absolute;
           top: 50%;
           transform: translate(-50%, -50%);
+        }
+
+        &:focus-visible {
+          outline: 2px ridge var(--color-primary-contrast-to-white);
+          outline-offset: -2px;
         }
       }
     }
