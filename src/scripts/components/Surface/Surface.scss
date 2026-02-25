@@ -3,6 +3,14 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-s);
 
+  &.has-remaining-unprocessed-arguments {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &:not(.has-remaining-unprocessed-arguments) {
+    grid-template-columns: 1fr;
+  }
+
   .h5p-category-task-category.h5p-category-task-unprocessed {
     border: 2px solid var(--color-alternative-darker);
     border-radius: var(--border-radius);

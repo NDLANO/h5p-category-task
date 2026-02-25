@@ -22,3 +22,12 @@
     }
   }
 }
+
+.h5p-category-task-surface.stacked-view {
+  .h5p-category-task-category.h5p-category-task-unprocessed {
+    .h5p-dnd-draggable {
+      translate: 0 calc(var(--index) * -100%);
+      z-index: calc(var(--number-of-arguments) - var(--index));
+    }
+  }
+}

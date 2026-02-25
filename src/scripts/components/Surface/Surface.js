@@ -26,6 +26,15 @@ import {
 
 import './Surface.scss';
 
+/** @constant {number} DEFAULT_CATEGORY_ID_OFFSET Default offset for category IDs */
+const DEFAULT_CATEGORY_ID_OFFSET = 100000;
+
+/** @constant {number} EVEN_CATEGORY_INDEX Index for even category */
+const EVEN_CATEGORY_INDEX = 1;
+
+/** @constant {number} ODD_CATEGORY_INDEX Index for odd category */
+const ODD_CATEGORY_INDEX = 2;
+
 /**
  * @typedef {{
  *   argumentsList: Array<ArgumentDataObject>;
@@ -109,26 +118,33 @@ const Surface = ({ disabled }) => {
     /** @type {Array<CategoryDataObject>} */
     const categories = [];
     if (argumentsList.length > 0) {
-      categories.push(
-        new CategoryDataObject({
-          id: 100000_1,
-          isArgumentDefaultList: true,
-          connectedArguments: argumentsList
-            .filter((argument) => (argument.id ?? 0) % 2 === 0)
-            .map((argument) => argument.id ?? -1),
-        }),
-      );
-      categories.push(
-        new CategoryDataObject({
-          id: 100000_2,
-          isArgumentDefaultList: true,
-          connectedArguments: argumentsList
-            .filter((argument) => (argument.id ?? 0) % 2 === 1)
-            .map((argument) => argument.id ?? -1),
-        }),
-      );
-    }
+      if (context.behaviour.useStackedView) {
+        categories.push(
+          new CategoryDataObject({
+            id: DEFAULT_CATEGORY_ID_OFFSET + EVEN_CATEGORY_INDEX,
+            isArgumentDefaultList: true,
+            connectedArguments: argumentsList.map((argument) => argument.id ?? -1),
+          }),
+        );
+      }
+      else {
+        const createDefaultCategory = (categoryIndex, filterFn) =>
+          new CategoryDataObject({
+            id: DEFAULT_CATEGORY_ID_OFFSET + categoryIndex,
+            isArgumentDefaultList: true,
+            connectedArguments: argumentsList
+              .filter(filterFn)
+              .map((argument) => argument.id ?? -1),
+          });
 
+        categories.push(
+          createDefaultCategory(EVEN_CATEGORY_INDEX, (arg) => (arg.id ?? 0) % 2 === 0)
+        );
+        categories.push(
+          createDefaultCategory(ODD_CATEGORY_INDEX, (arg) => (arg.id ?? 0) % 2 === 1)
+        );
+      }
+    }
 
     categoriesList.forEach((category, index) => categories.push(
       new CategoryDataObject({
@@ -550,6 +566,9 @@ const Surface = ({ disabled }) => {
         ariaLabel={translate('draggableItem', {
           argument: argument.argumentText,
         })}
+        index={state.categories.find((category) =>
+          category.connectedArguments.includes(argument.id ?? -1),
+        )?.connectedArguments.findIndex((id) => id === argument.id) ?? 0}
         renderChildren={(isDragging) => (
           <Argument
             actions={getDynamicActions(argument)}
@@ -602,8 +621,10 @@ const Surface = ({ disabled }) => {
     <div
       className={classnames('h5p-category-task-surface', {
         'stacked-view': context.behaviour.useStackedView,
+        'has-remaining-unprocessed-arguments': state.hasRemainingUnprocessedArguments,
       })}
       style={{
+        '--number-of-arguments': state.argumentsList.length,
         '--number-of-categories': state.categories.filter(
           (category) => !category.isArgumentDefaultList,
         ).length,
