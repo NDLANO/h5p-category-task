@@ -88,6 +88,10 @@
         {
           "label": "Zusammenfassung anzeigen",
           "description": "Aktiviere diese Option, wenn Nutzende eine Zusammenfassung für ihre Argumente angeben können sollen."
+        },
+        {
+          "label": "Use stacked view",
+          "description": "If checked, statements will be presented in a stacked view."
         }
       ]
     },

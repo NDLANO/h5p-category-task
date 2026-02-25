@@ -77,7 +77,14 @@ const Main = (props) => {
   };
 
   return (
-    <article className='h5p-category-task-main'>
+    <article
+      className='h5p-category-task-main'
+      style={{
+        '--min-overlay-z-index': context.behaviour.useStackedView === true ?
+          context.params.argumentsList.length :
+          undefined
+      }}
+    >
       <div className={'h5p-category-task-header'}>{header}</div>
       <div className={'h5p-category-task-surface-main'}>
         <div

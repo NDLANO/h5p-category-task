@@ -12,11 +12,12 @@ import './Element.scss';
  *   ariaLabel: string;
  *   renderChildren: (
  *     isDragging: boolean,
- *   ) => JSX.Element | Array<JSX.Element | null> | null
+ *   ) => JSX.Element | Array<JSX.Element | null> | null,
+ *  index?: number;
  * }} props
  * @returns
  */
-const Element = ({ draggableId, ariaLabel, renderChildren }) => {
+const Element = ({ draggableId, ariaLabel, renderChildren, index = 0 }) => {
   /** @type {import('@dnd-kit/sortable').AnimateLayoutChanges} */
   const animateLayoutChanges = (args) =>
     defaultAnimateLayoutChanges({ ...args, wasDragging: true });
@@ -32,7 +33,8 @@ const Element = ({ draggableId, ariaLabel, renderChildren }) => {
     transform: CSS.Translate.toString(transform),
     transition,
     opacity: isDragging ? 0 : 1,
-    cursor: 'grab'
+    cursor: 'grab',
+    '--index': index ?? 0,
   };
 
   return (
@@ -64,6 +66,7 @@ Element.propTypes = {
   draggableId: PropTypes.string.isRequired,
   ariaLabel: PropTypes.string.isRequired,
   renderChildren: PropTypes.func.isRequired,
+  index: PropTypes.number,
 };
 
 /**

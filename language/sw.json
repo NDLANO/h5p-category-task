@@ -88,6 +88,10 @@
         {
           "label": "Onyesha muhtasari",
           "description": "Unataka mtumiaji atoe muhtasari unaoeleza sababu za majibu yake"
+        },
+        {
+          "label": "Use stacked view",
+          "description": "If checked, statements will be presented in a stacked view."
         }
       ]
     },

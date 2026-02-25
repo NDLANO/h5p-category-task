@@ -1,4 +1,6 @@
 .export-container {
+  z-index: var(--min-overlay-z-index);
+
   .joubel-create-document {
     top: 0;
   }

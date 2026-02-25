@@ -88,6 +88,10 @@
         {
           "label": "Хураангуйг харуулах",
           "description": "Та хэрэглэгчээс хариултынхаа шалтгааныг тайлбарласан хураангуйг өгөхийг хүсч байна уу"
+        },
+        {
+          "label": "Use stacked view",
+          "description": "If checked, statements will be presented in a stacked view."
         }
       ]
     },

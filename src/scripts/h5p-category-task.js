@@ -12,10 +12,6 @@ export default class CategoryTask extends H5P.EventDispatcher {
 
     const { language = 'en' } = extras;
 
-    // TODO: Complete theming and styling
-    // TODO: Fix keyboard
-    // TODO: Fix draggable editing
-
     this.params = sanitizeParams(params);
     this.params.mode = 'category';
 
