@@ -224,6 +224,13 @@
         "label": "Show summary",
         "description": "Do you want the user to provide a summary explaining the reasons for his/her answers",
         "default": true
+      },
+      {
+        "name": "useStackedView",
+        "type": "boolean",
+        "label": "Use stacked view",
+        "description": "If checked, statements will be presented in a stacked view.",
+        "default": false
       }
     ]
   },

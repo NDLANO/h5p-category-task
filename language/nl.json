@@ -88,6 +88,10 @@
         {
           "label": "Toon samenvatting",
           "description": "Wil je dat de gebruiker een samenvatting kan geven voor de redenen voor zijn/haar antwoord"
+        },
+        {
+          "label": "Use stacked view",
+          "description": "If checked, statements will be presented in a stacked view."
         }
       ]
     },

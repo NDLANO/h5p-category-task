@@ -599,7 +599,16 @@ const Surface = ({ disabled }) => {
   };
 
   return (
-    <div className="h5p-category-task-surface">
+    <div
+      className={classnames('h5p-category-task-surface', {
+        'stacked-view': context.behaviour.useStackedView,
+      })}
+      style={{
+        '--number-of-categories': state.categories.filter(
+          (category) => !category.isArgumentDefaultList,
+        ).length,
+      }}
+    >
       <DndContext
         onDragEnd={handleDragEnd}
         onDragStart={handleDragStart}

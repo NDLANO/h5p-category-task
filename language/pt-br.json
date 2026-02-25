@@ -88,6 +88,10 @@
         {
           "label": "Mostrar Resumo",
           "description": "Você deseja que o usuário forneça um resumo explicando os motivos de suas respostas"
+        },
+        {
+          "label": "Use stacked view",
+          "description": "If checked, statements will be presented in a stacked view."
         }
       ]
     },
