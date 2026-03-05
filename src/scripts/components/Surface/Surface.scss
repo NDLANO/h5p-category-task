@@ -1,7 +1,12 @@
 .h5p-category-task-surface {
+  --category-content-padding: var(--spacing-xxs);
+  --category-column-padding: var(--spacing-xxs);
+  --category-column-border-width: 2px;
+  --category-task-surface-gap: var(--spacing-s);
+
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-s);
+  gap: var(--category-task-surface-gap);
 
   &.has-remaining-unprocessed-arguments {
     grid-template-columns: 1fr 1fr;
@@ -25,7 +30,7 @@
       box-sizing: border-box;
       display: flex;
       column-gap: var(--spacing-s);
-      padding: var(--spacing-xxs);
+      padding: var(--category-content-padding);
       row-gap: var(--spacing-xxs);
 
       & > div {
@@ -70,12 +75,12 @@
       display: flex;
       flex-direction: column;
       gap: var(--spacing-xxs);
-      padding: var(--spacing-xxs);
+      padding: var(--category-content-padding);
 
       .h5p-category-task-column {
-        border: 2px dashed var(--color-alternative-darker);
+        border: var(--category-column-border-width) dashed var(--color-alternative-darker);
         border-radius: var(--border-radius);
-        padding: var(--spacing-xxs);
+        padding: var(--category-column-padding);
       }
     }
   }

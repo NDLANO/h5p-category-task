@@ -25,9 +25,26 @@
 
 .h5p-category-task-surface.stacked-view {
   .h5p-category-task-category.h5p-category-task-unprocessed {
-    .h5p-dnd-draggable {
-      translate: 0 calc(var(--index) * -100%);
-      z-index: calc(var(--number-of-arguments) - var(--index));
+    .h5p-category-task-column {
+      align-items: center;
+
+      .h5p-dnd-draggable {
+        translate: 0 calc(var(--index) * -100%);
+        z-index: calc(var(--number-of-arguments) - var(--index));
+        width: calc((100% - var(--category-task-surface-gap)) / 2 - 2 * var(--category-content-padding) - 2 * var(--category-column-padding) + var(--category-column-border-width));
+      }
+    }
+  }
+}
+
+@container h5p-category-task (width <= 480px) {
+  .h5p-category-task-surface.stacked-view {
+    .h5p-category-task-category.h5p-category-task-unprocessed {
+      .h5p-category-task-column {
+        .h5p-dnd-draggable {
+          width: calc(100% - 2 * var(--category-content-padding) - 2 * var(--category-column-border-width));
+        }
+      }
     }
   }
 }

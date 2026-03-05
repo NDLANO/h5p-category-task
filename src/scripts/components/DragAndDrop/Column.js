@@ -2,6 +2,7 @@ import { SortableContext } from '@dnd-kit/sortable';
 import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Droppable from './Droppable.js';
+import { useCategoryTask } from '@context/CategoryTaskContext.js';
 
 import './Column.scss';
 
@@ -23,21 +24,30 @@ const Column = ({
   disableDrop,
   connectedArguments,
 }) => {
+  const context = useCategoryTask();
+
   const columnRef = useRef(null);
   const [childHeight, setChildHeight] = useState(null);
 
   useEffect(() => {
-    if (additionalClassName === 'h5p-category-task-unprocessed-argument-list' && columnRef.current) {
+    if (
+      context.behaviour.useStackedView === true &&
+      additionalClassName === 'h5p-category-task-unprocessed-argument-list' &&
+      columnRef.current
+    ) {
       const firstChild = columnRef.current.querySelector('.h5p-category-task-column > *:first-child');
 
       if (firstChild) {
         setChildHeight(firstChild.offsetHeight);
       }
     }
-  }, [additionalClassName, children]);
+  }, [additionalClassName, children, context.behaviour.useStackedView]);
 
   const containerStyle = {};
-  if (childHeight && additionalClassName === 'h5p-category-task-unprocessed-argument-list') {
+  if (
+    context.behaviour.useStackedView === true &&
+    childHeight && additionalClassName === 'h5p-category-task-unprocessed-argument-list'
+  ) {
     containerStyle['--child-height'] = `${childHeight}px`;
   }
 
