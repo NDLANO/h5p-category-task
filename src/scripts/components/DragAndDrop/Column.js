@@ -1,5 +1,5 @@
 import { SortableContext } from '@dnd-kit/sortable';
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Droppable from './Droppable.js';
 
@@ -23,8 +23,26 @@ const Column = ({
   disableDrop,
   connectedArguments,
 }) => {
+  const columnRef = useRef(null);
+  const [childHeight, setChildHeight] = useState(null);
+
+  useEffect(() => {
+    if (additionalClassName === 'h5p-category-task-unprocessed-argument-list' && columnRef.current) {
+      const firstChild = columnRef.current.querySelector('.h5p-category-task-column > *:first-child');
+
+      if (firstChild) {
+        setChildHeight(firstChild.offsetHeight);
+      }
+    }
+  }, [additionalClassName, children]);
+
+  const containerStyle = {};
+  if (childHeight && additionalClassName === 'h5p-category-task-unprocessed-argument-list') {
+    containerStyle['--child-height'] = `${childHeight}px`;
+  }
+
   return (
-    <div className={additionalClassName}>
+    <div ref={columnRef} className={additionalClassName} style={containerStyle}>
       <SortableContext
         items={connectedArguments.map((argumentId) => `argument-${argumentId}`)}
       >

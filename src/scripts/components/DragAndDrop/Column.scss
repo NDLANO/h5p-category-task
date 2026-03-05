@@ -1,5 +1,11 @@
 .h5p-category-task-column {
+  /* --child-height computed dynamically */
+  /* --number-of-arguments computed dynamically */
+  /* --spacing-xxs set by H5P theme */
+
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xxs);
+
+  height: calc(var(--child-height) + (var(--number-of-arguments) - 1) * var(--spacing-xxs));
 }
