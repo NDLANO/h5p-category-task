@@ -75,7 +75,7 @@
               "label": "Background color",
               "importance": "medium",
               "optional": true,
-              "default": "#2679C5",
+              "default": "#517aa4",
               "widget": "colorSelector",
               "spectrum": {
                 "showInput": true,
@@ -83,7 +83,7 @@
                 "showPalette": true,
                 "palette": [
                   [
-                    "#2679C5"
+                    "#517aa4"
                   ],
                   [
                     "#006FBF"
