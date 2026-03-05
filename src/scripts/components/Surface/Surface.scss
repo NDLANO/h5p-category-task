@@ -59,17 +59,17 @@
     width: 100%;
 
     .h5p-category-task-category-header {
-      display: flex;
-      overflow: hidden;
-      min-height: calc(2.5 * var(--spacing-s));
-      padding-inline: var(--spacing-s);
       align-items: center;
-      font-style: italic;
-      line-height: 1.5;
-      border-radius: var(--border-radius) var(--border-radius) 0 0;
       background-color: var(--background-color, #2679C5);
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
       color: var(--color, #ffffff);
+      display: flex;
       font-size: var(--font-size-l);
+      font-weight: bold;
+      line-height: 1.5;
+      min-height: calc(2.5 * var(--spacing-s));
+      overflow: hidden;
+      padding-inline: var(--spacing-s);
     }
 
     .h5p-category-task-category-content {
