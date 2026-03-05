@@ -21,8 +21,7 @@ import {
   CategoryDataObject,
   clone,
   getDnDId,
-  isEven,
-} from '../utils.js';
+} from '@services/utils.js';
 
 import './Surface.scss';
 

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useCategoryTask } from './../../context/CategoryTaskContext.js';
-import { escapeHTML, stripHTML } from '../utils.js';
+import { escapeHTML, stripHTML } from '@services/utils.js';
 import * as focusTrap from 'focus-trap';
 import templateURL from '@assets/exportTemplate.docx';
 

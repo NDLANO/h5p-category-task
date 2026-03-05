@@ -5,7 +5,7 @@ import EditableArgument from './components/EditableArgument.js';
 import UnEditableArgument from './components/UnEditableArgument.js';
 import ActionMenu from './components/ActionMenu.js';
 import DragArrows from './components/DragArrows.js';
-import { getDnDId } from '../utils.js';
+import { getDnDId } from '@services/utils.js';
 import { useCategoryTask } from './../../context/CategoryTaskContext.js';
 
 import './Argument.scss';

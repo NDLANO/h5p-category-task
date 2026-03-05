@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddArgument from './components/AddArgument.js';
-import { computeFocusColor } from '../utils.js';
+import { computeFocusColor } from '@services/utils.js';
 
 import './Category.scss';
 

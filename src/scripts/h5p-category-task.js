@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import Main from '@components/Main.js';
 import { CategoryTaskProvider } from './context/CategoryTaskContext.js';
-import { sanitizeParams } from './components/utils.js';
+import { sanitizeParams } from '@services/utils.js';
 
 import './h5p-category-task.scss';
 
