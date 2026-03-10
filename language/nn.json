@@ -4,7 +4,7 @@
       "label": "Overskrift"
     },
     {
-      "label": "Beskriving av oppgåve"
+      "label": "Oppgåvebeskriving"
     },
     {
       "label": "Argument",
@@ -28,7 +28,7 @@
             "label": "Kategori",
             "fields": [
               {
-                "label": "Namn på kategori"
+                "label": "Kategorinamn"
               },
               {
                 "label": "Bakgrunnsfarge"
@@ -46,16 +46,16 @@
       "label": "Instruksjonar til oppsummeringa"
     },
     {
-      "label": "Døme på løysing",
-      "description": "Du kan eventuelt leggje til eit døme på løysing som blir vist etter at studenten har skrive ein tekst. Ho blir kalla dømeløysing fordi det truleg ikkje finst berre éi løysing.",
+      "label": "Dømeløysing",
+      "description": "Du kan eventuelt leggje til ei døme på løysing som blir vist etter at studenten har skrive ein tekst. Ho blir kalla dømeløysing fordi det truleg ikkje finst berre éi løysing.",
       "fields": [
         {
           "label": "Introduksjon",
           "description": "Du kan eventuelt gi studentane nokre forklaringar til dømet ditt. Forklaringa blir berre vist dersom du òg legg til eit døme.",
           "placeholder": "Hugs at du ikkje var forventa å kome fram til nøyaktig same løysing. Dette er berre eit godt døme."
-        },rest
+        },
         {
-          "label": "Tekst til dømeløysing",
+          "label": "Tekst til døme på løysing",
           "description": "Studenten vil sjå ein \"Vis løysing\"-knapp dersom du oppgir tekst her."
         }
       ]
