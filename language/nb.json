@@ -46,17 +46,17 @@
       "label": "Instruksjoner til oppsummeringen"
     },
     {
-      "label": "Sample solution",
-      "description": "You can optionally add a sample solution that's shown after the student created a text. It's called sample solution because there probably is not only one solution.",
+      "label": "Eksempelløsning",
+      "description": "Du kan eventuelt legge til en eksempelløsning som vises etter at studenten har skrevet en tekst. Den kalles eksempelløsning fordi det sannsynligvis ikke finnes bare én løsning.",
       "fields": [
         {
-          "label": "Introduction",
-          "description": "You can optionally leave the students some explanations about your example. The explanation will only show up if you add an example, too.",
-          "placeholder": "Please remember that you were not expected to come up with the exact same solution. It's just a good example."
+          "label": "Introduksjon",
+          "description": "Du kan eventuelt gi studentene noen forklaringer til eksempelet ditt. Forklaringen vises bare hvis du også legger til et eksempel.",
+          "placeholder": "Husk at du ikke var forventet å komme frem til nøyaktig samme løsning. Dette er bare et godt eksempel."
         },
         {
-          "label": "Sample solution text",
-          "description": "The student will see a \"Show solution\" button if you provide some text here."
+          "label": "Tekst til eksempelløsning",
+          "description": "Studenten vil se en \"Vis løsning\"-knapp hvis du oppgir tekst her."
         }
       ]
     },
@@ -71,14 +71,14 @@
     },
     {
       "label": "Innstillinger",
-      "description": "Disse innstillingene lar deg bestemme oppførsel.",
+      "description": "Disse innstillingene lar deg bestemme oppførselen.",
       "fields": [
         {
           "label": "Tillat å ta på nytt?",
           "description": "Kryss av hvis du vil at brukeren skal kunne besvare på nytt"
         },
         {
-          "label": "Sett inn påstandende i tilfeldig rekkefølge",
+          "label": "Sett inn påstandene i tilfeldig rekkefølge",
           "description": "Skal påstandene vises i tilfeldig rekkefølge?"
         },
         {
@@ -90,13 +90,13 @@
           "description": "Vil du at brukeren skal oppgi en oppsummering der vedkommende begrunner sine valg?"
         },
         {
-          "label": "Use stacked view",
-          "description": "If checked, statements will be presented in a stacked view."
+          "label": "Bruk stablet visning",
+          "description": "Hvis avkrysset vil påstandene bli presentert i en stablet visning."
         }
       ]
     },
     {
-      "label": "Localize",
+      "label": "Lokalisering",
       "fields": [
         {
           "label": "Midlertidig tekst for tekstfeltene",
@@ -127,19 +127,19 @@
           "default": "Fortsett"
         },
         {
-          "label": "Label for the \"Cancel\"-button",
-          "default": "Cancel"
+          "label": "Etikett for \"Avbryt\"-knappen",
+          "default": "Avbryt"
         },
         {
           "label": "Kort tekst foran alternativene man kan flytte argumenter til",
           "default": "Flytt til"
         },
         {
-          "label": "Tekst som brukes for i vise 'slett' muligheten",
+          "label": "Tekst som brukes for å vise 'slett'-muligheten",
           "default": "Slett argument"
         },
         {
-          "label": "Tekst som brukes for i vise 'rediger' muligheten",
+          "label": "Tekst som brukes for å vise 'rediger'-muligheten",
           "default": "Rediger argument"
         },
         {
@@ -151,16 +151,16 @@
           "default": "Slipp argumenter her"
         },
         {
-          "label": "Label for the \"Available actions\"-button",
-          "default": "See available actions"
+          "label": "Etikett for \"Tilgjengelige handlinger\"-knappen",
+          "default": "Se tilgjengelige handlinger"
         },
         {
-          "label": "Show solution",
-          "default": "Show solution"
+          "label": "Vis løsning",
+          "default": "Vis løsning"
         },
         {
-          "label": "Label for the sample solution header",
-          "default": "Sample solution"
+          "label": "Etikett for overskriften til eksempelløsningen",
+          "default": "Eksempelløsning"
         }
       ]
     },
@@ -209,17 +209,17 @@
       "label": "Tilgjengelighet",
       "fields": [
         {
-          "label": "Brukt istedenfor 'Lukk' ikonet",
+          "label": "Brukt i stedet for 'Lukk'-ikonet",
           "default": "Lukk"
         },
         {
-          "label": "Brukt istedenfor 'Dra' ikonet",
+          "label": "Brukt i stedet for 'Dra'-ikonet",
           "default": "Dra"
         },
         {
-          "label": "'Flyttbar element' etikett for skjermleser",
+          "label": "'Flyttbart element'-etikett for skjermleser",
           "description": "Tilgjengelige variabler er :argument",
-          "default": "Flyttbar element: :argument"
+          "default": "Flyttbart element: :argument"
         },
         {
           "label": "Tittel for handlingsmenyen i dialogboks",
@@ -227,7 +227,7 @@
         },
         {
           "label": "Beskrivelse av tilgjengelige handlinger i dialogboksen",
-          "default": "Velg den handlingen du vil utføre på dette argumentet"
+          "default": "Velg handlingen du vil utføre på dette argumentet"
         }
       ]
     }
