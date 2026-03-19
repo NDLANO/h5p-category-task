@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import classnames from 'classnames';
 import { CSS } from '@dnd-kit/utilities';
 import { defaultAnimateLayoutChanges, useSortable } from '@dnd-kit/sortable';
@@ -17,7 +17,7 @@ import './Element.scss';
  * }} props
  * @returns
  */
-const Element = ({ draggableId, ariaLabel, renderChildren, index = 0 }) => {
+const Element = forwardRef(({ draggableId, ariaLabel, renderChildren, index = 0, top = 0 }, ref) => {
   /** @type {import('@dnd-kit/sortable').AnimateLayoutChanges} */
   const animateLayoutChanges = (args) =>
     defaultAnimateLayoutChanges({ ...args, wasDragging: true });
@@ -35,11 +35,18 @@ const Element = ({ draggableId, ariaLabel, renderChildren, index = 0 }) => {
     opacity: isDragging ? 0 : 1,
     cursor: 'grab',
     '--index': index ?? 0,
+    '--top': top ?? 0,
   };
 
   return (
     <div
-      ref={setNodeRef}
+      ref={(node) => {
+        setNodeRef(node);
+        if (ref) {
+          if (typeof ref === 'function') ref(node);
+          else ref.current = node;
+        }
+      }}
       style={style}
       className={classnames('h5p-dnd-draggable', {
         'h5p-dnd-draggable--dragging': isDragging,
@@ -60,13 +67,14 @@ const Element = ({ draggableId, ariaLabel, renderChildren, index = 0 }) => {
       </div>
     </div>
   );
-};
+});
 
 Element.propTypes = {
   draggableId: PropTypes.string.isRequired,
   ariaLabel: PropTypes.string.isRequired,
   renderChildren: PropTypes.func.isRequired,
   index: PropTypes.number,
+  top: PropTypes.number,
 };
 
 /**
@@ -89,6 +97,8 @@ const ElementLayout = ({ children, isDragging, ariaLabel }) => (
     {children}
   </div>
 );
+
+Element.displayName = 'Element';
 
 ElementLayout.propTypes = {
   children: PropTypes.node,

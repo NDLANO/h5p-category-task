@@ -5,7 +5,7 @@ import {
   PointerSensor,
 } from '@dnd-kit/core';
 import { arrayMove } from '@dnd-kit/sortable';
-import React, { useCallback, useEffect, useReducer, useState } from 'react';
+import React, { useRef, useLayoutEffect, useCallback, useEffect, useReducer, useState } from 'react';
 import { isMobile } from 'react-device-detect';
 import classnames from 'classnames';
 import { useCategoryTask } from '../../context/CategoryTaskContext.js';
@@ -548,15 +548,41 @@ const Surface = ({ disabled }) => {
     return dynamicActions;
   };
 
+  const itemRefs = useRef({});
+
+  const getSumHeightOfPreviousSiblings = (argumentIds, index) => {
+    if (index === 0) return 0;
+    let totalHeight = 0;
+    for (let i = 0; i < index; i++) {
+      const siblingId = getDnDId(state.argumentsList.find((arg) => arg.id === argumentIds[i]));
+      const ref = itemRefs.current[siblingId];
+      if (ref && ref.offsetHeight) {
+        totalHeight += ref.offsetHeight;
+      }
+    }
+    return totalHeight;
+  };
+
+  const [, forceUpdate] = useState(0);
+
+  useLayoutEffect(() => {
+    // Force a re-render after the DOM nodes are attached and heights are available
+    forceUpdate((n) => n + 1);
+  }, [state.argumentsList, state.categories]);
+
   /**
    * @param {ArgumentDataObject} argument
    * @param {string} id
    * @returns {JSX.Element}
    */
-  const getElementAndArgument = (argument, id) => {
+  const getElementAndArgument = (argument, id, index, argumentIds) => {
     if (!argument) {
       return <></>;
     }
+
+    const top = context.behaviour.useStackedView
+      ? `${-getSumHeightOfPreviousSiblings(argumentIds, index)}px`
+      : 'auto';
 
     return (
       <Element
@@ -565,9 +591,11 @@ const Surface = ({ disabled }) => {
         ariaLabel={translate('draggableItem', {
           argument: argument.argumentText,
         })}
-        index={state.categories.find((category) =>
-          category.connectedArguments.includes(argument.id ?? -1),
-        )?.connectedArguments.findIndex((id) => id === argument.id) ?? 0}
+        index={index}
+        top={top}
+        ref={(el) => {
+          itemRefs.current[id] = el;
+        }}
         renderChildren={(isDragging) => (
           <Argument
             actions={getDynamicActions(argument)}
@@ -664,9 +692,10 @@ const Surface = ({ disabled }) => {
                             )
                           ],
                       )
-                      .map((argument) => {
+                      .map((argument, idx, arr) => {
                         const id = getDnDId(argument);
-                        const element = getElementAndArgument(argument, id);
+                        const argumentIds = arr.map((a) => a.id);
+                        const element = getElementAndArgument(argument, id, idx, argumentIds);
                         elements[id] = element;
                         return element;
                       })}
