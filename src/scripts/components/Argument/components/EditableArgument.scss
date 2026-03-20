@@ -1,8 +1,9 @@
 .h5p-category-task-editable-container {
   display: flex;
+  align-items: center;
   flex: auto;
   justify-content: flex-start;
-  align-items: center;
+  height: 4.5rem;
   padding: calc(0.5 * var(--spacing-xxs)) var(--spacing-xxs);
   position: relative;
 
@@ -46,7 +47,11 @@
 
   .h5p-category-task-noneditable {
     box-sizing: border-box;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
     margin: 0;
+    max-height: 100%;
     width: 100%;
 
     &.display-none {
