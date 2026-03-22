@@ -10,10 +10,6 @@
   height: calc(var(--child-height) + (var(--number-of-arguments) - 1) * var(--spacing-xxs));
 }
 
-.h5p-category-task-surface.stacked-view {
-
-}
-
 .h5p-category-task-surface:not(.stacked-view) {
   .h5p-category-task-unprocessed-argument-list {
     .h5p-category-task-column {
