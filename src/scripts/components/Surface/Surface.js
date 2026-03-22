@@ -389,16 +389,12 @@ const Surface = ({ disabled }) => {
     const [, activeArgumentIdStr] = active.id.toString().split('-') ?? [];
     const [itemType, collidedItemIdStr] = over?.id.toString().split('-') ?? [];
 
-    if (activeArgumentIdStr == null || collidedItemIdStr == null) {
-      return;
-    }
-
     const didSort = itemType === 'argument';
     if (context.behaviour.useStackedView) {
       const unprocessedCategory = state.categories.find((category) => category.isArgumentDefaultList);
       const unprocessedDroppableId = unprocessedCategory && getDnDId(unprocessedCategory);
 
-      if (over?.id === unprocessedDroppableId) {
+      if (!over?.id || over?.id === unprocessedDroppableId) {
         // Put the argument at the bottom of the list
 
         dispatch({
@@ -415,6 +411,10 @@ const Surface = ({ disabled }) => {
 
         return;
       }
+    }
+
+    if (activeArgumentIdStr == null || collidedItemIdStr == null) {
+      return;
     }
 
     if (didSort) {
