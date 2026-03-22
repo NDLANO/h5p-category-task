@@ -746,15 +746,32 @@ const Surface = ({ disabled }) => {
           ))}
 
         {/* DRAG OVERLAY */}
-        <DragOverlay>
-          {active ? (
-            <Element
-              key={active.id}
-              draggableId={active.id}
-              renderChildren={() => elements[active.id]}
-              dragOverlay
-            />
-          ) : null}
+        <DragOverlay className={'drag-overlay'}>
+          {active ? (() => {
+            // Find the argument data for the active id
+            const argument = state.argumentsList.find(arg => getDnDId(arg) === active.id);
+            if (!argument) return null;
+            return (
+              <Element
+                key={active.id}
+                draggableId={active.id}
+                ariaLabel={translate('draggableItem', {
+                  argument: argument.argumentText,
+                })}
+                renderChildren={() => (
+                  <Argument
+                    actions={getDynamicActions(argument)}
+                    isDragEnabled={!isMobile}
+                    argument={argument}
+                    enableEditing={false} // <-- Always non-editable in overlay
+                    isDragging={true}
+                    // No editing handlers needed
+                  />
+                )}
+                dragOverlay
+              />
+            );
+          })() : null}
         </DragOverlay>
       </DndContext>
     </div>
