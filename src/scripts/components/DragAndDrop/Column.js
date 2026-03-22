@@ -35,10 +35,13 @@ const Column = ({
       additionalClassName === 'h5p-category-task-unprocessed-argument-list' &&
       columnRef.current
     ) {
-      const firstChild = columnRef.current.querySelector('.h5p-category-task-column > *:first-child');
+      const firstChild = columnRef.current.querySelector(
+        '.h5p-category-task-column > .h5p-dnd-draggable:not(.h5p-dnd-draggable--dragging)'
+      );
 
       if (firstChild) {
-        setChildHeight(firstChild.offsetHeight);
+        const { height } = firstChild.getBoundingClientRect();
+        setChildHeight(height);
       }
     }
   }, [additionalClassName, children, context.behaviour.useStackedView]);
