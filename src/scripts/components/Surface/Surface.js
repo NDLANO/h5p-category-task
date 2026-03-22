@@ -47,7 +47,7 @@ const ODD_CATEGORY_INDEX = 2;
 /**
  * @typedef {{
  *     type: 'move';
- *     payload: { argumentId: number; from: CategoryDataObject; to: CategoryDataObject; }
+ *     payload: { argumentId: number; from: CategoryDataObject; to: CategoryDataObject; position?: number }
  *   }
  *   | {
  *     type: 'editArgument';
@@ -173,28 +173,29 @@ const Surface = ({ disabled }) => {
   const stateHeadQuarter = (state, action) => {
     switch (action.type) {
       case 'move': {
-        const { argumentId, from, to } = action.payload;
+        const { argumentId, from, to, position } = action.payload;
 
         const newCategories = clone(state.categories);
-        const categoryIndex = newCategories.findIndex(
-          ({ id }) => id === from?.id,
-        );
+        const fromCategory = newCategories.find((cat) => cat.id === from?.id);
+        const toCategory = newCategories.find((cat) => cat.id === to?.id);
 
-        const category = newCategories[categoryIndex];
-        const movedArgument = category.connectedArguments.includes(argumentId);
-        category.connectedArguments = category.connectedArguments.filter(
+        if (!fromCategory || !toCategory) {
+          return state;
+        }
+
+        // Remove from old category
+        fromCategory.connectedArguments = fromCategory.connectedArguments.filter(
           (id) => id !== argumentId,
         );
 
-        newCategories.map((category) => {
-          category.actionTargetContainer = false;
-
-          if (movedArgument && category.id === to.id) {
-            const index = category.connectedArguments.indexOf(argumentId);
-
-            category.connectedArguments.splice(index, 0, argumentId);
-          }
-        });
+        // Insert into new category at specified position, or at end if not specified
+        if (!toCategory.connectedArguments.includes(argumentId)) {
+          const insertAt =
+            typeof position === 'number' ?
+              Math.max(0, Math.min(position, toCategory.connectedArguments.length)) :
+              toCategory.connectedArguments.length;
+          toCategory.connectedArguments.splice(insertAt, 0, argumentId);
+        }
 
         return {
           ...state,
@@ -393,6 +394,29 @@ const Surface = ({ disabled }) => {
     }
 
     const didSort = itemType === 'argument';
+    if (context.behaviour.useStackedView) {
+      const unprocessedCategory = state.categories.find((category) => category.isArgumentDefaultList);
+      const unprocessedDroppableId = unprocessedCategory && getDnDId(unprocessedCategory);
+
+      if (over?.id === unprocessedDroppableId) {
+        // Put the argument at the bottom of the list
+
+        dispatch({
+          type: 'move',
+          payload: {
+            argumentId: parseInt(activeArgumentIdStr, 10),
+            from: state.categories.find((category) =>
+              category.connectedArguments.includes(parseInt(activeArgumentIdStr, 10))
+            ),
+            to: state.categories.find((category) => category.isArgumentDefaultList),
+            position: unprocessedCategory.connectedArguments.length,
+          },
+        });
+
+        return;
+      }
+    }
+
     if (didSort) {
       const argument1Id = parseInt(activeArgumentIdStr, 10);
       const argument2Id = parseInt(collidedItemIdStr, 10);
