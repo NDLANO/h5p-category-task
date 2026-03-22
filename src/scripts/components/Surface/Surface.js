@@ -31,9 +31,6 @@ const DEFAULT_CATEGORY_ID_OFFSET = 100000;
 /** @constant {number} EVEN_CATEGORY_INDEX Index for even category */
 const EVEN_CATEGORY_INDEX = 1;
 
-/** @constant {number} ODD_CATEGORY_INDEX Index for odd category */
-const ODD_CATEGORY_INDEX = 2;
-
 /**
  * @typedef {{
  *   argumentsList: Array<ArgumentDataObject>;
@@ -137,10 +134,7 @@ const Surface = ({ disabled }) => {
           });
 
         categories.push(
-          createDefaultCategory(EVEN_CATEGORY_INDEX, (arg) => (arg.id ?? 0) % 2 === 0)
-        );
-        categories.push(
-          createDefaultCategory(ODD_CATEGORY_INDEX, (arg) => (arg.id ?? 0) % 2 === 1)
+          createDefaultCategory(EVEN_CATEGORY_INDEX, () => true)
         );
       }
     }
