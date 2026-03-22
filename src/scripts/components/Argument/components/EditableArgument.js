@@ -13,13 +13,26 @@ const EditableArgument = ({
   startEditing,
   stopEditing,
   idBase,
+  hideTooltip
 }) => {
   const { translate } = useCategoryTask();
 
   const [buttonFocus, setButtonFocus] = useState(false);
-
   const inputRef = useRef();
   const buttonRef = useRef();
+
+  useEffect(() => {
+    let tooltip;
+    if (buttonRef.current && H5P?.Tooltip && !hideTooltip) {
+      tooltip = H5P.Tooltip(buttonRef.current);
+    }
+
+    return () => {
+      if (tooltip?.remove) {
+        tooltip.remove();
+      }
+    };
+  }, [hideTooltip, argument]);
 
   useEffect(() => {
     if (inEditMode) {
@@ -60,6 +73,7 @@ const EditableArgument = ({
   return (
     <div className={'h5p-category-task-editable-container'}>
       <button
+        aria-label={argument}
         ref={buttonRef}
         className={classnames('h5p-category-task-editable-button', {
           'display-none': inEditMode,
@@ -69,7 +83,6 @@ const EditableArgument = ({
         <span className={'visible-hidden'}>{`${translate('editArgument')} ${argument}`}</span>
       </button>
       <label
-        title={argument}
         htmlFor={inputId}
         className={classnames('h5p-category-task-editable', {
           'display-none': !inEditMode,
@@ -106,6 +119,7 @@ EditableArgument.propTypes = {
     PropsTypes.string,
     PropsTypes.number,
   ]),
+  hideTooltip: PropsTypes.bool,
 };
 
 export default EditableArgument;
