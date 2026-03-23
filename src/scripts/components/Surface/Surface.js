@@ -749,7 +749,7 @@ const Surface = ({ disabled }) => {
         <DragOverlay className={'drag-overlay'}>
           {active ? (() => {
             // Find the argument data for the active id
-            const argument = state.argumentsList.find(arg => getDnDId(arg) === active.id);
+            const argument = state.argumentsList.find((arg) => getDnDId(arg) === active.id);
             if (!argument) return null;
             return (
               <Element
@@ -763,7 +763,7 @@ const Surface = ({ disabled }) => {
                     actions={getDynamicActions(argument)}
                     isDragEnabled={!isMobile}
                     argument={argument}
-                    enableEditing={false} // <-- Always non-editable in overlay
+                    enableEditing={false}
                     isDragging={true}
                     // No editing handlers needed
                   />
