@@ -399,7 +399,7 @@ const Surface = ({ disabled }) => {
               category.connectedArguments.includes(parseInt(activeArgumentIdStr, 10))
             ),
             to: state.categories.find((category) => category.isArgumentDefaultList),
-            position: unprocessedCategory.connectedArguments.length,
+            position: 0,
           },
         });
 

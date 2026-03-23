@@ -30,7 +30,7 @@
 
       .h5p-dnd-draggable {
         translate: 0 calc(var(--index) * -100%);
-        z-index: calc(var(--number-of-arguments) - var(--index));
+        z-index: var(--index);
         width: calc((100% - var(--category-task-surface-gap)) / 2 - 2 * var(--category-content-padding) - 2 * var(--category-column-padding) + var(--category-column-border-width));
       }
     }
