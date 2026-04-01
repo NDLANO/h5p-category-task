@@ -27,7 +27,7 @@
     "eslint-config-ndla-h5p": "github:ndlano/eslint-config-ndla-h5p",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
-    "mini-css-extract-plugin": "^2.10.1",
+    "mini-css-extract-plugin": "^2.10.2",
     "prop-types": "^15.8.1",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.98.0",
