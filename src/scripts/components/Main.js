@@ -27,8 +27,6 @@ const Main = (props) => {
     showSolution
   } = props;
 
-  console.log(props);
-
   // Workaround to make DnDKit elements non-interactive
   const toggleDnDKitDOMElements = (disabled) => {
     document.querySelectorAll('.h5p-dnd-draggable').forEach((element) => {
