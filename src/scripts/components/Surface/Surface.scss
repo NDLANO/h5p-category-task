@@ -54,6 +54,13 @@
   .h5p-category-task-category.h5p-category-task-category-container {
     width: 100%;
 
+    &:has(.h5p-category-task-category-header) {
+      .h5p-category-task-category-content {
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+        border-top: 0;
+      }
+    }
+
     .h5p-category-task-category-header {
       align-items: center;
       background-color: var(--background-color, #2679C5);

@@ -21,10 +21,10 @@ const Category = ({
   return (
     <div
       className={additionalClassName.join(' ')}
-      style={{
+      style={includeHeader ? {
         '--background-color': backgroundColor,
         '--color': computeFocusColor(backgroundColor),
-      }}
+      } : undefined}
     >
       {includeHeader && (
         <div className={'h5p-category-task-category-header'}>{title}</div>
