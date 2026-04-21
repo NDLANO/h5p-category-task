@@ -32,6 +32,14 @@
         .h5p-resource-list-button {
           font: inherit;
         }
+
+        .h5p-resource-list-bg {
+          z-index: var(--resource-list-z-index);
+        }
+
+        .h5p-resource-list-container.open {
+          z-index: var(--resource-list-z-index);
+        }
       }
     }
   }
