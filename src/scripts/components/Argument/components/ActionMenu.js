@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Popover as TinyPopover } from 'react-tiny-popover';
-import classnames from 'classnames';
 import { useCategoryTask } from '../../../context/CategoryTaskContext.js';
 
 import './ActionMenu.scss';

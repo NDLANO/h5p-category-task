@@ -664,7 +664,7 @@ const Surface = ({ disabled }) => {
         >
           {state.categories
             .filter((category) => category.isArgumentDefaultList)
-            .map((category, index) => (
+            .map((category) => (
               <div key={category.id}>
                 <Column
                   additionalClassName={classnames('h5p-category-task-unprocessed-argument-list')}
@@ -695,7 +695,7 @@ const Surface = ({ disabled }) => {
         </Category>
         {state.categories
           .filter((category) => !category.isArgumentDefaultList)
-          .map((category, index) => (
+          .map((category) => (
             <Category
               key={category.id}
               categoryId={getDnDId(category)}

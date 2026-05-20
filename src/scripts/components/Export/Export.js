@@ -92,7 +92,7 @@ const Export = () => {
             '{{/hasResources}}' +
             '</div>';
 
-    return Mustache.render(documentExportTemplate, exportObject);
+    return window.Mustache.render(documentExportTemplate, exportObject);
   };
 
   const handleExport = () => {
