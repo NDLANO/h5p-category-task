@@ -30,8 +30,8 @@
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.102.0",
     "sass-loader": "^17.0.0",
-    "webpack": "^5.109.1",
-    "webpack-cli": "^7.2.1"
+    "webpack": "^5.109.2",
+    "webpack-cli": "^7.2.2"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
