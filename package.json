@@ -39,7 +39,7 @@
     "@dnd-kit/utilities": "^3.2.2",
     "classnames": "^2.5.1",
     "focus-trap": "8.2.3",
-    "he": "^1.2.0",
+    "he": "^2.0.0",
     "html-react-parser": "^6.1.8",
     "react": "^19.3.0",
     "react-device-detect": "^2.2.3",
