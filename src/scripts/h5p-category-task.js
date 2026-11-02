@@ -19,6 +19,10 @@ export default class CategoryTask extends H5P.EventDispatcher {
       this.params.argumentsList = this.params.argumentsList.reverse();
     }
 
+    if (this.params.categoriesList) {
+      this.params.categoriesList = this.params.categoriesList.filter((categoryItem) => !!categoryItem?.name);
+    }
+
     this.behaviour = this.params.behaviour || {};
     this.resetStack = [];
     this.collectExportValuesStack = [];
